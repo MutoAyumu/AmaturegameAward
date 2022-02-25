@@ -10,7 +10,7 @@ public class testObjectSearcher : MonoBehaviour
     {
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(0, 1));
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {           
             Search();
         }
