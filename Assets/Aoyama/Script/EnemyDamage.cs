@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// EnemyのHP関係を管理するクラス
+/// </summary>
 public class EnemyDamage : MonoBehaviour
 {
     [Header("各種ステータス")]
