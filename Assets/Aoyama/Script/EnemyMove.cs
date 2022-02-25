@@ -68,18 +68,12 @@ public class EnemyMove : MonoBehaviour
     /// <returns></returns>
     Vector3 PlayerPosition()
     {
-        ////Player1‚ÉRay‚ð‚Æ‚Î‚·
         Vector3 player1 = _players[0].transform.position;
-        //RaycastHit2D isHit1 = Physics2D.Linecast(transform.position, player1, _playerLayer);
-        //Debug.Log(isHit1.distance);
-        //Debug.DrawLine(transform.position, player1);
+        Debug.DrawLine(transform.position, player1);
         float isHit1 = Vector3.Distance(transform.position, player1);
 
-        ////Player2‚ÉRay‚ð‚Æ‚Î‚·
         Vector3 player2 = _players[1].transform.position;
-        //RaycastHit2D isHit2 = Physics2D.Linecast(transform.position, player2, _playerLayer);
-        //Debug.Log(isHit2.distance);
-        //Debug.DrawLine(transform.position, player2);
+        Debug.DrawLine(transform.position, player2);
         float isHit2 = Vector3.Distance(transform.position, player2);
 
         if (isHit1 < isHit2)
