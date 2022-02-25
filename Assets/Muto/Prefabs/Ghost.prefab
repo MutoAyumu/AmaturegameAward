@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3172325151818913571}
   - component: {fileID: 5153077323107331542}
   - component: {fileID: 8147325970077352387}
+  - component: {fileID: 2180339418808880968}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -153,6 +154,21 @@ MonoBehaviour:
   _isControll: 0
   _timeToMove: 1
   _col: {fileID: 3172325151818913571}
+--- !u!114 &2180339418808880968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806363073446789937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ae3690b642d7b4db88283f2c507d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!1 &8637081096276000782
 GameObject:
   m_ObjectHideFlags: 0
