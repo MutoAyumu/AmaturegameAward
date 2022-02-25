@@ -6,9 +6,11 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] protected float _speed = 3.0f;
+    [SerializeField] Transform _ghostMovePos = default;
 
     [SerializeField]protected bool _isControll = false;
     public bool IsControll { get => _isControll; set => _isControll = value; }
+    public Transform GhostMovePos { get => _ghostMovePos;}
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
     void Update()

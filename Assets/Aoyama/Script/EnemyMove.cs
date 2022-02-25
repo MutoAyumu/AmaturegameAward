@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemyの移動を管理するクラス
+/// </summary>
 public class EnemyMove : MonoBehaviour
 {
     [Header("移動時のステータス")]
@@ -11,14 +14,6 @@ public class EnemyMove : MonoBehaviour
     float _chaseDistance = 1f;
     [SerializeField, Tooltip("ダメージを受けた時の吹っ飛び加減")]
     float _knockBackPower = 5f;
-    [SerializeField, Tooltip("PlayerのTag")] 
-    string _playerTag = "Player";
-
-    [Header("レイキャスト")]
-    [SerializeField, Tooltip("Rayを飛ばす距離")]
-    int _isHitLength = 50;
-    [SerializeField, Tooltip("Rayが当たるLayer")]
-    LayerMask _playerLayer;
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] Rigidbody2D _rb;
@@ -26,11 +21,8 @@ public class EnemyMove : MonoBehaviour
     [SerializeField]Transform[] _players;
     Vector3 _target;
 
-    bool first = false;
     void Start()
     {
-        first = true;
-        //_players = GameObject.FindGameObjectsWithTag(_playerTag);
         if (!_players[0] || !_players[1])
         {
             Debug.Log("Playerがnullです");
@@ -57,9 +49,7 @@ public class EnemyMove : MonoBehaviour
             return;
         }
 
-        first = true;
         _rb.velocity = (_target - transform.position).normalized * _chaseSpeed;
-        //_rb.AddForce((_target - transform.position - (Vector3)_rb.velocity).normalized * _chaseSpeed, ForceMode2D.Force);
     }
 
     /// <summary>
@@ -93,7 +83,6 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     public void KnockBack()
     {
-        Debug.Log("ノックバック");
         Vector3 dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
     }
