@@ -149,7 +149,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 5153077323107331542}
   _speed: 3
+  _ghostMovePos: {fileID: 0}
   _isControll: 0
+  _timeToMove: 1
+  _col: {fileID: 3172325151818913571}
 --- !u!1 &8637081096276000782
 GameObject:
   m_ObjectHideFlags: 0

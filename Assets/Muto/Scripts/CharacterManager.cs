@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CharacterManager : MonoBehaviour
 {
-    static CharacterManager _instance = default;
+    public static CharacterManager _instance = default;
 
     private void Awake()
     {
@@ -20,17 +20,20 @@ public class CharacterManager : MonoBehaviour
     }
 
     [SerializeField] CharacterControllerBase _player = default;
-    [SerializeField] CharacterControllerBase _ghost = default;
+    [SerializeField] GhostController _ghost = default;
     [SerializeField] string _inputButton = "Jump";
     [SerializeField] CinemachineVirtualCamera _vcam = default;
 
     public CharacterControllerBase Player { get => _player;}
     public CharacterControllerBase Ghost { get => _ghost;}
+    public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
 
     private void Start()
     {
         _player = Instantiate(_player);
         _ghost = Instantiate(_ghost);
+
+        _ghost.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         _vcam.Follow = _player.transform;
     }
@@ -52,7 +55,11 @@ public class CharacterManager : MonoBehaviour
             _player.IsControll = false;
             _ghost.IsControll = true;
 
-            _player.Rb.bodyType = RigidbodyType2D.Kinematic;
+            _ghost.IsFollow = false;
+
+            _ghost.Rb.constraints = RigidbodyConstraints2D.None;
+            _ghost.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _player.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             //ÉJÉÅÉâÇêÿÇËë÷Ç¶ÇÈ
             _vcam.Follow = _ghost.transform;
@@ -61,8 +68,6 @@ public class CharacterManager : MonoBehaviour
         {
             _ghost.IsControll = false;
             _player.IsControll = true;
-
-            _ghost.Rb.bodyType = RigidbodyType2D.Kinematic;
 
             _vcam.Follow = _player.transform;
         }
