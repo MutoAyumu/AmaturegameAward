@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour,IAction
+public class ItemChestInterface : MonoBehaviour,IAction
 {
     [SerializeField,Tooltip("ドロップするアイテム")]
     GameObject[] _itemPrefabs;
@@ -17,7 +17,7 @@ public class Chest : MonoBehaviour,IAction
     {
         if (!isOpen)
         {
-            PlayerStat.Instance.AddItem(_itemPrefabs[0]); //アイテム獲得
+            testPlayerStat.Instance.AddItem(_itemPrefabs[0]); //アイテム獲得
             _animator.SetTrigger("Open");
             isOpen = true; //開いたのでフラグをTrueに
         }        
