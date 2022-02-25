@@ -41,6 +41,7 @@ public class EnemyDamage : MonoBehaviour
     void EnemyDeath()
     {
         Debug.Log("EnemyDeath‚ªŒÄ‚Ño‚³‚ê‚½");
+        Destroy(gameObject);
 
         if (_deathPrefab)
         {
