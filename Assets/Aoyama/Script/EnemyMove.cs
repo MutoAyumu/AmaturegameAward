@@ -18,16 +18,7 @@ public class EnemyMove : MonoBehaviour
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] Rigidbody2D _rb;
 
-    [SerializeField]Transform[] _players;
     Vector3 _target;
-
-    void Start()
-    {
-        if (!_players[0] || !_players[1])
-        {
-            Debug.Log("PlayerÇ™nullÇ≈Ç∑");
-        }
-    }
 
     void FixedUpdate()
     {
@@ -58,11 +49,11 @@ public class EnemyMove : MonoBehaviour
     /// <returns></returns>
     Vector3 PlayerPosition()
     {
-        Vector3 player1 = _players[0].transform.position;
+        Vector3 player1 = CharacterManager._instance.Player.transform.position;
         Debug.DrawLine(transform.position, player1);
         float isHit1 = Vector3.Distance(transform.position, player1);
 
-        Vector3 player2 = _players[1].transform.position;
+        Vector3 player2 = CharacterManager._instance.Ghost.transform.position;
         Debug.DrawLine(transform.position, player2);
         float isHit2 = Vector3.Distance(transform.position, player2);
 
