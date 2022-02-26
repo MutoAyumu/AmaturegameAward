@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// EnemyのHP関係を管理するクラス
 /// </summary>
-public class EnemyDamage : MonoBehaviour, IDamage
+public class EnemyDamage : MonoBehaviour
 {
     [Header("各種ステータス")]
     [SerializeField, Tooltip("EnemyのHP")]
@@ -48,12 +48,4 @@ public class EnemyDamage : MonoBehaviour, IDamage
             var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
         }
     }
-}
-
-/// <summary>
-/// 敵や樽などがダメージを受けた時処理の為のInterFace
-/// </summary>
-public interface IDamage
-{
-    void Damage();
 }
