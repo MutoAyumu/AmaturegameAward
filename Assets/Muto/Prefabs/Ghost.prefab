@@ -152,8 +152,11 @@ MonoBehaviour:
   _speed: 3
   _ghostMovePos: {fileID: 0}
   _isControll: 0
-  _timeToMove: 1
+  _timeToMove: 0.5
   _col: {fileID: 3172325151818913571}
+  _inputButton: Fire1
+  _lightTags: Finish
+  _light: {fileID: 0}
 --- !u!114 &2180339418808880968
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 public class GhostController : CharacterControllerBase
 {
@@ -11,6 +12,40 @@ public class GhostController : CharacterControllerBase
         if(isFollow)
         {
             this.transform.position = CharacterManager._instance.Player.GhostMovePos.position;
+        }
+
+        if (Input.GetButtonDown(_inputButton))
+        {
+            Light2D a = _lightObject.transform.GetChild(0).GetComponent<Light2D>();
+
+            if (a && !isHaveLight)   //ライトオブジェクトがある
+            {
+                _light = a;
+                _isControll = false;
+                _light.transform.DOMove(this.transform.position, _timeToMove)
+                    .OnComplete(() =>
+                    {
+                        isHaveLight = true;
+                        _light.transform.SetParent(this.transform);
+                        _isControll = true;
+                    });
+            }
+            else if (!a && isHaveLight)
+            {
+                _isControll = false;
+                _light.transform.DOMove(_lightObject.transform.position, _timeToMove)
+                    .OnComplete(() =>
+                    {
+                        isHaveLight = false;
+                        _light.transform.SetParent(_lightObject.transform);
+                        _light.transform.SetSiblingIndex(0);
+                        _isControll = true;
+                    });
+            }
+            else
+            {
+                Debug.Log("ライトオブジェクトがありません");
+            }
         }
     }
 
@@ -39,6 +74,19 @@ public class GhostController : CharacterControllerBase
                     CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.None;
                     CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 });
+        }
+    }
+
+    [SerializeField] string _inputButton = " ";
+    [SerializeField] string _lightTags = " ";
+    [SerializeField] Light2D _light = default;
+    [SerializeField] GameObject _lightObject = default;
+    bool isHaveLight;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag(_lightTags))
+        {
+            _lightObject = collision.gameObject;
         }
     }
 }
