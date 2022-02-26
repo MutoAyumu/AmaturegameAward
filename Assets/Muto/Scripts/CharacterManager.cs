@@ -71,6 +71,7 @@ public class CharacterManager : MonoBehaviour
 
             _player.Rb.constraints = RigidbodyConstraints2D.None;
             _player.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _ghost.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             _vcam.Follow = _player.transform;
         }
