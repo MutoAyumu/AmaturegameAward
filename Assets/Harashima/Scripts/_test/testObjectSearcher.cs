@@ -23,7 +23,13 @@ public class testObjectSearcher : MonoBehaviour
     {
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(0, 1), 5f, mask);
-        if (hit.collider)
+        GhostController light = hit.collider.GetComponent<GhostController>();
+
+        if(light&&this.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+        else if (hit.collider)
         {
             hit.collider.GetComponent<IAction>().Action();
         }
