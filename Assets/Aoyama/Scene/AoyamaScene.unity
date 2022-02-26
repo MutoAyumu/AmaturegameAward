@@ -807,6 +807,8 @@ MonoBehaviour:
   _enemyGroups:
   - _enemyGroup:
     - {fileID: 0}
+  - _enemyGroup:
+    - {fileID: 0}
   _groupIndex: 0
 --- !u!4 &2076562692
 Transform:
