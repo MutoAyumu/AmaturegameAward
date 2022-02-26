@@ -19,13 +19,33 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
 
     Vector3 _target;
+    CharacterControllerBase _player;
+    CharacterControllerBase _ghost;
+    bool _isPause = false;
 
+    void Start()
+    {
+        _player = CharacterManager._instance.Player;
+        _ghost = CharacterManager._instance.Ghost;
+    }
     void FixedUpdate()
     {
+        if (_isPause == true)
+        {
+            return;
+        }
+
         _target = PlayerPosition();
 
         Move();
     }
+
+    //public void Init()
+    //{
+    //    _target = PlayerPosition();
+
+    //    Move();
+    //}
 
     /// <summary>
     /// Enemyの基本移動
@@ -43,17 +63,20 @@ public class EnemyMove : MonoBehaviour
         _rb.velocity = (_target - transform.position).normalized * _chaseSpeed;
     }
 
+    Vector3 player1 = default;
+    Vector3 player2 = default;
+
     /// <summary>
     /// 2人のPlayerのうち近いほうの座標を返す
     /// </summary>
     /// <returns></returns>
     Vector3 PlayerPosition()
     {
-        Vector3 player1 = CharacterManager._instance.Player.transform.position;
+        player1 = _player.transform.position;
         Debug.DrawLine(transform.position, player1);
         float isHit1 = Vector3.Distance(transform.position, player1);
 
-        Vector3 player2 = CharacterManager._instance.Ghost.transform.position;
+        player2 = _ghost.transform.position;
         Debug.DrawLine(transform.position, player2);
         float isHit2 = Vector3.Distance(transform.position, player2);
 
@@ -69,12 +92,26 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    Vector3 dir;
     /// <summary>
     /// ダメージを受けた時にノックバックさせる
     /// </summary>
     public void KnockBack()
     {
-        Vector3 dir = (transform.position - _target).normalized * _knockBackPower;
+        dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
+    }
+
+    void Pause()
+    {
+        _rb.velocity = Vector3.zero;
+        _rb.Sleep();
+        _isPause = true;
+    }
+
+    void Resume()
+    {
+        _rb.WakeUp();
+        _isPause = false;
     }
 }
