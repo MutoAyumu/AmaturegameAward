@@ -1,18 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldManager : MonoBehaviour
+public class FieldManager : Singleton<FieldManager>
 {
-    // Start is called before the first frame update
+    /// <summary>スタート時に呼ばれるメソッド</summary>
+    public event Action OnStart;
+
+    /// <summary>リザルト時に呼ばれるメソッド</summary>
+    public event Action OnResult;
+
     void Start()
     {
-        
+        //メソッドを呼ぶ
+        if(OnStart !=null)
+        {
+            OnStart();
+        }        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(PlayerPalam.Instance?.Life <= 0)
+        {
+            OnResult();
+        }
     }
 }
