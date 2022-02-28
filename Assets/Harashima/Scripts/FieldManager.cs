@@ -17,6 +17,9 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool isEnd = false;
 
+    [SerializeField, Tooltip("ステージの番号")]
+    int _stageIndex;
+
     void Start()
     {
         //テスト用

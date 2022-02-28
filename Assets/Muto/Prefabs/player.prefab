@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6189004362405186588}
   - component: {fileID: -4748869756131975811}
   - component: {fileID: -2068177454089754741}
+  - component: {fileID: 996228857}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -171,6 +172,7 @@ MonoBehaviour:
   _rb: {fileID: 1081808899050389373}
   _speed: 3
   _isControll: 0
+  _anim: {fileID: 996228857}
   _ghostMovePos: {fileID: 2315691760954625949}
   _attack: {fileID: -2068177454089754741}
 --- !u!114 &-2068177454089754741
@@ -189,6 +191,26 @@ MonoBehaviour:
   _leftAttackCol: {fileID: 5958489534077917768}
   _upAttackCol: {fileID: 7239933421993697556}
   _downAttackCol: {fileID: 8371030911846100677}
+--- !u!95 &996228857
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081808899050389347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 594988a9bcdae51488c7c0bcbe84342e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2130512006599252410
 GameObject:
   m_ObjectHideFlags: 0
