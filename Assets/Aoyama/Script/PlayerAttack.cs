@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     Collider2D _downAttackCol;
 
     List<Collider2D> _result = new List<Collider2D>(10);
+    ContactFilter2D _filter;
 
     /// <summary>
     /// 引数のコライダーの範囲内にいる、IDamageのDamage()を呼ぶ関数
@@ -32,22 +33,22 @@ public class PlayerAttack : MonoBehaviour
 
         if (x == 1 && y == 0)
         {
-            count = _rightAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            count = _rightAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
         }
         else if(x == -1 && y == 0)
         {
-            count = _leftAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            count = _leftAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
         }
         else if(x == 0 && y == 1)
         {
-            count = _upAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            count = _upAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
         }
         else if (x == 0 && y == -1)
         {
-            count = _downAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            count = _downAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
         }
     }
