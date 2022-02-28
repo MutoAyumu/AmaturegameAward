@@ -40,13 +40,6 @@ public class EnemyMove : MonoBehaviour
         Move();
     }
 
-    //public void Init()
-    //{
-    //    _target = PlayerPosition();
-
-    //    Move();
-    //}
-
     /// <summary>
     /// Enemy‚ÌŠî–{ˆÚ“®
     /// </summary>
@@ -63,9 +56,8 @@ public class EnemyMove : MonoBehaviour
         _rb.velocity = (_target - transform.position).normalized * _chaseSpeed;
     }
 
-    Vector3 player1 = default;
-    Vector3 player2 = default;
-
+    Vector3 player1;
+    Vector3 player2;
     /// <summary>
     /// 2l‚ÌPlayer‚Ì‚¤‚¿‹ß‚¢‚Ù‚¤‚ÌÀ•W‚ğ•Ô‚·
     /// </summary>
