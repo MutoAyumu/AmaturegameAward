@@ -32,6 +32,7 @@ public class CharacterControllerBase : MonoBehaviour
             InputFire();
             Move(_h, _v);
         }
+
         OnUpdate();
     }
     public virtual void OnUpdate()

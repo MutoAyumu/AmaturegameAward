@@ -15,9 +15,9 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnGameOver;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
-    bool isEnd = false;
+    bool _isEnd = false;
 
-    [SerializeField, Tooltip("ステージの番号")]
+    [SerializeField,Range(1, 10),Tooltip("ステージの番号")]
     int _stageIndex;
 
     void Start()
@@ -36,14 +36,14 @@ public class FieldManager : Singleton<FieldManager>
 
     void Update()
     {
-        if (PlayerPalam.Instance?.Life <= 0 && !isEnd)　//スコアが0になり、isEndがFalseだったら
+        if (PlayerPalam.Instance?.Life <= 0 && !_isEnd)　//スコアが0になり、isEndがFalseだったら
         {
             if(OnGameOver != null)
             {
                 //ゲームオーバーイベントを呼ぶ
                 OnGameOver();
             }            
-            isEnd = true;
+            _isEnd = true;
         }
     }
 
@@ -51,11 +51,14 @@ public class FieldManager : Singleton<FieldManager>
     public void Clear()
     {
         //クリアイベントを呼ぶ
-        if(OnClear!= null && !isEnd)//isEndがFalseだったら
+        if(OnClear!= null && !_isEnd)//isEndがFalseだったら
         {
             OnClear();
-            isEnd = true;
+            _isEnd = true;
         }
+
+        //クリア時の処理を呼ぶ
+        GameManager.Instance?.ClearStage(_stageIndex);
     }
     void DebugGameOver()
     {
