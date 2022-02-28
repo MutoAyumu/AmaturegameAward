@@ -6,6 +6,14 @@ using Cinemachine;
 public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager _instance = default;
+    [SerializeField] HumanController _player = default;
+    [SerializeField] GhostController _ghost = default;
+    [SerializeField] string _inputButton = "Jump";
+    [SerializeField] CinemachineVirtualCamera _vcam = default;
+
+    public HumanController Player { get => _player; }
+    public GhostController Ghost { get => _ghost; }
+    public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
 
     private void Awake()
     {
@@ -18,16 +26,6 @@ public class CharacterManager : MonoBehaviour
             _instance = this;
         }
     }
-
-    [SerializeField] CharacterControllerBase _player = default;
-    [SerializeField] GhostController _ghost = default;
-    [SerializeField] string _inputButton = "Jump";
-    [SerializeField] CinemachineVirtualCamera _vcam = default;
-
-    public CharacterControllerBase Player { get => _player;}
-    public CharacterControllerBase Ghost { get => _ghost;}
-    public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
-
     private void Start()
     {
         _player = Instantiate(_player);
@@ -36,6 +34,7 @@ public class CharacterManager : MonoBehaviour
         _ghost.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         _vcam.Follow = _player.transform;
+        _player.IsControll = true;
     }
     private void Update()
     {
