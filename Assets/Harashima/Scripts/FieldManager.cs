@@ -11,8 +11,14 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>リザルト時に呼ばれるメソッド</summary>
     public event Action OnClear;
 
-    /// <summary>リザルト時に呼ばれるメソッド</summary>
+    /// <summary>ゲームオーバー時に呼ばれるメソッド</summary>
     public event Action OnGameOver;
+
+    /// <summary>ポーズ時に呼ばれるメソッド</summary>
+    public event Action OnPause;
+
+    /// <summary>再開時に呼ばれるメソッド</summary>
+    public event Action OnResume;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool _isEnd = false;
@@ -60,16 +66,21 @@ public class FieldManager : Singleton<FieldManager>
         //クリア時の処理を呼ぶ
         GameManager.Instance?.ClearStage(_stageIndex);
     }
+
+    [SerializeField, Tooltip("デバッグ用のリザルトパネル")]
+    GameObject _resultPanel;
     void DebugGameOver()
     {
+        _resultPanel.SetActive(true);
         Debug.Log("ゲームオーバー");
     }
     void DebugStart()
-    {
+    {        
         Debug.Log("スタート");
     }
     void DebugClear()
     {
+        _resultPanel.SetActive(true);
         Debug.Log("クリア");
     }
 }
