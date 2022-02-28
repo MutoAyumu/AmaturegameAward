@@ -25,7 +25,7 @@ public class GhostController : CharacterControllerBase
             this.transform.position = CharacterManager._instance.Player.GhostMovePos.position;
         }
 
-        if (Input.GetButtonDown(_inputButton) && _isControll)
+        if (Input.GetButtonDown(_inputButton) && IsControll)
         {
             Light2D a = _lightObject.transform.GetChild(0).GetComponent<Light2D>();
 
