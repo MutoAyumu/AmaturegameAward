@@ -28,5 +28,13 @@ public class HumanController : CharacterControllerBase
                 _anim.SetFloat("Y", _lastV);
             }
         }
+
+        //Å¶óvïœçX
+        Vector2 origin = this.transform.position;
+        Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.gameObject.GetComponent<testObjectSearcher>().Search(_lastH, _lastV);
+        }
     }
 }
