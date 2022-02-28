@@ -13,9 +13,20 @@ public class PlayerHp : MonoBehaviour
         _maxHp = _playerPalam.Life;
     }
 
-    // Update is called once per frame
     public void Damage()
     {
         _playerPalam.LifeChange(-1);
+
+        if (_playerPalam.Life == 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    void PlayerDeath()
+    {
+        Debug.Log("Player‚ª€–S‚µ‚½");
+
+        //Player‚ª€‚ñ‚¾‚Æ‚«‚Ìˆ—‚ğ‘‚­
     }
 }
