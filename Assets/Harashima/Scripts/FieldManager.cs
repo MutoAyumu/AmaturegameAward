@@ -9,22 +9,28 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnStart;
 
     /// <summary>リザルト時に呼ばれるメソッド</summary>
-    public event Action OnResult;
+    public event Action OnClear;
+
+    /// <summary>リザルト時に呼ばれるメソッド</summary>
+    public event Action OnGameOver;
 
     void Start()
     {
-        //メソッドを呼ぶ
-        if(OnStart !=null)
-        {
-            OnStart();
-        }        
+        //スタートイベントを呼ぶ
+        this?.OnStart();
     }
 
     void Update()
     {
-        if(PlayerPalam.Instance?.Life <= 0)
+        if (PlayerPalam.Instance?.Life <= 0)
         {
-            OnResult();
+            this?.OnGameOver();
         }
+    }
+
+    public void Clear()
+    {
+        //クリアイベントを呼ぶ
+        this?.OnClear();
     }
 }
