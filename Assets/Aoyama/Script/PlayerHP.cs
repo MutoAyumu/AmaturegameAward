@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerHp : MonoBehaviour
 {
+    [SerializeField, Tooltip("Player‚ª€‚ñ‚¾‚Æ‚«‚ÌƒvƒŒƒnƒu")]
+    GameObject _deathPrefab;
+
     int _maxHp = 0;
     PlayerPalam _playerPalam;
 
@@ -27,6 +30,10 @@ public class PlayerHp : MonoBehaviour
     {
         Debug.Log("Player‚ª€–S‚µ‚½");
 
-        //Player‚ª€‚ñ‚¾‚Æ‚«‚Ìˆ—‚ğ‘‚­
+        Destroy(gameObject);
+        if(_deathPrefab)
+        {
+            var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+        }
     }
 }
