@@ -7,13 +7,23 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] protected float _speed = 3.0f;
     [SerializeField]protected bool _isControll = false;
+    [SerializeField] string _endTag = "Finish";
     
     protected float _h = default;
     protected float _v = default;
     protected bool _fire1 = default;
+    bool _isStop;
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
+    private void OnEnable()
+    {
+        FieldManager.Instance.OnGameOver += Stop;
+    }
+    private void OnDisable()
+    {
+        FieldManager.Instance.OnGameOver -= Stop;
+    }
     void Update()
     {
         if (_isControll)
@@ -52,5 +62,28 @@ public class CharacterControllerBase : MonoBehaviour
     {
         Vector2 dir = new Vector2(h, v).normalized;
         _rb.velocity = _speed * dir;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag(_endTag))
+        {
+            FieldManager.Instance.Clear();
+        }
+    }
+    protected void Stop()
+    {
+        if (!_isStop)
+        {
+            _isStop = true;
+            _isControll = false;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            _isStop = false;
+            _isControll = true;
+            _rb.constraints = RigidbodyConstraints2D.None;
+            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 }

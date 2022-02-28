@@ -10,6 +10,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GhostController _ghost = default;
     [SerializeField] string _inputButton = "Jump";
     [SerializeField] CinemachineVirtualCamera _vcam = default;
+    [SerializeField, Tooltip("—v‘f0‚ªlŠÔ@—v‘f1‚ª—H—ì")] Transform[] _instancePos = new Transform[2];
 
     public HumanController Player { get => _player; }
     public GhostController Ghost { get => _ghost; }
@@ -24,12 +25,13 @@ public class CharacterManager : MonoBehaviour
         else
         {
             _instance = this;
+            FieldManager.Instance.OnStart += StartInstantiate;
         }
     }
-    private void Start()
+    public void StartInstantiate()
     {
-        _player = Instantiate(_player);
-        _ghost = Instantiate(_ghost);
+        _player = Instantiate(_player,_instancePos[0].position, Quaternion.identity);
+        _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
         _ghost.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
 

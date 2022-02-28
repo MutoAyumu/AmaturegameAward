@@ -13,14 +13,14 @@ public class GhostController : CharacterControllerBase
     [SerializeField] string _lightTags = " ";
     [SerializeField] Light2D _light = default;
     [SerializeField] GameObject _lightObject = default;
-    bool isHaveLight;
-    bool isFollow;
-    public bool IsFollow { get => isFollow; set => isFollow = value; }
+    bool _isHaveLight;
+    bool _isFollow;
+    public bool IsFollow { get => _isFollow; set => _isFollow = value; }
 
     public override void OnUpdate()
     {
         //ここでプレイヤーに追従
-        if(isFollow)
+        if(_isFollow)
         {
             this.transform.position = CharacterManager._instance.Player.GhostMovePos.position;
         }
@@ -29,25 +29,25 @@ public class GhostController : CharacterControllerBase
         {
             Light2D a = _lightObject.transform.GetChild(0).GetComponent<Light2D>();
 
-            if (a && !isHaveLight)   //ライトオブジェクトがある
+            if (a && !_isHaveLight)   //ライトオブジェクトがある
             {
                 _light = a;
                 _isControll = false;
                 _light.transform.DOMove(this.transform.position, _timeToMove)
                     .OnComplete(() =>
                     {
-                        isHaveLight = true;
+                        _isHaveLight = true;
                         _light.transform.SetParent(this.transform);
                         _isControll = true;
                     });
             }
-            else if (!a && isHaveLight)
+            else if (!a && _isHaveLight)
             {
                 _isControll = false;
                 _light.transform.DOMove(_lightObject.transform.position, _timeToMove)
                     .OnComplete(() =>
                     {
-                        isHaveLight = false;
+                        _isHaveLight = false;
                         _light.transform.SetParent(_lightObject.transform);
                         _light.transform.SetSiblingIndex(0);
                         _isControll = true;
@@ -75,7 +75,7 @@ public class GhostController : CharacterControllerBase
                 {
                     _col.isTrigger = false;
                     CharacterManager._instance.Player.IsControll = true;
-                    isFollow = true;
+                    _isFollow = true;
                     CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.None;
                     CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 });
