@@ -17,7 +17,7 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool isEnd = false;
 
-    [SerializeField, Tooltip("ステージの番号")]
+    [SerializeField,Range(1, 10),Tooltip("ステージの番号")]
     int _stageIndex;
 
     void Start()
@@ -56,6 +56,9 @@ public class FieldManager : Singleton<FieldManager>
             OnClear();
             isEnd = true;
         }
+
+        //クリア時の処理を呼ぶ
+        GameManager.Instance?.ClearStage(_stageIndex);
     }
     void DebugGameOver()
     {
