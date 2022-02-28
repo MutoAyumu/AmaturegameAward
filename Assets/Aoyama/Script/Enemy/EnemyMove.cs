@@ -94,14 +94,14 @@ public class EnemyMove : MonoBehaviour
         _rb.AddForce(dir, ForceMode2D.Impulse);
     }
 
-    void Pause()
+    public void Pause()
     {
         _rb.velocity = Vector3.zero;
         _rb.Sleep();
         _isPause = true;
     }
 
-    void Resume()
+    public void Resume()
     {
         _rb.WakeUp();
         _isPause = false;

@@ -42,21 +42,31 @@ public class EnemyManager : MonoBehaviour
         _enemyGroups[_groupIndex--].OnSetActive();
     }
 
+    public void Pause()
+    {
+        Array.ForEach(_enemyGroups[_groupIndex].EnemyGrp, go => go.GetComponent<EnemyMove>().Pause());
+    }
+
+    public void Resume()
+    {
+        Array.ForEach(_enemyGroups[_groupIndex].EnemyGrp, go => go.GetComponent<EnemyMove>().Resume());
+    }
 }
 
 [Serializable]
 class EnemyGroup
 {
     [SerializeField, Tooltip("EnemyGameObject‚ÌƒOƒ‹[ƒv")]
-    GameObject[] _enemyGroup;
+    GameObject[] _enemyGrp;
 
+    public GameObject[] EnemyGrp { get; private set; }
     public void OnSetActive()
     {
-        Array.ForEach(_enemyGroup, go => go.SetActive(true));
+        Array.ForEach(_enemyGrp, go => go.SetActive(true));
     }
 
     public void OffSetActive()
     {
-        Array.ForEach(_enemyGroup, go => go.SetActive(false));
+        Array.ForEach(_enemyGrp, go => go.SetActive(false));
     }
 }
