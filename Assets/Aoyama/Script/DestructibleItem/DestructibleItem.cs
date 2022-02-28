@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 破壊可能なアイテムのクラス
 /// </summary>
-public class Destructive : MonoBehaviour, IDamage
+public class DestructibleItem : MonoBehaviour, IDamage
 {
     [SerializeField, Tooltip("何回攻撃したら壊れるか")]
     int _hp = 1;
