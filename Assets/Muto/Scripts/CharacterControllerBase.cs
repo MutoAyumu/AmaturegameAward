@@ -10,6 +10,7 @@ public class CharacterControllerBase : MonoBehaviour
     
     protected float _h = default;
     protected float _v = default;
+    protected bool _fire1 = default;
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
@@ -18,6 +19,7 @@ public class CharacterControllerBase : MonoBehaviour
         if (_isControll)
         {
             InputValue();
+            InputFire();
             Move(_h, _v);
         }
         OnUpdate();
@@ -26,11 +28,26 @@ public class CharacterControllerBase : MonoBehaviour
     {
 
     }
+    /// <summary>
+    /// 移動の入力を受け取る為の関数
+    /// </summary>
     protected void InputValue()
     {
         _h = Input.GetAxisRaw("Horizontal");
         _v = Input.GetAxisRaw("Vertical");
     }
+    /// <summary>
+    /// クリック入力を受け取る為の関数
+    /// </summary>
+    protected void InputFire()
+    {
+        _fire1 = Input.GetButtonDown("Fire1");
+    }
+    /// <summary>
+    /// 移動用の関数
+    /// </summary>
+    /// <param name="h"></param>
+    /// <param name="v"></param>
     protected void Move(float h, float v)
     {
         Vector2 dir = new Vector2(h, v).normalized;

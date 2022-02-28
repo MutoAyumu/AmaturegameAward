@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void Attack(float x, float y)
     {
-        if(_downAttackCol || _leftAttackCol || _rightAttackCol || _upAttackCol)
+        if(!_downAttackCol || !_leftAttackCol || !_rightAttackCol || !_upAttackCol)
         {
             Debug.Log("PlayerAttackクラスのコライダーがnullです");
             return;
