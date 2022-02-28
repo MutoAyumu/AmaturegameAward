@@ -6,6 +6,17 @@ using UnityEngine.Rendering.Universal;
 
 public class GhostController : CharacterControllerBase
 {
+
+    [SerializeField] float _timeToMove = 1.5f;
+    [SerializeField] Collider2D _col = default;
+    [SerializeField] string _inputButton = " ";
+    [SerializeField] string _lightTags = " ";
+    [SerializeField] Light2D _light = default;
+    [SerializeField] GameObject _lightObject = default;
+    bool isHaveLight;
+    bool isFollow;
+    public bool IsFollow { get => isFollow; set => isFollow = value; }
+
     public override void OnUpdate()
     {
         //Ç±Ç±Ç≈ÉvÉåÉCÉÑÅ[Ç…í«è]
@@ -14,7 +25,7 @@ public class GhostController : CharacterControllerBase
             this.transform.position = CharacterManager._instance.Player.GhostMovePos.position;
         }
 
-        if (Input.GetButtonDown(_inputButton))
+        if (Input.GetButtonDown(_inputButton) && _isControll)
         {
             Light2D a = _lightObject.transform.GetChild(0).GetComponent<Light2D>();
 
@@ -49,12 +60,6 @@ public class GhostController : CharacterControllerBase
         }
     }
 
-    [SerializeField] float _timeToMove = 1.5f;
-    [SerializeField] Collider2D _col = default;
-    bool isFollow;
-
-    public bool IsFollow { get => isFollow; set => isFollow = value; }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -76,12 +81,6 @@ public class GhostController : CharacterControllerBase
                 });
         }
     }
-
-    [SerializeField] string _inputButton = " ";
-    [SerializeField] string _lightTags = " ";
-    [SerializeField] Light2D _light = default;
-    [SerializeField] GameObject _lightObject = default;
-    bool isHaveLight;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag(_lightTags))
