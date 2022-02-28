@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56543932009fef64297d55306f3c20d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHp: 2
+  _enemyHp: 100
   _deathPrefab: {fileID: 0}
   _enemyMove: {fileID: 1008040004784617349}
 --- !u!114 &1008040004784617349
@@ -1486,7 +1486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008040004784617345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6292063, y: 1.322904, z: 0}
+  m_LocalPosition: {x: 1.6292063, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -34,21 +34,25 @@ public class PlayerAttack : MonoBehaviour
         {
             count = _rightAttackCol.OverlapCollider(new ContactFilter2D(), _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            Debug.Log("‰E");
         }
         else if(x == -1 && y == 0)
         {
             count = _leftAttackCol.OverlapCollider(new ContactFilter2D(), _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            Debug.Log("¶");
         }
         else if(x == 0 && y == 1)
         {
             count = _upAttackCol.OverlapCollider(new ContactFilter2D(), _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            Debug.Log("ue");
         }
         else if (x == 0 && y == -1)
         {
             count = _downAttackCol.OverlapCollider(new ContactFilter2D(), _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            Debug.Log("sita");
         }
     }
 }
