@@ -67,6 +67,7 @@ public class GhostController : CharacterControllerBase
             //ここでプレイヤーの右後ろとかに移動させる
             CharacterManager._instance.Vcam.Follow = CharacterManager._instance.Player.transform;
             _isControll = false;    //自分を動かないようにしてプレイヤーを動くようにする
+
             CharacterManager._instance.Player.IsControll = false;
             _col.isTrigger = true;
             CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
