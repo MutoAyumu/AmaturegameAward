@@ -172,9 +172,10 @@ MonoBehaviour:
   _rb: {fileID: 1081808899050389373}
   _speed: 3
   _isControll: 0
-  _anim: {fileID: 996228857}
+  _endTag: Finish
   _ghostMovePos: {fileID: 2315691760954625949}
   _attack: {fileID: -2068177454089754741}
+  _anim: {fileID: 996228857}
 --- !u!114 &-2068177454089754741
 MonoBehaviour:
   m_ObjectHideFlags: 0
