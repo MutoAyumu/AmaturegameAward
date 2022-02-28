@@ -6,17 +6,49 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField, Tooltip("攻撃の当たり判定を行うコライダー")]
-    Collider2D _attackCol;
+    [SerializeField, Tooltip("右の攻撃の当たり判定を行うコライダー")]
+    Collider2D _rightAttackCol;
+    [SerializeField, Tooltip("左の攻撃の当たり判定を行うコライダー")]
+    Collider2D _leftAttackCol;
+    [SerializeField, Tooltip("上の攻撃の当たり判定を行うコライダー")]
+    Collider2D _upAttackCol;
+    [SerializeField, Tooltip("下の攻撃の当たり判定を行うコライダー")]
+    Collider2D _downAttackCol;
 
     List<Collider2D> _result = new List<Collider2D>(10);
 
     /// <summary>
     /// 引数のコライダーの範囲内にいる、IDamageのDamage()を呼ぶ関数
     /// </summary>
-    public void Attack()
+    public void Attack(float x, float y)
     {
-        int count = _attackCol.OverlapCollider(new ContactFilter2D(), _result);
-        _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+        if(_downAttackCol || _leftAttackCol || _rightAttackCol || _upAttackCol)
+        {
+            Debug.Log("PlayerAttackクラスのコライダーがnullです");
+            return;
+        }
+
+        int count;
+
+        if (x == 1 && y == 0)
+        {
+            count = _rightAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+        }
+        else if(x == -1 && y == 0)
+        {
+            count = _leftAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+        }
+        else if(x == 0 && y == 1)
+        {
+            count = _upAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+        }
+        else if (x == 0 && y == -1)
+        {
+            count = _downAttackCol.OverlapCollider(new ContactFilter2D(), _result);
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+        }
     }
 }
