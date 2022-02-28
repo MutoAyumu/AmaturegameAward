@@ -14,23 +14,56 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>リザルト時に呼ばれるメソッド</summary>
     public event Action OnGameOver;
 
+    /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
+    bool isEnd = false;
+
     void Start()
     {
+        //テスト用
+        OnGameOver += DebugGameOver;
+        OnStart += DebugStart;
+        OnClear += DebugClear;
         //スタートイベントを呼ぶ
-        this?.OnStart();
+        if (OnStart != null)
+        {
+            OnStart();
+        }        
     }
+
 
     void Update()
     {
-        if (PlayerPalam.Instance?.Life <= 0)
+        if (PlayerPalam.Instance?.Life <= 0 && !isEnd)　//スコアが0になり、isEndがFalseだったら
         {
-            this?.OnGameOver();
+            if(OnGameOver != null)
+            {
+                //ゲームオーバーイベントを呼ぶ
+                OnGameOver();
+            }            
+            isEnd = true;
         }
     }
+
 
     public void Clear()
     {
         //クリアイベントを呼ぶ
-        this?.OnClear();
+        if(OnClear!= null && !isEnd)//isEndがFalseだったら
+        {
+            OnClear();
+            isEnd = true;
+        }
+    }
+    void DebugGameOver()
+    {
+        Debug.Log("ゲームオーバー");
+    }
+    void DebugStart()
+    {
+        Debug.Log("スタート");
+    }
+    void DebugClear()
+    {
+        Debug.Log("クリア");
     }
 }

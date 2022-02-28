@@ -18,7 +18,8 @@ public class PlayerPalam : Singleton<PlayerPalam>
     /// <param name="value">増やすなら正、減らすなら負</param>
     public void LifeChange(int value)
     {
-        if(_life + value <= 0)
+        Debug.Log($"変化前：{_life}");
+        if (_life + value <= 0)
         {
             _life = 0;
         }
@@ -26,6 +27,7 @@ public class PlayerPalam : Singleton<PlayerPalam>
         {
             _life += value;
         }
+        Debug.Log($"変化後：{_life}");
     }
 
     protected override void OnAwake()
