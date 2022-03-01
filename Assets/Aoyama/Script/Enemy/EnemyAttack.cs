@@ -29,6 +29,7 @@ public class EnemyAttack : MonoBehaviour
             if(_attackTime <= _timer)
             {
                 Attack();
+                _timer = 0;
             }
         }
         else
