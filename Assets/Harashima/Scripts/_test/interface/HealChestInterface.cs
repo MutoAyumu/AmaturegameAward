@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealChestInterface : MonoBehaviour, IAction
+public class HealChestInterface : MonoBehaviour, IActivate
 {
     [SerializeField,Tooltip("‰ñ•œ‚·‚éHP")]
     int _addHealth = 2;

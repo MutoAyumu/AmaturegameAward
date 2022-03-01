@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7353dbdc89e0e49a874bed51461dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _ghost: {fileID: 0}
+  _human: {fileID: -4748869756131975811, guid: 362dfdb34764b2b4b901c3e74c2f03a9, type: 3}
+  _ghost: {fileID: 8147325970077352387, guid: 2ed137b402ef0934d83c7fdae8ae15e3, type: 3}
   _inputButton: Shift
   _vcam: {fileID: 0}
+  _instancePos:
+  - {fileID: 0}
+  - {fileID: 0}
