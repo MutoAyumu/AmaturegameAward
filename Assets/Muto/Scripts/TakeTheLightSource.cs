@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testObjectSearcher : MonoBehaviour
+public class TakeTheLightSource : MonoBehaviour
 {
-   [SerializeField,Tooltip("フィールドオブジェクトのレイヤー")]
+    [SerializeField, Tooltip("フィールドオブジェクトのレイヤー")]
     LayerMask mask = default;
 
     /// <summary>
-    /// 目の前にオブジェクトがあるかを判定する関数
+    /// 幽霊が目の前にある光源を吸収するための関数
     /// </summary>
-    public void Search(float h,float v)
+    /// <param name="h"></param>
+    /// <param name="v"></param>
+    public void Take(float h, float v)
     {
         //要変更、ここで光のオブジェクトも判定する
         Vector2 origin = this.transform.position;
@@ -18,7 +20,7 @@ public class testObjectSearcher : MonoBehaviour
 
         if (hit.collider)
         {
-            hit.collider.GetComponent<IActivate>()?.Action();
+            hit.collider.GetComponent<MovingLightSource>().IsMoving();
         }
     }
 }
