@@ -16,14 +16,6 @@ public class CharacterControllerBase : MonoBehaviour
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
-    private void OnEnable()
-    {
-        FieldManager.Instance.OnGameOver += Stop;
-    }
-    private void OnDisable()
-    {
-        FieldManager.Instance.OnGameOver -= Stop;
-    }
     void Update()
     {
         if (_isControll)

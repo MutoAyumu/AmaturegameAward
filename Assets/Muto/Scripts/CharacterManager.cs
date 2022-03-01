@@ -24,9 +24,13 @@ public class CharacterManager : MonoBehaviour
         }
         else
         {
-            _instance = this;
-            FieldManager.Instance.OnStart += StartInstantiate;
+            _instance = this;            
         }
+    }
+
+    private void Start()
+    {
+        FieldManager.Instance.OnStart += StartInstantiate;
     }
     public void StartInstantiate()
     {
