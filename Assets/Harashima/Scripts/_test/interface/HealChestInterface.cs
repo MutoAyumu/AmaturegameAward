@@ -17,7 +17,7 @@ public class HealChestInterface : MonoBehaviour, IAction
     {
         if(!isOpen)
         {
-            testPlayerStat.Instance.HPfluctuation(_addHealth);
+            PlayerPalam.Instance.LifeChange(_addHealth);
             _animator.SetTrigger("Open");
             isOpen = true;
         }

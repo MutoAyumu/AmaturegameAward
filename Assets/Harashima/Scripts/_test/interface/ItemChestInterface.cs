@@ -17,7 +17,7 @@ public class ItemChestInterface : MonoBehaviour,IAction
     {
         if (!isOpen)
         {
-            testPlayerStat.Instance.AddItem(_itemPrefabs[0]); //アイテム獲得
+            ItemManager.Instance.AddItem(_itemPrefabs[0]); //アイテム獲得
             _animator.SetTrigger("Open");
             isOpen = true; //開いたのでフラグをTrueに
         }        
