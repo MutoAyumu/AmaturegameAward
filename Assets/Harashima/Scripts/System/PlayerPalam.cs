@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーのステータスを管理するクラス
+/// </summary>
 public class PlayerPalam : Singleton<PlayerPalam>
 {
-    [SerializeField, Tooltip("ライフの初期値")]
+    [Header("ライフ")]
+    [SerializeField, Range(1, 10), Tooltip("ライフの初期値")]
     int _initialLife = 3;
+    [SerializeField, Range(1, 10), Tooltip("ライフの最大値")]
+    int _lifeLimit = 5;
 
     /// <summary>現在のライフ</summary>
     int _life;
@@ -18,17 +24,11 @@ public class PlayerPalam : Singleton<PlayerPalam>
     /// <param name="value">増やすなら正、減らすなら負</param>
     public void LifeChange(int value)
     {
-        Debug.Log($"変化前：{_life}");
-        if (_life + value <= 0)
-        {
-            _life = 0;
-        }
-        else
-        {
-            _life += value;
-        }
-        Debug.Log($"変化後：{_life}");
+        int last = _life;
+        _life = Mathf.Clamp(_life+ value,0,_lifeLimit);
+        Debug.Log($"変化前：{last}　変化後：{_life}");
     }
+
 
     protected override void OnAwake()
     {
