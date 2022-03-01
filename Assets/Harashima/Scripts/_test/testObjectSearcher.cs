@@ -18,7 +18,7 @@ public class testObjectSearcher : MonoBehaviour
 
         if (hit.collider)
         {
-            hit.collider.GetComponent<MovingLightSource>().IsMoving(); //‚±‚±‚ÅŒõ‚Ì‰½‚©‚ð‚·‚é
+            //hit.collider.GetComponent<MovingLightSource>().IsMoving(); //‚±‚±‚ÅŒõ‚Ì‰½‚©‚ð‚·‚é
             hit.collider.GetComponent<IAction>().Action();
         }
     }
