@@ -157,8 +157,9 @@ MonoBehaviour:
   _col: {fileID: 3172325151818913571}
   _inputButton: Fire1
   _lightTags: Finish
-  _light: {fileID: 0}
+  _light: {fileID: 9139443380091617235}
   _lightObject: {fileID: 0}
+  _upperLimit: 5
   _lightNum: 0
 --- !u!114 &2180339418808880968
 MonoBehaviour:
