@@ -11,7 +11,7 @@ public class MovingLightSource : MonoBehaviour
     [SerializeField] bool _isOn = true;
     [SerializeField, Tooltip("IActivate‚ðŒp³‚µ‚½GameObject‚ð“ü‚ê‚é")] GameObject[] _activate = default;
 
-    public bool IsOn { get => _isOn;}
+    public bool IsOn { get => _isOn; }
 
     private void Start()//Œã‚Å’¼‚·
     {
@@ -40,8 +40,14 @@ public class MovingLightSource : MonoBehaviour
             if (_isOn)   //ŒõŒ¹‚ª‚ ‚éê‡
             {
                 _isOn = false;
-                DOVirtual.Float(_light.intensity, 0, _time, value => _light.intensity = value)  //dotween‚Åintensity‚ð‚P‚©‚ç‚O‚É‚µ‚Ä‚¢‚é
-                    .OnComplete(() =>
+                var tween1 = DOVirtual.Float(_light.intensity, 0, _time, value => _light.intensity = value);  //dotween‚Åintensity‚ð‚P‚©‚ç‚O‚É‚µ‚Ä‚¢‚é
+                var tween2 = DOVirtual.Float(CharacterManager._instance.Ghost.Light.intensity, 1.0f / CharacterManager._instance.Ghost.UpperLimit +
+                CharacterManager._instance.Ghost.Light.intensity, _time, value => CharacterManager._instance.Ghost.Light.intensity = value);
+                
+                DOTween.Sequence()
+                    .Append(tween1)
+                    .Append(tween2)
+                    .AppendCallback(() =>
                     {
                         CharacterManager._instance.Ghost._lightNum++;
                         CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
@@ -51,8 +57,14 @@ public class MovingLightSource : MonoBehaviour
             else
             {
                 _isOn = true;
-                DOVirtual.Float(_light.intensity, 1, _time, value => _light.intensity = value)
-                    .OnComplete(() =>
+                var tween1 = DOVirtual.Float(_light.intensity, 1, _time, value => _light.intensity = value);  //dotween‚Åintensity‚ð‚P‚©‚ç‚O‚É‚µ‚Ä‚¢‚é
+                var tween2 = DOVirtual.Float(CharacterManager._instance.Ghost.Light.intensity, CharacterManager._instance.Ghost.Light.intensity -
+                1.0f / CharacterManager._instance.Ghost.UpperLimit, _time, value => CharacterManager._instance.Ghost.Light.intensity = value);
+
+                DOTween.Sequence()
+                    .Append(tween2)
+                    .Append(tween1)
+                    .AppendCallback(() =>
                     {
                         CharacterManager._instance.Ghost._lightNum--;
                         CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();

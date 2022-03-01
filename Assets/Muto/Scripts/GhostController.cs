@@ -13,11 +13,14 @@ public class GhostController : CharacterControllerBase
     [SerializeField] string _lightTags = " ";
     [SerializeField] Light2D _light = default;
     [SerializeField] GameObject _lightObject = default;
+    [SerializeField, Tooltip("ï€éùÇ≈Ç´ÇÈåıåπÇÃè„å¿")] int _upperLimit = 5;
     public int _lightNum;
     bool _isFollow;
     float _lastH;
     float _lastV;
     public bool IsFollow { get => _isFollow; set => _isFollow = value; }
+    public Light2D Light { get => _light;}
+    public int UpperLimit { get => _upperLimit;}
 
     public override void OnUpdate()
     {
@@ -40,7 +43,7 @@ public class GhostController : CharacterControllerBase
         //Å¶óvïœçX
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
-        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow)
+        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow && _isControll)
         {
             this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
         }
