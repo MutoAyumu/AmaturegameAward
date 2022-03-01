@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] string _inputButton = "Jump";
     [SerializeField] CinemachineVirtualCamera _vcam = default;
     [SerializeField, Tooltip("—v‘f0‚ªlŠÔ@—v‘f1‚ª—H—ì")] Transform[] _instancePos = new Transform[2];
+    [SerializeField] Text _lightCountText = default;
 
     public HumanController Human { get => _human; }
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
+    public Text LightCountText { get => _lightCountText;}
 
     private void Awake()
     {

@@ -42,7 +42,7 @@ public class GhostController : CharacterControllerBase
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            this.gameObject.GetComponent<TakeTheLightSource>().Take(_lastH, _lastV);
+            this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
         }
     }
 

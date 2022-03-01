@@ -11,6 +11,8 @@ public class MovingLightSource : MonoBehaviour
     [SerializeField] bool _isOn = true;
     [SerializeField, Tooltip("IActivateを継承したGameObjectを入れる")] GameObject[] _activate = default;
 
+    public bool IsOn { get => _isOn;}
+
     private void Start()//後で直す
     {
         IsStartFalse();
@@ -25,6 +27,8 @@ public class MovingLightSource : MonoBehaviour
         {
             _light.intensity = 0;
         }
+
+        CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
     }
     /// <summary>
     /// ライトのオンオフをする関数
@@ -40,6 +44,7 @@ public class MovingLightSource : MonoBehaviour
                     {
                         _isOn = false;
                         CharacterManager._instance.Ghost._lightNum++;
+                        CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
                     });
             }
             else
@@ -49,6 +54,7 @@ public class MovingLightSource : MonoBehaviour
                     {
                         _isOn = true;
                         CharacterManager._instance.Ghost._lightNum--;
+                        CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
 
                         foreach (var go in _activate)
                         {
