@@ -20,8 +20,8 @@ public class DestructibleItem : MonoBehaviour, IDamage
         }
 
         Debug.Log($"{gameObject.name}‚ð‰ó‚µ‚½");
-        Destroy(gameObject);
 
+        Destroy(gameObject);
         if(_breakObject)
         {
             var go = Instantiate(_breakObject, transform.position, Quaternion.identity);

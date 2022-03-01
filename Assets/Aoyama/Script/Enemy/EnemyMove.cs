@@ -25,8 +25,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
-        _player = CharacterManager._instance.Player;
-        _ghost = CharacterManager._instance.Ghost;
+
     }
     void FixedUpdate()
     {
@@ -34,6 +33,9 @@ public class EnemyMove : MonoBehaviour
         {
             return;
         }
+
+        _player = CharacterManager._instance.Player;
+        _ghost = CharacterManager._instance.Ghost;
 
         _target = PlayerPosition();
 
@@ -50,6 +52,7 @@ public class EnemyMove : MonoBehaviour
         if (distance < _chaseDistance)
         {
             _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = 0;
             return;
         }
 
