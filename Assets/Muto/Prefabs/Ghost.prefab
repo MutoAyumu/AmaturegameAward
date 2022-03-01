@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5153077323107331542}
   - component: {fileID: 8147325970077352387}
   - component: {fileID: 2180339418808880968}
+  - component: {fileID: 8141566419074324236}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,12 +151,14 @@ MonoBehaviour:
   _rb: {fileID: 5153077323107331542}
   _speed: 3
   _isControll: 0
+  _endTag: Finish
   _timeToMove: 0.5
   _col: {fileID: 3172325151818913571}
   _inputButton: Fire1
   _lightTags: Finish
   _light: {fileID: 0}
   _lightObject: {fileID: 0}
+  _lightNum: 0
 --- !u!114 &2180339418808880968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +169,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7ae3690b642d7b4db88283f2c507d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 16
+--- !u!114 &8141566419074324236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806363073446789937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598b913d7dfa01148bcea12f9da2aaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mask:
