@@ -40,9 +40,9 @@ public class GhostController : CharacterControllerBase
         //Å¶óvïœçX
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow)
         {
-            this.gameObject.GetComponent<TakeTheLightSource>().Take(_lastH, _lastV);
+            this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
         }
     }
 
