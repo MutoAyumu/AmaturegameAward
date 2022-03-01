@@ -22,10 +22,12 @@ public class TakeTheLightSource : MonoBehaviour
 
         if (hit.collider && light.IsOn && CharacterManager._instance.Ghost._lightNum < _upperLimit)
         {
+            CharacterManager._instance.Ghost.Stop();
             light.IsMoving();
         }
         else if(hit.collider && !light.IsOn && CharacterManager._instance.Ghost._lightNum > 0)
         {
+            CharacterManager._instance.Ghost.Stop();
             light.IsMoving();
         }
     }

@@ -63,7 +63,7 @@ public class CharacterControllerBase : MonoBehaviour
             FieldManager.Instance.Clear();
         }
     }
-    protected void Stop()
+    public void Stop()
     {
         if (!_isStop)
         {

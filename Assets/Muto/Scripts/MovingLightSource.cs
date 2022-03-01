@@ -39,22 +39,24 @@ public class MovingLightSource : MonoBehaviour
         {
             if (_isOn)   //ŒõŒ¹‚ª‚ ‚éê‡
             {
+                _isOn = false;
                 DOVirtual.Float(_light.intensity, 0, _time, value => _light.intensity = value)  //dotween‚Åintensity‚ð‚P‚©‚ç‚O‚É‚µ‚Ä‚¢‚é
                     .OnComplete(() =>
                     {
-                        _isOn = false;
                         CharacterManager._instance.Ghost._lightNum++;
                         CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
+                        CharacterManager._instance.Ghost.Stop();
                     });
             }
             else
             {
+                _isOn = true;
                 DOVirtual.Float(_light.intensity, 1, _time, value => _light.intensity = value)
                     .OnComplete(() =>
                     {
-                        _isOn = true;
                         CharacterManager._instance.Ghost._lightNum--;
                         CharacterManager._instance.LightCountText.text = CharacterManager._instance.Ghost._lightNum.ToString();
+                        CharacterManager._instance.Ghost.Stop();
 
                         foreach (var go in _activate)
                         {
