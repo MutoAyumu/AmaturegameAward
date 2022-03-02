@@ -36,7 +36,8 @@ public class FieldManager : Singleton<FieldManager>
         if (OnStart != null)
         {
             OnStart();
-        }        
+        }
+        ItemManager.Instance.InstanceItem();
     }
 
 
@@ -82,5 +83,29 @@ public class FieldManager : Singleton<FieldManager>
     {
         _resultPanel.SetActive(true);
         Debug.Log("クリア");
+    }
+    [SerializeField]
+    GameObject[] _inventryPanels;
+    public GameObject[] InventryPanels => _inventryPanels;
+
+    [SerializeField]
+    GameObject _inventryButton;
+
+    /// <summary>
+    /// 仮の関数
+    /// </summary>
+    public void ChoiceActive(bool active)
+    {
+        _inventryButton.SetActive(active);
+    }
+
+    /// <summary>
+    /// デバッグボタン用、指定したIndexのインベントリを削除する
+    /// </summary>
+    /// <param name="index"></param>
+    public void RemoveItem(int index)
+    {
+        ItemManager.Instance.RemoveItem(ItemManager.Instance.Inventry[index]);
+        ItemManager.Instance.AddItem(ItemManager.Instance.LastItem);
     }
 }

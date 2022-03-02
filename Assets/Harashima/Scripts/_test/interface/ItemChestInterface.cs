@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemChestInterface : MonoBehaviour,IAction
+public class ItemChestInterface : MonoBehaviour,IActivate
 {
     [SerializeField,Tooltip("ドロップするアイテム")]
     GameObject[] _itemPrefabs;
@@ -27,7 +27,7 @@ public class ItemChestInterface : MonoBehaviour,IAction
 /// <summary>
 /// フィールドオブジェクトの処理を実装するインターフェース
 /// </summary>
-public interface IAction
+public interface IActivate
 {
     void Action();
 }

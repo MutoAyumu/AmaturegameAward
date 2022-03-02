@@ -13,50 +13,39 @@ public class GhostController : CharacterControllerBase
     [SerializeField] string _lightTags = " ";
     [SerializeField] Light2D _light = default;
     [SerializeField] GameObject _lightObject = default;
-    bool _isHaveLight;
+    [SerializeField, Tooltip("保持できる光源の上限")] int _upperLimit = 5;
+    public int _lightNum;
     bool _isFollow;
+    float _lastH;
+    float _lastV;
     public bool IsFollow { get => _isFollow; set => _isFollow = value; }
+    public Light2D Light { get => _light;}
+    public int UpperLimit { get => _upperLimit;}
 
     public override void OnUpdate()
     {
         //ここでプレイヤーに追従
         if(_isFollow)
         {
-            this.transform.position = CharacterManager._instance.Player.GhostMovePos.position;
+            this.transform.position = CharacterManager._instance.Human.GhostMovePos.position;
         }
 
-        if (Input.GetButtonDown(_inputButton) && IsControll)
+        if (_h != 0 || _v != 0)
         {
-            Light2D a = _lightObject.transform.GetChild(0).GetComponent<Light2D>();
-
-            if (a && !_isHaveLight)   //ライトオブジェクトがある
+            if (_lastH != _h || _lastV != _v)
             {
-                _light = a;
-                _isControll = false;
-                _light.transform.DOMove(this.transform.position, _timeToMove)
-                    .OnComplete(() =>
-                    {
-                        _isHaveLight = true;
-                        _light.transform.SetParent(this.transform);
-                        _isControll = true;
-                    });
+                _lastH = _h;
+                _lastV = _v;
+                //_anim.SetFloat("X", _lastH);
+                //_anim.SetFloat("Y", _lastV);
             }
-            else if (!a && _isHaveLight)
-            {
-                _isControll = false;
-                _light.transform.DOMove(_lightObject.transform.position, _timeToMove)
-                    .OnComplete(() =>
-                    {
-                        _isHaveLight = false;
-                        _light.transform.SetParent(_lightObject.transform);
-                        _light.transform.SetSiblingIndex(0);
-                        _isControll = true;
-                    });
-            }
-            else
-            {
-                Debug.Log("ライトオブジェクトがありません");
-            }
+        }
+        //※要変更
+        Vector2 origin = this.transform.position;
+        Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
+        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow && _isControll)
+        {
+            this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
         }
     }
 
@@ -65,28 +54,21 @@ public class GhostController : CharacterControllerBase
         if(collision.gameObject.CompareTag("Player"))
         {
             //ここでプレイヤーの右後ろとかに移動させる
-            CharacterManager._instance.Vcam.Follow = CharacterManager._instance.Player.transform;
+            CharacterManager._instance.Vcam.Follow = CharacterManager._instance.Human.transform;
             _isControll = false;    //自分を動かないようにしてプレイヤーを動くようにする
 
-            CharacterManager._instance.Player.IsControll = false;
+            CharacterManager._instance.Human.IsControll = false;
             _col.isTrigger = true;
-            CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            this.transform.DOMove(CharacterManager._instance.Player.GhostMovePos.position, _timeToMove)
+            CharacterManager._instance.Human.Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            this.transform.DOMove(CharacterManager._instance.Human.GhostMovePos.position, _timeToMove)
                 .OnComplete(() =>
                 {
                     _col.isTrigger = false;
-                    CharacterManager._instance.Player.IsControll = true;
+                    CharacterManager._instance.Human.IsControll = true;
                     _isFollow = true;
-                    CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.None;
-                    CharacterManager._instance.Player.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    CharacterManager._instance.Human.Rb.constraints = RigidbodyConstraints2D.None;
+                    CharacterManager._instance.Human.Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 });
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag(_lightTags))
-        {
-            _lightObject = collision.gameObject;
         }
     }
 }
