@@ -69,7 +69,7 @@ public class CharacterControllerBase : MonoBehaviour
         {
             _isStop = true;
             _isControll = false;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll; //SleepÅEAwakeÇ≈Ç‚ÇÈÇ©Ç‡
         }
         else
         {
