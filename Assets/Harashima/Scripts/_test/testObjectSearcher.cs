@@ -12,7 +12,6 @@ public class testObjectSearcher : MonoBehaviour
     /// </summary>
     public void Search(float h,float v)
     {
-        //要変更、ここで光のオブジェクトも判定する
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), 5f, mask);
 
