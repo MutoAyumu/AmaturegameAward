@@ -9,6 +9,8 @@ public class ItemManager : Singleton<ItemManager>
     public GameObject[] Inventry => _inventry;
 
     GameObject[] _UIinventry = new GameObject[4];
+    public GameObject[] UIInventry => _UIinventry;
+
     [SerializeField, Tooltip("インベントリの上限値、基本は４")]
     const int _inventryLimit = 4;
 
@@ -55,5 +57,16 @@ public class ItemManager : Singleton<ItemManager>
         DontDestroyOnLoad(this);
 
         _inventry = new GameObject[_inventryLimit];
+    }
+
+    public void InstanceItem()
+    {
+        for (int i = 0;i<Inventry.Length;i++)
+        {
+            if (_inventry[i])
+            {
+                _UIinventry[i] = Instantiate(_inventry[i], FieldManager.Instance.InventryPanels[i].transform);
+            }
+        }
     }
 }
