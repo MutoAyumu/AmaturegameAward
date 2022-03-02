@@ -36,7 +36,8 @@ public class FieldManager : Singleton<FieldManager>
         if (OnStart != null)
         {
             OnStart();
-        }        
+        }
+        ItemManager.Instance.InstanceItem();
     }
 
 
