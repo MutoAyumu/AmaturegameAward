@@ -13,6 +13,11 @@ public class MovingLightSource : MonoBehaviour
 
     public bool IsOn { get => _isOn; }
 
+    /*ToDo
+        キャストして使う
+        モデル図確認
+    */
+
     private void Start()//後で直す
     {
         IsStartFalse();

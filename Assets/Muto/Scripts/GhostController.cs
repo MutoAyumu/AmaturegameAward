@@ -22,6 +22,10 @@ public class GhostController : CharacterControllerBase
     public Light2D Light { get => _light;}
     public int UpperLimit { get => _upperLimit;}
 
+    /*ToDo
+        幽霊にだけさせることをまとめる
+        モデル図確認
+    */
     public override void OnUpdate()
     {
         //ここでプレイヤーに追従
