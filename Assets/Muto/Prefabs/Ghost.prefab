@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2180339418808880968}
   - component: {fileID: 8141566419074324236}
   - component: {fileID: 9139443380091617235}
+  - component: {fileID: 442976371109552858}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Respawn
@@ -158,8 +159,8 @@ MonoBehaviour:
   _inputButton: Fire1
   _lightTags: Finish
   _light: {fileID: 9139443380091617235}
-  _lightObject: {fileID: 0}
   _upperLimit: 5
+  _searchar: {fileID: 2180339418808880968}
   _lightNum: 0
 --- !u!114 &2180339418808880968
 MonoBehaviour:
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 2
 --- !u!114 &9139443380091617235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 0.3
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -269,3 +270,60 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &442976371109552858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806363073446789937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.088149905, y: -0.4135289, z: 0}
+  - {x: -0.046304703, y: -0.24272655, z: 0}
+  - {x: -0.13785815, y: -0.3097641, z: 0}
+  - {x: -0.18961501, y: -0.17594661, z: 0}
+  - {x: -0.13263285, y: -0.0391855, z: 0}
+  - {x: -0.2447635, y: -0.076090835, z: 0}
+  - {x: -0.17172778, y: -0.012581632, z: 0}
+  - {x: -0.21262622, y: 0.010613546, z: 0}
+  - {x: -0.15143645, y: 0.024619043, z: 0}
+  - {x: -0.08578694, y: 0.06517129, z: 0}
+  - {x: -0.009837627, y: 0.1578156, z: 0}
+  - {x: -0.19843662, y: 0.24105723, z: 0}
+  - {x: -0.13283622, y: 0.2934784, z: 0}
+  - {x: -0.1870383, y: 0.3172398, z: 0}
+  - {x: -0.11592674, y: 0.35773408, z: 0}
+  - {x: -0.13630068, y: 0.41680023, z: 0}
+  - {x: -0.08548987, y: 0.38986194, z: 0}
+  - {x: -0.04254675, y: 0.42378622, z: 0}
+  - {x: 0.071669936, y: 0.4254771, z: 0}
+  - {x: 0.15408838, y: 0.328862, z: 0}
+  - {x: 0.17777085, y: 0.21576464, z: 0}
+  - {x: 0.05034101, y: 0.15870154, z: 0}
+  - {x: 0.06041515, y: 0.110683694, z: 0}
+  - {x: 0.21784377, y: -0.0057861134, z: 0}
+  - {x: 0.20615017, y: -0.024100557, z: 0}
+  - {x: 0.21843374, y: -0.095943876, z: 0}
+  - {x: 0.054858804, y: 0.08211125, z: 0}
+  - {x: 0.059931517, y: 0.028001182, z: 0}
+  - {x: 0.16452873, y: -0.0977063, z: 0}
+  - {x: 0.20011926, y: -0.19836706, z: 0}
+  - {x: 0.12366021, y: -0.2786651, z: 0}
+  - {x: 0.075060606, y: -0.23221269, z: 0}
+  - {x: -0.004450679, y: -0.3994836, z: 0}
+  - {x: 0.01596713, y: -0.21718504, z: 0}
+  m_ShapePathHash: 1539415745
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -259006
