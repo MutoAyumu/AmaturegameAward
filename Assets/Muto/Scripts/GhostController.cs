@@ -12,8 +12,8 @@ public class GhostController : CharacterControllerBase
     [SerializeField] string _inputButton = " ";
     [SerializeField] string _lightTags = " ";
     [SerializeField] Light2D _light = default;
-    [SerializeField] GameObject _lightObject = default;
     [SerializeField, Tooltip("ï€éùÇ≈Ç´ÇÈåıåπÇÃè„å¿")] int _upperLimit = 5;
+    [SerializeField] testObjectSearcher _searchar = default;
     public int _lightNum;
     bool _isFollow;
     float _lastH;
@@ -47,9 +47,13 @@ public class GhostController : CharacterControllerBase
         //Å¶óvïœçX
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
-        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow && _isControll)
+        if (Input.GetButtonDown("Fire2") && !_isFollow && _isControll)
         {
             this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && _searchar)
+        {
+            _searchar.Search(_lastH, _lastV);
         }
     }
 

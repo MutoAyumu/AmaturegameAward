@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _human: {fileID: -4748869756131975811, guid: 362dfdb34764b2b4b901c3e74c2f03a9, type: 3}
   _ghost: {fileID: 8147325970077352387, guid: 2ed137b402ef0934d83c7fdae8ae15e3, type: 3}
-  _inputButton: Shift
+  _inputButton: Jump
   _vcam: {fileID: 0}
   _instancePos:
   - {fileID: 0}
   - {fileID: 0}
+  _lightCountText: {fileID: 0}

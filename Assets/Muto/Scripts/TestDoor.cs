@@ -6,7 +6,7 @@ public class TestDoor : MonoBehaviour, IActivate
 {
     public void Action()
     {
-        this.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
         Debug.Log("ŠJ‚¢‚½");
     }
 }
