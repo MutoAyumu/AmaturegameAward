@@ -36,7 +36,7 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
-        FieldManager.Instance.OnStart += StartInstantiate;
+        StartInstantiate();
     }
     public void StartInstantiate()
     {

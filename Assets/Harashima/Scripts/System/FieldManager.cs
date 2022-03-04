@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class FieldManager : Singleton<FieldManager>
 {
-    /// <summary>スタート時に呼ばれるメソッド</summary>
-    public event Action OnStart;
 
     /// <summary>リザルト時に呼ばれるメソッド</summary>
     public event Action OnClear;
@@ -31,13 +29,8 @@ public class FieldManager : Singleton<FieldManager>
     {
         //テスト用
         OnGameOver += DebugGameOver;
-        OnStart += DebugStart;
         OnClear += DebugClear;
-        //スタートイベントを呼ぶ
-        if (OnStart != null)
-        {
-            OnStart();
-        }
+
         TestItemManager.Instance?.InstanceItem();
         
     }
@@ -78,10 +71,7 @@ public class FieldManager : Singleton<FieldManager>
         _resultPanel.SetActive(true);
         Debug.Log("ゲームオーバー");
     }
-    void DebugStart()
-    {        
-        Debug.Log("スタート");
-    }
+
     void DebugClear()
     {
         _resultPanel.SetActive(true);
