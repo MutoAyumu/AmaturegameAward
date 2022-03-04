@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemChestInterface : MonoBehaviour,IActivate
+public class Chest : MonoBehaviour,IActivate
 {
-    [SerializeField,Tooltip("ドロップするアイテム")]
-    GameObject[] _itemPrefabs;
+    [SerializeField, Tooltip("ドロップするアイテム")]
+    int _dropItemIndex;
+
+    [SerializeField, Tooltip("ドロップする数")]
+    int _dropValue  =1;
 
     [SerializeField, Tooltip("このオブジェクトのアニメーターコンポーネント")]
     Animator _animator;
@@ -17,17 +20,9 @@ public class ItemChestInterface : MonoBehaviour,IActivate
     {
         if (!isOpen)
         {
-            TestItemManager.Instance.AddItem(_itemPrefabs[0]); //アイテム獲得
+            ItemManager.Instance.ItemValueChange(_dropItemIndex, _dropValue);//アイテム獲得
             _animator.SetTrigger("Open");
             isOpen = true; //開いたのでフラグをTrueに
-        }        
+        }
     }
-}
-
-/// <summary>
-/// フィールドオブジェクトの処理を実装するインターフェース
-/// </summary>
-public interface IActivate
-{
-    void Action();
 }
