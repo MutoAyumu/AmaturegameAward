@@ -7,6 +7,11 @@ public class TakeTheLightSource : MonoBehaviour
     [SerializeField, Tooltip("フィールドオブジェクトのレイヤー")]
     LayerMask mask = default;
 
+    /*ToDo
+        if文で余分な部分を減らす
+        モデル図確認
+    */
+
     /// <summary>
     /// 幽霊が目の前にある光源を吸収したり戻したりするための関数
     /// </summary>

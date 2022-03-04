@@ -9,6 +9,7 @@ public class TestMovingBlock : MonoBehaviour
     [SerializeField, Tooltip("IActivate‚ðŒp³‚µ‚½GameObject‚ð“ü‚ê‚é")] GameObject[] _activate = default;
 
     public Rigidbody2D Rb { get => _rb;}
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

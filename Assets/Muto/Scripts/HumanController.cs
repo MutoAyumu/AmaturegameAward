@@ -15,6 +15,9 @@ public class HumanController : CharacterControllerBase
     public Transform GhostMovePos { get => _ghostMovePos; }
     public bool IsSeize { get => isSeize; set => isSeize = value; }
 
+    /*ToDo
+        êlä‘Ç…ÇæÇØÇ≥ÇπÇΩÇ¢Ç±Ç∆ÇÇ±Ç±Ç…Ç‹Ç∆ÇﬂÇÈ
+    */
     public override void OnUpdate()
     {
         if (_fire1 && _attack)

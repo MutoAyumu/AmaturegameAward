@@ -12,8 +12,8 @@ public class GhostController : CharacterControllerBase
     [SerializeField] string _inputButton = " ";
     [SerializeField] string _lightTags = " ";
     [SerializeField] Light2D _light = default;
-    [SerializeField] GameObject _lightObject = default;
     [SerializeField, Tooltip("保持できる光源の上限")] int _upperLimit = 5;
+    [SerializeField] testObjectSearcher _searchar = default;
     public int _lightNum;
     bool _isFollow;
     float _lastH;
@@ -22,6 +22,10 @@ public class GhostController : CharacterControllerBase
     public Light2D Light { get => _light;}
     public int UpperLimit { get => _upperLimit;}
 
+    /*ToDo
+        幽霊にだけさせることをまとめる
+        モデル図確認
+    */
     public override void OnUpdate()
     {
         //ここでプレイヤーに追従
@@ -43,9 +47,13 @@ public class GhostController : CharacterControllerBase
         //※要変更
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
-        if (Input.GetKeyDown(KeyCode.Q) && !_isFollow && _isControll)
+        if (Input.GetButtonDown("Fire2") && !_isFollow && _isControll)
         {
             this.gameObject.GetComponent<TakeTheLightSource>().delivery(_lastH, _lastV);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && _searchar)
+        {
+            _searchar.Search(_lastH, _lastV);
         }
     }
 
