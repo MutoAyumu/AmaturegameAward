@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBase : MonoBehaviour
+public class TestItem : MonoBehaviour
 {
-    [SerializeField]int _itemID;
+    // Start is called before the first frame update
     void Start()
     {
         
