@@ -15,10 +15,10 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnGameOver;
 
     /// <summary>ポーズ時に呼ばれるメソッド</summary>
-    public event Action OnPause;
+    //public event Action OnPause;
 
     /// <summary>再開時に呼ばれるメソッド</summary>
-    public event Action OnResume;
+    //public event Action OnResume;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool _isEnd = false;
@@ -37,7 +37,7 @@ public class FieldManager : Singleton<FieldManager>
         {
             OnStart();
         }
-        ItemManager.Instance.InstanceItem();
+        TestItemManager.Instance.InstanceItem();
     }
 
 
@@ -105,7 +105,7 @@ public class FieldManager : Singleton<FieldManager>
     /// <param name="index"></param>
     public void RemoveItem(int index)
     {
-        ItemManager.Instance.RemoveItem(ItemManager.Instance.Inventry[index]);
-        ItemManager.Instance.AddItem(ItemManager.Instance.LastItem);
+        TestItemManager.Instance.RemoveItem(TestItemManager.Instance.Inventry[index]);
+        TestItemManager.Instance.AddItem(TestItemManager.Instance.LastItem);
     }
 }

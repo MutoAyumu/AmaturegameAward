@@ -3016,6 +3016,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0c9eccf804e61428eca288b1c6b289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventry: []
+  _UIinventry:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  lastTryAddItem: {fileID: 0}
 --- !u!4 &1680753812
 Transform:
   m_ObjectHideFlags: 0
@@ -3040,15 +3047,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1467575732311075113, guid: e84fbea409a4a9d4a8bf34837aaee93d, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.40161088
       objectReference: {fileID: 0}
     - target: {fileID: 1467575732311075113, guid: e84fbea409a4a9d4a8bf34837aaee93d, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.8962264
       objectReference: {fileID: 0}
     - target: {fileID: 1467575732311075113, guid: e84fbea409a4a9d4a8bf34837aaee93d, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.49466676
       objectReference: {fileID: 0}
     - target: {fileID: 1467575732311075114, guid: e84fbea409a4a9d4a8bf34837aaee93d, type: 3}
       propertyPath: m_RootOrder
