@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 580
     height: 634
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 7514
+  controlID: 133
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 7537
+  controlID: 123
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 7538
+  controlID: 124
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -379,22 +379,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Muto/TestScenes
+    - Assets/Muto/Sprites/MapObjects
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Muto/TestScenes
+  - Assets/Muto/Sprites/MapObjects
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\dango\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\Unity\\AmaturegameAward"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 208}
-    m_SelectedIDs: e0720000
-    m_LastClickedID: 29408
-    m_ExpandedIDs: 00000000ee700000f0700000f67000000071000008710000da720000ee7200001873000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 144}
+    m_SelectedIDs: b0720000
+    m_LastClickedID: 29360
+    m_ExpandedIDs: 00000000727000007470000076700000787000007a7000000872000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -422,7 +422,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ee700000f070000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000727000007470000076700000787000007a700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -466,7 +466,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 6}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -552,18 +552,18 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e6fbfbff860cfcff8e41fcffc068fdfff869fdffd06ffdff9471fdff6e72fdffa473fdff5c79fdfff07afdff6a9ffdff12fbfdffc4fffdff222efeffe030feff1232feff8a33feff5667feffee6dfeff007ffeffb08bfeff529efeff18a6feffcefffeff5404ffff243bffffce3effffa672fffff676ffff42fbffff8a9c00008e9c0000ba9c000024a3000012a70000d8ae000068b4000084b800000ec10000d4c2000044c3000018cb0000decc0000beeb0000
+      m_ExpandedIDs: 12fbffffaa6e0000866f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: insect
-        m_OriginalName: insect
+        m_Name: TaruObject
+        m_OriginalName: TaruObject
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -143598
+        m_UserData: 28550
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -823,9 +823,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.0381422, y: -1.817354, z: -0.44912237}
+    m_Target: {x: -0.012217114, y: 2.5511026, z: -0.16415587}
     speed: 2
-    m_Value: {x: -2.9558823, y: -1.9171625, z: -0.4426842}
+    m_Value: {x: 0.014030807, y: 2.3388693, z: -0.1597537}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -876,9 +876,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 14.950934
+    m_Target: 10.222764
     speed: 2
-    m_Value: 14.307115
+    m_Value: 9.782549
   m_Ortho:
     m_Target: 1
     speed: 2
