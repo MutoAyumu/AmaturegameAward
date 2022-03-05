@@ -11,10 +11,16 @@ public class DestructibleItem : MonoBehaviour, IDamage
     int _hp = 1;
     [SerializeField, Tooltip("âÛÇµÇΩÇ∆Ç´Ç…ê∂ê¨Ç∑ÇÈPrefab")]
     GameObject _breakObject;
+    [SerializeField, Tooltip("AudioClip")]
+    AudioClip _audio;
 
     public void Damage()
     {
-        if(--_hp != 0)
+        if (_audio)
+        {
+            SoundManager.Instance.SoundPlay(_audio);
+        }
+        if (--_hp != 0)
         {
             return;
         }

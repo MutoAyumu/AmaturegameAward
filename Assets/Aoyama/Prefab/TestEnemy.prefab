@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHp: 2
   _deathPrefab: {fileID: 0}
+  _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}
   _enemyMove: {fileID: 1008040005887965873}
 --- !u!114 &1781768050828417989
 MonoBehaviour:
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackCol: {fileID: 2168216998247988029}
   _attackTime: 3
+  _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 1008040005887965875}
 --- !u!50 &1008040005887965875
 Rigidbody2D:
@@ -146,8 +148,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6792453, g: 0, b: 0.6050856, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9277a477a94a4214e908e302609c302c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

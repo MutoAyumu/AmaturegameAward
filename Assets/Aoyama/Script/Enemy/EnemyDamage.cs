@@ -15,6 +15,9 @@ public class EnemyDamage : MonoBehaviour, IDamage
     [SerializeField, Tooltip("死んだときのプレハブ")]
     GameObject _deathPrefab;
 
+    [SerializeField, Tooltip("AudioClip")]
+    AudioClip _audio;
+
     [Header("とりあえず参照したいやつ")]
     [SerializeField] EnemyMove _enemyMove;
 
@@ -40,6 +43,10 @@ public class EnemyDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
+        if(_audio)
+        {
+            SoundManager.Instance.SoundPlay(_audio);
+        }
         Debug.Log("EnemyDeathが呼び出された");
         Destroy(gameObject);
 
