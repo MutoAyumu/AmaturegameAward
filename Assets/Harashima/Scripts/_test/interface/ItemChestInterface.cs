@@ -10,6 +10,9 @@ public class ItemChestInterface : MonoBehaviour,IActivate
     [SerializeField, Tooltip("このオブジェクトのアニメーターコンポーネント")]
     Animator _animator;
 
+    [SerializeField, Tooltip("アイテムを使う時のSE")]
+    AudioClip[] _audios;
+
     /// <summary>この宝箱が既に開いているかを判定するフラグ</summary>
     bool isOpen = false;
 
