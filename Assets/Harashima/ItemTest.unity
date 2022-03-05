@@ -6011,6 +6011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHp: 2
   _deathPrefab: {fileID: 0}
+  _audio: {fileID: 0}
   _enemyMove: {fileID: 2567091424393355929}
 --- !u!114 &2567091424393355929
 MonoBehaviour:
@@ -6262,6 +6263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackCol: {fileID: 3479715538340913941}
   _attackTime: 1
+  _audio: {fileID: 0}
   _rb: {fileID: 2567091424393355931}
 --- !u!212 &4640479772480918322
 SpriteRenderer:
@@ -6344,6 +6346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 1
   _breakObject: {fileID: 6183506413938806934, guid: af077796bfda1c741abbf4e251af26a0, type: 3}
+  _audio: {fileID: 0}
 --- !u!1 &5675785867389614984
 GameObject:
   m_ObjectHideFlags: 0
@@ -6934,6 +6937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackCol: {fileID: 7844774265045283117}
   _attackTime: 1
+  _audio: {fileID: 0}
   _rb: {fileID: 9166081388065796259}
 --- !u!61 &7844774265045283117
 BoxCollider2D:
@@ -7060,6 +7064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHp: 2
   _deathPrefab: {fileID: 0}
+  _audio: {fileID: 0}
   _enemyMove: {fileID: 9166081388065796257}
 --- !u!114 &9166081388065796257
 MonoBehaviour:
