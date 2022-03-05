@@ -101,6 +101,8 @@ MonoBehaviour:
   _itemPrefabs:
   - {fileID: 9052384470035571895, guid: ec398f9ad85a67b4596684ced11adf16, type: 3}
   _animator: {fileID: 5752584991966525604}
+  _audios:
+  - {fileID: 8300000, guid: 5aecb1901efa23942a5336fa654b0967, type: 3}
 --- !u!95 &5752584991966525604
 Animator:
   serializedVersion: 4

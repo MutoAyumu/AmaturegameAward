@@ -112,7 +112,7 @@ public class FieldManager : Singleton<FieldManager>
         }
         else if(Input.GetKeyDown(KeyCode.X))
         {
-            ItemManager.Instance.UseItem(1);
+            ItemManager.Instance.UseItem(1);    
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
