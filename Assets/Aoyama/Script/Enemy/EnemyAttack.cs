@@ -8,6 +8,8 @@ public class EnemyAttack : MonoBehaviour
     Collider2D _attackCol;
     [SerializeField, Tooltip("UŒ‚‚·‚é‚Ü‚Å‚ÌŠÔ")]
     float _attackTime = 1;
+    [SerializeField, Tooltip("AudioClip")]
+    AudioClip _audio;
     [Header("‚Æ‚è‚ ‚¦‚¸QÆ‚µ‚½‚¢‚â‚Â")]
     [SerializeField]
     Rigidbody2D _rb;
@@ -43,6 +45,11 @@ public class EnemyAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        if(_audio)
+        {
+            SoundManager.Instance.SoundPlay(_audio);
+        }
+
         Debug.Log($"{gameObject.name}‚ÌUŒ‚");
         //[ToDo] ContactFilter2D‚ğSerialize‚·‚é‚±‚Æ‚ÅLayerMask‚ğw’è‚Å‚«‚é‚Ì‚ÅA—]—T‚ª‚ ‚ê‚Î‚·‚é
         _count = _attackCol.OverlapCollider(_filter, _result);
