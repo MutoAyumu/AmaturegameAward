@@ -2,71 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 二つ目の仕様のアイテムマネージャー
+/// </summary>
 public class ItemManager : Singleton<ItemManager>
 {
-    /// <summary> 獲得アイテムを格納するリスト</summary>
-    GameObject[] _inventry ;
-    public GameObject[] Inventry => _inventry;
+    [SerializeField,Tooltip("アイテムの種類を保存した配列")]
+    ItemBase[] _items = new ItemBase[4];
 
-    GameObject[] _UIinventry = new GameObject[4];
-    public GameObject[] UIInventry => _UIinventry;
+    [SerializeField, Tooltip("一つのアイテムを持てる上限")]
+    int _itemLimit = 99;
 
-    [SerializeField, Tooltip("インベントリの上限値、基本は４")]
-    const int _inventryLimit = 4;
+    /// <summary>アイテムをいくつ持っているかの配列</summary>
+    int[] _inventry = new int[4];
+    bool[] _first = new bool[4];
 
-    GameObject lastTryAddItem;
-    public GameObject LastItem => lastTryAddItem;
     /// <summary>
-    /// インベントリにアイテムを入れる関数
+    /// アイテムの数を変化させる関数
     /// </summary>
-    /// <param name="item"></param>
-    public void AddItem(GameObject item)
+    /// <param name="index">追加するアイテムの添え字</param>
+    /// <param name="value">追加する数</param>
+    public void ItemValueChange(int index,int value)
     {
-        lastTryAddItem = item;
-        for(int i = 0;i< _inventry.Length;i++)
+        //最初はアイテムを生成
+        if(!_first[index])
         {
-            if(!_inventry[i])
-            {
-                //UI上のインベントリに生成
-                _UIinventry[i] =  Instantiate(item,FieldManager.Instance.InventryPanels[i].transform);
-                _inventry[i] = item;
-                Debug.Log($"{item}を手に入れた");
-                return;
-            }
+            _first[index] = true;
+            FieldManager.Instance.FirstGet(index);
         }
-        //インベントリがいっぱいのとき
-        FieldManager.Instance.ChoiceActive(true);
+        //0以上、上限以下の数に収める
+        _inventry[index] = Mathf.Clamp(_inventry[index]+value,0,_itemLimit);
+
+        //UI上のTextも変更
+        FieldManager.Instance.ChangeTextValue(index, _inventry[index]);
     }
 
-    public void RemoveItem(GameObject item)
+    public void UseItem(int index)
     {
-        for (int i = 0; i < _inventry.Length; i++)
+        if(_inventry[index]>0)
         {
-            if (_inventry[i] == item)
-            {
-                Destroy(_UIinventry[i]); 
-                _inventry[i] = null;
-                return;
-            }
-        }
+            _items[index].Use();
+        }        
     }
 
+    private void Start()
+    {
+        //UI上のテキストを0で初期化する
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    FieldManager.Instance.ChangeTextValue(i, 0);
+        //}
+    }
     protected override void OnAwake()
     {
-        //シーンが切り替わっても値が保持されるように
         DontDestroyOnLoad(this);
-
-        _inventry = new GameObject[_inventryLimit];
-    }
-
-    public void InstanceItem()
-    {
-        for (int i = 0;i<Inventry.Length;i++)
-        {
-            if (_inventry[i])
-            {
-                _UIinventry[i] = Instantiate(_inventry[i], FieldManager.Instance.InventryPanels[i].transform);
-            }
-        }
     }
 }

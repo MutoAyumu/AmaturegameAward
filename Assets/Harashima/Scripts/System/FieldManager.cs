@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FieldManager : Singleton<FieldManager>
 {
-    /// <summary>スタート時に呼ばれるメソッド</summary>
-    public event Action OnStart;
 
     /// <summary>リザルト時に呼ばれるメソッド</summary>
     public event Action OnClear;
@@ -15,10 +14,10 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnGameOver;
 
     /// <summary>ポーズ時に呼ばれるメソッド</summary>
-    public event Action OnPause;
+    //public event Action OnPause;
 
     /// <summary>再開時に呼ばれるメソッド</summary>
-    public event Action OnResume;
+    //public event Action OnResume;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool _isEnd = false;
@@ -30,14 +29,10 @@ public class FieldManager : Singleton<FieldManager>
     {
         //テスト用
         OnGameOver += DebugGameOver;
-        OnStart += DebugStart;
         OnClear += DebugClear;
-        //スタートイベントを呼ぶ
-        if (OnStart != null)
-        {
-            OnStart();
-        }
-        ItemManager.Instance.InstanceItem();
+
+        TestItemManager.Instance?.InstanceItem();
+        
     }
 
 
@@ -52,6 +47,7 @@ public class FieldManager : Singleton<FieldManager>
             }            
             _isEnd = true;
         }
+        ItemInput();
     }
 
 
@@ -75,19 +71,61 @@ public class FieldManager : Singleton<FieldManager>
         _resultPanel.SetActive(true);
         Debug.Log("ゲームオーバー");
     }
-    void DebugStart()
-    {        
-        Debug.Log("スタート");
-    }
+
     void DebugClear()
     {
         _resultPanel.SetActive(true);
         Debug.Log("クリア");
     }
-    [SerializeField]
+
+    //以下仕様の試作
+    [SerializeField,Tooltip("アイテムを表示するパネル")]
     GameObject[] _inventryPanels;
     public GameObject[] InventryPanels => _inventryPanels;
 
+    [SerializeField, Tooltip("アイテムを表示するイメージ")]
+    GameObject[] _inventryImage;
+
+    [SerializeField,Tooltip("アイテムの個数を表示するUIText")]
+    Text[] _texts;
+    public Text[] Texts => _texts;
+
+    public void ChangeTextValue(int index,int value)
+    {
+        _texts[index].text = value.ToString();
+    }
+
+    public void FirstGet(int index)
+    {
+        _inventryImage[index].SetActive(true);
+        _texts[index].gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// デバッグ用。インプットを受け取る関数（仮）
+    /// </summary>
+    void ItemInput()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            ItemManager.Instance.UseItem(0);
+        }
+        else if(Input.GetKeyDown(KeyCode.X))
+        {
+            ItemManager.Instance.UseItem(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            ItemManager.Instance.UseItem(2);
+        }
+        else if(Input.GetKeyDown(KeyCode.V))
+        {
+            ItemManager.Instance.UseItem(3);
+        }
+    }
+
+
+    //以下はα版のアイテムの仕様
     [SerializeField]
     GameObject _inventryButton;
 
@@ -105,7 +143,7 @@ public class FieldManager : Singleton<FieldManager>
     /// <param name="index"></param>
     public void RemoveItem(int index)
     {
-        ItemManager.Instance.RemoveItem(ItemManager.Instance.Inventry[index]);
-        ItemManager.Instance.AddItem(ItemManager.Instance.LastItem);
+        TestItemManager.Instance.RemoveItem(TestItemManager.Instance.Inventry[index]);
+        TestItemManager.Instance.AddItem(TestItemManager.Instance.LastItem);
     }
 }

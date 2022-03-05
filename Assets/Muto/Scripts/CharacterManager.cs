@@ -19,6 +19,9 @@ public class CharacterManager : MonoBehaviour
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountText { get => _lightCountText;}
 
+    /*ToDo
+        RigidbodyConstraints2D‚¶‚á‚È‚­‚ÄSleep‚Æ‚©‚É‚·‚é‚©‚à
+    */
     private void Awake()
     {
         if(_instance)
@@ -33,7 +36,7 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
-        FieldManager.Instance.OnStart += StartInstantiate;
+        StartInstantiate();
     }
     public void StartInstantiate()
     {

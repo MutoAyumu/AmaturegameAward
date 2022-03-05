@@ -7,10 +7,17 @@ public class HumanController : CharacterControllerBase
     [SerializeField] Transform _ghostMovePos = default;
     [SerializeField] PlayerAttack _attack = default;
     [SerializeField] Animator _anim = default;
+    [SerializeField] TestMoveTheBlocks _moveTheBlocks = default;
+    [SerializeField] testObjectSearcher _searchar = default;
     float _lastH;
     float _lastV;
+    bool isSeize;
     public Transform GhostMovePos { get => _ghostMovePos; }
+    public bool IsSeize { get => isSeize; set => isSeize = value; }
 
+    /*ToDo
+        人間にだけさせたいことをここにまとめる
+    */
     public override void OnUpdate()
     {
         if (_fire1 && _attack)
@@ -32,9 +39,23 @@ public class HumanController : CharacterControllerBase
         //※要変更
         Vector2 origin = this.transform.position;
         Debug.DrawLine(origin, origin + new Vector2(_lastH, _lastV), Color.red);
-        if (Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetButtonDown("Fire2") && !CharacterManager._instance.Ghost.IsFollow && !isSeize && CharacterManager._instance.Human.IsControll)
         {
-            this.gameObject.GetComponent<testObjectSearcher>().Search(_lastH, _lastV);
+            _moveTheBlocks.Seize(_lastH, _lastV);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && _searchar)
+        {
+            _searchar.Search(_lastH, _lastV);
+        }
+        else if(Input.GetButton("Fire2") && _moveTheBlocks && !CharacterManager._instance.Ghost.IsFollow && isSeize && CharacterManager._instance.Human.IsControll)  //この辺の入力に関してはベースのほうで管理する予定
+        {
+            _moveTheBlocks.Move(_h, _v);
+        }
+
+        if (Input.GetButtonUp("Fire2") && !CharacterManager._instance.Ghost.IsFollow && isSeize && CharacterManager._instance.Human.IsControll)
+        {
+            _moveTheBlocks.Separate();
         }
     }
 }

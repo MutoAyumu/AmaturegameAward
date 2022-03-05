@@ -16,6 +16,10 @@ public class CharacterControllerBase : MonoBehaviour
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
+    /*ToDo
+        •Ï”–¼‚ğŒ©’¼‚·
+        “ü—Í‚ğBase‚É‚Ü‚Æ‚ß‚é
+    */
     void Update()
     {
         if (_isControll)
@@ -69,7 +73,7 @@ public class CharacterControllerBase : MonoBehaviour
         {
             _isStop = true;
             _isControll = false;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll; //SleepEAwake‚Å‚â‚é‚©‚à
         }
         else
         {
