@@ -8,6 +8,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected float _speed = 3.0f;
     [SerializeField]protected bool _isControll = false;
     [SerializeField] string _endTag = "Finish";
+    [SerializeField] GameObject _audio = default;
     
     protected float _h = default;
     protected float _v = default;
@@ -19,6 +20,7 @@ public class CharacterControllerBase : MonoBehaviour
     /*ToDo
         変数名を見直す
         入力をBaseにまとめる
+        足音を出すときにオブジェクトをオンオフしているのをアニメーションイベントでやる
     */
     void Update()
     {
@@ -59,6 +61,15 @@ public class CharacterControllerBase : MonoBehaviour
     {
         Vector2 dir = new Vector2(h, v).normalized;
         _rb.velocity = _speed * dir;
+
+        if(_audio && dir != Vector2.zero)
+        {
+            _audio.SetActive(true);
+        }
+        else
+        {
+            _audio.SetActive(false);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
