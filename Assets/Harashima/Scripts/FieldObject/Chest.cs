@@ -13,6 +13,9 @@ public class Chest : MonoBehaviour,IActivate
     [SerializeField, Tooltip("このオブジェクトのアニメーターコンポーネント")]
     Animator _animator;
 
+    [SerializeField, Tooltip("アイテムを使う時のSE")]
+    AudioClip[] _audios;
+
     /// <summary>この宝箱が既に開いているかを判定するフラグ</summary>
     bool isOpen = false;
 
@@ -20,7 +23,8 @@ public class Chest : MonoBehaviour,IActivate
     {
         if (!isOpen)
         {
-            ItemManager.Instance.ItemValueChange(_dropItemIndex, _dropValue);//アイテム獲得
+            ItemManager.Instance.ItemValueChange(_dropItemIndex, _dropValue);//アイテム獲得                                                                             
+            SoundManager.Instance.SoundPlay(_audios[0]);//音鳴らす
             _animator.SetTrigger("Open");
             isOpen = true; //開いたのでフラグをTrueに
         }

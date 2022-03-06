@@ -101,26 +101,39 @@ public class FieldManager : Singleton<FieldManager>
         _texts[index].gameObject.SetActive(true);
     }
 
+    float _timer = 1f;
+    [SerializeField]
+    float _timeInterval = 1f;
     /// <summary>
     /// デバッグ用。インプットを受け取る関数（仮）
     /// </summary>
     void ItemInput()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        _timer += Time.deltaTime;
+        float h = Input.GetAxis("Debug Horizontal");
+        float v = Input.GetAxis("Debug Vertical");
+        if(_timer > _timeInterval)
         {
-            ItemManager.Instance.UseItem(0);
-        }
-        else if(Input.GetKeyDown(KeyCode.X))
-        {
-            ItemManager.Instance.UseItem(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            ItemManager.Instance.UseItem(2);
-        }
-        else if(Input.GetKeyDown(KeyCode.V))
-        {
-            ItemManager.Instance.UseItem(3);
+            if (Input.GetKeyDown(KeyCode.Z) || v > 0)
+            {
+                ItemManager.Instance.UseItem(0);
+                _timer = 0f;
+            }
+            else if (Input.GetKeyDown(KeyCode.X) || h > 0)
+            {
+                ItemManager.Instance.UseItem(1);
+                _timer = 0f;
+            }
+            else if (Input.GetKeyDown(KeyCode.C) || v < 0)
+            {
+                ItemManager.Instance.UseItem(2);
+                _timer = 0f;
+            }
+            else if (Input.GetKeyDown(KeyCode.V) || h < 0)
+            {
+                ItemManager.Instance.UseItem(3);
+                _timer = 0f;
+            }            
         }
     }
 

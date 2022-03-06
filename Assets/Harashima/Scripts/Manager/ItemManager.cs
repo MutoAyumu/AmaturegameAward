@@ -17,6 +17,9 @@ public class ItemManager : Singleton<ItemManager>
     int[] _inventry = new int[4];
     bool[] _first = new bool[4];
 
+    [SerializeField, Tooltip("アイテムを使う時のSE")]
+    AudioClip[] _audios;
+
     /// <summary>
     /// アイテムの数を変化させる関数
     /// </summary>
@@ -42,6 +45,7 @@ public class ItemManager : Singleton<ItemManager>
         if(_inventry[index]>0)
         {
             _items[index].Use();
+            SoundManager.Instance.SoundPlay(_audios[0]);
         }        
     }
 
