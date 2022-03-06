@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class GhostController : CharacterControllerBase
 {
-    bool together = default;
+    bool _isFixedRange = default;
 
-    public bool Together { get => together; set => together = value; }
+    public bool IsFixedRange { get => _isFixedRange; set => _isFixedRange = value; }
 
     public override void OnUpdate()
     {
         
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player") && !_isFixedRange)
+        {
+            _isFixedRange = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            _isFixedRange = false;
+        }
     }
 }

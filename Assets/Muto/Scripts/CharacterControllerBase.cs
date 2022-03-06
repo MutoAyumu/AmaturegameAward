@@ -7,6 +7,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] Animator _anim = default;
+    [SerializeField] SpriteRenderer _mainSprite = default;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
 
@@ -16,6 +17,7 @@ public class CharacterControllerBase : MonoBehaviour
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
+    public SpriteRenderer MainSprite { get => _mainSprite;}
 
     private void Update()
     {
@@ -105,7 +107,14 @@ public class CharacterControllerBase : MonoBehaviour
     /// </summary>
     public void Stop()
     {
-        
+        if(_rb)
+        {
+            _rb.Sleep();
+        }
+        else
+        {
+            Debug.LogError("Rigidbody2Dがありません");
+        }
     }
     /// <summary>
     /// 最後に向いている方向を返す関数

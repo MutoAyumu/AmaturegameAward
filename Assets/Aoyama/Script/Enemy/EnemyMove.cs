@@ -34,8 +34,8 @@ public class EnemyMove : MonoBehaviour
             return;
         }
 
-        _player = CharacterManager._instance.Human;
-        _ghost = CharacterManager._instance.Ghost;
+        _player = CharacterManager.Instance.Human;
+        _ghost = CharacterManager.Instance.Ghost;
 
         _target = PlayerPosition();
 
