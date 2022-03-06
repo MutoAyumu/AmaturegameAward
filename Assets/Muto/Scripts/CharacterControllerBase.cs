@@ -6,6 +6,7 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] string _endAreaTag = "Finish";
+    [SerializeField] Animator _anim = default;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
 
