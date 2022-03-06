@@ -14,8 +14,8 @@ public class CharacterControllerBase : MonoBehaviour
     [Tooltip("最後に入力された縦方向の値")] protected float _v = default;
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
 
-    protected bool IsControll { get => _isControll; set => _isControll = value; }
-    protected Rigidbody2D Rb { get => _rb; set => _rb = value; }
+    public bool IsControll { get => _isControll; set => _isControll = value; }
+    public Rigidbody2D Rb { get => _rb; set => _rb = value; }
 
     private void Update()
     {
@@ -106,5 +106,13 @@ public class CharacterControllerBase : MonoBehaviour
     public void Stop()
     {
         
+    }
+    /// <summary>
+    /// 最後に向いている方向を返す関数
+    /// </summary>
+    /// <returns></returns>
+    public Vector2 ReturnTheDirection()
+    {
+        return new Vector2(_h, _v);
     }
 }
