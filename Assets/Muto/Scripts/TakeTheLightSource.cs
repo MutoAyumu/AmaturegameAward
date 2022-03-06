@@ -19,20 +19,20 @@ public class TakeTheLightSource : MonoBehaviour
     /// <param name="v"></param>
     public void delivery(float h, float v)
     {
-        //要変更、ここで光のオブジェクトも判定する
-        Vector2 origin = this.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), 5f, mask);
-        var light = hit.collider?.GetComponent<MovingLightSource>();
+        ////要変更、ここで光のオブジェクトも判定する
+        //Vector2 origin = this.transform.position;
+        //RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), 5f, mask);
+        //var light = hit.collider?.GetComponent<MovingLightSource>();
 
-        if (hit.collider && light.IsOn && CharacterManager._instance.Ghost._lightNum < CharacterManager._instance.Ghost.UpperLimit)
-        {
-            CharacterManager._instance.Ghost.Stop();
-            light.IsMoving();
-        }
-        else if (hit.collider && !light.IsOn && CharacterManager._instance.Ghost._lightNum > 0)
-        {
-            CharacterManager._instance.Ghost.Stop();
-            light.IsMoving();
-        }
+        //if (hit.collider && light.IsOn && CharacterManager.Instance.Ghost._lightNum < CharacterManager.Instance.Ghost.UpperLimit)
+        //{
+        //    CharacterManager.Instance.Ghost.Stop();
+        //    light.IsMoving();
+        //}
+        //else if (hit.collider && !light.IsOn && CharacterManager.Instance.Ghost._lightNum > 0)
+        //{
+        //    CharacterManager.Instance.Ghost.Stop();
+        //    light.IsMoving();
+        //}
     }
 }
