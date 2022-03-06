@@ -36290,7 +36290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dropItemIndex: 1
-  _dropValue: 1
+  _dropValue: 5
   _animator: {fileID: 5752584990946726192}
   _audios:
   - {fileID: 8300000, guid: 5aecb1901efa23942a5336fa654b0967, type: 3}
