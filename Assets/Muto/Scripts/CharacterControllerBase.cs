@@ -4,94 +4,106 @@ using UnityEngine;
 
 public class CharacterControllerBase : MonoBehaviour
 {
-    [SerializeField] protected Rigidbody2D _rb;
-    [SerializeField] protected float _speed = 3.0f;
-    [SerializeField]protected bool _isControll = false;
-    [SerializeField] string _endTag = "Finish";
-    [SerializeField] GameObject _audio = default;
-    
-    protected float _h = default;
-    protected float _v = default;
-    protected bool _fire1 = default;
-    bool _isStop;
-    public bool IsControll { get => _isControll; set => _isControll = value; }
-    public Rigidbody2D Rb { get => _rb; set => _rb = value; }
+    [SerializeField] protected Rigidbody2D _rb = default;
+    [SerializeField] string _endAreaTag = "Finish";
+    [Header("操作キャラのパラメーター"), Space(10)]
+    [SerializeField] protected float _moveSpeed = 3.0f;
 
-    /*ToDo
-        変数名を見直す
-        入力をBaseにまとめる
-        足音を出すときにオブジェクトをオンオフしているのをアニメーションイベントでやる
-    */
-    void Update()
+    [Tooltip("最後に入力された横方向の値")]protected float _h = default;
+    [Tooltip("最後に入力された縦方向の値")] protected float _v = default;
+    [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
+
+    protected bool IsControll { get => _isControll; set => _isControll = value; }
+    protected Rigidbody2D Rb { get => _rb; set => _rb = value; }
+
+    private void Update()
     {
-        if (_isControll)
+        if(_isControll)
         {
-            InputValue();
-            InputFire();
-            Move(_h, _v);
+            Move(InputValueH(), InputValueV());
         }
 
         OnUpdate();
     }
+    /// <summary>
+    /// 派生先で使うUpdate
+    /// </summary>
     public virtual void OnUpdate()
     {
+        
+    }
+    /// <summary>
+    /// 横移動入力を受ける関数
+    /// </summary>
+    protected float InputValueH()
+    {
+        var h = Input.GetAxisRaw("Horizontal");
 
+        if(h != 0)//入力された値を保存しておく
+        {
+            _h = h;
+        }
+
+        return h;
     }
     /// <summary>
-    /// 移動の入力を受け取る為の関数
+    /// 縦移動入力を受ける関数
     /// </summary>
-    protected void InputValue()
+    /// <returns></returns>
+    protected float InputValueV()
     {
-        _h = Input.GetAxisRaw("Horizontal");
-        _v = Input.GetAxisRaw("Vertical");
+        var v = Input.GetAxisRaw("Vertical");
+
+        if (v != 0)//入力された値を保存しておく
+        {
+            _v = v;
+        }
+
+        return v;
     }
     /// <summary>
-    /// クリック入力を受け取る為の関数
+    /// ボタンが押されたかを返す関数
     /// </summary>
-    protected void InputFire()
+    /// <param name="button"></param>
+    /// <returns></returns>
+    protected bool InputButtonDown(string button)
     {
-        _fire1 = Input.GetButtonDown("Fire1");
+        if(Input.GetButtonDown(button))
+        {
+            return true;
+        }
+
+        return false;
     }
     /// <summary>
-    /// 移動用の関数
+    /// ボタンが押されているかを返す関数
+    /// </summary>
+    /// <param name="button"></param>
+    /// <returns></returns>
+    protected bool InputButton(string button)
+    {
+        if (Input.GetButtonDown(button))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    /// <summary>
+    /// 操作キャラを動かす関数
     /// </summary>
     /// <param name="h"></param>
     /// <param name="v"></param>
     protected void Move(float h, float v)
     {
-        Vector2 dir = new Vector2(h, v).normalized;
-        _rb.velocity = _speed * dir;
-
-        if(_audio && dir != Vector2.zero)
-        {
-            _audio.SetActive(true);
-        }
-        else
-        {
-            _audio.SetActive(false);
-        }
+        var dir = new Vector2(h, v).normalized;
+        _rb.velocity = dir * _moveSpeed;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag(_endTag))
-        {
-            FieldManager.Instance.Clear();
-        }
-    }
+    /// <summary>
+    /// 操作キャラを止める関数
+    /// </summary>
     public void Stop()
     {
-        if (!_isStop)
-        {
-            _isStop = true;
-            _isControll = false;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll; //Sleep・Awakeでやるかも
-        }
-        else
-        {
-            _isStop = false;
-            _isControll = true;
-            _rb.constraints = RigidbodyConstraints2D.None;
-            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+        
     }
 }
