@@ -18,6 +18,8 @@ public class EnemyMove : MonoBehaviour
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] Rigidbody2D _rb;
 
+    public Transform Decoy = null;
+
     Vector3 _target;
     CharacterControllerBase _player;
     CharacterControllerBase _ghost;
@@ -25,8 +27,9 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
-
+        EnemyManager.Instance.EnemyGrp.Add(gameObject);
     }
+
     void FixedUpdate()
     {
         if (_isPause == true)
@@ -67,6 +70,12 @@ public class EnemyMove : MonoBehaviour
     /// <returns></returns>
     Vector3 PlayerPosition()
     {
+        if (Decoy != null)
+        {
+            Debug.DrawLine(transform.position, Decoy.position);
+            return Decoy.position;
+        }
+
         player1 = _player.transform.position;
         Debug.DrawLine(transform.position, player1);
         float isHit1 = Vector3.Distance(transform.position, player1);
@@ -95,6 +104,16 @@ public class EnemyMove : MonoBehaviour
     {
         dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
+    }
+
+    public void SetDecoy(Transform vec)
+    {
+        Decoy = vec;
+    }
+
+    public void ResetDecoy()
+    {
+        Decoy = null;
     }
 
     public void Pause()

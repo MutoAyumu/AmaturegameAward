@@ -6,18 +6,28 @@ using UnityEngine;
 /// <summary>
 /// Enemy‚ÌOnOff‚ğŠÇ—‚·‚éƒNƒ‰ƒX
 /// </summary>
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Singleton<EnemyManager>
 {
-    [SerializeField, Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy")]
-    GameObject[] _enemyGrp;
+    [Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy")]
+    public List<GameObject> EnemyGrp;
 
     public void Pause()
     {
-        Array.ForEach(_enemyGrp, go => go.GetComponent<EnemyMove>().Pause());
+        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().Pause());
     }
 
     public void Resume()
     {
-        Array.ForEach(_enemyGrp, go => go.GetComponent<EnemyMove>().Resume());
+        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().Resume());
+    }
+
+    public void SetTarget(Transform tr)
+    {
+        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().SetDecoy(tr));
+    }
+
+    public void ResetTarget()
+    {
+        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().ResetDecoy());
     }
 }
