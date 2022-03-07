@@ -15,7 +15,10 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected float _moveSpeed = 3.0f;
 
     [Tooltip("最後に入力された横方向の値")]protected float _lh = default;
+    public float InputH => _lh;
     [Tooltip("最後に入力された縦方向の値")] protected float _lv = default;
+    public float InputV => _lv;
+
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
 
     float _h = default;

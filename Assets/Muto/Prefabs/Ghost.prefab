@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 7780111096429971617}
   - component: {fileID: 415972340752617082}
   - component: {fileID: 3965599741290060843}
+  - component: {fileID: 2727895765786533037}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -294,7 +295,7 @@ MonoBehaviour:
   _endAreaTag: Finish
   _anim: {fileID: 0}
   _mainSprite: {fileID: 4382527022179636378}
-  _searchar: {fileID: 0}
+  _searchar: {fileID: 2727895765786533037}
   _inputSearchar: Fire1
   _rayLenght: 1
   _moveSpeed: 3
@@ -325,3 +326,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2727895765786533037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780111096429971619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb2d225f0639f641b560364e1636f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16
