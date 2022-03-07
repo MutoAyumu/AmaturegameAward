@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.Universal;
 
-public class MovingLightSource : MonoBehaviour
+public class TestMovingLightSource : MonoBehaviour
 {
     [SerializeField] Light2D _light = default;
     [SerializeField] float _time = 0.5f;

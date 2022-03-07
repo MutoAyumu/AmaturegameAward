@@ -153,9 +153,11 @@ MonoBehaviour:
   _endAreaTag: Finish
   _anim: {fileID: 0}
   _mainSprite: {fileID: 4346157909462227067}
+  _searchar: {fileID: 0}
+  _inputSearchar: Fire1
+  _rayLenght: 1
   _moveSpeed: 3
   _attack: {fileID: 0}
-  _searchar: {fileID: 0}
   _push: {fileID: 0}
   _attackButtonName: Fire1
   _ghostSetPos: {fileID: 7717027440802397364}
