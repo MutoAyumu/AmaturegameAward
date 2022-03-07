@@ -8,12 +8,18 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
+    [SerializeField] ObjectSearcher _searchar = default;
+    [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire1";
+    [SerializeField, Tooltip("Rayの長さ")] protected float _rayLenght = 1f;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
 
-    [Tooltip("最後に入力された横方向の値")]protected float _h = default;
-    [Tooltip("最後に入力された縦方向の値")] protected float _v = default;
+    [Tooltip("最後に入力された横方向の値")]protected float _lh = default;
+    [Tooltip("最後に入力された縦方向の値")] protected float _lv = default;
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
+
+    float _h = default;
+    float _v = default;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
@@ -23,7 +29,15 @@ public class CharacterControllerBase : MonoBehaviour
     {
         if(_isControll)
         {
-            Move(InputValueH(), InputValueV());
+            InputValue();
+            Move(_h, _v);
+
+            if(InputButtonDown(_inputSearchar) && _searchar)
+            {
+                Vector2 origin = this.transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLenght, _searchar.Layer);
+                _searchar.Search(_lh, _lv, hit);
+            }
         }
 
         OnUpdate();
@@ -36,33 +50,23 @@ public class CharacterControllerBase : MonoBehaviour
         
     }
     /// <summary>
-    /// 横移動入力を受ける関数
+    /// 移動入力を受ける関数
     /// </summary>
-    protected float InputValueH()
+    protected void InputValue()
     {
-        var h = Input.GetAxisRaw("Horizontal");
+        _h = Input.GetAxisRaw("Horizontal");
+        _v = Input.GetAxisRaw("Vertical");
 
-        if(h != 0)//入力された値を保存しておく
+        if (_h != 0 || _v != 0)
         {
-            _h = h;
+            if (_lh != _h || _lv != _v)
+            {
+                _lh = _h;
+                _lv = _v;
+                Debug.Log(_lh);
+                Debug.Log(_lv);
+            }
         }
-
-        return h;
-    }
-    /// <summary>
-    /// 縦移動入力を受ける関数
-    /// </summary>
-    /// <returns></returns>
-    protected float InputValueV()
-    {
-        var v = Input.GetAxisRaw("Vertical");
-
-        if (v != 0)//入力された値を保存しておく
-        {
-            _v = v;
-        }
-
-        return v;
     }
     /// <summary>
     /// ボタンが押されたかを返す関数
@@ -122,6 +126,6 @@ public class CharacterControllerBase : MonoBehaviour
     /// <returns></returns>
     public Vector2 ReturnTheDirection()
     {
-        return new Vector2(_h, _v);
+        return new Vector2(_lh, _lv);
     }
 }
