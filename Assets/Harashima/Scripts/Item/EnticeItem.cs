@@ -15,13 +15,13 @@ public class EnticeItem : ItemBase
     public override void Use()
     {
         //¶¬‚·‚é
-        if(CharacterManager._instance.Ghost.IsControll)
+        if(CharacterManager.Instance.Ghost.IsControll)
         {
-            _instans = Instantiate(_instansItem, CharacterManager._instance.Ghost.transform.position,Quaternion.identity);
+            _instans = Instantiate(_instansItem, CharacterManager.Instance.Ghost.transform.position,Quaternion.identity);
         }
         else
         {
-            _instans = Instantiate(_instansItem, CharacterManager._instance.Human.transform.position, Quaternion.identity);
+            _instans = Instantiate(_instansItem, CharacterManager.Instance.Human.transform.position, Quaternion.identity);
         }
         //“Á’è‚Ì•ûŒü‚É“Š‚°‚é
         Rigidbody2D rb = _instans.GetComponent<Rigidbody2D>();
