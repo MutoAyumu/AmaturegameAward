@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 415972340752617082}
   - component: {fileID: 3965599741290060843}
   - component: {fileID: 2727895765786533037}
+  - component: {fileID: 1978664865}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 3965599741290060843}
   _endAreaTag: Finish
-  _anim: {fileID: 0}
+  _anim: {fileID: 1978664865}
   _mainSprite: {fileID: 4382527022179636378}
   _searchar: {fileID: 2727895765786533037}
   _inputSearchar: Fire1
@@ -341,3 +342,23 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 16
+--- !u!95 &1978664865
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780111096429971619}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24a36a40168968e438952ac2c326e1f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

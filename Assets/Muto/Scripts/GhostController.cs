@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class GhostController : CharacterControllerBase
 {
     [SerializeField, Tooltip("Rayが当たってほしいオブジェクトのレイヤー")] LayerMask _layer = default;
-    [SerializeField, Tooltip("幽霊が保持することが出来る光源のじょぷげん")] int _upperLimit = 3;
+    [SerializeField, Tooltip("幽霊が保持することが出来る光源の上限")] int _upperLimit = 3;
     [SerializeField, Tooltip("光を取る時に使うボタンの名前")] string _inputLight = "Fire2";
     [SerializeField,Tooltip("幽霊にアタッチされているLight2Dを入れる")] Light2D _light = default;
     bool _isFixedRange = default;
@@ -23,8 +23,6 @@ public class GhostController : CharacterControllerBase
         {
             Activate();
         }
-
-        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLenght, Color.red);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -47,20 +45,6 @@ public class GhostController : CharacterControllerBase
     {
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv).normalized, _rayLenght, _layer);
-        //var light = hit.collider?.GetComponent<LightSource>();
-
-        //if(light && light.IsOn && _lightCount < _upperLimit)
-        //{
-        //    Stop();
-        //    _lightCount++;
-        //    light.Switching();
-        //}
-        //else if(light && light.IsOn && _lightCount > _upperLimit)
-        //{
-        //    Stop();
-        //    _lightCount--;
-        //    light.Switching();
-        //}
 
         if(hit.collider)
         {

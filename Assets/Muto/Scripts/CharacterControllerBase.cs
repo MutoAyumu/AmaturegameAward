@@ -66,8 +66,12 @@ public class CharacterControllerBase : MonoBehaviour
             {
                 _lh = _h;
                 _lv = _v;
-                Debug.Log(_lh);
-                Debug.Log(_lv);
+
+                if (_anim)
+                {
+                    _anim.SetFloat("X", _lh);
+                    _anim.SetFloat("Y", _lv);
+                }
             }
         }
     }
@@ -108,6 +112,8 @@ public class CharacterControllerBase : MonoBehaviour
     {
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _moveSpeed;
+
+        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLenght, Color.red);
     }
     /// <summary>
     /// ëÄçÏÉLÉÉÉâÇé~ÇﬂÇÈä÷êî
@@ -116,7 +122,7 @@ public class CharacterControllerBase : MonoBehaviour
     {
         if(_rb)
         {
-            _rb.Sleep();
+            _rb.velocity = Vector2.zero;
         }
         else
         {
