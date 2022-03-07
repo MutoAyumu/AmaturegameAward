@@ -18,7 +18,7 @@ public class LightSource : MonoBehaviour, IGhostGimic
     public bool IsOn { get => _isOn; }
 
     /*ToDo
-        òAë≈ÇµÇΩéûÇ…Ç®Ç©ÇµÇ≠Ç»ÇÈÇ©ÇÁèCê≥
+        
     */
     private void Start()
     {
@@ -44,9 +44,9 @@ public class LightSource : MonoBehaviour, IGhostGimic
     /// </summary>
     public void Action()
     {
-        if(_light)
+        if (_light)
         {
-            if(_isOn && _ghost.LightCount < _ghost.UpperLimit)
+            if (_isOn && _ghost.LightCount < _ghost.UpperLimit)
             {
                 _isOn = false;
                 var tween1 = DOVirtual.Float(_light.intensity, 0, _time, value => _light.intensity = value);
@@ -54,28 +54,40 @@ public class LightSource : MonoBehaviour, IGhostGimic
                     , _time, value => _ghost.Light.intensity = value);
 
                 DOTween.Sequence()
+                    .OnStart(() =>
+                    {
+                        _ghost.IsControll = false;
+                        _ghost.Stop();
+                    })
                     .Append(tween1)
                     .Append(tween2)
                     .AppendCallback(() =>
                     {
                         _ghost.LightCount++;
                         _lightCountText.text = _ghost.LightCount.ToString();
+                        _ghost.IsControll = true;
                     });
             }
-            else if(!_isOn && 0 < _ghost.LightCount)
+            else if (!_isOn && 0 < _ghost.LightCount)
             {
                 _isOn = true;
                 var tween1 = DOVirtual.Float(_light.intensity, 1, _time, value => _light.intensity = value);
-                var tween2 = DOVirtual.Float(_ghost.Light.intensity,_ghost.Light.intensity - 1.0f / _ghost.UpperLimit
+                var tween2 = DOVirtual.Float(_ghost.Light.intensity, _ghost.Light.intensity - 1.0f / _ghost.UpperLimit
                     , _time, value => _ghost.Light.intensity = value);
 
                 DOTween.Sequence()
+                    .OnStart(() =>
+                    {
+                        _ghost.IsControll = false;
+                        _ghost.Stop();
+                    })
                     .Append(tween2)
                     .Append(tween1)
                     .AppendCallback(() =>
                     {
                         _ghost.LightCount--;
                         _lightCountText.text = _ghost.LightCount.ToString();
+                        _ghost.IsControll = true;
 
                         foreach (var go in _activate)
                         {
