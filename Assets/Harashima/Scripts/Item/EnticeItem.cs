@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 /// <summary>
 /// 敵を誘うアイテムのクラス
@@ -26,6 +27,10 @@ public class EnticeItem : ItemBase
         //特定の方向に投げる
         Rigidbody2D rb = _instans.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(0, 1), ForceMode2D.Impulse);
+
+        DOVirtual.DelayedCall(1f, () => {
+            rb.velocity = Vector2.zero;
+        });
 
         //数を減らす
         ItemManager.Instance.ItemValueChange(_itemID, -1);
