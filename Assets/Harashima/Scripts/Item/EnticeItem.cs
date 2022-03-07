@@ -26,17 +26,18 @@ public class EnticeItem : ItemBase
         if (CharacterManager.Instance.Ghost.IsControll)
         {
             _instans = Instantiate(_instansItem, CharacterManager.Instance.Ghost.transform.position,Quaternion.identity);
+           
             //“Á’è‚Ì•ûŒü‚É“Š‚°‚é
             rb = _instans.GetComponent<Rigidbody2D>();
-            //rb.AddForce(new Vector2(CharacterManager.Instance.Ghost._h, CharacterManager.Instance.Ghost._v), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(CharacterManager.Instance.Ghost.InputH, CharacterManager.Instance.Ghost.InputV), ForceMode2D.Impulse);
         }
         else
         {
             _instans = Instantiate(_instansItem, CharacterManager.Instance.Human.transform.position, Quaternion.identity);
             rb = _instans.GetComponent<Rigidbody2D>();
-            //rb.AddForce(new Vector2(CharacterManager.Instance.Human._h, CharacterManager.Instance.Human._v), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(CharacterManager.Instance.Human.InputH, CharacterManager.Instance.Human.InputV), ForceMode2D.Impulse);
         }
-       
+        EnemyManager.Instance.SetTarget(_instans.transform);
 
         DOVirtual.DelayedCall(_stopTime, () => {
             rb.velocity = Vector2.zero;
