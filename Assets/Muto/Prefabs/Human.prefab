@@ -160,9 +160,13 @@ MonoBehaviour:
   _moveSpeed: 3
   _attack: {fileID: 0}
   _push: {fileID: 0}
-  _attackButtonName: Fire1
   _ghostSetPos: {fileID: 7717027440802397364}
   _togetherImage: {fileID: 4804886778524238285}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16
+  _attackButtonName: Fire1
+  _grabButtonName: Fire2
 --- !u!50 &8807195062776794762
 Rigidbody2D:
   serializedVersion: 4

@@ -10,7 +10,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] SpriteRenderer _mainSprite = default;
     [SerializeField] ObjectSearcher _searchar = default;
     [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire1";
-    [SerializeField, Tooltip("Rayの長さ")] protected float _rayLenght = 1f;
+    [SerializeField, Tooltip("Rayの長さ")] protected float _rayLength = 1f;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
 
@@ -21,8 +21,8 @@ public class CharacterControllerBase : MonoBehaviour
 
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
 
-    float _h = default;
-    float _v = default;
+    protected float _h = default;
+    protected float _v = default;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
@@ -38,7 +38,7 @@ public class CharacterControllerBase : MonoBehaviour
             if(InputButtonDown(_inputSearchar) && _searchar)
             {
                 Vector2 origin = this.transform.position;
-                RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLenght, _searchar.Layer);
+                RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
                 _searchar.Search(_lh, _lv, hit);
             }
         }
@@ -74,6 +74,20 @@ public class CharacterControllerBase : MonoBehaviour
                 }
             }
         }
+    }
+    /// <summary>
+    /// ボタンが離されたかを返す関数
+    /// </summary>
+    /// <param name="button"></param>
+    /// <returns></returns>
+    protected bool InputButtonUp(string button)
+    {
+        if(Input.GetButtonUp(button))
+        {
+            return true;
+        }
+
+        return false;
     }
     /// <summary>
     /// ボタンが押されたかを返す関数
@@ -113,7 +127,7 @@ public class CharacterControllerBase : MonoBehaviour
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _moveSpeed;
 
-        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLenght, Color.red);
+        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }
     /// <summary>
     /// 操作キャラを止める関数

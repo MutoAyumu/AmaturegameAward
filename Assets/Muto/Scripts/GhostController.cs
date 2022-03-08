@@ -44,7 +44,7 @@ public class GhostController : CharacterControllerBase
     void Activate()
     {
         Vector2 origin = this.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv).normalized, _rayLenght, _layer);
+        RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv).normalized, _rayLength, _layer);
 
         if(hit.collider)
         {
