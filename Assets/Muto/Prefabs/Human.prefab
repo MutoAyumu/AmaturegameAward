@@ -158,7 +158,7 @@ MonoBehaviour:
   _searchar: {fileID: 245295689846749317}
   _inputSearchar: Fire1
   _rayLength: 1
-  _moveSpeed: 3
+  _moveSpeed: 2.5
   _attack: {fileID: 0}
   _push: {fileID: 0}
   _ghostSetPos: {fileID: 7717027440802397364}
