@@ -298,8 +298,8 @@ MonoBehaviour:
   _mainSprite: {fileID: 4382527022179636378}
   _searchar: {fileID: 2727895765786533037}
   _inputSearchar: Fire1
-  _rayLenght: 1
-  _moveSpeed: 3
+  _rayLength: 1
+  _moveSpeed: 2.5
   _layer:
     serializedVersion: 2
     m_Bits: 2
