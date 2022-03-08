@@ -7149,7 +7149,7 @@ GameObject:
   - component: {fileID: 1387630103}
   - component: {fileID: 1387630102}
   - component: {fileID: 1387630105}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7540,7 +7540,7 @@ GameObject:
   - component: {fileID: 1458555241}
   - component: {fileID: 1458555240}
   - component: {fileID: 1458555243}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Switch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36551,6 +36551,7 @@ MonoBehaviour:
   _chaseDistance: 1.5
   _knockBackPower: 5
   _rb: {fileID: 2567091424393355931}
+  Decoy: {fileID: 0}
 --- !u!212 &2567091424393355930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37661,6 +37662,7 @@ MonoBehaviour:
   _chaseDistance: 1.5
   _knockBackPower: 5
   _rb: {fileID: 9166081388065796259}
+  Decoy: {fileID: 0}
 --- !u!212 &9166081388065796258
 SpriteRenderer:
   m_ObjectHideFlags: 0
