@@ -12,6 +12,7 @@ public class HumanController : CharacterControllerBase
     [Header("入力の時に使うボタンの名前")]
     [SerializeField, Tooltip("攻撃ボタンの名前")] string _attackButtonName = "Fire1";
     [SerializeField, Tooltip("物を掴むボタンの名前")] string _grabButtonName = "Fire1";
+    [SerializeField] float _grabbingSpeed = 1f;
 
 
     bool _isGrab = false;
@@ -23,7 +24,7 @@ public class HumanController : CharacterControllerBase
 
     public override void OnUpdate()
     {
-        if(!_isGrab && InputButtonDown(_grabButtonName)) //物を掴むときの処理
+        if(!_isGrab && Input.GetButtonDown(_grabButtonName)) //物を掴むときの処理
         {
             Catch();
         }
@@ -31,11 +32,11 @@ public class HumanController : CharacterControllerBase
         {
             MoveIt();
         }   
-        else if(_attack && InputButtonDown(_attackButtonName)) //攻撃をするときの処理
+        else if(_attack && Input.GetButtonDown(_attackButtonName)) //攻撃をするときの処理
         {
             _attack.Attack(_lh, _lv);
         }
-        if (_isGrab && InputButtonUp(_grabButtonName)) //物を離す時の処理
+        if (_isGrab && Input.GetButtonUp(_grabButtonName)) //物を離す時の処理
         {
             Release();
         }
@@ -53,6 +54,7 @@ public class HumanController : CharacterControllerBase
             _block = hit.collider.GetComponent<MoveBlock>();
             _block.Rb.bodyType = RigidbodyType2D.Dynamic;
             _isGrab = true;
+            _currentSpeed = _grabbingSpeed;
             Debug.Log("Catch");
         }
     }
@@ -63,7 +65,7 @@ public class HumanController : CharacterControllerBase
     {
         if(_block)
         {
-            _block.Rb.velocity = new Vector2(_h, _v).normalized * _moveSpeed;
+            _block.Rb.velocity = new Vector2(_h, _v).normalized * _currentSpeed;
             Debug.Log("Move");
         }
     }
@@ -78,6 +80,7 @@ public class HumanController : CharacterControllerBase
             _block.Rb.bodyType = RigidbodyType2D.Kinematic;
             _block = null;
             _isGrab = false;
+            _currentSpeed = _moveSpeed;
             Debug.Log("Release");
         }
     }

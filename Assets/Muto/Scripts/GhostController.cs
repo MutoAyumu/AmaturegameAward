@@ -19,7 +19,7 @@ public class GhostController : CharacterControllerBase
 
     public override void OnUpdate()
     {
-        if(InputButtonDown(_inputLight) && _isControll)
+        if(Input.GetButtonDown(_inputLight) && _isControll)
         {
             Activate();
         }

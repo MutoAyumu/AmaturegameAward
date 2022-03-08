@@ -23,11 +23,16 @@ public class CharacterControllerBase : MonoBehaviour
 
     protected float _h = default;
     protected float _v = default;
+    protected float _currentSpeed;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public SpriteRenderer MainSprite { get => _mainSprite;}
 
+    private void Start()
+    {
+        _currentSpeed = _moveSpeed;
+    }
     private void Update()
     {
         if(_isControll)
@@ -35,7 +40,7 @@ public class CharacterControllerBase : MonoBehaviour
             InputValue();
             Move(_h, _v);
 
-            if(InputButtonDown(_inputSearchar) && _searchar)
+            if(Input.GetButtonDown(_inputSearchar) && _searchar)
             {
                 Vector2 origin = this.transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
@@ -76,48 +81,6 @@ public class CharacterControllerBase : MonoBehaviour
         }
     }
     /// <summary>
-    /// ボタンが離されたかを返す関数
-    /// </summary>
-    /// <param name="button"></param>
-    /// <returns></returns>
-    protected bool InputButtonUp(string button)
-    {
-        if(Input.GetButtonUp(button))
-        {
-            return true;
-        }
-
-        return false;
-    }
-    /// <summary>
-    /// ボタンが押されたかを返す関数
-    /// </summary>
-    /// <param name="button"></param>
-    /// <returns></returns>
-    protected bool InputButtonDown(string button)
-    {
-        if(Input.GetButtonDown(button))
-        {
-            return true;
-        }
-
-        return false;
-    }
-    /// <summary>
-    /// ボタンが押されているかを返す関数
-    /// </summary>
-    /// <param name="button"></param>
-    /// <returns></returns>
-    protected bool InputButton(string button)
-    {
-        if (Input.GetButtonDown(button))
-        {
-            return true;
-        }
-
-        return false;
-    }
-    /// <summary>
     /// 操作キャラを動かす関数
     /// </summary>
     /// <param name="h"></param>
@@ -125,7 +88,7 @@ public class CharacterControllerBase : MonoBehaviour
     protected void Move(float h, float v)
     {
         var dir = new Vector2(h, v).normalized;
-        _rb.velocity = dir * _moveSpeed;
+        _rb.velocity = dir * _currentSpeed;
 
         Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }
