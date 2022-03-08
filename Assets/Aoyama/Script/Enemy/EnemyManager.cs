@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyManager : Singleton<EnemyManager>
 {
-    [Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy")]
+    [Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy"), System.NonSerialized]
     public List<GameObject> EnemyGrp;
 
     public void Pause()
