@@ -28,6 +28,7 @@ public class CharacterControllerBase : MonoBehaviour
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public SpriteRenderer MainSprite { get => _mainSprite;}
+    public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
     private void Start()
     {
