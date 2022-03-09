@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBlock : MonoBehaviour, IHumanGimic
+public class MoveBlock : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rb = default;
     [SerializeField] GameObject[] _activate = default;

@@ -6,22 +6,19 @@ using UnityEngine.Rendering.Universal;
 public class GhostController : CharacterControllerBase
 {
     [SerializeField, Tooltip("Rayが当たってほしいオブジェクトのレイヤー")] LayerMask _layer = default;
-    [SerializeField, Tooltip("幽霊が保持することが出来る光源の上限")] int _upperLimit = 3;
     [SerializeField, Tooltip("光を取る時に使うボタンの名前")] string _inputLight = "Fire2";
-    [SerializeField,Tooltip("幽霊にアタッチされているLight2Dを入れる")] Light2D _light = default;
+    [SerializeField] LightAbsorption _abs = default;
+
     bool _isFixedRange = default;
-    int _lightCount = 0;
 
     public bool IsFixedRange { get => _isFixedRange; set => _isFixedRange = value; }
-    public Light2D Light { get => _light;}
-    public int UpperLimit { get => _upperLimit;}
-    public int LightCount { get => _lightCount; set => _lightCount = value; }
 
     public override void OnUpdate()
     {
         if(Input.GetButtonDown(_inputLight) && _isControll)
         {
-            Activate();
+            //Activate();
+            _abs.Absorption(_lh, _lv, _rayLength, _layer);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
