@@ -14,10 +14,10 @@ public class ObjectPusher : MonoBehaviour
     {
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), length, layer);
+        _block = hit.collider?.GetComponent<MoveBlock>();
 
-        if (hit.collider && !_isGrab)
+        if (_block && !_isGrab)
         {
-            _block = hit.collider.GetComponent<MoveBlock>();
             _block.Rb.bodyType = RigidbodyType2D.Dynamic;
             _isGrab = true;
             CharacterManager.Instance.Human.CurrentSpeed = grabbingSpeed;

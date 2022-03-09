@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class LightSource : MonoBehaviour, IGhostGimic
+public class LightSource : MonoBehaviour
 {
     [SerializeField] Light2D _light = default;
     [SerializeField] float _time = 0.5f;
@@ -15,7 +15,8 @@ public class LightSource : MonoBehaviour, IGhostGimic
     GhostController _ghost;
     Text _lightCountText = default;
 
-    public bool IsOn { get => _isOn; }
+    public bool IsOn { get => _isOn; set => _isOn = value; }
+    public Light2D Light { get => _light; set => _light = value; }
 
     /*ToDo
         
@@ -42,59 +43,24 @@ public class LightSource : MonoBehaviour, IGhostGimic
     /// <summary>
     /// ライトのオンオフ切り替えをする関数
     /// </summary>
-    public void Action()
+    public Tween Action(float time)
     {
         if (_light)
         {
-            if (_isOn && _ghost.LightCount < _ghost.UpperLimit)
+            if (_isOn)
             {
-                _isOn = false;
-                var tween1 = DOVirtual.Float(_light.intensity, 0, _time, value => _light.intensity = value);
-                var tween2 = DOVirtual.Float(_ghost.Light.intensity, 1.0f / _ghost.UpperLimit + _ghost.Light.intensity
-                    , _time, value => _ghost.Light.intensity = value);
+                //_isOn = false;
 
-                DOTween.Sequence()
-                    .OnStart(() =>
-                    {
-                        _ghost.IsControll = false;
-                        _ghost.Stop();
-                    })
-                    .Append(tween1)
-                    .Append(tween2)
-                    .AppendCallback(() =>
-                    {
-                        _ghost.LightCount++;
-                        _lightCountText.text = _ghost.LightCount.ToString();
-                        _ghost.IsControll = true;
-                    });
+                return DOVirtual.Float(_light.intensity, 0, time, value => _light.intensity = value);
             }
-            else if (!_isOn && 0 < _ghost.LightCount)
+            else if (!_isOn)
             {
-                _isOn = true;
-                var tween1 = DOVirtual.Float(_light.intensity, 1, _time, value => _light.intensity = value);
-                var tween2 = DOVirtual.Float(_ghost.Light.intensity, _ghost.Light.intensity - 1.0f / _ghost.UpperLimit
-                    , _time, value => _ghost.Light.intensity = value);
+                //_isOn = true;
 
-                DOTween.Sequence()
-                    .OnStart(() =>
-                    {
-                        _ghost.IsControll = false;
-                        _ghost.Stop();
-                    })
-                    .Append(tween2)
-                    .Append(tween1)
-                    .AppendCallback(() =>
-                    {
-                        _ghost.LightCount--;
-                        _lightCountText.text = _ghost.LightCount.ToString();
-                        _ghost.IsControll = true;
-
-                        foreach (var go in _activate)
-                        {
-                            go.GetComponent<IActivate>()?.Action();
-                        }
-                    });
+                return DOVirtual.Float(_light.intensity, 1.0f, time, value => _light.intensity = value);
             }
         }
+
+        return null;
     }
 }
