@@ -11,7 +11,7 @@ public class HumanController : CharacterControllerBase
     [SerializeField, Tooltip("Rayが当たってほしいオブジェクトのレイヤー")] LayerMask _layer = default;
     [Header("入力の時に使うボタンの名前")]
     [SerializeField, Tooltip("攻撃ボタンの名前")] string _attackButtonName = "Fire1";
-    [SerializeField, Tooltip("物を掴むボタンの名前")] string _grabButtonName = "Fire1";
+    [SerializeField, Tooltip("物を掴むボタンの名前")] string _grabButtonName = "Fire2";
     [SerializeField] float _grabbingSpeed = 1f;
 
     public Transform GhostSetPos { get => _ghostSetPos;}

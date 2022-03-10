@@ -157,7 +157,7 @@ MonoBehaviour:
   _anim: {fileID: 1656573785519999096}
   _mainSprite: {fileID: 4346157909462227067}
   _searchar: {fileID: 245295689846749317}
-  _inputSearchar: Fire1
+  _inputSearchar: Fire2
   _rayLength: 1
   _moveSpeed: 2.5
   _attack: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   _togetherImage: {fileID: 4804886778524238285}
   _layer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 8
   _attackButtonName: Fire1
   _grabButtonName: Fire2
   _grabbingSpeed: 1
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 8
 --- !u!50 &8807195062776794762
 Rigidbody2D:
   serializedVersion: 4

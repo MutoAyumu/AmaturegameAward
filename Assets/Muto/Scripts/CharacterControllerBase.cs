@@ -9,7 +9,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
     [SerializeField] ObjectSearcher _searchar = default;
-    [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire1";
+    [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire2";
     [SerializeField, Tooltip("Rayの長さ")] protected float _rayLength = 1f;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;

@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 560586796}
   - component: {fileID: 560586795}
   - component: {fileID: 560586794}
-  m_Layer: 1
+  m_Layer: 3
   m_Name: L (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 946527183}
   - component: {fileID: 946527187}
   - component: {fileID: 946527188}
-  m_Layer: 1
+  m_Layer: 3
   m_Name: L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 1242203150}
   - component: {fileID: 1242203149}
   - component: {fileID: 1242203148}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 8914621373667507100}
   - component: {fileID: 8914621373667507103}
   - component: {fileID: 8914621373667507172}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: testChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
