@@ -303,7 +303,7 @@ MonoBehaviour:
   _moveSpeed: 2.5
   _layer:
     serializedVersion: 2
-    m_Bits: 2
+    m_Bits: 8
   _inputLight: Fire2
   _abs: {fileID: 7780111095492934346}
 --- !u!50 &3965599741290060843
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 8
 --- !u!95 &1978664865
 Animator:
   serializedVersion: 4
