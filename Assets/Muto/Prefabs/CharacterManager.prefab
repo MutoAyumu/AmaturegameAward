@@ -52,5 +52,5 @@ MonoBehaviour:
   _vcam: {fileID: 0}
   _lightCountTest: {fileID: 0}
   _interactiveText: {fileID: 0}
-  _humanChangeButton: Jump
-  _ghostChangeButton: Jump
+  _humanChangeButton: RightTrigger
+  _ghostChangeButton: LeftTrigger

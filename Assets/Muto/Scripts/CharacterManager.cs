@@ -13,8 +13,9 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("Vcamを入れる")] CinemachineVirtualCamera _vcam = default;
     [SerializeField] Text _lightCountTest = default;
     [SerializeField] Text _interactiveText = default;
-    [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "Jump";
-    [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "Jump";
+    [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
+    [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "LeftTrigger";
+    [SerializeField, Tooltip("二人がついていくボタンの名前")] string _togetherButton = "InputX";
 
     bool _isTogether;
 
@@ -32,13 +33,13 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetButtonDown(_humanChangeButton))
         {
             HumanExchange();
             _interactiveText.gameObject.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.N))
+        if(Input.GetButtonDown(_ghostChangeButton))
         {
             GhostExchange();
             _interactiveText.gameObject.SetActive(false);
@@ -130,7 +131,7 @@ public class CharacterManager : Singleton<CharacterManager>
     /// </summary>
     void MoveTogether()
     {
-        if (Input.GetKeyDown(KeyCode.T) && !_isTogether)
+        if (Input.GetButtonDown(_togetherButton) && !_isTogether)
         {
             _ghost.transform.DOMove(_human.GhostSetPos.position, 1)
                 .OnStart(() =>
