@@ -35,13 +35,13 @@ public class PlayerAttack : MonoBehaviour
 
         if (v <= -0.5f && h >= -0.5f || v <= -0.5f && h <= 0.5f)
         {
-            count = _upAttackCol.OverlapCollider(_filter, _result);
+            count = _downAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("down");
         }
         else if (v >= 0.5f && h >= -0.5f || v >= 0.5f && h <= 0.5f)
         {
-            count = _downAttackCol.OverlapCollider(_filter, _result);
+            count = _upAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("up");
         }

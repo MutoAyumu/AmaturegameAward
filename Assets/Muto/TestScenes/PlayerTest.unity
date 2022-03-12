@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &426302509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426302511}
+  - component: {fileID: 426302510}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &426302510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426302509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1f6ca1f7509e84a83da8898978601a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stageLimit: 0
+--- !u!4 &426302511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426302509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5150205, y: 0.15435804, z: 0.04943449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496710736
 GameObject:
   m_ObjectHideFlags: 3
@@ -1941,7 +1986,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!212 &1626810067248366169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2007,8 +2052,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chaseSpeed: 2
-  _chaseDistance: 2
-  _knockBackPower: 5
+  _chaseDistance: 1
+  _knockBackPower: 1
   _rb: {fileID: 1626810067248366168}
 --- !u!114 &1626810067248366171
 MonoBehaviour:
@@ -2056,7 +2101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626810067248366174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8000053, y: 1.049, z: 0}
+  m_LocalPosition: {x: 2.096, y: 1.049, z: 0}
   m_LocalScale: {x: 0.666, y: 0.666, z: 0.666}
   m_ConstrainProportionsScale: 0
   m_Children:
