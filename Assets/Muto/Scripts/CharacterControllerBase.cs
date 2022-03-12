@@ -72,12 +72,6 @@ public class CharacterControllerBase : MonoBehaviour
             {
                 _lh = _h;
                 _lv = _v;
-
-                if (_anim)
-                {
-                    _anim.SetFloat("X", _lh);
-                    _anim.SetFloat("Y", _lv);
-                }
             }
         }
     }
@@ -90,6 +84,13 @@ public class CharacterControllerBase : MonoBehaviour
     {
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _currentSpeed;
+
+
+        if (_anim)
+        {
+            _anim.SetFloat("X", _lh);
+            _anim.SetFloat("Y", _lv);
+        }
 
         Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }

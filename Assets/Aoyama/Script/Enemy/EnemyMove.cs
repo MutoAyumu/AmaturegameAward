@@ -26,6 +26,10 @@ public class EnemyMove : MonoBehaviour
     CharacterControllerBase _ghost;
     bool _isPause = false;
 
+    /* ToDo
+        ƒ_ƒ[ƒW‚ğó‚¯‚½‚Éˆê’èŠÔMove‚ğŒÄ‚Î‚È‚¢‚æ‚¤‚É‚·‚é
+     */
+
     void Start()
     {
         EnemyManager.Instance.EnemyGrp.Add(gameObject);

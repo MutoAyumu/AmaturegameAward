@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestHumanController : TestCharacterControllerBase
 {
     [SerializeField] Transform _ghostMovePos = default;
-    [SerializeField] PlayerAttack _attack = default;
+    [SerializeField] TestPlayerAttack _attack = default;
     [SerializeField] Animator _anim = default;
     [SerializeField] TestMoveTheBlocks _moveTheBlocks = default;
     [SerializeField] testObjectSearcher _searchar = default;
