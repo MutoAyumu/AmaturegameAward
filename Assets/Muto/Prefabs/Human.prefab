@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 8424007888391480291}
   - component: {fileID: 4346157909462227067}
   - component: {fileID: 1155214695246452155}
+  - component: {fileID: 6419186669654637563}
   m_Layer: 0
   m_Name: Human
   m_TagString: Player
@@ -131,7 +132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c9fbf4713181aad4cb8d97aabe2a203a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -159,6 +160,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
+--- !u!114 &6419186669654637563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427486775543048073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.10648495, y: -0.49410734, z: 0}
+  - {x: -0.08291441, y: -0.45755607, z: 0}
+  - {x: 0.07443631, y: -0.457556, z: 0}
+  - {x: 0.098006845, y: -0.49705362, z: 0}
+  m_ShapePathHash: -1673399895
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 44660
 --- !u!1 &3461823223504863366
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +260,7 @@ GameObject:
   - component: {fileID: 7634808835734991347}
   - component: {fileID: 8807195062776794762}
   - component: {fileID: 1656573785519999096}
+  - component: {fileID: 3287206614514796836}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -375,6 +404,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &3287206614514796836
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734427726329378540}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &6776924548666642549
 GameObject:
   m_ObjectHideFlags: 0

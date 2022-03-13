@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 143
+  controlID: 29
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 4
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 120
+  controlID: 30
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 121
+  controlID: 31
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 512
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -536,7 +536,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 70904
+  m_LastSelectedObjectID: 30154
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -578,36 +578,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Harashima/Animation/_test
+    - Assets/Settings
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Harashima/Animation/_test
+  - Assets/Settings
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\dango\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\Unity\\AmaturegameAward"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 211}
-    m_SelectedIDs: 90720000
-    m_LastClickedID: 29328
-    m_ExpandedIDs: 0000000060700000627000006470000066700000687000006a700000fc710000fe710000067200000a720000827200008e7200003673000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 571}
+    m_SelectedIDs: 56730000
+    m_LastClickedID: 29526
+    m_ExpandedIDs: 00000000a6710000a8710000aa710000ac710000ae710000b0710000407300004c73000090730000be73000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Sound
-      m_OriginalName: Sound
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29386
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_SearchString: 
@@ -621,7 +621,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060700000627000006470000066700000687000006a700000
+    m_ExpandedIDs: 00000000a6710000a8710000aa710000ac710000ae710000b0710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -649,7 +649,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300005c6f0000
+    m_ExpandedInstanceIDs: c62300005c6f0000e6700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -712,7 +712,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 308
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -751,23 +751,23 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7c22fcffd226fcffa827fcff7e28fcff4029fcff3c2afcfff82afcff6831fcff2434fcff1235fcffd435fcffd036fcff8c37fcff4c69fcff3415fdff842ffdffaa35fdff4c38fdff8439fdff968ffdffa093fdffa293fdff4295fdffb89cfdff629efdfffea0fdff00a1fdff48a3fdffa6b9fdff48cdfdff8ad2fdff86d5fdff96d6fdffe2d7fdff9ed8fdffa2d9fdff7cdafdff74f1fdffbef2fdff20f4fdff36f5fdffdcf5fdff82f6fdff00f8fdffda07feff1214feff0023feff9024feffd827feff4a29feff602bfeff562cfeff7a2dfeff3e2efeffae2ffeff8430feff5a31feff1c32feff0e33feffc833feff9034feff04a7feffe4faffff08fbffff0afbffffbcfe0000ee0001003602010072080100c80a0100f60b0100be0c01006e0d0100bc13010084140100e81401002e150100821501008c150100921501009c150100b41501008c2901008e2a01008a2c0100e03601006e370100ee370100
+      m_ExpandedIDs: bc78fffff878ffff0a79ffff04c4ffff2cdbffff04f6ffff08f8ffff12fbffff98750000c0750000ca750000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: EnticeItemObject
-        m_OriginalName: EnticeItemObject
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -248830
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 2}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -1022,9 +1022,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.4948616, y: 1.3788831, z: -0.06363786}
+    m_Target: {x: 1.2499337, y: 0.97359216, z: -0.049973197}
     speed: 2
-    m_Value: {x: 2.4948616, y: 1.3788831, z: -0.06363786}
+    m_Value: {x: 1.2499337, y: 0.97359216, z: -0.049973197}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1075,9 +1075,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.607396
+    m_Target: 4.6892705
     speed: 2
-    m_Value: 6.607396
+    m_Value: 4.6892705
   m_Ortho:
     m_Target: 1
     speed: 2
