@@ -13,21 +13,21 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void Pause()
     {
-        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().Pause());
+        EnemyGrp?.ForEach(go => go.GetComponent<EnemyMove>().Pause());
     }
 
     public void Resume()
     {
-        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().Resume());
+        EnemyGrp?.ForEach(go => go.GetComponent<EnemyMove>()?.Resume());
     }
 
     public void SetTarget(Transform tr)
     {
-        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().SetDecoy(tr));
+        EnemyGrp?.ForEach(go => go.GetComponent<EnemyMove>()?.SetDecoy(tr));
     }
 
     public void ResetTarget()
     {
-        EnemyGrp.ForEach(go => go.GetComponent<EnemyMove>().ResetDecoy());
+        EnemyGrp?.ForEach(go => go.GetComponent<EnemyMove>()?.ResetDecoy());
     }
 }
