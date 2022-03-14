@@ -21,13 +21,13 @@ public class OnOffEnemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
-        {
-            OffSetActive();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
+    //    {
+    //        OffSetActive();
+    //    }
+    //}
 
     void OnSetActive()
     {
