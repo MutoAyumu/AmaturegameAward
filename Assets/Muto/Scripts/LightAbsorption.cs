@@ -11,6 +11,11 @@ public class LightAbsorption : MonoBehaviour
     [SerializeField] float _time = 0.5f;
     int _lightCount = 0;
 
+    public int LightCount { get => _lightCount; set => _lightCount = value; }
+    public Light2D Light { get => _light;}
+    public int Limit { get => _limit;}
+    public float Time { get => _time; set => _time = value; }
+
     public void Absorption(float h, float v, float length, LayerMask layer)
     {
         Vector2 origin = this.transform.position;
@@ -31,6 +36,7 @@ public class LightAbsorption : MonoBehaviour
                     .OnComplete(() =>
                         {
                             _lightCount++;
+                            CharacterManager.Instance.LightCountTest.text = _lightCount.ToString();
                         });
             }
             else if (!other.IsOn && 0 < _lightCount)
@@ -41,6 +47,7 @@ public class LightAbsorption : MonoBehaviour
                     .OnStart(() =>
                     {
                         _lightCount--;
+                        CharacterManager.Instance.LightCountTest.text = _lightCount.ToString();
                     })
                     .OnComplete(() =>
                     {
