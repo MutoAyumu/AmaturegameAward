@@ -267,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4776345877154882958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
@@ -286,7 +286,7 @@ MonoBehaviour:
   - {x: 0.22462869, y: -0.29411852, z: 0}
   m_ShapePathHash: -311900927
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41720
+  m_InstanceId: 41432
 --- !u!1 &7780111096429971619
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 3965599741290060843}
   - component: {fileID: 2727895765786533037}
   - component: {fileID: 7780111095492934346}
+  - component: {fileID: 5277506469026746357}
   - component: {fileID: 1978664865}
   - component: {fileID: 3511238453761472246}
   m_Layer: 0
@@ -352,6 +353,8 @@ MonoBehaviour:
     m_Bits: 8
   _inputLight: Fire2
   _abs: {fileID: 7780111095492934346}
+  _attackButtonName: Fire1
+  _attack: {fileID: 5277506469026746357}
 --- !u!50 &3965599741290060843
 Rigidbody2D:
   serializedVersion: 4
@@ -364,8 +367,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -403,6 +406,19 @@ MonoBehaviour:
   _light: {fileID: 1736405431173525723}
   _limit: 3
   _time: 0.5
+--- !u!114 &5277506469026746357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780111096429971619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca88a83195f788942b840bdc6fd15b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 1243007438064672385, guid: 3da5888571d6b104e8495f5f8d56e612, type: 3}
 --- !u!95 &1978664865
 Animator:
   serializedVersion: 4
