@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HumanController : CharacterControllerBase
 {
-    [SerializeField] PlayerAttack _attack = default;
+    [SerializeField] HumanAttack _attack = default;
     [SerializeField] ObjectPusher _push = default;
     [SerializeField, Tooltip("—H—ì‚ªˆÚ“®‚·‚é‚Æ‚«‚Ìw’èêŠ")] Transform _ghostSetPos = default;
     [SerializeField] SpriteRenderer _togetherImage = default;

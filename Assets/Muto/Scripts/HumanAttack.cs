@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class HumanAttack : MonoBehaviour
 {
     [SerializeField, Tooltip("右の攻撃の当たり判定を行うコライダー")]
     Collider2D _rightAttackCol;
