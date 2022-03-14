@@ -15,6 +15,11 @@ public class OnOffEnemy : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if(_enemys == null)
+        {
+            Destroy(gameObject);
+        }
+
         if(collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
         {
             OnSetActive();
