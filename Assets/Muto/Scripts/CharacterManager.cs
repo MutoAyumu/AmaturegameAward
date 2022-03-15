@@ -16,6 +16,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
     [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "LeftTrigger";
     [SerializeField, Tooltip("二人がついていくボタンの名前")] string _togetherButton = "InputX";
+    [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch;
 
     bool _isTogether;
 
@@ -33,19 +34,19 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     private void Update()
     {
-        if (Input.GetButtonDown(_humanChangeButton))
+        if (Input.GetButtonDown(_humanChangeButton) && _isCanSwitch)
         {
             HumanExchange();
             _interactiveText.gameObject.SetActive(false);
         }
 
-        if(Input.GetButtonDown(_ghostChangeButton))
+        if(Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
         {
             GhostExchange();
             _interactiveText.gameObject.SetActive(false);
         }
 
-        if (_ghost.IsFixedRange && !_isTogether)
+        if (_ghost.IsFixedRange && !_isTogether && _isCanSwitch)
         {
             MoveTogether();
 
