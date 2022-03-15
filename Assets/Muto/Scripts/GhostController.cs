@@ -8,6 +8,8 @@ public class GhostController : CharacterControllerBase
     [SerializeField, Tooltip("Rayが当たってほしいオブジェクトのレイヤー")] LayerMask _layer = default;
     [SerializeField, Tooltip("光を取る時に使うボタンの名前")] string _inputLight = "Fire2";
     [SerializeField] LightAbsorption _abs = default;
+    [SerializeField, Tooltip("攻撃ボタンの名前")] string _attackButtonName = "Fire1";
+    [SerializeField] GhostAttack _attack = default;
 
     bool _isFixedRange = default;
 
@@ -19,6 +21,10 @@ public class GhostController : CharacterControllerBase
         {
             //Activate();
             _abs.Absorption(_lh, _lv, _rayLength, _layer);
+        }
+        if(Input.GetButtonDown(_attackButtonName) && _attack)
+        {
+            _attack.Attack();
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
