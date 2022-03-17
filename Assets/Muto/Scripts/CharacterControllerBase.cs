@@ -13,6 +13,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField, Tooltip("Rayの長さ")] protected float _rayLength = 1f;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
+    [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
 
     [Tooltip("最後に入力された横方向の値")]protected float _lh = 1;
     public float InputH => _lh;
@@ -30,6 +31,14 @@ public class CharacterControllerBase : MonoBehaviour
     public SpriteRenderer MainSprite { get => _mainSprite;}
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
+    protected enum CharacterStatus
+    {
+        IDLE,
+        WALK,
+        ATTACK,
+        NOCK_BACK,
+        ACTION
+    }
     private void Start()
     {
         _currentSpeed = _moveSpeed;
@@ -39,13 +48,34 @@ public class CharacterControllerBase : MonoBehaviour
         if(_isControll)
         {
             InputValue();
-            Move(_h, _v);
 
-            if(Input.GetButtonDown(_inputSearchar) && _searchar)
+            if (Input.GetButtonDown(_inputSearchar) && _searchar)
             {
                 Vector2 origin = this.transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
                 _searchar.Search(_lh, _lv, hit);
+            }
+            //状態を管理する
+            switch (_status)
+            {
+                case CharacterStatus.IDLE:
+                    break;
+
+                case CharacterStatus.WALK:
+                    Move(_h, _v);
+                    break;
+
+                case CharacterStatus.ATTACK:
+                    break;
+
+                case CharacterStatus.NOCK_BACK:
+                    break;
+
+                case CharacterStatus.ACTION:
+                    break;
+
+                default:
+                    break;
             }
         }
 
@@ -74,6 +104,12 @@ public class CharacterControllerBase : MonoBehaviour
                 _lv = _v;
             }
         }
+
+        if (_anim)
+        {
+            _anim.SetFloat("X", _lh);
+            _anim.SetFloat("Y", _lv);
+        }
     }
     /// <summary>
     /// 操作キャラを動かす関数
@@ -84,13 +120,6 @@ public class CharacterControllerBase : MonoBehaviour
     {
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _currentSpeed;
-
-
-        if (_anim)
-        {
-            _anim.SetFloat("X", _lh);
-            _anim.SetFloat("Y", _lv);
-        }
 
         Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }
