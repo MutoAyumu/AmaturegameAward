@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GhostController : CharacterControllerBase
     [SerializeField] GhostAttack _attack = default;
 
     bool _isFixedRange = default;
+    int _attackCount = 0;
 
     public bool IsFixedRange { get => _isFixedRange; set => _isFixedRange = value; }
 
@@ -22,9 +24,18 @@ public class GhostController : CharacterControllerBase
             //Activate();
             _abs.Absorption(_lh, _lv, _rayLength, _layer);
         }
-        if(Input.GetButtonDown(_attackButtonName) && _attack)
+        if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
         {
-            _attack.Attack();
+            _attack.Attack(_lh, _lv);
+            _attackCount++;
+
+            if(_attackCount >= 5)
+            {
+                _attackCount = 0;
+                _abs.LightCount--;
+                CharacterManager.Instance.LightCountTest.text = _abs.LightCount.ToString();
+                DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

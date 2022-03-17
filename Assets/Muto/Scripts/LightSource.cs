@@ -9,11 +9,12 @@ public class LightSource : MonoBehaviour
 {
     [SerializeField] Light2D _light = default;
     [SerializeField] float _time = 0.5f;
+    [SerializeField] float _loopTime = 10f;
     [SerializeField] bool _isOn = true;
+    [SerializeField] bool _isLoop;
     [SerializeField, Tooltip("IActivate‚ðŒp³‚µ‚½GameObject‚ð“ü‚ê‚é")] GameObject[] _activate = default;
 
-    GhostController _ghost;
-    Text _lightCountText = default;
+    float _timer = default;
 
     public bool IsOn { get => _isOn; set => _isOn = value; }
     public Light2D Light { get => _light; set => _light = value; }
@@ -28,9 +29,6 @@ public class LightSource : MonoBehaviour
 
     void OnStart()
     {
-        _ghost = CharacterManager.Instance.Ghost;
-        _lightCountText = CharacterManager.Instance.LightCountTest;
-
         if (_isOn)
         {
             _light.intensity = 1;
@@ -38,6 +36,23 @@ public class LightSource : MonoBehaviour
         else
         {
             _light.intensity = 0;
+        }
+    }
+    private void Update()
+    {
+        if(_isLoop)
+        {
+            if(!_isOn)
+            {
+                _timer += Time.deltaTime;
+
+                if(_timer >= _loopTime)
+                {
+                    _timer = 0;
+                    Action(_time);
+                    _isOn = true;
+                }
+            }
         }
     }
     /// <summary>
