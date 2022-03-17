@@ -21,7 +21,7 @@ public class HumanController : CharacterControllerBase
     {
         if(_push && Input.GetButtonDown(_grabButtonName)) //•¨‚ğ’Í‚Ş‚Æ‚«‚Ìˆ—
         {
-            _push.Catch(_lh, _lv, _rayLength, _grabbingSpeed, _layer);
+            _push.Catch(_lh, _lv, _rayLength, _grabbingSpeed, _layer, _anim);
         }
         if(_push && Input.GetButton(_grabButtonName)) //•¨‚ğ’Í‚ñ‚Å“®‚©‚·‚Ìˆ—
         {
@@ -29,12 +29,20 @@ public class HumanController : CharacterControllerBase
         }   
         else if(_attack && Input.GetButtonDown(_attackButtonName)) //UŒ‚‚ğ‚·‚é‚Æ‚«‚Ìˆ—
         {
+            _status = CharacterStatus.ATTACK;
+            _anim.SetTrigger("IsAttack");
             _attack.Attack(_lh, _lv);
         }
         if (_push && Input.GetButtonUp(_grabButtonName)) //•¨‚ğ—£‚·‚Ìˆ—
         {
-            _push.Release(_moveSpeed);
+            _push.Release(_moveSpeed, _anim);
         }
+    }
+
+    public void ResetAttackBool()
+    {
+        _anim.SetBool("IsAttack", false);
+        _status = CharacterStatus.IDLE;
     }
     void Activate()
     {

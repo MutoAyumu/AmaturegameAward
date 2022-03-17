@@ -10,7 +10,7 @@ public class ObjectPusher : MonoBehaviour
     /// <summary>
     /// ボタンが押された時に呼ばれる
     /// </summary>
-    public void Catch(float h, float v, float length, float grabbingSpeed, LayerMask layer)
+    public void Catch(float h, float v, float length, float grabbingSpeed, LayerMask layer, Animator anim)
     {
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), length, layer);
@@ -21,6 +21,7 @@ public class ObjectPusher : MonoBehaviour
             _block.Rb.bodyType = RigidbodyType2D.Dynamic;
             _isGrab = true;
             CharacterManager.Instance.Human.CurrentSpeed = grabbingSpeed;
+            anim.SetBool("IsAction", true);
             Debug.Log("Catch");
         }
     }
@@ -38,7 +39,7 @@ public class ObjectPusher : MonoBehaviour
     /// <summary>
     /// ボタンが離された時に呼ばれる
     /// </summary>
-    public void Release(float moveSpeed)
+    public void Release(float moveSpeed, Animator anim)
     {
         if (_block && _isGrab)
         {
@@ -47,6 +48,7 @@ public class ObjectPusher : MonoBehaviour
             _block = null;
             _isGrab = false;
             CharacterManager.Instance.Human.CurrentSpeed = moveSpeed;
+            anim.SetBool("IsAction", false);
             Debug.Log("Release");
         }
     }

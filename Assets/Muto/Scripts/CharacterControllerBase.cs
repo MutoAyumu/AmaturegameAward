@@ -6,7 +6,7 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] string _endAreaTag = "Finish";
-    [SerializeField] Animator _anim = default;
+    [SerializeField] protected Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
     [SerializeField] ObjectSearcher _searchar = default;
     [SerializeField, Tooltip("Searchar‚ðŒÄ‚Ô‚Æ‚«‚Ìƒ{ƒ^ƒ“‚Ì–¼‘O")] string _inputSearchar = "Fire2";
@@ -59,13 +59,19 @@ public class CharacterControllerBase : MonoBehaviour
             switch (_status)
             {
                 case CharacterStatus.IDLE:
+                    _anim.SetBool("IsMove", false);
                     break;
 
                 case CharacterStatus.WALK:
-                    Move(_h, _v);
+                    if (_status != CharacterStatus.ATTACK)
+                    {
+                        Move(_h, _v);
+                        _anim.SetBool("IsMove", true);
+                    }
                     break;
 
                 case CharacterStatus.ATTACK:
+                    _rb.velocity = Vector2.zero;
                     break;
 
                 case CharacterStatus.NOCK_BACK:
@@ -95,6 +101,18 @@ public class CharacterControllerBase : MonoBehaviour
     {
         _h = Input.GetAxisRaw("Horizontal");
         _v = Input.GetAxisRaw("Vertical");
+
+        if (_status != CharacterStatus.ATTACK)
+        {
+            if (_h == 0 && _v == 0)
+            {
+                _status = CharacterStatus.IDLE;
+            }
+            else
+            {
+                _status = CharacterStatus.WALK;
+            }
+        }
 
         if (_h != 0 || _v != 0)
         {
