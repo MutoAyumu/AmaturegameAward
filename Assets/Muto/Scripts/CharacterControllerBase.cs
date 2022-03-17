@@ -78,6 +78,11 @@ public class CharacterControllerBase : MonoBehaviour
                     break;
 
                 case CharacterStatus.ACTION:
+                    if (_status != CharacterStatus.ATTACK)
+                    {
+                        Move(_h, _v);
+                        _anim.SetBool("IsMove", true);
+                    }
                     break;
 
                 default:
@@ -102,7 +107,7 @@ public class CharacterControllerBase : MonoBehaviour
         _h = Input.GetAxisRaw("Horizontal");
         _v = Input.GetAxisRaw("Vertical");
 
-        if (_status != CharacterStatus.ATTACK)
+        if (_status != CharacterStatus.ATTACK && _status != CharacterStatus.ACTION)
         {
             if (_h == 0 && _v == 0)
             {
@@ -114,12 +119,15 @@ public class CharacterControllerBase : MonoBehaviour
             }
         }
 
-        if (_h != 0 || _v != 0)
+        if (_status != CharacterStatus.ACTION)
         {
-            if (_lh != _h || _lv != _v)
+            if (_h != 0 || _v != 0)
             {
-                _lh = _h;
-                _lv = _v;
+                if (_lh != _h || _lv != _v)
+                {
+                    _lh = _h;
+                    _lv = _v;
+                }
             }
         }
 

@@ -21,7 +21,12 @@ public class HumanController : CharacterControllerBase
     {
         if(_push && Input.GetButtonDown(_grabButtonName)) //•¨‚ğ’Í‚Ş‚Æ‚«‚Ìˆ—
         {
-            _push.Catch(_lh, _lv, _rayLength, _grabbingSpeed, _layer, _anim);
+            var j = _push.Catch(_lh, _lv, _rayLength, _grabbingSpeed, _layer, _anim);
+
+            if(j)
+            {
+                _status = CharacterStatus.ACTION;
+            }
         }
         if(_push && Input.GetButton(_grabButtonName)) //•¨‚ğ’Í‚ñ‚Å“®‚©‚·‚Ìˆ—
         {
@@ -35,7 +40,12 @@ public class HumanController : CharacterControllerBase
         }
         if (_push && Input.GetButtonUp(_grabButtonName)) //•¨‚ğ—£‚·‚Ìˆ—
         {
-            _push.Release(_moveSpeed, _anim);
+            var j = _push.Release(_moveSpeed, _anim);
+
+            if(j)
+            {
+                _status = CharacterStatus.IDLE;
+            }
         }
     }
 

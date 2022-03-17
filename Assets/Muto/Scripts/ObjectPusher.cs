@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class ObjectPusher : MonoBehaviour
     /// <summary>
     /// ボタンが押された時に呼ばれる
     /// </summary>
-    public void Catch(float h, float v, float length, float grabbingSpeed, LayerMask layer, Animator anim)
+    public bool Catch(float h, float v, float length, float grabbingSpeed, LayerMask layer, Animator anim)
     {
         Vector2 origin = this.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(h, v), length, layer);
@@ -23,7 +24,10 @@ public class ObjectPusher : MonoBehaviour
             CharacterManager.Instance.Human.CurrentSpeed = grabbingSpeed;
             anim.SetBool("IsAction", true);
             Debug.Log("Catch");
+            return true;
         }
+
+        return false;
     }
     /// <summary>
     /// ボタンが押されている時に呼ばれる
@@ -39,7 +43,7 @@ public class ObjectPusher : MonoBehaviour
     /// <summary>
     /// ボタンが離された時に呼ばれる
     /// </summary>
-    public void Release(float moveSpeed, Animator anim)
+    public bool Release(float moveSpeed, Animator anim)
     {
         if (_block && _isGrab)
         {
@@ -50,6 +54,9 @@ public class ObjectPusher : MonoBehaviour
             CharacterManager.Instance.Human.CurrentSpeed = moveSpeed;
             anim.SetBool("IsAction", false);
             Debug.Log("Release");
+            return true;
         }
+
+        return false;
     }
 }
