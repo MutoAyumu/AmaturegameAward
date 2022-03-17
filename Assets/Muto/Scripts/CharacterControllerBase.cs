@@ -6,13 +6,14 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] string _endAreaTag = "Finish";
-    [SerializeField] Animator _anim = default;
+    [SerializeField] protected Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
     [SerializeField] ObjectSearcher _searchar = default;
     [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire2";
     [SerializeField, Tooltip("Rayの長さ")] protected float _rayLength = 1f;
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
+    [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
 
     [Tooltip("最後に入力された横方向の値")]protected float _lh = 1;
     public float InputH => _lh;
@@ -30,6 +31,14 @@ public class CharacterControllerBase : MonoBehaviour
     public SpriteRenderer MainSprite { get => _mainSprite;}
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
+    protected enum CharacterStatus
+    {
+        IDLE,
+        WALK,
+        ATTACK,
+        NOCK_BACK,
+        ACTION
+    }
     private void Start()
     {
         _currentSpeed = _moveSpeed;
@@ -39,13 +48,45 @@ public class CharacterControllerBase : MonoBehaviour
         if(_isControll)
         {
             InputValue();
-            Move(_h, _v);
 
-            if(Input.GetButtonDown(_inputSearchar) && _searchar)
+            if (Input.GetButtonDown(_inputSearchar) && _searchar)
             {
                 Vector2 origin = this.transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
                 _searchar.Search(_lh, _lv, hit);
+            }
+            //状態を管理する
+            switch (_status)
+            {
+                case CharacterStatus.IDLE:
+                    _anim.SetBool("IsMove", false);
+                    break;
+
+                case CharacterStatus.WALK:
+                    if (_status != CharacterStatus.ATTACK)
+                    {
+                        Move(_h, _v);
+                        _anim.SetBool("IsMove", true);
+                    }
+                    break;
+
+                case CharacterStatus.ATTACK:
+                    _rb.velocity = Vector2.zero;
+                    break;
+
+                case CharacterStatus.NOCK_BACK:
+                    break;
+
+                case CharacterStatus.ACTION:
+                    if (_status != CharacterStatus.ATTACK)
+                    {
+                        Move(_h, _v);
+                        _anim.SetBool("IsMove", true);
+                    }
+                    break;
+
+                default:
+                    break;
             }
         }
 
@@ -66,13 +107,34 @@ public class CharacterControllerBase : MonoBehaviour
         _h = Input.GetAxisRaw("Horizontal");
         _v = Input.GetAxisRaw("Vertical");
 
-        if (_h != 0 || _v != 0)
+        if (_status != CharacterStatus.ATTACK && _status != CharacterStatus.ACTION)
         {
-            if (_lh != _h || _lv != _v)
+            if (_h == 0 && _v == 0)
             {
-                _lh = _h;
-                _lv = _v;
+                _status = CharacterStatus.IDLE;
             }
+            else
+            {
+                _status = CharacterStatus.WALK;
+            }
+        }
+
+        if (_status != CharacterStatus.ACTION)
+        {
+            if (_h != 0 || _v != 0)
+            {
+                if (_lh != _h || _lv != _v)
+                {
+                    _lh = _h;
+                    _lv = _v;
+                }
+            }
+        }
+
+        if (_anim)
+        {
+            _anim.SetFloat("X", _lh);
+            _anim.SetFloat("Y", _lv);
         }
     }
     /// <summary>
@@ -84,13 +146,6 @@ public class CharacterControllerBase : MonoBehaviour
     {
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _currentSpeed;
-
-
-        if (_anim)
-        {
-            _anim.SetFloat("X", _lh);
-            _anim.SetFloat("Y", _lv);
-        }
 
         Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }
