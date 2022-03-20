@@ -124,12 +124,12 @@ public class CharacterManager : Singleton<CharacterManager>
         }
         else
         {
-            Debug.LogError("InteractiveTextがありません");
+            Debug.Log("InteractiveTextがありません");
         }
 
         if (!_warmthText)
         {
-            Debug.LogError("温もりテキストがセットされていません");
+            Debug.Log("温もりテキストがセットされていません");
         }
         else
         {
@@ -138,7 +138,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
         if (!_warmthSlider)
         {
-            Debug.LogError("温もりゲージがセットされていません");
+            Debug.Log("温もりゲージがセットされていません");
         }
     }
     /// <summary>
