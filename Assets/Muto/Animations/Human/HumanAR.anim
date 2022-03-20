@@ -20,28 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 4c5b4117b21542c478a5864e789ba589, type: 3}
-    - time: 0.05
-      value: {fileID: 21300000, guid: d0d6ba4d19b6e1d45a95ff7cb288e002, type: 3}
-    - time: 0.1
-      value: {fileID: 21300000, guid: 2d270c44e1b806b4eaf9848a2403503c, type: 3}
-    - time: 0.15
-      value: {fileID: 21300000, guid: 258c2a7b8661121469abcdb731412e21, type: 3}
-    - time: 0.2
-      value: {fileID: 21300000, guid: dae6c6edf03a2544db33e0bc365e1722, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 6deb79b74315fe344abd2e94d4a099aa, type: 3}
-    - time: 0.3
       value: {fileID: 21300000, guid: c754883915ace9c4fb2e18b0f45b307f, type: 3}
-    - time: 0.35
+    - time: 0.05
       value: {fileID: 21300000, guid: f41af4b39aeaafe4cad3296063e21301, type: 3}
-    - time: 0.4
+    - time: 0.1
       value: {fileID: 21300000, guid: fd0b16d022fa39749897bf463e29b89a, type: 3}
-    - time: 0.45
+    - time: 0.15
       value: {fileID: 21300000, guid: 3a08ad91d7b1d024aa07a7f240889769, type: 3}
-    - time: 0.5
+    - time: 0.2
       value: {fileID: 21300000, guid: ab4fd588b510ee14fa9e1fd6e01aa57f, type: 3}
-    - time: 0.55
+    - time: 0.25
       value: {fileID: 21300000, guid: 52babe8d85e6f0e45abde90bc9c405ef, type: 3}
     attribute: m_Sprite
     path: Human
@@ -62,12 +50,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 4c5b4117b21542c478a5864e789ba589, type: 3}
-    - {fileID: 21300000, guid: d0d6ba4d19b6e1d45a95ff7cb288e002, type: 3}
-    - {fileID: 21300000, guid: 2d270c44e1b806b4eaf9848a2403503c, type: 3}
-    - {fileID: 21300000, guid: 258c2a7b8661121469abcdb731412e21, type: 3}
-    - {fileID: 21300000, guid: dae6c6edf03a2544db33e0bc365e1722, type: 3}
-    - {fileID: 21300000, guid: 6deb79b74315fe344abd2e94d4a099aa, type: 3}
     - {fileID: 21300000, guid: c754883915ace9c4fb2e18b0f45b307f, type: 3}
     - {fileID: 21300000, guid: f41af4b39aeaafe4cad3296063e21301, type: 3}
     - {fileID: 21300000, guid: fd0b16d022fa39749897bf463e29b89a, type: 3}
@@ -79,7 +61,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.56666666
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -99,7 +81,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.55
+  - time: 0.25
     functionName: ResetAttackBool
     data: 
     objectReferenceParameter: {fileID: 0}
