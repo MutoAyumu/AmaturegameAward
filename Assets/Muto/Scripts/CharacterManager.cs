@@ -16,6 +16,9 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
     [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "LeftTrigger";
     [SerializeField, Tooltip("二人がついていくボタンの名前")] string _togetherButton = "InputX";
+    [SerializeField] Slider _warmthSlider = default;
+    [SerializeField] Text _warmthText = default;
+    [SerializeField] float _maxSpacing = 5f;
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch;
 
     bool _isTogether;
@@ -67,6 +70,19 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             _ghost.transform.position = _human.GhostSetPos.position;
         }
+
+        if(_warmthSlider)
+        {
+            _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
+        }
+        if(_warmthSlider.value <= 0)
+        {
+            _warmthText.gameObject.SetActive(true);
+        }
+        else if(_warmthText.gameObject.activeSelf)
+        {
+            _warmthText.gameObject.SetActive(false);
+        }
     }
     /// <summary>
     /// ゲームを始める準備
@@ -86,6 +102,20 @@ public class CharacterManager : Singleton<CharacterManager>
         else
         {
             Debug.LogError("InteractiveTextがありません");
+        }
+
+        if (!_warmthText)
+        {
+            Debug.LogError("温もりテキストがセットされていません");
+        }
+        else
+        {
+            _warmthText.gameObject.SetActive(false);
+        }
+
+        if (!_warmthSlider)
+        {
+            Debug.LogError("温もりゲージがセットされていません");
         }
     }
     /// <summary>
@@ -165,4 +195,14 @@ public class CharacterManager : Singleton<CharacterManager>
 
         return _ghost;
     }
+
+    /// <summary>
+    /// キャラの間隔を返す
+    /// </summary>
+    /// <returns></returns>
+    float CharacterSpacing()
+    {
+        return Vector2.Distance(Human.transform.position, Ghost.transform.position);
+    }
+
 }
