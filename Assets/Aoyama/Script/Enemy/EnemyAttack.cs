@@ -13,6 +13,8 @@ public class EnemyAttack : MonoBehaviour
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField]
     Rigidbody2D _rb;
+    [SerializeField]
+    Animator _anim;
 
     ContactFilter2D _filter;
     List<Collider2D> _result = new List<Collider2D>(5);
@@ -50,7 +52,12 @@ public class EnemyAttack : MonoBehaviour
             SoundManager.Instance.SoundPlay(_audio);
         }
 
-        Debug.Log($"{gameObject.name}ÇÃçUåÇ");
+        if(_anim)
+        {
+            _anim.SetTrigger("Attack");
+            Debug.Log($"{gameObject.name}ÇÃçUåÇ");
+        }
+
         //[ToDo] ContactFilter2DÇSerializeÇ∑ÇÈÇ±Ç∆Ç≈LayerMaskÇéwíËÇ≈Ç´ÇÈÇÃÇ≈ÅAó]óTÇ™Ç†ÇÍÇŒÇ∑ÇÈ
         _count = _attackCol.OverlapCollider(_filter, _result);
         _result.ForEach(go => go.GetComponent<PlayerHp>()?.Damage());
