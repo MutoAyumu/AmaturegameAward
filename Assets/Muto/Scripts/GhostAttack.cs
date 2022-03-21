@@ -5,8 +5,11 @@ using UnityEngine;
 public class GhostAttack : MonoBehaviour
 {
     [SerializeField] GhostBullet _bullet = default;
-    public void Attack()
+    public void Attack(float h, float v)
     {
-        Instantiate(_bullet, this.transform.position, Quaternion.identity);
+        var dir = new Vector2(h, v);
+
+        var go = Instantiate(_bullet, this.transform.position, Quaternion.identity);
+        go.transform.up = dir;
     }
 }

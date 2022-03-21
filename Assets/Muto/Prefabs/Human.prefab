@@ -186,7 +186,7 @@ MonoBehaviour:
   - {x: 0.098006845, y: -0.49705362, z: 0}
   m_ShapePathHash: -1673399895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39786
+  m_InstanceId: 59208
 --- !u!1 &3461823223504863366
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   _inputSearchar: Fire2
   _rayLength: 1
   _moveSpeed: 2.5
+  _status: 0
   _attack: {fileID: 7634808835734991347}
   _push: {fileID: 315072003627723637}
   _ghostSetPos: {fileID: 7717027440802397364}

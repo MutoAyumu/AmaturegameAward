@@ -13,9 +13,18 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("Vcamを入れる")] CinemachineVirtualCamera _vcam = default;
     [SerializeField] Text _lightCountTest = default;
     [SerializeField] Text _interactiveText = default;
+    [Header("ボタンの設定")]
     [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
     [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "LeftTrigger";
     [SerializeField, Tooltip("二人がついていくボタンの名前")] string _togetherButton = "InputX";
+    [Header("温もりゲージ関係")]
+    [SerializeField, Tooltip("温もりゲージをセット")] Slider _warmthSlider = default;
+    [SerializeField, Tooltip("離れすぎた時に表示させるテキスト")] Text _warmthText = default;
+    [SerializeField, Tooltip("キャラの離れられる間隔")] float _maxSpacing = 5f;
+    [SerializeField] float _timeLimit = 3f;
+    float _timer;
+
+    [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch;
 
     bool _isTogether;
 
@@ -23,6 +32,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
+    public bool IsCanSwitch { get => _isCanSwitch; set => _isCanSwitch = value; }
 
     /*
         KeyCodeを変える
@@ -33,19 +43,22 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     private void Update()
     {
-        if (Input.GetButtonDown(_humanChangeButton))
+        //人間に切り替える
+        if (Input.GetButtonDown(_humanChangeButton) && _isCanSwitch)
         {
             HumanExchange();
             _interactiveText.gameObject.SetActive(false);
         }
 
-        if(Input.GetButtonDown(_ghostChangeButton))
+        //幽霊に切り替える
+        if(Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
         {
             GhostExchange();
             _interactiveText.gameObject.SetActive(false);
         }
 
-        if (_ghost.IsFixedRange && !_isTogether)
+        //一緒に行動する
+        if (_ghost.IsFixedRange && !_isTogether && _isCanSwitch)
         {
             MoveTogether();
 
@@ -62,9 +75,36 @@ public class CharacterManager : Singleton<CharacterManager>
             }
         }
 
+        //一緒に行動している時は幽霊の座標を更新する
         if (_isTogether)
         {
             _ghost.transform.position = _human.GhostSetPos.position;
+        }
+
+        //温もりゲージを更新
+        if(_warmthSlider)
+        {
+            _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
+        } 
+
+        //温もりゲージが0以下になったらテキストを表示する
+        if(_warmthSlider.value <= 0)
+        {
+            _warmthText.gameObject.SetActive(true);
+            _timer += Time.deltaTime;
+
+            if (_timeLimit <= _timer)
+            {
+                //ダメージを与える\
+                Debug.Log("ダメージが与えられた");
+                _timer = 0;
+            }
+
+        }
+        else if(_warmthText.IsActive())
+        {
+            _warmthText.gameObject.SetActive(false);
+            _timer = 0;
         }
     }
     /// <summary>
@@ -84,7 +124,21 @@ public class CharacterManager : Singleton<CharacterManager>
         }
         else
         {
-            Debug.LogError("InteractiveTextがありません");
+            Debug.Log("InteractiveTextがありません");
+        }
+
+        if (!_warmthText)
+        {
+            Debug.Log("温もりテキストがセットされていません");
+        }
+        else
+        {
+            _warmthText.gameObject.SetActive(false);
+        }
+
+        if (!_warmthSlider)
+        {
+            Debug.Log("温もりゲージがセットされていません");
         }
     }
     /// <summary>
@@ -164,4 +218,14 @@ public class CharacterManager : Singleton<CharacterManager>
 
         return _ghost;
     }
+
+    /// <summary>
+    /// キャラの間隔を返す
+    /// </summary>
+    /// <returns></returns>
+    float CharacterSpacing()
+    {
+        return Vector2.Distance(Human.transform.position, Ghost.transform.position);
+    }
+
 }
