@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
+    [SerializeField] protected Collider2D _col = default;
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] protected Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
@@ -171,4 +172,10 @@ public class CharacterControllerBase : MonoBehaviour
     {
         return new Vector2(_lh, _lv);
     }
+
+    public Vector2 ColliderCenter()
+    {
+        return (Vector2)this.transform.position + _col.offset;
+    }
+
 }
