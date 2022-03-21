@@ -159,4 +159,9 @@ public class FieldManager : Singleton<FieldManager>
         TestItemManager.Instance.RemoveItem(TestItemManager.Instance.Inventry[index]);
         TestItemManager.Instance.AddItem(TestItemManager.Instance.LastItem);
     }
+
+    public void Test()
+    {
+        Debug.Log("ƒeƒXƒg");
+    }
 }
