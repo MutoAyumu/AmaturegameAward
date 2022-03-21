@@ -32,7 +32,6 @@ public class CharacterManager : Singleton<CharacterManager>
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
-    public bool IsCanSwitch { get => _isCanSwitch; set => _isCanSwitch = value; }
 
     /*
         KeyCode‚ğ•Ï‚¦‚é
@@ -228,4 +227,11 @@ public class CharacterManager : Singleton<CharacterManager>
         return Vector2.Distance(Human.transform.position, Ghost.transform.position);
     }
 
+    /// <summary>
+    /// ‘€ìƒLƒƒƒ‰‚ÌØ‚è‘Ö‚¦‚ğ‰Â”\‚É‚·‚é
+    /// </summary>
+    public void Switching()
+    {
+        _isCanSwitch = true;
+    }
 }
