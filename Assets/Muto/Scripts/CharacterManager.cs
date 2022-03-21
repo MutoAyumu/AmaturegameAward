@@ -32,7 +32,6 @@ public class CharacterManager : Singleton<CharacterManager>
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
-    public bool IsCanSwitch { get => _isCanSwitch; set => _isCanSwitch = value; }
 
     /*
         KeyCodeを変える
@@ -85,27 +84,27 @@ public class CharacterManager : Singleton<CharacterManager>
         if(_warmthSlider)
         {
             _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
-        } 
 
-        //温もりゲージが0以下になったらテキストを表示する
-        if(_warmthSlider.value <= 0)
-        {
-            _warmthText.gameObject.SetActive(true);
-            _timer += Time.deltaTime;
-
-            if (_timeLimit <= _timer)
+            //温もりゲージが0以下になったらテキストを表示する
+            if (_warmthSlider.value <= 0)
             {
-                //ダメージを与える\
-                Debug.Log("ダメージが与えられた");
+                _warmthText.gameObject.SetActive(true);
+                _timer += Time.deltaTime;
+
+                if (_timeLimit <= _timer)
+                {
+                    //ダメージを与える\
+                    Debug.Log("ダメージが与えられた");
+                    _timer = 0;
+                }
+
+            }
+            else if (_warmthText.IsActive())
+            {
+                _warmthText.gameObject.SetActive(false);
                 _timer = 0;
             }
-
-        }
-        else if(_warmthText.IsActive())
-        {
-            _warmthText.gameObject.SetActive(false);
-            _timer = 0;
-        }
+        } 
     }
     /// <summary>
     /// ゲームを始める準備
@@ -228,4 +227,11 @@ public class CharacterManager : Singleton<CharacterManager>
         return Vector2.Distance(Human.transform.position, Ghost.transform.position);
     }
 
+    /// <summary>
+    /// 操作キャラの切り替えを可能にする
+    /// </summary>
+    public void Switching()
+    {
+        _isCanSwitch = true;
+    }
 }
