@@ -85,27 +85,27 @@ public class CharacterManager : Singleton<CharacterManager>
         if(_warmthSlider)
         {
             _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
-        } 
 
-        //温もりゲージが0以下になったらテキストを表示する
-        if(_warmthSlider.value <= 0)
-        {
-            _warmthText.gameObject.SetActive(true);
-            _timer += Time.deltaTime;
-
-            if (_timeLimit <= _timer)
+            //温もりゲージが0以下になったらテキストを表示する
+            if (_warmthSlider.value <= 0)
             {
-                //ダメージを与える\
-                Debug.Log("ダメージが与えられた");
+                _warmthText.gameObject.SetActive(true);
+                _timer += Time.deltaTime;
+
+                if (_timeLimit <= _timer)
+                {
+                    //ダメージを与える\
+                    Debug.Log("ダメージが与えられた");
+                    _timer = 0;
+                }
+
+            }
+            else if (_warmthText.IsActive())
+            {
+                _warmthText.gameObject.SetActive(false);
                 _timer = 0;
             }
-
-        }
-        else if(_warmthText.IsActive())
-        {
-            _warmthText.gameObject.SetActive(false);
-            _timer = 0;
-        }
+        } 
     }
     /// <summary>
     /// ゲームを始める準備
