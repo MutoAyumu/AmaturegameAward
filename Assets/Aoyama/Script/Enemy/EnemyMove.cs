@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] Rigidbody2D _rb;
+    [SerializeField] SpriteRenderer _sprite;
 
     [System.NonSerialized]
     public Transform Decoy = null;
@@ -48,6 +49,7 @@ public class EnemyMove : MonoBehaviour
         _target = PlayerPosition();
 
         Move();
+        Flip();
     }
 
     /// <summary>
@@ -65,6 +67,18 @@ public class EnemyMove : MonoBehaviour
         }
 
         _rb.velocity = (_target - transform.position).normalized * _chaseSpeed;
+    }
+
+    void Flip()
+    {
+        if(_target.x - transform.position.x > 0)
+        {
+            _sprite.flipX = true;
+        }
+        else
+        {
+            _sprite.flipX = false;
+        }
     }
 
     Vector3 player1;
