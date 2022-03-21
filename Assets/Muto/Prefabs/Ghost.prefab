@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3965599741290060843}
+  _col: {fileID: 7909511982441232609}
   _endAreaTag: Finish
   _anim: {fileID: 1978664865}
   _mainSprite: {fileID: 4382527022179636378}
@@ -348,6 +349,7 @@ MonoBehaviour:
   _inputSearchar: Fire2
   _rayLength: 1
   _moveSpeed: 2.5
+  _status: 0
   _layer:
     serializedVersion: 2
     m_Bits: 8

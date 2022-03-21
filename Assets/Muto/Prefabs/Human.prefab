@@ -186,7 +186,7 @@ MonoBehaviour:
   - {x: 0.098006845, y: -0.49705362, z: 0}
   m_ShapePathHash: -1673399895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42364
+  m_InstanceId: 54600
 --- !u!1 &3461823223504863366
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 8807195062776794762}
-  _col: {fileID: 0}
+  _col: {fileID: 1155214695246452155}
   _endAreaTag: Finish
   _anim: {fileID: 1656573785519999096}
   _mainSprite: {fileID: 4346157909462227067}
