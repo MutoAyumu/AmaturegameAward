@@ -71,13 +71,16 @@ public class EnemyMove : MonoBehaviour
 
     void Flip()
     {
-        if(_target.x - transform.position.x > 0)
+        if(_sprite)
         {
-            _sprite.flipX = true;
-        }
-        else
-        {
-            _sprite.flipX = false;
+            if (_target.x - transform.position.x > 0)
+            {
+                _sprite.flipX = true;
+            }
+            else
+            {
+                _sprite.flipX = false;
+            }
         }
     }
 

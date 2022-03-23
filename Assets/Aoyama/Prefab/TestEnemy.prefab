@@ -54,6 +54,7 @@ MonoBehaviour:
   _chaseDistance: 2
   _knockBackPower: 5
   _rb: {fileID: 1008040005887965875}
+  _sprite: {fileID: 1008040005887965874}
 --- !u!114 &1008040005887965872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +87,7 @@ MonoBehaviour:
   _attackTime: 3
   _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 1008040005887965875}
+  _anim: {fileID: 0}
 --- !u!50 &1008040005887965875
 Rigidbody2D:
   serializedVersion: 4
