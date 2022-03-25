@@ -93,7 +93,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
                 if (_timeLimit <= _timer)
                 {
-                    //ダメージを与える\
+                    _human.Hp.Damage();
                     Debug.Log("ダメージが与えられた");
                     _timer = 0;
                 }
@@ -224,7 +224,12 @@ public class CharacterManager : Singleton<CharacterManager>
     /// <returns></returns>
     float CharacterSpacing()
     {
-        return Vector2.Distance(Human.transform.position, Ghost.transform.position);
+        if (_human && _ghost)
+        {
+            return Vector2.Distance(Human.transform.position, Ghost.transform.position);
+        }
+
+        return 0;
     }
 
     /// <summary>

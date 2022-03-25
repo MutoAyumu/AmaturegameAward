@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 2727895765786533037}
   - component: {fileID: 7780111095492934346}
   - component: {fileID: 5277506469026746357}
+  - component: {fileID: 2940785901502901915}
   - component: {fileID: 1978664865}
   - component: {fileID: 3511238453761472246}
   m_Layer: 6
@@ -341,7 +342,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3965599741290060843}
+<<<<<<< HEAD
+  _col: {fileID: 7909511982441232609}
+  _hp: {fileID: 2940785901502901915}
+=======
   _col: {fileID: 0}
+>>>>>>> e8a4483e4685a6fb8b345b75885209e337d50836
   _endAreaTag: Finish
   _anim: {fileID: 1978664865}
   _mainSprite: {fileID: 4382527022179636378}
@@ -421,6 +427,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 1243007438064672385, guid: 3da5888571d6b104e8495f5f8d56e612, type: 3}
+--- !u!114 &2940785901502901915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780111096429971619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775e5aef01d56634b83aecaec67bb20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathPrefab: {fileID: 0}
 --- !u!95 &1978664865
 Animator:
   serializedVersion: 4
