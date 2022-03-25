@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rinpun : MonoBehaviour
+public class Rinpun : IAttack
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Transform _rightMuzzle;
+    [SerializeField] Transform _leftMuzzle;
+    [SerializeField] Transform _upMuzzle;
+    [SerializeField] Transform _downMuzzle;
 
-    // Update is called once per frame
-    void Update()
+    public void Attack()
     {
-        
+
     }
 }
