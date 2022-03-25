@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7661629864043914179}
   - component: {fileID: 3805185141878233993}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FixedRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2256549679627167697}
   - component: {fileID: 1736405431173525723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4382527022179636378}
   - component: {fileID: 7909511982441232609}
   - component: {fileID: 1923745438640911442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 2940785901502901915}
   - component: {fileID: 1978664865}
   - component: {fileID: 3511238453761472246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,8 +342,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3965599741290060843}
+<<<<<<< HEAD
   _col: {fileID: 7909511982441232609}
   _hp: {fileID: 2940785901502901915}
+=======
+  _col: {fileID: 0}
+>>>>>>> e8a4483e4685a6fb8b345b75885209e337d50836
   _endAreaTag: Finish
   _anim: {fileID: 1978664865}
   _mainSprite: {fileID: 4382527022179636378}

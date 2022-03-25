@@ -24,7 +24,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] float _timeLimit = 3f;
     float _timer;
 
-    [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch;
+    [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
 
     bool _isTogether;
 
