@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _human: {fileID: 6032194428537537483, guid: 3b4a9ed3739bd3f4e833d03a4adc0974, type: 3}
-  _ghost: {fileID: 415972340752617082, guid: bf968328a15e8174f9d4c8fd9b796e1b, type: 3}
+  _ghost: {fileID: 2186443081009466683, guid: bf968328a15e8174f9d4c8fd9b796e1b, type: 3}
   _instancePos:
   - {fileID: 7794415337671885156}
   - {fileID: 1009629756912180591}
@@ -119,3 +119,8 @@ MonoBehaviour:
   _humanChangeButton: RightTrigger
   _ghostChangeButton: LeftTrigger
   _togetherButton: InputX
+  _warmthSlider: {fileID: 0}
+  _warmthText: {fileID: 0}
+  _maxSpacing: 5
+  _timeLimit: 3
+  _isCanSwitch: 0

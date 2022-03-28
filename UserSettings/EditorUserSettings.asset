@@ -5,6 +5,33 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+<<<<<<< HEAD
+=======
+    RecentlyUsedSceneGuid-0:
+      value: 5a53000555050809550a5a2713705d444e161e7a7e7a76667f714a60e6b9326d
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 5a05015f030d5f085c0a0e7b47700b44154f4d28797a22317e7a4f30b5b4373c
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 500001035d5751025f575a2047735b44404f49782a7f7632297e4d65e0b7306f
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 06090c515457500a0f5c5e2114250944424f417e747d7e637c2c4c66e6b1616b
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 0002065057530b03545e5c764721094442154e787f707636782f1c64b1b53060
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5207560300040c0f08560d20427506444e154d79757927602e2a4b60b2e3626e
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5250020200565c5e590f097245770e4440161a2f7a707468752c4e67e7e2306b
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 53090d5101025e5e595a0f7a47770744434e1a7e287c77632c2d4430bbb4656a
+      flags: 0
+>>>>>>> 95e034c1ab3a8fbf983b9b8009455ded7633916e
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
