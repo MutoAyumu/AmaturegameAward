@@ -186,6 +186,9 @@ MonoBehaviour:
   - {x: 0.098006845, y: -0.49705362, z: 0}
   m_ShapePathHash: -1673399895
   m_Mesh: {fileID: 0}
+<<<<<<< HEAD
+  m_InstanceId: 54600
+=======
   m_InstanceId: 40896
 --- !u!1 &1216605539542911403
 GameObject:
@@ -271,6 +274,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+>>>>>>> 95e034c1ab3a8fbf983b9b8009455ded7633916e
 --- !u!1 &3461823223504863366
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 8807195062776794762}
   _col: {fileID: 1155214695246452155}
+<<<<<<< HEAD
+=======
   _hp: {fileID: 6220712096073929441}
+>>>>>>> 95e034c1ab3a8fbf983b9b8009455ded7633916e
   _endAreaTag: Finish
   _anim: {fileID: 1656573785519999096}
   _mainSprite: {fileID: 4346157909462227067}

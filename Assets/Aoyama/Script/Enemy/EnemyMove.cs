@@ -98,11 +98,11 @@ public class EnemyMove : MonoBehaviour
             return Decoy.position;
         }
 
-        player1 = _player.transform.position;
+        player1 = _player.ColliderCenter();
         Debug.DrawLine(transform.position, player1);
         float isHit1 = Vector3.Distance(transform.position, player1);
 
-        player2 = _ghost.transform.position;
+        player2 = _ghost.ColliderCenter();
         Debug.DrawLine(transform.position, player2);
         float isHit2 = Vector3.Distance(transform.position, player2);
 
