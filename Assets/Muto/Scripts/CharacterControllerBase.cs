@@ -45,6 +45,12 @@ public class CharacterControllerBase : MonoBehaviour
     private void Start()
     {
         _currentSpeed = _moveSpeed;
+
+        OnStart();
+    }
+    public virtual void OnStart()
+    {
+
     }
     private void Update()
     {

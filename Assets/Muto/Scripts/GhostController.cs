@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using System;
 
 public class GhostController : CharacterControllerBase
 {
@@ -15,14 +16,22 @@ public class GhostController : CharacterControllerBase
     bool _isFixedRange = default;
     int _attackCount = 0;
 
+    //ステートをリセットする
+    public event Action ResetStatus;
+
     public bool IsFixedRange { get => _isFixedRange; set => _isFixedRange = value; }
 
+    public override void OnStart()
+    {
+        ResetStatus = Reset;
+    }
     public override void OnUpdate()
     {
         if(Input.GetButtonDown(_inputLight) && _isControll)
         {
             //Activate();
-            _abs.Absorption(_lh, _lv, _rayLength, _layer);
+            _status = CharacterStatus.ATTACK;
+            _abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
         }
         if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
         {
@@ -64,5 +73,9 @@ public class GhostController : CharacterControllerBase
         {
             hit.collider.GetComponent<IGhostGimic>()?.Action();
         }
+    }
+    private void Reset()
+    {
+        _status = CharacterStatus.IDLE;
     }
 }
