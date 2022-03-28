@@ -53,6 +53,13 @@ public class LightSource : MonoBehaviour
                     _isOn = true;
                 }
             }
+            else
+            {
+                if(_timer != 0)
+                {
+                    _timer = 0;
+                }
+            }
         }
     }
     /// <summary>
