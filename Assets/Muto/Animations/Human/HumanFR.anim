@@ -30,7 +30,7 @@ AnimationClip:
     - time: 2
       value: {fileID: 21300000, guid: 5afd078a93150cf4eb3aa544030de8e3, type: 3}
     attribute: m_Sprite
-    path: Human
+    path: Avater
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -41,7 +41,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1688468209
+      path: 1974972957
       attribute: 0
       script: {fileID: 0}
       typeID: 212
