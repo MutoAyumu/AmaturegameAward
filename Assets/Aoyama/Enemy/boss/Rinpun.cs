@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rinpun : IAttack
+public class Rinpun : MonoBehaviour, IAttack 
 {
     [Header("ƒ}ƒYƒ‹")]
     [SerializeField] Transform _rightMuzzle;
