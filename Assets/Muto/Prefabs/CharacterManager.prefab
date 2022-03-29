@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e4f9bf76d5e24489b08ed1588143c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _human: {fileID: 6032194428537537483, guid: 3b4a9ed3739bd3f4e833d03a4adc0974, type: 3}
-  _ghost: {fileID: 2186443081009466683, guid: bf968328a15e8174f9d4c8fd9b796e1b, type: 3}
+  _human: {fileID: 3123253586814841015, guid: 3b4a9ed3739bd3f4e833d03a4adc0974, type: 3}
+  _ghost: {fileID: 2138054535506401045, guid: bf968328a15e8174f9d4c8fd9b796e1b, type: 3}
   _instancePos:
   - {fileID: 7794415337671885156}
   - {fileID: 1009629756912180591}
