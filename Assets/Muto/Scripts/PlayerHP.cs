@@ -7,6 +7,7 @@ public class PlayerHp : MonoBehaviour
     [SerializeField, Tooltip("Player‚ªŽ€‚ñ‚¾‚Æ‚«‚ÌƒvƒŒƒnƒu")]
     GameObject _deathPrefab;
 
+    //test
     int _maxHp = 0;
     PlayerPalam _playerPalam;
 
