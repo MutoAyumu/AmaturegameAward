@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// フィールド上での進行を管理するクラス（デバッグ時点ではUIManagerも内包している）
+/// </summary>
 public class FieldManager : Singleton<FieldManager>
 {
 
