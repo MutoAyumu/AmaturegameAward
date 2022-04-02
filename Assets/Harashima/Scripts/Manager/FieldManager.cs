@@ -25,12 +25,15 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField,Range(1, 10),Tooltip("ステージの番号")]
     int _stageIndex;
 
+    [SerializeField, Tooltip("フィールドBGM")]
+    AudioClip _bgm;
+
     void Start()
     {
         //テスト用
         OnGameOver += DebugGameOver;
         OnClear += DebugClear;
-
+        SoundManager.Instance.BGMPlay();
         TestItemManager.Instance?.InstanceItem();
         
     }

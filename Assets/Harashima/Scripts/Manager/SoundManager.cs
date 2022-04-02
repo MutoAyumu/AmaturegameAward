@@ -16,8 +16,8 @@ public class SoundManager : Singleton<SoundManager>
         _audioSource.PlayOneShot(clip);
     }
 
-    protected override void OnAwake()
+    public void BGMPlay()
     {
-        DontDestroyOnLoad(this);
+        _audioSource.Play();
     }
 }
