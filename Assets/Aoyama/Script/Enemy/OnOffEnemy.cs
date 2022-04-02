@@ -12,7 +12,12 @@ public class OnOffEnemy : MonoBehaviour
     string _humanTag = "Player";
     [SerializeField]
     string _ghostTag = "Respawn";
-    
+
+    private void Start()
+    {
+        OffSetActive();
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(_enemys == null)
