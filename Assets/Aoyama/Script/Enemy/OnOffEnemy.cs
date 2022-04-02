@@ -24,8 +24,8 @@ public class OnOffEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if(collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
+        Debug.Log(collision);
+        if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
         {
             OnSetActive();
         }
