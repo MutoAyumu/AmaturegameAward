@@ -10,8 +10,10 @@ public class EnemyMove : MonoBehaviour
     [Header("移動時のステータス")]
     [SerializeField, Tooltip("追いかける速度")]
     float _chaseSpeed = 5f;
-    [SerializeField, Tooltip("追いかける距離")]
-    float _chaseDistance = 1f;
+    [SerializeField, Tooltip("近づく距離")]
+    float _nearDistance = 1f;
+    [SerializeField, Tooltip("追いかけ始める距離")]
+    float _chaseDistance = 8f;
     [SerializeField, Tooltip("ダメージを受けた時の吹っ飛び加減")]
     float _knockBackPower = 5f;
 
@@ -57,9 +59,16 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     void Move()
     {
-        //targetとの距離がchaseDistanseより近くなると動きを止める
         float distance = Vector3.Distance(transform.position, _target);
-        if (distance < _chaseDistance)
+        //targetとの距離がnearDistanseより遠くなると動きを止める
+        if (distance > _chaseDistance)
+        {
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = 0;
+            return;
+        }
+        //targetとの距離がchaseDistanseより近くなると動きを止める
+        if (distance < _nearDistance)
         {
             _rb.velocity = Vector3.zero;
             _rb.angularVelocity = 0;
