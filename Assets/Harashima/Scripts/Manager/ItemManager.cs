@@ -7,15 +7,17 @@ using UnityEngine;
 /// </summary>
 public class ItemManager : Singleton<ItemManager>
 {
+    [SerializeField, Tooltip("アイテムの数")]
+    int _itemValue = 2;
     [SerializeField,Tooltip("アイテムの種類を保存した配列")]
-    ItemBase[] _items = new ItemBase[4];
+    ItemBase[] _items;
 
     [SerializeField, Tooltip("一つのアイテムを持てる上限")]
     int _itemLimit = 99;
 
     /// <summary>アイテムをいくつ持っているかの配列</summary>
-    int[] _inventry = new int[4];
-    bool[] _first = new bool[4];
+    int[] _inventry ;
+    bool[] _first ;
 
     [SerializeField, Tooltip("アイテムを使う時のSE")]
     AudioClip[] _audios;
@@ -56,6 +58,9 @@ public class ItemManager : Singleton<ItemManager>
         //{
         //    FieldManager.Instance.ChangeTextValue(i, 0);
         //}
+        _items = new ItemBase[_itemValue];
+        _inventry = new int[_itemValue];
+        _first = new bool[_itemValue];
     }
     protected override void OnAwake()
     {

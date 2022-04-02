@@ -1500,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee1269859e7cfe42bca6051d96889d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemValue: 2
   _items:
   - {fileID: 6701616063472317332, guid: 62d8cd7b87b0140428a1c3f2e9c7ab3b, type: 3}
   - {fileID: 6701616063472317332, guid: 8e1709053266fa54dbc37ff67d783c0e, type: 3}
