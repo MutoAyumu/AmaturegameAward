@@ -73,8 +73,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemys:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 4973204467932122974}
   _humanTag: Player
   _ghostTag: Respawn
