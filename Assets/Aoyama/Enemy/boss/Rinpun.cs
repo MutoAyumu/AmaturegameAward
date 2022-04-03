@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rinpun : MonoBehaviour, IAttack 
+public class Rinpun : MonoBehaviour 
 {
     [Header("ƒ}ƒYƒ‹")]
     [SerializeField] Transform _rightMuzzle;
@@ -16,7 +16,7 @@ public class Rinpun : MonoBehaviour, IAttack
     [SerializeField] GameObject _upBullet;
     [SerializeField] GameObject _downBullet;
 
-    public void Attack()
+    public void RinpunAttack()
     {
         _rightBullet = GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
         _leftBullet = GameObject.Instantiate(_leftBullet, _leftMuzzle.position, Quaternion.identity);
