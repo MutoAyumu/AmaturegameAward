@@ -17,7 +17,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected float _moveSpeed = 3.0f;
     [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
 
-    [Tooltip("最後に入力された横方向の値")]protected float _lh = 1;
+    [Tooltip("最後に入力された横方向の値")] protected float _lh = 1;
     public float InputH => _lh;
     [Tooltip("最後に入力された縦方向の値")] protected float _lv = default;
     public float InputV => _lv;
@@ -31,7 +31,7 @@ public class CharacterControllerBase : MonoBehaviour
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public PlayerHp Hp { get => _hp; }
-    public SpriteRenderer MainSprite { get => _mainSprite;}
+    public SpriteRenderer MainSprite { get => _mainSprite; }
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
 
     protected enum CharacterStatus
@@ -54,28 +54,31 @@ public class CharacterControllerBase : MonoBehaviour
     }
     private void Update()
     {
-        if(_isControll)
+        if (_isControll)
         {
             InputValue();
 
-            if (Input.GetButtonDown(_inputSearchar) && _searchar)
-            {
-                Vector2 origin = this.transform.position;
-                RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
-                _searchar.Search(_lh, _lv, hit);
-            }
             //状態を管理する
             switch (_status)
             {
                 case CharacterStatus.IDLE:
                     _anim.SetBool("IsMove", false);
+
+                    if (Input.GetButtonDown(_inputSearchar) && _searchar)
+                    {
+                        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
+                        _searchar.Search(_lh, _lv, hit);
+                    }
                     break;
 
                 case CharacterStatus.WALK:
-                    if (_status != CharacterStatus.ATTACK)
+                    Move(_h, _v);
+                    _anim.SetBool("IsMove", true);
+
+                    if (Input.GetButtonDown(_inputSearchar) && _searchar)
                     {
-                        Move(_h, _v);
-                        _anim.SetBool("IsMove", true);
+                        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
+                        _searchar.Search(_lh, _lv, hit);
                     }
                     break;
 
@@ -87,26 +90,23 @@ public class CharacterControllerBase : MonoBehaviour
                     break;
 
                 case CharacterStatus.ACTION:
-                    if (_status != CharacterStatus.ATTACK)
-                    {
-                        Move(_h, _v);
-                        _anim.SetBool("IsMove", true);
-                    }
+                    Move(_h, _v);
+                    _anim.SetBool("IsMove", true);
                     break;
 
                 default:
                     break;
             }
-        }
 
-        OnUpdate();
+            OnUpdate();
+        }
     }
     /// <summary>
     /// 派生先で使うUpdate
     /// </summary>
     public virtual void OnUpdate()
     {
-        
+
     }
     /// <summary>
     /// 移動入力を受ける関数
@@ -163,7 +163,7 @@ public class CharacterControllerBase : MonoBehaviour
     /// </summary>
     public void Stop()
     {
-        if(_rb)
+        if (_rb)
         {
             _rb.velocity = Vector2.zero;
         }

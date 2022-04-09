@@ -19,7 +19,7 @@ public class HumanController : CharacterControllerBase
 
     public override void OnUpdate()
     {
-        if(_push && Input.GetButtonDown(_grabButtonName)) //•¨‚ğ’Í‚Ş‚Æ‚«‚Ìˆ—
+        if(_push && Input.GetButtonDown(_grabButtonName) && _status != CharacterStatus.ATTACK) //•¨‚ğ’Í‚Ş‚Æ‚«‚Ìˆ—
         {
             var j = _push.Catch(_lh, _lv, _rayLength, _grabbingSpeed, _layer, _anim);
 
@@ -28,7 +28,7 @@ public class HumanController : CharacterControllerBase
                 _status = CharacterStatus.ACTION;
             }
         }
-        if(_push && Input.GetButton(_grabButtonName)) //•¨‚ğ’Í‚ñ‚Å“®‚©‚·‚Ìˆ—
+        if(_push && Input.GetButton(_grabButtonName) && _status != CharacterStatus.ATTACK) //•¨‚ğ’Í‚ñ‚Å“®‚©‚·‚Ìˆ—
         {
             _push.MoveIt(_h, _v);
         }   
