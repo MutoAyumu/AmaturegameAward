@@ -9940,6 +9940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _messageWindowPrefab: {fileID: 6295025924708432631, guid: 4d12ae866fea3984db9bcb2162d323d3, type: 3}
+  _textSpeed: 0.1
 --- !u!1 &1390653188
 GameObject:
   m_ObjectHideFlags: 0

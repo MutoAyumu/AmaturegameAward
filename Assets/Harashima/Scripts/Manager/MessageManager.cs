@@ -8,6 +8,9 @@ public class MessageManager : Singleton<MessageManager>
     [SerializeField, Tooltip("メッセージウィンドウプレハブ")]
     GameObject _messageWindowPrefab;
 
+    [SerializeField, Tooltip("メッセージの速度")]
+    float _textSpeed = 0.3f;
+
     /// <summary>メッセージウィンドウのテキストコンポーネント</summary>
     Text _windowText;
 
@@ -28,11 +31,41 @@ public class MessageManager : Singleton<MessageManager>
     public void SetText(string msg)
     {
         ActiveWindow(true);
-        if(_windowText)
+        if(_windowText && !_isText)
         {
-            _windowText.text = msg;
-            istext = true;
-        }       
+            //_windowText.text = msg;
+            StartCoroutine(DrawText(msg));
+        }
+    }
+    IEnumerator DrawText(string text)
+    {
+        _isText = true;
+        float time = 0;
+        while (true)
+        {
+            yield return 0;
+            time += Time.deltaTime;
+
+            // クリックされると一気に表示
+            if (IsSpace()) break;
+
+            int len = Mathf.FloorToInt(time / _textSpeed);
+            if (len > text.Length) break;
+            _windowText.text = text.Substring(0, len);
+        }
+        _windowText.text = text;
+        yield return 0;
+        _isText = false;
+    }
+
+    public bool IsSpace()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            return true;
+
+        }
+        return false;
     }
 
     public void ActiveWindow(bool active)
@@ -40,10 +73,10 @@ public class MessageManager : Singleton<MessageManager>
         _windowPanel?.SetActive(active);
     }
     //DebugTest
-    bool istext = false;
+    bool _isText = false;
     private void Update()
     {
-        if(istext && Input.GetKeyDown(KeyCode.Space))
+        if(!_isText && Input.GetKeyDown(KeyCode.Space))
         {
             ActiveWindow(false);
         }
