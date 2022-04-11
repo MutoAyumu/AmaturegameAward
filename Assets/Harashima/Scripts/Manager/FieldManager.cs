@@ -36,6 +36,14 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
     public GameObject Canvas => _canvas;
 
+    protected override void OnAwake()
+    {
+        if (!_canvas)
+        {
+            _canvas = FindObjectOfType<Canvas>().gameObject;
+        }
+    }
+
     void Start()
     {
         //テスト用
