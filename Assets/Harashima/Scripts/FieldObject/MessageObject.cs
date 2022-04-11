@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageObject : MonoBehaviour
+public class MessageObject : MonoBehaviour,IActivate
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField, Tooltip("表示するメッセージ")]
+    string _message;
+    public void Action()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MessageManager.Instance.SetText(_message);
     }
 }

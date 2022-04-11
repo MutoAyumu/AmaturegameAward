@@ -27,10 +27,25 @@ public class MessageManager : Singleton<MessageManager>
 
     public void SetText(string msg)
     {
-        _windowPanel?.SetActive(true);
+        ActiveWindow(true);
         if(_windowText)
         {
             _windowText.text = msg;
+            istext = true;
         }       
+    }
+
+    public void ActiveWindow(bool active)
+    {
+        _windowPanel?.SetActive(active);
+    }
+    //DebugTest
+    bool istext = false;
+    private void Update()
+    {
+        if(istext && Input.GetKeyDown(KeyCode.Space))
+        {
+            ActiveWindow(false);
+        }
     }
 }
