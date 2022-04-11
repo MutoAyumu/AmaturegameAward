@@ -31,6 +31,11 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField, Tooltip("フィールドBGM")]
     AudioClip _bgm;
 
+    [SerializeField, Tooltip("シーン上のキャンバス")]
+    GameObject _canvas;
+    /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
+    public GameObject Canvas => _canvas;
+
     void Start()
     {
         //テスト用
