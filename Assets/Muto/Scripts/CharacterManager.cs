@@ -23,6 +23,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("キャラの離れられる間隔")] float _maxSpacing = 5f;
     [SerializeField] float _timeLimit = 3f;
     float _timer;
+    [SerializeField]float _nakayoshiPoint;
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
 
@@ -78,6 +79,10 @@ public class CharacterManager : Singleton<CharacterManager>
         if (_isTogether)
         {
             _ghost.transform.position = _human.GhostSetPos.position;
+            _ghost.Anim.SetFloat("X", _human.InputH);
+            _ghost.Anim.SetFloat("Y", _human.InputV);
+
+            _nakayoshiPoint += Time.deltaTime;
         }
 
         //温もりゲージを更新
@@ -145,7 +150,6 @@ public class CharacterManager : Singleton<CharacterManager>
     /// </summary>
     void HumanExchange()
     {
-        _isTogether = false;
         _human.TogetherImage.gameObject.SetActive(false);
         _human.MainSprite.gameObject.SetActive(true);
         _ghost.MainSprite.gameObject.SetActive(true);
@@ -159,13 +163,18 @@ public class CharacterManager : Singleton<CharacterManager>
             _vcam.Follow = _human.transform;
         }
 
+        if(_isTogether)
+        {
+            _human.Anim.Play("IdleTree");
+            _isTogether = false;
+        }
+
     }
     /// <summary>
     /// 操作キャラを幽霊に切り替える関数
     /// </summary>
     void GhostExchange()
     {
-        _isTogether = false;
         _human.TogetherImage.gameObject.SetActive(false);
         _human.MainSprite.gameObject.SetActive(true);
         _ghost.MainSprite.gameObject.SetActive(true);
@@ -177,6 +186,12 @@ public class CharacterManager : Singleton<CharacterManager>
             _ghost.IsControll = true;
 
             _vcam.Follow = _ghost.transform;
+        }
+
+        if (_isTogether)
+        {
+            _human.Anim.Play("IdleTree");
+            _isTogether = false;
         }
     }
     /// <summary>
@@ -191,6 +206,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 {
                     _human.IsControll = false;
                     _human.Stop();
+                    _ghost.Col.isTrigger = true;
                 })
                 .OnComplete(() =>
                 {
@@ -201,6 +217,8 @@ public class CharacterManager : Singleton<CharacterManager>
                     _human.TogetherImage.gameObject.SetActive(true);
                     _human.MainSprite.gameObject.SetActive(false);
                     _ghost.MainSprite.gameObject.SetActive(false);
+                    _human.Anim.Play("ToIdleTree");
+                    _ghost.Col.isTrigger = false;
                 });
         }
     }
@@ -238,5 +256,14 @@ public class CharacterManager : Singleton<CharacterManager>
     public void Switching()
     {
         _isCanSwitch = true;
+    }
+
+    /// <summary>
+    /// 手を繋いでいる時間を返す関数
+    /// </summary>
+    /// <returns></returns>
+    public float ReturnPoint()
+    {
+        return _nakayoshiPoint;
     }
 }
