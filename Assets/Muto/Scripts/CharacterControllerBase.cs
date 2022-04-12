@@ -33,6 +33,8 @@ public class CharacterControllerBase : MonoBehaviour
     public PlayerHp Hp { get => _hp; }
     public SpriteRenderer MainSprite { get => _mainSprite; }
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
+    public Animator Anim { get => _anim; }
+    public Collider2D Col { get => _col; }
 
     protected enum CharacterStatus
     {

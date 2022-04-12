@@ -62,8 +62,8 @@ MonoBehaviour:
   _mainSprite: {fileID: 9167292961235691804}
   _searchar: {fileID: 2795186324782492116}
   _inputSearchar: Fire2
-  _rayLength: 1
-  _moveSpeed: 3
+  _rayLength: 0.3
+  _moveSpeed: 2
   _status: 0
   _layer:
     serializedVersion: 2
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 3709940737843075708}
   - component: {fileID: 9167292961235691804}
   - component: {fileID: 7751269943614823686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Avater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
