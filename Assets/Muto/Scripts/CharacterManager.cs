@@ -23,6 +23,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("キャラの離れられる間隔")] float _maxSpacing = 5f;
     [SerializeField] float _timeLimit = 3f;
     float _timer;
+    [SerializeField]float _nakayoshiPoint;
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
 
@@ -80,6 +81,8 @@ public class CharacterManager : Singleton<CharacterManager>
             _ghost.transform.position = _human.GhostSetPos.position;
             _ghost.Anim.SetFloat("X", _human.InputH);
             _ghost.Anim.SetFloat("Y", _human.InputV);
+
+            _nakayoshiPoint += Time.deltaTime;
         }
 
         //温もりゲージを更新
@@ -253,5 +256,14 @@ public class CharacterManager : Singleton<CharacterManager>
     public void Switching()
     {
         _isCanSwitch = true;
+    }
+
+    /// <summary>
+    /// 手を繋いでいる時間を返す関数
+    /// </summary>
+    /// <returns></returns>
+    public float ReturnPoint()
+    {
+        return _nakayoshiPoint;
     }
 }
