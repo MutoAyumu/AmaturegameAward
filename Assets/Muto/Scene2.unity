@@ -816,6 +816,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1338594033}
     - target: {fileID: 7081059310488816139, guid: f71a962a8e6b1974589e04f6be6a7ffe, type: 3}
+      propertyPath: _ghostImage
+      value: 
+      objectReference: {fileID: 21300000, guid: da6b0c7c6c8cc3247bdc563204997add, type: 3}
+    - target: {fileID: 7081059310488816139, guid: f71a962a8e6b1974589e04f6be6a7ffe, type: 3}
+      propertyPath: _humanImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 88c5b6ebd34da754bb973b3972a42a37, type: 3}
+    - target: {fileID: 7081059310488816139, guid: f71a962a8e6b1974589e04f6be6a7ffe, type: 3}
       propertyPath: _maxSpacing
       value: 6
       objectReference: {fileID: 0}
@@ -831,6 +839,10 @@ PrefabInstance:
       propertyPath: _warmthSlider
       value: 
       objectReference: {fileID: 4089178835676041287}
+    - target: {fileID: 7081059310488816139, guid: f71a962a8e6b1974589e04f6be6a7ffe, type: 3}
+      propertyPath: _playerUiImage
+      value: 
+      objectReference: {fileID: 4089178836123721956}
     - target: {fileID: 7081059310488816139, guid: f71a962a8e6b1974589e04f6be6a7ffe, type: 3}
       propertyPath: _lightCountTest
       value: 

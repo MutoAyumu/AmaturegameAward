@@ -13,6 +13,10 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("Vcamを入れる")] CinemachineVirtualCamera _vcam = default;
     [SerializeField] Text _lightCountTest = default;
     [SerializeField] Text _interactiveText = default;
+    [SerializeField] Sprite _humanImage = default;
+    [SerializeField] Sprite _ghostImage = default;
+    [SerializeField] Sprite _toImage = default;
+    [SerializeField] Image _playerUiImage = default;
     [Header("ボタンの設定")]
     [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
     [SerializeField, Tooltip("操作キャラを幽霊に変更するボタンの名前")] string _ghostChangeButton = "LeftTrigger";
@@ -119,8 +123,7 @@ public class CharacterManager : Singleton<CharacterManager>
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
-        _vcam.Follow = _human.transform;
-        _human.IsControll = true;
+        HumanExchange();
 
         if(_interactiveText)
         {
@@ -159,6 +162,7 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             _ghost.IsControll = false;
             _human.IsControll = true;
+            _playerUiImage.sprite = _humanImage;
 
             _vcam.Follow = _human.transform;
         }
@@ -184,6 +188,7 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             _human.IsControll = false;
             _ghost.IsControll = true;
+            _playerUiImage.sprite = _ghostImage;
 
             _vcam.Follow = _ghost.transform;
         }
