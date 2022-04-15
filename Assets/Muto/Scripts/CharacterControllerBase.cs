@@ -168,6 +168,7 @@ public class CharacterControllerBase : MonoBehaviour
         if (_rb)
         {
             _rb.velocity = Vector2.zero;
+            _anim.SetBool("IsMove", false);
         }
         else
         {

@@ -14,7 +14,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
     [Header("UI")]
     [SerializeField] Text _lightCountTest = default;
-    [SerializeField] Text _interactiveText = default;
+    [SerializeField] Image _toPanel = default;
     [SerializeField] Sprite _humanImage = default;
     [SerializeField] Sprite _ghostImage = default;
     [SerializeField] Sprite _toImage = default;
@@ -57,14 +57,14 @@ public class CharacterManager : Singleton<CharacterManager>
         if (Input.GetButtonDown(_humanChangeButton) && _isCanSwitch)
         {
             HumanExchange();
-            _interactiveText.gameObject.SetActive(false);
+            _toPanel.gameObject.SetActive(false);
         }
 
         //óHóÏÇ…êÿÇËë÷Ç¶ÇÈ
         if(Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
         {
             GhostExchange();
-            _interactiveText.gameObject.SetActive(false);
+            _toPanel.gameObject.SetActive(false);
         }
 
         //àÍèèÇ…çsìÆÇ∑ÇÈ
@@ -72,16 +72,16 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             MoveTogether();
 
-            if(!_interactiveText.IsActive())
+            if(!_toPanel.IsActive())
             {
-                _interactiveText.gameObject.SetActive(true);
+                _toPanel.gameObject.SetActive(true);
             }
         }
         else
         {
-            if (_interactiveText.IsActive())
+            if (_toPanel.IsActive())
             {
-                _interactiveText.gameObject.SetActive(false);
+                _toPanel.gameObject.SetActive(false);
             }
         }
 
@@ -131,9 +131,9 @@ public class CharacterManager : Singleton<CharacterManager>
 
         HumanExchange();
 
-        if(_interactiveText)
+        if(_toPanel)
         {
-            _interactiveText.gameObject.SetActive(false);
+            _toPanel.gameObject.SetActive(false);
         }
         else
         {
@@ -177,6 +177,7 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             _human.Anim.Play("IdleTree");
             _isTogether = false;
+            _playerUiImage.sprite = _humanImage;
         }
 
     }
@@ -230,6 +231,7 @@ public class CharacterManager : Singleton<CharacterManager>
                     _ghost.MainSprite.gameObject.SetActive(false);
                     _human.Anim.Play("ToIdleTree");
                     _ghost.Col.isTrigger = false;
+                    _playerUiImage.sprite = _toImage;
                 });
         }
     }
