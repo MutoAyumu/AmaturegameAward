@@ -14,6 +14,6 @@ public class BossMelee : MonoBehaviour
     public void Melee()
     {
         _attackAria.OverlapCollider(_filter, _result);
-        Array.ForEach(_result, go => go.GetComponent<PlayerHp>()?.Damage());
+        Array.ForEach(_result, go => go.GetComponent<PlayerHP>()?.Damage());
     }
 }
