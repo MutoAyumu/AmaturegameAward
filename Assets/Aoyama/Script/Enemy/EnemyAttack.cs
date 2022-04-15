@@ -60,6 +60,6 @@ public class EnemyAttack : MonoBehaviour
 
         //[ToDo] ContactFilter2D‚ðSerialize‚·‚é‚±‚Æ‚ÅLayerMask‚ðŽw’è‚Å‚«‚é‚Ì‚ÅA—]—T‚ª‚ ‚ê‚Î‚·‚é
         _count = _attackCol.OverlapCollider(_filter, _result);
-        _result.ForEach(go => go.GetComponent<PlayerHp>()?.Damage());
+        _result.ForEach(go => go.GetComponent<PlayerHP>()?.Damage());
     }
 }

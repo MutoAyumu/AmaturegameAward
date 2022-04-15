@@ -6,7 +6,7 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] protected Collider2D _col = default;
-    [SerializeField] protected PlayerHp _hp = default;
+    [SerializeField] protected PlayerHP _hp = default;
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] protected Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
@@ -30,7 +30,7 @@ public class CharacterControllerBase : MonoBehaviour
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
-    public PlayerHp Hp { get => _hp; }
+    public PlayerHP Hp { get => _hp; }
     public SpriteRenderer MainSprite { get => _mainSprite; }
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
     public Animator Anim { get => _anim; }
