@@ -32,7 +32,7 @@ public class HumanController : CharacterControllerBase
         {
             _push.MoveIt(_h, _v);
         }   
-        else if(_attack && Input.GetButtonDown(_attackButtonName)) //UŒ‚‚ğ‚·‚é‚Æ‚«‚Ìˆ—
+        else if(_attack && Input.GetButtonDown(_attackButtonName) && _status != CharacterStatus.ATTACK) //UŒ‚‚ğ‚·‚é‚Æ‚«‚Ìˆ—
         {
             _status = CharacterStatus.ATTACK;
             _anim.SetTrigger("IsAttack");

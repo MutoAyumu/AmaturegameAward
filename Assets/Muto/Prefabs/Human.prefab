@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathPrefab: {fileID: 0}
+  _sprite: {fileID: 3123253585974038370}
 --- !u!50 &3123253586814841008
 Rigidbody2D:
   serializedVersion: 4
