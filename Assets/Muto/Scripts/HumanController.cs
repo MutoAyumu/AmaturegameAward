@@ -56,6 +56,11 @@ public class HumanController : CharacterControllerBase
             _ghostSetPos.position = this.transform.position + new Vector3(0.368f, 0f, 0f);
         }
     }
+    
+    public void StartAttack()
+    {
+
+    }
 
     public void ResetAttackBool()
     {
