@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
 public class OnOffEnemy : MonoBehaviour
 {
     [SerializeField, Tooltip("Enemy‚ÌƒOƒ‹[ƒv")]
