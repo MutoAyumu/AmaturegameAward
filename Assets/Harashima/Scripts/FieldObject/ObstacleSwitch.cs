@@ -14,7 +14,7 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
     {
         foreach(var i in _obstacleObejects)
         {
-            i.Operation();
+            i.Action();
         }
 
         if (!IsActive)

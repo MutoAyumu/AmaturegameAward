@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 275085893851460298}
   m_Layer: 0
   m_Name: Human
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,6 +478,7 @@ MonoBehaviour:
   _rayLength: 0.3
   _moveSpeed: 2
   _status: 0
+  _endTag: Finish
   _attack: {fileID: 3123253586814841012}
   _push: {fileID: 3123253586814841013}
   _ghostSetPos: {fileID: 2053570089798123822}

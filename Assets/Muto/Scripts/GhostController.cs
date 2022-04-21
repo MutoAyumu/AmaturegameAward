@@ -15,6 +15,7 @@ public class GhostController : CharacterControllerBase
 
     bool _isFixedRange = default;
     int _attackCount = 0;
+    CharacterManager _cm;
 
     //ステートをリセットする
     public event Action ResetStatus;
@@ -24,6 +25,7 @@ public class GhostController : CharacterControllerBase
     public override void OnStart()
     {
         ResetStatus = Reset;
+        _cm = CharacterManager.Instance;
     }
     public override void OnUpdate()
     {
@@ -38,11 +40,11 @@ public class GhostController : CharacterControllerBase
             _attack.Attack(_lh, _lv);
             _attackCount++;
 
-            if(_attackCount >= 5)
+            if(_attackCount >= 1)
             {
                 _attackCount = 0;
                 _abs.LightCount--;
-                CharacterManager.Instance.LightCountTest.text = _abs.LightCount.ToString();
+                _cm.UILightUpdate(_abs.LightCount);
                 DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
             }
         }
