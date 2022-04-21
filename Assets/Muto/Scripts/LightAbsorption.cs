@@ -12,12 +12,18 @@ public class LightAbsorption : MonoBehaviour
     [SerializeField] float _time = 0.5f;
     int _lightCount = 0;
     bool isTake;
+    CharacterManager _cm;
 
     public int LightCount { get => _lightCount; set => _lightCount = value; }
     public Light2D Light { get => _light;}
     public int Limit { get => _limit;}
     public float Time { get => _time; set => _time = value; }
 
+    private void Start()
+    {
+        _cm = CharacterManager.Instance;
+        _cm.UILightUpdate(_lightCount);
+    }
     public void Absorption(float h, float v, float length, LayerMask layer, Animator anim, Action ac)
     {
         Vector2 origin = this.transform.position;
@@ -38,7 +44,7 @@ public class LightAbsorption : MonoBehaviour
                             anim.SetTrigger("IsAction");
 
                             _lightCount++;
-                            CharacterManager.Instance.LightCountTest.text = _lightCount.ToString();
+                            _cm.UILightUpdate(_lightCount);
                         })
                     .OnComplete(() =>
                         {
@@ -57,7 +63,7 @@ public class LightAbsorption : MonoBehaviour
                         anim.SetTrigger("IsAction");
 
                         _lightCount--;
-                        CharacterManager.Instance.LightCountTest.text = _lightCount.ToString();
+                        _cm.UILightUpdate(_lightCount);
                     })
                     .OnComplete(() =>
                     {

@@ -19,9 +19,14 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] Sprite _ghostImage = default;
     [SerializeField] Sprite _toImage = default;
     [SerializeField] Image _playerUiImage = default;
+
     [SerializeField] Transform _hpPanel = default;
     [SerializeField] Sprite _hpSprite = default;
-    [SerializeField] Vector2 _spriteSize = new Vector2(50f, 50f);
+    [SerializeField] Vector2 _hpSpriteSize = new Vector2(100f, 100f);
+
+    [SerializeField] Transform _lightPanel = default;
+    [SerializeField] Sprite _lightSprite = default;
+    [SerializeField] Vector2 _lightSpriteSize = new Vector2(80f, 80f);
 
     [Header("ボタンの設定")]
     [SerializeField, Tooltip("操作キャラを人間に変更するボタンの名前")] string _humanChangeButton = "RightTrigger";
@@ -296,9 +301,28 @@ public class CharacterManager : Singleton<CharacterManager>
 
             image.sprite = _hpSprite;
             var r = go.GetComponent<RectTransform>();
-            r.sizeDelta = _spriteSize;
+            r.sizeDelta = _hpSpriteSize;
 
             go.transform.SetParent(_hpPanel.transform);
+        }
+    }
+    public void UILightUpdate(int num)
+    {
+        foreach(Transform t in _lightPanel.transform)
+        {
+            Destroy(t.gameObject);
+        }
+
+        for(int i = 0; i < num; i++)
+        {
+            var go = new GameObject();
+            var image = go.AddComponent<Image>();
+
+            image.sprite = _lightSprite;
+            var r = go.GetComponent<RectTransform>();
+            r.sizeDelta = _lightSpriteSize;
+
+            go.transform.SetParent(_lightPanel.transform);
         }
     }
 }
