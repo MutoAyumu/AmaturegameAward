@@ -82,7 +82,14 @@ public class LightSource : MonoBehaviour
             {
                 //_isOn = true;
                 _anim.SetBool("Light", true);
-                return DOVirtual.Float(_light.intensity, 1.0f, time, value => _light.intensity = value);
+                return DOVirtual.Float(_light.intensity, 1.0f, time, value => _light.intensity = value)
+                    .OnComplete(() =>
+                    {
+                        foreach(var ac in _activate)
+                        {
+                            ac.GetComponent<IActivate>()?.Action();
+                        }
+                    });
             }
         }
 

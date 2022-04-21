@@ -65,6 +65,7 @@ MonoBehaviour:
   _rayLength: 0.3
   _moveSpeed: 2
   _status: 0
+  _endTag: Finish
   _layer:
     serializedVersion: 2
     m_Bits: 8

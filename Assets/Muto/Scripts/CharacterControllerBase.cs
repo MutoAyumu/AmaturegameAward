@@ -24,6 +24,8 @@ public class CharacterControllerBase : MonoBehaviour
 
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
 
+    [SerializeField, Tooltip("ステージクリアで使うトリガーのタグ")] string _endTag = "Finish";
+
     protected float _h = default;
     protected float _v = default;
     protected float _currentSpeed;
@@ -189,4 +191,11 @@ public class CharacterControllerBase : MonoBehaviour
         return (Vector2)this.transform.position + _col.offset;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(_endTag))
+        {
+            FieldManager.Instance.Clear();
+        }
+    }
 }

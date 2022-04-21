@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleObjectController : MonoBehaviour
+public class ObstacleObjectController : MonoBehaviour, IActivate
 {
     [SerializeField, Tooltip("åªç›çÏìÆÇµÇƒÇ¢ÇÈÇ©")]
     bool isActive = false;
@@ -42,7 +42,7 @@ public class ObstacleObjectController : MonoBehaviour
         //_obstacleObject.gameObject?.SetActive(isActive);
     }
 
-    public void Operation()
+    public void Action()
     {
         isActive = !isActive;
 
@@ -72,5 +72,4 @@ public class ObstacleObjectController : MonoBehaviour
         }
         //_obstacleObject.gameObject?.SetActive(isActive);       
     }
-
 }
