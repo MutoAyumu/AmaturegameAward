@@ -43,6 +43,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("‘€ìƒLƒƒƒ‰‚ðØ‚è‘Ö‚¦‚ç‚ê‚é‚æ‚¤‚É‚·‚éƒtƒ‰ƒO")] bool _isCanSwitch = true;
 
     bool _isTogether;
+    bool _cutSceneFlag;
 
     public HumanController Human { get => _human; }
     public GhostController Ghost { get => _ghost; }
@@ -134,6 +135,11 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
+
+        if(_isCanSwitch)
+        {
+            StartCutScene();
+        }
 
         HumanExchange();
 
@@ -324,5 +330,10 @@ public class CharacterManager : Singleton<CharacterManager>
 
             go.transform.SetParent(_lightPanel.transform);
         }
+    }
+    public void StartCutScene()
+    {
+        _cutSceneFlag = true;
+
     }
 }
