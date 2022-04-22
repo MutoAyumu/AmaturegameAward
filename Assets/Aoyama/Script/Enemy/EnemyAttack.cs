@@ -26,18 +26,10 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        //Player‚Ì‹ß‚­‚É‚¢‚éó‘Ô‚ÅA_attackTime‚ÌŠÔ‚ª‚½‚Â‚ÆUŒ‚‚·‚é
-        if(_rb.velocity == _dir)
+        _timer += Time.deltaTime;
+        if (_attackTime <= _timer)
         {
-            _timer += Time.deltaTime;
-            if(_attackTime <= _timer)
-            {
-                Attack();
-                _timer = 0;
-            }
-        }
-        else
-        {
+            Attack();
             _timer = 0;
         }
     }
