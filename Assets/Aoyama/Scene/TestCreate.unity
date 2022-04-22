@@ -2365,6 +2365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stageIndex: 0
   _bgm: {fileID: 0}
+  _canvas: {fileID: 0}
   _resultPanel: {fileID: 1879111540}
   _inventryPanels:
   - {fileID: 1984139697}
