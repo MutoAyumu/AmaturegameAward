@@ -5,12 +5,27 @@ using UnityEngine;
 public class ObstacleSwitch : MonoBehaviour, IActivate
 {
     [SerializeField,Tooltip("スイッチに対応する")]
-    ObstacleObjectController[] _obstacleObejects; 
+    ObstacleObjectController[] _obstacleObejects;
+    bool IsActive;
+    [SerializeField] Sprite _activeSprite = default;
+    [SerializeField] Sprite _inactiveSprite = default;
+    [SerializeField] SpriteRenderer _mainSprite = default;
     public void Action()
     {
         foreach(var i in _obstacleObejects)
         {
-            i.Operation();
+            i.Action();
+        }
+
+        if (!IsActive)
+        {
+            _mainSprite.sprite = _activeSprite;
+            IsActive = true;
+        }
+        else
+        {
+            _mainSprite.sprite = _inactiveSprite;
+            IsActive = false;
         }
         Debug.Log("作動");
     }

@@ -62,9 +62,10 @@ MonoBehaviour:
   _mainSprite: {fileID: 9167292961235691804}
   _searchar: {fileID: 2795186324782492116}
   _inputSearchar: Fire2
-  _rayLength: 1
-  _moveSpeed: 3
+  _rayLength: 0.3
+  _moveSpeed: 2
   _status: 0
+  _endTag: Finish
   _layer:
     serializedVersion: 2
     m_Bits: 8
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathPrefab: {fileID: 0}
+  _sprite: {fileID: 9167292961235691804}
 --- !u!50 &3963911041471629122
 Rigidbody2D:
   serializedVersion: 4
@@ -207,7 +209,7 @@ GameObject:
   - component: {fileID: 3709940737843075708}
   - component: {fileID: 9167292961235691804}
   - component: {fileID: 7751269943614823686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Avater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +347,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -396,7 +398,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 1.5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

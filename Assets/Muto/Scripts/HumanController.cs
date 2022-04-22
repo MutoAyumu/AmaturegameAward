@@ -32,7 +32,7 @@ public class HumanController : CharacterControllerBase
         {
             _push.MoveIt(_h, _v);
         }   
-        else if(_attack && Input.GetButtonDown(_attackButtonName)) //UŒ‚‚ð‚·‚é‚Æ‚«‚Ìˆ—
+        else if(_attack && Input.GetButtonDown(_attackButtonName) && _status != CharacterStatus.ATTACK) //UŒ‚‚ð‚·‚é‚Æ‚«‚Ìˆ—
         {
             _status = CharacterStatus.ATTACK;
             _anim.SetTrigger("IsAttack");
@@ -47,6 +47,19 @@ public class HumanController : CharacterControllerBase
                 _status = CharacterStatus.IDLE;
             }
         }
+        if(_lh > 0)
+        {
+            _ghostSetPos.position = this.transform.position + new Vector3(-0.39f, 0f, 0f);
+        }
+        else if(_lh < 0)
+        {
+            _ghostSetPos.position = this.transform.position + new Vector3(0.368f, 0f, 0f);
+        }
+    }
+    
+    public void StartAttack()
+    {
+
     }
 
     public void ResetAttackBool()

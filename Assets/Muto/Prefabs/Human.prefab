@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcc19d04fe4409644b7511c8d03505ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dabc5c2f7a1a8d54599157ee6c342882, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: -0.25}
-  m_Size: {x: 0.85, y: 0.5}
+  m_Offset: {x: -0.098018184, y: -0.24999996}
+  m_Size: {x: 0.8015458, y: 0.5000002}
   m_Direction: 1
 --- !u!1 &3123253585116381738
 GameObject:
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3123253585974038372}
   m_Layer: 0
   m_Name: Avater
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 275085893851460298}
   m_Layer: 0
   m_Name: Human
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,9 +475,10 @@ MonoBehaviour:
   _mainSprite: {fileID: 3123253585974038370}
   _searchar: {fileID: 3123253586814841010}
   _inputSearchar: Fire2
-  _rayLength: 1
-  _moveSpeed: 3
+  _rayLength: 0.3
+  _moveSpeed: 2
   _status: 0
+  _endTag: Finish
   _attack: {fileID: 3123253586814841012}
   _push: {fileID: 3123253586814841013}
   _ghostSetPos: {fileID: 2053570089798123822}
@@ -544,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathPrefab: {fileID: 0}
+  _sprite: {fileID: 3123253585974038370}
 --- !u!50 &3123253586814841008
 Rigidbody2D:
   serializedVersion: 4
@@ -726,7 +728,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 39c5e2e148ce3f34fadf96caf68b3390, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

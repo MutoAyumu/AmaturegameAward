@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LightSource : MonoBehaviour
 {
     [SerializeField] Light2D _light = default;
+    [SerializeField] Animator _anim = default;
     [SerializeField] float _time = 0.5f;
     [SerializeField] float _loopTime = 10f;
     [SerializeField] bool _isOn = true;
@@ -32,10 +33,12 @@ public class LightSource : MonoBehaviour
         if (_isOn)
         {
             _light.intensity = 1;
+            _anim.SetBool("Light", _isOn);
         }
         else
         {
             _light.intensity = 0;
+            _anim.SetBool("Light", _isOn);
         }
     }
     private void Update()
@@ -72,14 +75,21 @@ public class LightSource : MonoBehaviour
             if (_isOn)
             {
                 //_isOn = false;
-
+                _anim.SetBool("Light", false);
                 return DOVirtual.Float(_light.intensity, 0, time, value => _light.intensity = value);
             }
             else if (!_isOn)
             {
                 //_isOn = true;
-
-                return DOVirtual.Float(_light.intensity, 1.0f, time, value => _light.intensity = value);
+                _anim.SetBool("Light", true);
+                return DOVirtual.Float(_light.intensity, 1.0f, time, value => _light.intensity = value)
+                    .OnComplete(() =>
+                    {
+                        foreach(var ac in _activate)
+                        {
+                            ac.GetComponent<IActivate>()?.Action();
+                        }
+                    });
             }
         }
 

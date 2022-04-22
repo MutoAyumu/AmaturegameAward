@@ -6,7 +6,7 @@ public class CharacterControllerBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb = default;
     [SerializeField] protected Collider2D _col = default;
-    [SerializeField] protected PlayerHp _hp = default;
+    [SerializeField] protected PlayerHP _hp = default;
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] protected Animator _anim = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
@@ -24,15 +24,19 @@ public class CharacterControllerBase : MonoBehaviour
 
     [Tooltip("どっちのキャラが操作されているかのフラグ")] protected bool _isControll = default;
 
+    [SerializeField, Tooltip("ステージクリアで使うトリガーのタグ")] string _endTag = "Finish";
+
     protected float _h = default;
     protected float _v = default;
     protected float _currentSpeed;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
-    public PlayerHp Hp { get => _hp; }
+    public PlayerHP Hp { get => _hp; }
     public SpriteRenderer MainSprite { get => _mainSprite; }
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
+    public Animator Anim { get => _anim; }
+    public Collider2D Col { get => _col; }
 
     protected enum CharacterStatus
     {
@@ -166,6 +170,7 @@ public class CharacterControllerBase : MonoBehaviour
         if (_rb)
         {
             _rb.velocity = Vector2.zero;
+            _anim.SetBool("IsMove", false);
         }
         else
         {
@@ -186,4 +191,11 @@ public class CharacterControllerBase : MonoBehaviour
         return (Vector2)this.transform.position + _col.offset;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(_endTag))
+        {
+            FieldManager.Instance.Clear();
+        }
+    }
 }
