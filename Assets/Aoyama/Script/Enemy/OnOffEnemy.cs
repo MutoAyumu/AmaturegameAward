@@ -12,10 +12,16 @@ public class OnOffEnemy : MonoBehaviour
     string _humanTag = "Player";
     [SerializeField]
     string _ghostTag = "Respawn";
+    int _count = 0;
+    [SerializeField] int _arrayNum;
+
+    [SerializeField] GameObject[] _gimic = default;
 
     private void Start()
     {
         OffSetActive();
+        _count = _enemys.Length;
+        Array.ForEach(_enemys, en => en.GetComponent<EnemyDamage>()?.SetNumber(_arrayNum));
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +34,7 @@ public class OnOffEnemy : MonoBehaviour
         if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
         {
             OnSetActive();
+            Activate();
         }
     }
 
@@ -47,5 +54,24 @@ public class OnOffEnemy : MonoBehaviour
     void OffSetActive()
     {
         Array.ForEach(_enemys, go => go.SetActive(false));
+    }
+    public void Decrease()
+    {
+        _count--;
+        Debug.Log("”‚ªŒ¸‚Á‚½");
+
+        if(_count <= 0)
+        {
+            //‚±‚±‚Å”à‚ğŠJ‚­
+            Debug.Log("‚İ‚ñ‚È€‚ñ‚¾!!");
+            Activate();
+        }
+    }
+    void Activate()
+    {
+        foreach(var go in _gimic)
+        {
+            go.GetComponent<IActivate>()?.Action();
+        }
     }
 }
