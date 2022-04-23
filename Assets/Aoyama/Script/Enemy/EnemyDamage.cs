@@ -20,8 +20,25 @@ public class EnemyDamage : MonoBehaviour, IDamage
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] EnemyMove _enemyMove;
+    [SerializeField] Animator _anim;
+    [SerializeField] bool _testDeath = false;
+    [SerializeField] bool _testDamage = false;
 
     int _groupNumber;
+
+    private void Update()
+    {
+        if (_testDeath)
+        {
+            EnemyDeath();
+        }
+
+        if (_testDamage)
+        {
+            Damage();
+            _testDamage = false;
+        }
+    }
 
     /// <summary>
     /// 呼び出すとダメージを与える
@@ -29,7 +46,7 @@ public class EnemyDamage : MonoBehaviour, IDamage
     public void Damage()
     {
         Debug.Log($"{gameObject.name}にダメージを与えた");
-
+        _anim.SetTrigger("Damage");
         _enemyHp--;
         _enemyMove.KnockBack();
 

@@ -26,7 +26,11 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        if(_rb.velocity == Vector2.zero)
+        {
+            _timer += Time.deltaTime;
+        }
+
         if (_attackTime <= _timer)
         {
             Attack();

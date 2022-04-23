@@ -35,7 +35,6 @@ public class BossAttack : MonoBehaviour
     public void RamdomAttack()
     {
         _attackIndex = Random.Range(1, 4);
-        Debug.Log(_attackIndex);
         if (_attackIndex == _beforeIndex)
         {
             RamdomAttack();
@@ -62,7 +61,6 @@ public class BossAttack : MonoBehaviour
 
     public void AttackComplete()
     {
-        Debug.Log("Complete");
         _isTimer = true;
     }
 
