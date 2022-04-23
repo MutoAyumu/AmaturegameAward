@@ -35,7 +35,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
-        //EnemyManager.Instance.EnemyGrp.Add(gameObject);
+        EnemyManager.Instance.Enemys.Add(gameObject);
     }
 
     void FixedUpdate()

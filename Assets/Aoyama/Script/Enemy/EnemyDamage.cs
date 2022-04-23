@@ -21,6 +21,8 @@ public class EnemyDamage : MonoBehaviour, IDamage
     [Header("とりあえず参照したいやつ")]
     [SerializeField] EnemyMove _enemyMove;
 
+    int _groupNumber;
+
     /// <summary>
     /// 呼び出すとダメージを与える
     /// </summary>
@@ -47,6 +49,12 @@ public class EnemyDamage : MonoBehaviour, IDamage
         {
             SoundManager.Instance.SoundPlay(_audio);
         }
+
+        if (_groupNumber != 0)
+        {
+            EnemyManager.Instance.DecreaseInNumbers(_groupNumber);
+        }
+
         Debug.Log("EnemyDeathが呼び出された");
         Destroy(gameObject);
 
@@ -54,6 +62,11 @@ public class EnemyDamage : MonoBehaviour, IDamage
         {
             var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
         }
+    }
+
+    public void SetNumber(int i)
+    {
+        _groupNumber = i;
     }
 }
 
