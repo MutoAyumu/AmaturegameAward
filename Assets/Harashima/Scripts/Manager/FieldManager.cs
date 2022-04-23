@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 /// <summary>
@@ -33,6 +34,8 @@ public class FieldManager : Singleton<FieldManager>
 
     [SerializeField, Tooltip("シーン上のキャンバス")]
     GameObject _canvas;
+
+    [SerializeField] PlayableDirector _timeLine = default;
     /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
     public GameObject Canvas => _canvas;
 
@@ -94,6 +97,7 @@ public class FieldManager : Singleton<FieldManager>
     void DebugClear()
     {
         _resultPanel.SetActive(true);
+        _timeLine.Play();
         Debug.Log("クリア");
     }
 
