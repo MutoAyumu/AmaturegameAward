@@ -26,6 +26,7 @@ public class RinpunBullet : MonoBehaviour
     Vector2 _dir = new Vector2();
     void Start()
     {
+        Destroy(gameObject, 10f);
         switch (_patern)
         {
             case MovePatern.right:
@@ -46,5 +47,13 @@ public class RinpunBullet : MonoBehaviour
     void Update()
     {
         _rb.velocity = _dir * _speed;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerHP>() != null)
+        {
+            collision.gameObject.GetComponent<PlayerHP>().Damage();
+        }
     }
 }

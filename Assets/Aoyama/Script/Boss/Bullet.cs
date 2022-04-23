@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        Destroy(gameObject, 10f);
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
 
@@ -51,6 +52,14 @@ public class Bullet : MonoBehaviour
         {
             Debug.DrawLine(transform.position, player2, Color.red);
             return player2;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerHP>() != null)
+        {
+            collision.gameObject.GetComponent<PlayerHP>().Damage();
         }
     }
 }

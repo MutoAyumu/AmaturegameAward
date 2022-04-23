@@ -18,9 +18,9 @@ public class Rinpun : MonoBehaviour
 
     public void RinpunAttack()
     {
-        _rightBullet = GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
-        _leftBullet = GameObject.Instantiate(_leftBullet, _leftMuzzle.position, Quaternion.identity);
-        _upBullet = GameObject.Instantiate(_upBullet, _upMuzzle.position, Quaternion.identity);
-        _rightBullet = GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
+        GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
+        GameObject.Instantiate(_leftBullet, _leftMuzzle.position, Quaternion.identity);
+        GameObject.Instantiate(_upBullet, _upMuzzle.position, Quaternion.identity);
+        GameObject.Instantiate(_downBullet, _downMuzzle.position, Quaternion.identity);
     }
 }

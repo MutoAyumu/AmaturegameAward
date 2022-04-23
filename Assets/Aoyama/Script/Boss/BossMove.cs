@@ -15,6 +15,7 @@ public class BossMove : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
 
     float _moveSpeedDistance = 0;
+    int _currentIndex = 0;
     Vector3 _target;
 
     void Start()
@@ -27,10 +28,11 @@ public class BossMove : MonoBehaviour
     {
         if(_isMove)
         {
+            _target = (_movePoint[_currentIndex].position - transform.position).normalized;
             Move();
         }
 
-        float distance = Vector3.Distance(transform.position, _target);
+        float distance = Vector3.Distance(transform.position, _movePoint[_currentIndex].position);
         if(distance <= _chaseDistance)
         {
             ChangeTarget();
@@ -57,7 +59,7 @@ public class BossMove : MonoBehaviour
 
     void ChangeTarget()
     {
-        int currentIndex = Random.Range(0, _movePoint.Length);
-        _target = _movePoint[currentIndex].position;
+        _currentIndex = Random.Range(0, _movePoint.Length);
+        Debug.Log(_movePoint[_currentIndex].name);
     }
 }
