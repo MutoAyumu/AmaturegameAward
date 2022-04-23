@@ -6,6 +6,6 @@ public class DamageAria : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<PlayerHp>()?.Damage();
+        collision.gameObject.GetComponent<PlayerHP>()?.Damage();
     }
 }

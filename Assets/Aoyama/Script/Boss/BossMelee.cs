@@ -10,10 +10,16 @@ public class BossMelee : MonoBehaviour
     [SerializeField, Tooltip("Ú×")]
     ContactFilter2D _filter;
 
-    Collider2D[] _result;
+    Collider2D[] _result = new Collider2D[5];
     public void Melee()
     {
         _attackAria.OverlapCollider(_filter, _result);
-        Array.ForEach(_result, go => go.GetComponent<PlayerHP>()?.Damage());
+        if (_result == null) return;
+
+        for (var i = 0; i < _result.Length; i++)
+        {
+            var collider = _result[i];
+            collider?.GetComponent<PlayerHP>()?.Damage();    
+        }
     }
 }
