@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] Rigidbody2D _rb;
 
-    Vector3 _target;
+    Vector3 _target = Vector3.zero;
     CharacterControllerBase _player;
     CharacterControllerBase _ghost;
 

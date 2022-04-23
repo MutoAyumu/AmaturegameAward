@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patern: 0
-  _speed: 3
+  _speed: 1
   _rb: {fileID: 1789731799725265617}
 --- !u!212 &3189686121173847118
 SpriteRenderer:
