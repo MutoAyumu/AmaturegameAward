@@ -38,24 +38,28 @@ public class HumanAttack : MonoBehaviour
             count = _downAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("down");
+            _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.down));
         }
         else if (v >= 0.5f && h >= -0.5f || v >= 0.5f && h <= 0.5f)
         {
             count = _upAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("up");
+            _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.up));
         }
         else if (h >= 0.5f && v <= 0.5f || h >= 0.5f && v >= -0.5f)
         {
             count = _rightAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("right");
+            _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.right));
         }
         else if (h <= -0.5f && v <= 0.5f || h <= -0.5f && v >= -0.5f)
         {
             count = _leftAttackCol.OverlapCollider(_filter, _result);
             _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
             Debug.Log("left");
+            _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.left));
         }
     }
 }
