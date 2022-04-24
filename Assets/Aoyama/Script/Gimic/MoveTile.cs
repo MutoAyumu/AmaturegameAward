@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class MoveTile : MonoBehaviour
+public class MoveTile : MonoBehaviour, IActivate
 {
     [SerializeField] TileParam[] _param;
     [SerializeField] string _humanTag = "Player";
@@ -16,8 +16,8 @@ public class MoveTile : MonoBehaviour
 
     void Start()
     {
-        _isMove = true;
-        _isNext = true;
+        //_isMove = true;
+        //_isNext = true;
 
         transform.position = _param[_index].MovePoint.position;
     }
@@ -85,6 +85,14 @@ public class MoveTile : MonoBehaviour
     void Delay()
     {
         DOVirtual.DelayedCall(_currentParam.WaitTime, () => _isMove = true);
+    }
+    public void Action()
+    {
+        if(!_isMove)
+        {
+            _isMove = true;
+            _isNext = true;
+        }
     }
 }
 
