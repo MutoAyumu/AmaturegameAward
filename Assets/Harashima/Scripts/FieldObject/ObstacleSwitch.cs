@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleSwitch : MonoBehaviour, IActivate
 {
     [SerializeField,Tooltip("スイッチに対応する")]
-    ObstacleObjectController[] _obstacleObejects;
+    GameObject[] _obstacleObejects;
     bool IsActive;
     [SerializeField] Sprite _activeSprite = default;
     [SerializeField] Sprite _inactiveSprite = default;
@@ -14,7 +14,7 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
     {
         foreach(var i in _obstacleObejects)
         {
-            i.Action();
+            i.GetComponent<IActivate>()?.Action();
         }
 
         if (!IsActive)
