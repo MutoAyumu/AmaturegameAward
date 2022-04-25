@@ -9,25 +9,25 @@ public class EnemyMove : MonoBehaviour
 {
     [Header("移動時のステータス")]
     [SerializeField, Tooltip("追いかける速度")]
-    float _chaseSpeed = 5f;
+    protected float _chaseSpeed = 5f;
     [SerializeField, Tooltip("近づく距離")]
-    float _nearDistance = 1f;
+    protected float _nearDistance = 1f;
     [SerializeField, Tooltip("追いかけ始める距離")]
-    float _chaseDistance = 8f;
+    protected float _chaseDistance = 8f;
     [SerializeField, Tooltip("ダメージを受けた時の吹っ飛び加減")]
-    float _knockBackPower = 5f;
+    protected float _knockBackPower = 5f;
 
     [Header("とりあえず参照したいやつ")]
-    [SerializeField] Rigidbody2D _rb;
-    [SerializeField] SpriteRenderer _sprite;
+    [SerializeField] protected Rigidbody2D _rb;
+    [SerializeField] protected SpriteRenderer _sprite;
 
     [System.NonSerialized]
     public Transform Decoy = null;
 
-    Vector3 _target;
-    CharacterControllerBase _player;
-    CharacterControllerBase _ghost;
-    bool _isPause = false;
+    protected Vector3 _target;
+    protected CharacterControllerBase _player;
+    protected CharacterControllerBase _ghost;
+    protected bool _isPause = false;
 
     /* ToDo
         ダメージを受けた時に一定時間Moveを呼ばないようにする
@@ -36,9 +36,16 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         EnemyManager.Instance.Enemys.Add(gameObject);
+        _player = CharacterManager.Instance.Human;
+        _ghost = CharacterManager.Instance.Ghost;
     }
 
     void FixedUpdate()
+    {
+        OnFixedUpdate();
+    }
+
+    public virtual void OnFixedUpdate()
     {
         if (_isPause == true)
         {
@@ -57,7 +64,7 @@ public class EnemyMove : MonoBehaviour
     /// <summary>
     /// Enemyの基本移動
     /// </summary>
-    void Move()
+    protected void Move()
     {
         float distance = Vector3.Distance(transform.position, _target);
         //targetとの距離がnearDistanseより遠くなると動きを止める
@@ -78,7 +85,7 @@ public class EnemyMove : MonoBehaviour
         _rb.velocity = (_target - transform.position).normalized * _chaseSpeed;
     }
 
-    void Flip()
+    protected void Flip()
     {
         if(_sprite)
         {
@@ -99,7 +106,7 @@ public class EnemyMove : MonoBehaviour
     /// 2人のPlayerのうち近いほうの座標を返す
     /// </summary>
     /// <returns></returns>
-    Vector3 PlayerPosition()
+    protected Vector3 PlayerPosition()
     {
         if (Decoy != null)
         {
