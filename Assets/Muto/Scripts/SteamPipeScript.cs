@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SteamPipeScript : MonoBehaviour
 {
     [SerializeField] ParticleSystem _system = default;
     [SerializeField] Collider2D _col = default;
+    [SerializeField] CinemachineImpulseSource _source = default;
 
     bool IsParticle;
 
@@ -33,8 +35,12 @@ public class SteamPipeScript : MonoBehaviour
     }
     void OnParticleCollision(GameObject go)
     {
-        if(go.CompareTag("Player"))
-        //ダメージを与える
-        go.GetComponent<PlayerHP>()?.Damage();
+        if (go.CompareTag("Player"))
+        {
+            //ダメージを与える
+            var p = go.GetComponent<PlayerHP>();
+            p.CamShake(_source);
+            p.Damage();
+        }
     }
 }

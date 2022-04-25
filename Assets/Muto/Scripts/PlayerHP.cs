@@ -46,8 +46,15 @@ public class PlayerHP : MonoBehaviour
         {
             PlayerDeath();
         }
+    }
+    public void CamShake(Cinemachine.CinemachineImpulseSource _source)
+    {
+        if(isDamage)
+        {
+            return;
+        }
 
-
+        _source.GenerateImpulse();
     }
 
     public void DamageAnim()
