@@ -21940,6 +21940,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 1008040004423414949}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!4 &1008040004691889869
 Transform:
   m_ObjectHideFlags: 0
@@ -22047,6 +22048,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 1008040004691889904}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!114 &1008040004691889907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22198,6 +22200,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 1008040004821313681}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!1 &1008040004821313687
 GameObject:
   m_ObjectHideFlags: 0
@@ -22289,6 +22292,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 1008040005705141307}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!212 &1008040005705141306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22424,6 +22428,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 1008040006133925326}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!114 &1008040006133925325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23157,7 +23162,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.7
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -23181,7 +23186,7 @@ MonoBehaviour:
   _deathPrefab: {fileID: 4717195527131895141, guid: 36e2623c8ef763e46944108d983fb12d, type: 3}
   _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}
   _enemyMove: {fileID: 2546896245423221687}
-  _anim: {fileID: 0}
+  _anim: {fileID: 3899905300797000386}
   _testDeath: 0
   _testDamage: 0
 --- !u!114 &2546896245423221687
@@ -23202,6 +23207,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 2546896245423221685}
   _sprite: {fileID: 2546896245423221684}
+  _anim: {fileID: 0}
 --- !u!4 &2833207021984853310
 Transform:
   m_ObjectHideFlags: 0
@@ -23382,7 +23388,7 @@ MonoBehaviour:
   _attackTime: 3
   _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 2546896245423221685}
-  _anim: {fileID: 0}
+  _anim: {fileID: 3899905300797000386}
 --- !u!114 &3899905300797000388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23395,13 +23401,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9869bd39677a040b64b7b1bc8ef320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseSpeed: 2
+  _chaseSpeed: 0.5
   _nearDistance: 1
-  _chaseDistance: 1.5
+  _chaseDistance: 5
   _knockBackPower: 5
   _rb: {fileID: 2546896245423221685}
   _sprite: {fileID: 2546896245423221684}
-  _noticeDistance: 2
+  _anim: {fileID: 3899905300797000386}
+  _noticeDistance: 1
 --- !u!1 &4327185540453846757
 GameObject:
   m_ObjectHideFlags: 0
@@ -23536,6 +23543,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 4973204467308956082}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!114 &4973204467308956081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23763,6 +23771,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 4973204467659241804}
   _sprite: {fileID: 0}
+  _anim: {fileID: 0}
 --- !u!114 &4973204467659241807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23873,6 +23882,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 4973204467997054335}
   _sprite: {fileID: 4973204467997054334}
+  _anim: {fileID: 0}
 --- !u!212 &4973204467997054334
 SpriteRenderer:
   m_ObjectHideFlags: 0
