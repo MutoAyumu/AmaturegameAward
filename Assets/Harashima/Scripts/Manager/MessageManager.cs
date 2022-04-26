@@ -11,6 +11,9 @@ public class MessageManager : Singleton<MessageManager>
     [SerializeField, Tooltip("メッセージの速度")]
     float _textSpeed = 0.3f;
 
+    [SerializeField, Tooltip("一回の上限")]
+    int _textLimit = 20;
+
     /// <summary>メッセージウィンドウのテキストコンポーネント</summary>
     Text _windowText;
 
@@ -24,14 +27,14 @@ public class MessageManager : Singleton<MessageManager>
 
     void InstansWindow()
     {
-        _windowText = Instantiate(_messageWindowPrefab,FieldManager.Instance.Canvas.transform).GetComponentInChildren<Text>();
-        _windowPanel =  _windowText.transform.parent.gameObject;
+        _windowText = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform).GetComponentInChildren<Text>();
+        _windowPanel = _windowText.transform.parent.gameObject;
     }
 
     public void SetText(string msg)
     {
         ActiveWindow(true);
-        if(_windowText && !_isText)
+        if (_windowText && !_isText)
         {
             //_windowText.text = msg;
             StartCoroutine(DrawText(msg));
@@ -47,7 +50,10 @@ public class MessageManager : Singleton<MessageManager>
             time += Time.deltaTime;
 
             // クリックされると一気に表示
-            if (IsSpace()) break;
+            if (IsSpace())
+            {
+                break;
+            }
 
             int len = Mathf.FloorToInt(time / _textSpeed);
             if (len > text.Length) break;
@@ -76,7 +82,7 @@ public class MessageManager : Singleton<MessageManager>
     bool _isText = false;
     private void Update()
     {
-        if(!_isText && Input.GetKeyDown(KeyCode.Space))
+        if (!_isText && Input.GetKeyDown(KeyCode.Space))
         {
             ActiveWindow(false);
         }
