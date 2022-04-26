@@ -20,6 +20,7 @@ public class EnemyMove : MonoBehaviour
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] protected SpriteRenderer _sprite;
+    [SerializeField] protected Animator _anim;
 
     [System.NonSerialized]
     public Transform Decoy = null;
