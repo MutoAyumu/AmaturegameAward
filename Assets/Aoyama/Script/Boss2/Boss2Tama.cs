@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss2Tama : MonoBehaviour
 {
+    [SerializeField] Transform _muzzle;
     [SerializeField] GameObject _tama;
 
     public void GenerateTama()

@@ -48,12 +48,14 @@ public class BossMove : MonoBehaviour
     public void StopMove()
     {
         _isMove = false;
+        Debug.Log(_isMove);
         _rb.velocity = Vector2.zero;
         _rb.angularVelocity = 0;
     }
 
     public void OnMove()
     {
+        Debug.Log(_isMove);
         _isMove = true;
     }
 

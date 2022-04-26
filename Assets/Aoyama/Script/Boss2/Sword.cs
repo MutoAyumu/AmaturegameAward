@@ -6,6 +6,8 @@ public class Sword : MonoBehaviour
 {
     [SerializeField] float _power = 0.5f;
     [SerializeField] Rigidbody2D _rb;
+    [SerializeField] bool _test = false;
+    [SerializeField] Transform _testTransform;
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -18,8 +20,12 @@ public class Sword : MonoBehaviour
         _ghost = CharacterManager.Instance.Ghost;
         _target = PlayerPosition();
 
+        if(_test)
+        {
+            _target = _testTransform.position;
+        }
         _dir = (_target - transform.position).normalized * _power;
-        transform.LookAt(_target);
+        transform.up = _dir;
     }
 
     void Update()

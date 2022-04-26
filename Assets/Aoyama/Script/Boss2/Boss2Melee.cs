@@ -7,6 +7,7 @@ public class Boss2Melee : MonoBehaviour
     [SerializeField] float _power = 5;
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] bool _test = false;
+    [SerializeField] Transform _testTransform;
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -32,6 +33,11 @@ public class Boss2Melee : MonoBehaviour
     {
         _isAttack = true;
         _target = PlayerPosition();
+
+        if(_test)
+        {
+            _target = _testTransform.position;
+        }
         _target = (transform.position - _target).normalized * _power;
         _rb.AddForce(_target, ForceMode2D.Impulse);
     }

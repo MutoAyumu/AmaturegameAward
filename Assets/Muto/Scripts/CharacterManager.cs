@@ -43,7 +43,11 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("‘€ìƒLƒƒƒ‰‚ðØ‚è‘Ö‚¦‚ç‚ê‚é‚æ‚¤‚É‚·‚éƒtƒ‰ƒO")] bool _isCanSwitch = true;
 
     bool _isTogether;
+
+    [Header("CutScene")]
     bool _cutSceneFlag;
+    [SerializeField] GameObject _cutAvater = default;
+    [SerializeField] Canvas _canvas = default;
 
     public HumanController Human { get => _human; }
     public GhostController Ghost { get => _ghost; }
@@ -136,12 +140,24 @@ public class CharacterManager : Singleton<CharacterManager>
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
-        if(_isCanSwitch)
+        if (!_isCanSwitch)
         {
-            StartCutScene();
-        }
+            _human.gameObject.SetActive(false);
+            _canvas.gameObject.SetActive(false);
 
-        HumanExchange();
+            _cutAvater.SetActive(true);
+            _cutAvater.transform.position = _instancePos[0].position;
+            _vcam.Follow = _cutAvater.transform;
+        }
+        else
+        {
+            if (_cutAvater)
+            {
+                Destroy(_cutAvater.gameObject);
+            }
+
+            HumanExchange();
+        }
 
         if(_toPanel)
         {
@@ -333,7 +349,13 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     public void StartCutScene()
     {
-        _cutSceneFlag = true;
 
+        _human.gameObject.SetActive(true);
+        _canvas.gameObject.SetActive(true); ;
+        _human.transform.position = _cutAvater.transform.position;
+
+        HumanExchange();
+
+        Destroy(_cutAvater.gameObject);
     }
 }
