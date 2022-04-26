@@ -77,6 +77,8 @@ MonoBehaviour:
   - {fileID: 2868864717386441890}
   _humanTag: Player
   _ghostTag: Respawn
+  _arrayNum: 0
+  _gimic: []
 --- !u!60 &4251335696079087605
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +191,14 @@ PrefabInstance:
     - target: {fileID: 5684520590005077100, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
       propertyPath: m_Color.r
       value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684520590005077102, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
+      propertyPath: _anim
+      value: 
+      objectReference: {fileID: 7121350307778045654}
+    - target: {fileID: 5684520590005077102, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
+      propertyPath: _enemyHp
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5684520590005077102, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
       propertyPath: _deathPrefab
