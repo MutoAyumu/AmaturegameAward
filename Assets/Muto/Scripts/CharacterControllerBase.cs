@@ -157,10 +157,13 @@ public class CharacterControllerBase : MonoBehaviour
     /// <param name="v"></param>
     protected void Move(float h, float v)
     {
-        var dir = new Vector2(h, v).normalized;
-        _rb.velocity = dir * _currentSpeed;
+        if (!TutorialManager.Instance.CutSceneFlag)
+        {
+            var dir = new Vector2(h, v).normalized;
+            _rb.velocity = dir * _currentSpeed;
 
-        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
+            Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
+        }
     }
     /// <summary>
     /// ‘€ìƒLƒƒƒ‰‚ğ~‚ß‚éŠÖ”
