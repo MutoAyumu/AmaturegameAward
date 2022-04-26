@@ -55,13 +55,12 @@ public class BossMove : MonoBehaviour
 
     public void OnMove()
     {
-        Debug.Log(_isMove);
         _isMove = true;
+        Debug.Log(_isMove);
     }
 
     void ChangeTarget()
     {
         _currentIndex = Random.Range(0, _movePoint.Length);
-        Debug.Log(_movePoint[_currentIndex].name);
     }
 }

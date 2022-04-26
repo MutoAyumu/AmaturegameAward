@@ -6766,7 +6766,7 @@ MonoBehaviour:
   _enemyHp: 30
   _enemyHpSlider: {fileID: 1188837288}
   death: 0
-  _deathPrefab: {fileID: 8818035810661336908, guid: fa3c382f9df5e894cb032c3cbaf84df8, type: 3}
+  _deathPrefab: {fileID: 9116885131431368635, guid: 0260cdfcdb90daf49b78147e8ff20f86, type: 3}
 --- !u!58 &1162238100
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6777,7 +6777,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.03, y: 0.09022951}
@@ -9340,7 +9340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913959100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 0.35, z: 0}
+  m_LocalPosition: {x: -0.084, y: 0.422, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9773,7 +9773,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23458de3eea7788498f036bf73e947a0, type: 2}
+  - {fileID: 2100000, guid: a8c4ed2197d2610418055e563c7aca9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
