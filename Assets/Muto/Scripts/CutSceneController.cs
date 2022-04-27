@@ -7,7 +7,6 @@ public class CutSceneController : Singleton<CutSceneController>
 {
     [SerializeField] string _playerTag = "Player";
     [SerializeField] PlayableDirector _timeLine = default;
-    [SerializeField] Transform _setPos = default;
 
     TutorialManager _manager;
     bool isPlay;
@@ -34,6 +33,6 @@ public class CutSceneController : Singleton<CutSceneController>
     }
     public void EndCutScene()
     {
-        _manager.EndCutScene(_setPos);
+        _manager.EndCutScene();
     }
 }
