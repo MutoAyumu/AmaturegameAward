@@ -18,15 +18,15 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnGameOver;
 
     /// <summary>ポーズ時に呼ばれるメソッド</summary>
-    //public event Action OnPause;
+    public event Action OnPause;
 
     /// <summary>再開時に呼ばれるメソッド</summary>
-    //public event Action OnResume;
+    public event Action OnResume;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool _isEnd = false;
 
-    [SerializeField,Range(1, 10),Tooltip("ステージの番号")]
+    [SerializeField, Range(1, 10), Tooltip("ステージの番号")]
     int _stageIndex;
 
     [SerializeField, Tooltip("フィールドBGM")]
@@ -36,6 +36,10 @@ public class FieldManager : Singleton<FieldManager>
     GameObject _canvas;
 
     [SerializeField] PlayableDirector _timeLine = default;
+
+    [SerializeField] string _pauseInputName = "Cancel";
+    bool IsPause;
+    [SerializeField] Image _pausePanel = default;
     /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
     public GameObject Canvas => _canvas;
 
@@ -69,7 +73,23 @@ public class FieldManager : Singleton<FieldManager>
             }            
             _isEnd = true;
         }
+
         ItemInput();
+
+        if(Input.GetButtonDown(_pauseInputName))
+        {
+            if(OnPause != null && !IsPause)
+            {
+                IsPause = true;
+                OnPause();
+            }
+            else if(OnResume != null && IsPause)
+            {
+                IsPause = false;
+                OnResume();
+            }
+            _pausePanel.gameObject.SetActive(IsPause);
+        }
     }
 
 
@@ -186,5 +206,16 @@ public class FieldManager : Singleton<FieldManager>
     public void Test()
     {
         Debug.Log("テスト");
+
+        if (OnPause != null && !IsPause)
+        {
+            IsPause = true;
+            OnPause();
+        }
+        else if (OnResume != null && IsPause)
+        {
+            IsPause = false;
+            OnResume();
+        }
     }
 }

@@ -30,6 +30,10 @@ public class CharacterControllerBase : MonoBehaviour
     protected float _v = default;
     protected float _currentSpeed;
 
+    FieldManager _fieldManager;
+
+    bool IsPause;
+
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public PlayerHP Hp { get => _hp; }
@@ -46,6 +50,26 @@ public class CharacterControllerBase : MonoBehaviour
         NOCK_BACK,
         ACTION
     }
+
+    private void OnEnable()
+    {
+        _fieldManager.OnPause += Pause;
+        _fieldManager.OnResume += Resume;
+    }
+    private void OnDisable()
+    {
+        _fieldManager.OnPause -= Pause;
+        _fieldManager.OnResume -= Resume;
+    }
+    private void Awake()
+    {
+        _fieldManager = FieldManager.Instance;
+        OnAwake();
+    }
+    public virtual void OnAwake()
+    {
+
+    }
     private void Start()
     {
         _currentSpeed = _moveSpeed;
@@ -58,7 +82,7 @@ public class CharacterControllerBase : MonoBehaviour
     }
     private void Update()
     {
-        if (_isControll)
+        if (_isControll && !IsPause)
         {
             InputValue();
 
@@ -203,5 +227,17 @@ public class CharacterControllerBase : MonoBehaviour
         {
             FieldManager.Instance.Clear();
         }
+    }
+    public void Pause()
+    {
+        _rb.Sleep();
+        _anim.speed = 0;
+        IsPause = true;
+    }
+    public void Resume()
+    {
+        _rb.WakeUp();
+        _anim.speed = 1;
+        IsPause = false;
     }
 }
