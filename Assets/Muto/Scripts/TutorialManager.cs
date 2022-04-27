@@ -10,10 +10,19 @@ public class TutorialManager : Singleton<TutorialManager>
     [SerializeField] Image _fadePanal = default;
     [SerializeField] float _fadeTime = 2f;
     [SerializeField] GameObject _timeLinePanal = default;
+    [SerializeField] Canvas _playerCanvas = default;
+    [SerializeField] Transform _cutSceneAvater = default;
 
     bool IsCutScene;
+    HumanController _human = default;
 
     public bool CutSceneFlag { get => IsCutScene; }
+
+    private void Start()
+    {
+        _human = CharacterManager.Instance.Human;
+        _cutSceneAvater.gameObject.SetActive(false);
+    }
 
     /// <summary>
     /// カットシーンを始める
@@ -24,9 +33,9 @@ public class TutorialManager : Singleton<TutorialManager>
         ChangeFlag();
         FadePanel(cut);
     }
-    public void EndCutScene(Transform t)
+    public void EndCutScene()
     {
-        FadePanal(t);
+        FadePanal();
     }
     /// <summary>
     /// タイムラインの開始と終了で呼ぶ
@@ -44,6 +53,9 @@ public class TutorialManager : Singleton<TutorialManager>
                 {
                     FadePanel(cut);
                     _timeLinePanal.SetActive(true);
+                    _playerCanvas.gameObject.SetActive(false);
+                    _human.gameObject.SetActive(false);
+                    _cutSceneAvater.gameObject.SetActive(true);
                 });
         }
         else
@@ -55,16 +67,19 @@ public class TutorialManager : Singleton<TutorialManager>
                 });
         }
     }
-    void FadePanal(Transform t)
+    void FadePanal()
     {
         if (_fadePanal.color.a == 0)
         {
             _fadePanal.DOFade(1, _fadeTime)
                 .OnComplete(() =>
                 {
-                    FadePanal(t);
-                    CharacterManager.Instance.Human.transform.position = t.position;
+                    FadePanal();
+                    _human.gameObject.SetActive(true);
+                    _human.transform.position = _cutSceneAvater.position;
+                    _cutSceneAvater.gameObject.SetActive(false);
                     _timeLinePanal.SetActive(false);
+                    _playerCanvas.gameObject.SetActive(true);
                 });
         }
         else

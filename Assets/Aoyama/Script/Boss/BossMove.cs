@@ -48,6 +48,7 @@ public class BossMove : MonoBehaviour
     public void StopMove()
     {
         _isMove = false;
+        Debug.Log(_isMove);
         _rb.velocity = Vector2.zero;
         _rb.angularVelocity = 0;
     }
@@ -55,11 +56,11 @@ public class BossMove : MonoBehaviour
     public void OnMove()
     {
         _isMove = true;
+        Debug.Log(_isMove);
     }
 
     void ChangeTarget()
     {
         _currentIndex = Random.Range(0, _movePoint.Length);
-        Debug.Log(_movePoint[_currentIndex].name);
     }
 }

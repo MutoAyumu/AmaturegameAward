@@ -78,6 +78,8 @@ public class EnemyDamage : MonoBehaviour, IDamage
         if (_deathPrefab)
         {
             var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+            SpriteRenderer sp = go.GetComponent<SpriteRenderer>();
+            sp.flipX = this.GetComponent<SpriteRenderer>().flipX;
         }
     }
 

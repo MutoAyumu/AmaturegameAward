@@ -38,8 +38,13 @@ public class Zako2Move : EnemyMove
         float distance = Vector3.Distance(transform.position, _target);
         Debug.Log(distance);
         if (distance < _noticeDistance)
-        {
-            _isWakeUp = true;
+        {           
+            _anim.SetBool("WakeUp",true);
         }
+    }
+
+    public void WakeUpFlag()
+    {
+        _isWakeUp = true;
     }
 }
