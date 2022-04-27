@@ -9,11 +9,16 @@ public class CutSceneController : Singleton<CutSceneController>
     [SerializeField] PlayableDirector _timeLine = default;
 
     TutorialManager _manager;
-    bool isPlay;
+    [SerializeField]bool isPlay;
 
     private void Start()
     {
         _manager = TutorialManager.Instance;
+
+        if(isPlay)
+        {
+            _manager.StartCutScene(_timeLine);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PopUpPanel : MonoBehaviour
 {
     [SerializeField] Image _panelImage = default;
+    [SerializeField] GameObject _activeObj = default;
+    [SerializeField] string _inputButtonName = "Fire1";
     bool isActive;
 
     private void Start()
@@ -18,6 +20,14 @@ public class PopUpPanel : MonoBehaviour
         {
             isActive = true;
             _panelImage.gameObject.SetActive(true);
+        }
+    }
+    private void Update()
+    {
+        if(Input.GetButtonDown(_inputButtonName))
+        {
+            _panelImage.gameObject.SetActive(false);
+            _activeObj?.SetActive(true);
         }
     }
 }

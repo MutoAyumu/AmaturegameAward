@@ -11,7 +11,8 @@ public class TutorialManager : Singleton<TutorialManager>
     [SerializeField] float _fadeTime = 2f;
     [SerializeField] GameObject _timeLinePanal = default;
     [SerializeField] Canvas _playerCanvas = default;
-    [SerializeField] Transform _cutSceneAvater = default;
+    [SerializeField] Transform _cutSceneHuman = default;
+    [SerializeField] Transform _cutSceneGhost = default;
 
     bool IsCutScene;
     HumanController _human = default;
@@ -21,7 +22,8 @@ public class TutorialManager : Singleton<TutorialManager>
     private void Start()
     {
         _human = CharacterManager.Instance.Human;
-        _cutSceneAvater.gameObject.SetActive(false);
+        _cutSceneHuman.gameObject.SetActive(false);
+        _cutSceneGhost.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -55,7 +57,8 @@ public class TutorialManager : Singleton<TutorialManager>
                     _timeLinePanal.SetActive(true);
                     _playerCanvas.gameObject.SetActive(false);
                     _human.gameObject.SetActive(false);
-                    _cutSceneAvater.gameObject.SetActive(true);
+                    _cutSceneHuman.gameObject.SetActive(true);
+                    _cutSceneGhost.gameObject.SetActive(true);
                 });
         }
         else
@@ -76,8 +79,9 @@ public class TutorialManager : Singleton<TutorialManager>
                 {
                     FadePanal();
                     _human.gameObject.SetActive(true);
-                    _human.transform.position = _cutSceneAvater.position;
-                    _cutSceneAvater.gameObject.SetActive(false);
+                    _human.transform.position = _cutSceneHuman.position;
+                    _cutSceneHuman.gameObject.SetActive(false);
+                    _cutSceneGhost.gameObject.SetActive(false);
                     _timeLinePanal.SetActive(false);
                     _playerCanvas.gameObject.SetActive(true);
                 });
