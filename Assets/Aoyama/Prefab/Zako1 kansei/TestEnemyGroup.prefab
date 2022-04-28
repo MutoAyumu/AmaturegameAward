@@ -201,9 +201,17 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5684520590005077102, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
+      propertyPath: _testDeath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684520590005077102, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
       propertyPath: _deathPrefab
       value: 
       objectReference: {fileID: 5938303848162582356, guid: 9b067c10294983a44b99e5b1719f4c6e, type: 3}
+    - target: {fileID: 5684520590005077103, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
+      propertyPath: _anim
+      value: 
+      objectReference: {fileID: 7121350307778045654}
     - target: {fileID: 6603441207533413659, guid: 96199fd8c580b4b4faf9efdc7a6c9a4e, type: 3}
       propertyPath: _anim
       value: 
