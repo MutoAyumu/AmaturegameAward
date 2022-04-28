@@ -38,7 +38,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("キャラの離れられる間隔")] float _maxSpacing = 5f;
     [SerializeField] float _timeLimit = 3f;
     float _timer;
-    [SerializeField]float _nakayoshiPoint;
+    [SerializeField] float _nakayoshiPoint;
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
 
@@ -66,7 +66,7 @@ public class CharacterManager : Singleton<CharacterManager>
         }
 
         //幽霊に切り替える
-        if(Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
+        if (Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
         {
             GhostExchange();
             _toPanel.gameObject.SetActive(false);
@@ -75,9 +75,12 @@ public class CharacterManager : Singleton<CharacterManager>
         //一緒に行動する
         if (_ghost.IsFixedRange && !_isTogether && _isCanSwitch)
         {
-            MoveTogether();
+            if (Input.GetButtonDown(_togetherButton) && !_isTogether)
+            {
+                MoveTogether();
+            }
 
-            if(!_toPanel.IsActive())
+            if (!_toPanel.IsActive())
             {
                 _toPanel.gameObject.SetActive(true);
             }
@@ -101,7 +104,7 @@ public class CharacterManager : Singleton<CharacterManager>
         }
 
         //温もりゲージを更新
-        if(_warmthSlider)
+        if (_warmthSlider)
         {
             _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
 
@@ -125,7 +128,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _warmthText.gameObject.SetActive(false);
                 _timer = 0;
             }
-        } 
+        }
     }
     /// <summary>
     /// ゲームを始める準備
@@ -179,7 +182,7 @@ public class CharacterManager : Singleton<CharacterManager>
             _vcam.Follow = _human.transform;
         }
 
-        if(_isTogether)
+        if (_isTogether)
         {
             _human.Anim.Play("IdleTree");
             _isTogether = false;
@@ -215,31 +218,28 @@ public class CharacterManager : Singleton<CharacterManager>
     /// <summary>
     /// 一緒に動く時に呼ばれる
     /// </summary>
-    void MoveTogether()
+    public void MoveTogether()
     {
-        if (Input.GetButtonDown(_togetherButton) && !_isTogether)
-        {
-            _ghost.transform.DOMove(_human.GhostSetPos.position, 1)
-                .OnStart(() =>
-                {
-                    _human.IsControll = false;
-                    _human.Stop();
-                    _ghost.Col.isTrigger = true;
-                })
-                .OnComplete(() =>
-                {
-                    _isTogether = true;
-                    _ghost.IsControll = false;
-                    _human.IsControll = true;
-                    _vcam.Follow = _human.transform;
-                    _human.TogetherImage.gameObject.SetActive(true);
-                    _human.MainSprite.gameObject.SetActive(false);
-                    _ghost.MainSprite.gameObject.SetActive(false);
-                    _human.Anim.Play("ToIdleTree");
-                    _ghost.Col.isTrigger = false;
-                    _playerUiImage.sprite = _toImage;
-                });
-        }
+        _ghost.transform.DOMove(_human.GhostSetPos.position, 1)
+            .OnStart(() =>
+            {
+                _human.IsControll = false;
+                _human.Stop();
+                _ghost.Col.isTrigger = true;
+            })
+            .OnComplete(() =>
+            {
+                _isTogether = true;
+                _ghost.IsControll = false;
+                _human.IsControll = true;
+                _vcam.Follow = _human.transform;
+                _human.TogetherImage.gameObject.SetActive(true);
+                _human.MainSprite.gameObject.SetActive(false);
+                _ghost.MainSprite.gameObject.SetActive(false);
+                _human.Anim.Play("ToIdleTree");
+                _ghost.Col.isTrigger = false;
+                _playerUiImage.sprite = _toImage;
+            });
     }
     /// <summary>
     /// 現在操作しているキャラを返す
@@ -247,7 +247,7 @@ public class CharacterManager : Singleton<CharacterManager>
     /// <returns></returns>
     public CharacterControllerBase CurrentOperation()
     {
-        if(_human.IsControll)
+        if (_human.IsControll)
         {
             return _human;
         }
@@ -288,13 +288,13 @@ public class CharacterManager : Singleton<CharacterManager>
     public void UIHPUpdate(int num)
     {
         //一旦消す
-        foreach(Transform t in _hpPanel.transform)
+        foreach (Transform t in _hpPanel.transform)
         {
             Destroy(t.gameObject);
         }
 
         //UIの更新
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
             var go = new GameObject();
             var image = go.AddComponent<Image>();
@@ -308,12 +308,12 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     public void UILightUpdate(int num)
     {
-        foreach(Transform t in _lightPanel.transform)
+        foreach (Transform t in _lightPanel.transform)
         {
             Destroy(t.gameObject);
         }
 
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
             var go = new GameObject();
             var image = go.AddComponent<Image>();
