@@ -44,7 +44,8 @@ public class ItemManager : Singleton<ItemManager>
 
     public void UseItem(int index)
     {
-        if(_inventry[index]>0)
+        index = Mathf.Clamp(index, 0, _inventry.Length-1);
+        if (_inventry[index]>0)
         {
             _items[index].Use();
             SoundManager.Instance.SoundPlay(_audios[0]);
