@@ -11,6 +11,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("Ghostプレパブを入れる")] GhostController _ghost = default;
     [SerializeField, Tooltip("要素0が人間　要素1が幽霊")] Transform[] _instancePos = new Transform[2];
     [SerializeField, Tooltip("Vcamを入れる")] CinemachineVirtualCamera _vcam = default;
+    [SerializeField] CinemachineImpulseSource _source = default;
 
     [Header("UI")]
     [SerializeField] Text _lightCountTest = default;
@@ -48,6 +49,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
+    public bool IsTogether { get => _isTogether; }
 
     /*
         KeyCodeを変える
@@ -106,27 +108,31 @@ public class CharacterManager : Singleton<CharacterManager>
         //温もりゲージを更新
         if (_warmthSlider)
         {
-            _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
-
-            //温もりゲージが0以下になったらテキストを表示する
-            if (_warmthSlider.value <= 0)
+            if (_warmthSlider.IsActive())
             {
-                _warmthText.gameObject.SetActive(true);
-                _timer += Time.deltaTime;
+                _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
 
-                if (_timeLimit <= _timer)
+                //温もりゲージが0以下になったらテキストを表示する
+                if (_warmthSlider.value <= 0)
                 {
-                    _human.Hp.Damage();
-                    _ghost.Hp.DamageAnim();
-                    Debug.Log("ダメージが与えられた");
+                    _warmthText.gameObject.SetActive(true);
+                    _timer += Time.deltaTime;
+
+                    if (_timeLimit <= _timer)
+                    {
+                        _human.Hp.CamShake(_source);
+                        _human.Hp.Damage();
+                        _ghost.Hp.DamageAnim();
+                        Debug.Log("ダメージが与えられた");
+                        _timer = 0;
+                    }
+
+                }
+                else if (_warmthText.IsActive())
+                {
+                    _warmthText.gameObject.SetActive(false);
                     _timer = 0;
                 }
-
-            }
-            else if (_warmthText.IsActive())
-            {
-                _warmthText.gameObject.SetActive(false);
-                _timer = 0;
             }
         }
     }
@@ -184,8 +190,8 @@ public class CharacterManager : Singleton<CharacterManager>
 
         if (_isTogether)
         {
-            _human.Anim.Play("IdleTree");
             _isTogether = false;
+            _human.Anim.SetBool("IsTogether", _isTogether);
             _playerUiImage.sprite = _humanImage;
         }
 
@@ -211,8 +217,8 @@ public class CharacterManager : Singleton<CharacterManager>
 
         if (_isTogether)
         {
-            _human.Anim.Play("IdleTree");
             _isTogether = false;
+            _human.Anim.SetBool("IsTogether", _isTogether);
         }
     }
     /// <summary>
@@ -236,7 +242,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _human.TogetherImage.gameObject.SetActive(true);
                 _human.MainSprite.gameObject.SetActive(false);
                 _ghost.MainSprite.gameObject.SetActive(false);
-                _human.Anim.Play("ToIdleTree");
+                _human.Anim.SetBool("IsTogether", _isTogether);
                 _ghost.Col.isTrigger = false;
                 _playerUiImage.sprite = _toImage;
             });

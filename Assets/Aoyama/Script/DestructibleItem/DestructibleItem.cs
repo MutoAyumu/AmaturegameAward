@@ -14,7 +14,7 @@ public class DestructibleItem : MonoBehaviour, IDamage
     [SerializeField, Tooltip("AudioClip")]
     AudioClip _audio;
 
-    public void Damage()
+    public void Damage(int damage)
     {
         if (_audio)
         {

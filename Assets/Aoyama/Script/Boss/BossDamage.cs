@@ -33,13 +33,14 @@ public class BossDamage : MonoBehaviour, IDamage
     /// <summary>
     /// 呼び出すとダメージを与える
     /// </summary>
-    public void Damage()
+    public void Damage(int damage)
     {
         Debug.Log($"{gameObject.name}にダメージを与えた");
 
-        _enemyHpSlider.value = --_enemyHp;
+        _enemyHp -= damage;
+        _enemyHpSlider.value = _enemyHp;
 
-        if (_enemyHp == 0)
+        if (_enemyHp <= 0)
         {
             EnemyDeath();
         }

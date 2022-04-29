@@ -23,7 +23,7 @@ public class HumanAttack : MonoBehaviour
     /// <summary>
     /// 引数のコライダーの範囲内にいる、IDamageのDamage()を呼ぶ関数
     /// </summary>
-    public void Attack(float h, float v)
+    public void Attack(float h, float v, int power)
     {
         if (!_downAttackCol || !_leftAttackCol || !_rightAttackCol || !_upAttackCol)
         {
@@ -36,28 +36,28 @@ public class HumanAttack : MonoBehaviour
         if (v <= -0.5f && h >= -0.5f || v <= -0.5f && h <= 0.5f)
         {
             count = _downAttackCol.OverlapCollider(_filter, _result);
-            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage(power));
             Debug.Log("down");
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.down));
         }
         else if (v >= 0.5f && h >= -0.5f || v >= 0.5f && h <= 0.5f)
         {
             count = _upAttackCol.OverlapCollider(_filter, _result);
-            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage(power));
             Debug.Log("up");
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.up));
         }
         else if (h >= 0.5f && v <= 0.5f || h >= 0.5f && v >= -0.5f)
         {
             count = _rightAttackCol.OverlapCollider(_filter, _result);
-            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage(power));
             Debug.Log("right");
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.right));
         }
         else if (h <= -0.5f && v <= 0.5f || h <= -0.5f && v >= -0.5f)
         {
             count = _leftAttackCol.OverlapCollider(_filter, _result);
-            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage());
+            _result.ForEach(go => go.GetComponent<IDamage>()?.Damage(power));
             Debug.Log("left");
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.left));
         }

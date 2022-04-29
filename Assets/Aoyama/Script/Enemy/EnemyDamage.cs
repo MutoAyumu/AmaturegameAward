@@ -33,24 +33,24 @@ public class EnemyDamage : MonoBehaviour, IDamage
             EnemyDeath();
         }
 
-        if (_testDamage)
-        {
-            Damage();
-            _testDamage = false;
-        }
+        //if (_testDamage)
+        //{
+        //    Damage();
+        //    _testDamage = false;
+        //}
     }
 
     /// <summary>
     /// 呼び出すとダメージを与える
     /// </summary>
-    public void Damage()
+    public void Damage(int damage)
     {
         Debug.Log($"{gameObject.name}にダメージを与えた");
         _anim.SetTrigger("Damage");
-        _enemyHp--;
+        _enemyHp -= damage; ;
         _enemyMove.KnockBack();
 
-        if (_enemyHp == 0)
+        if (_enemyHp <= 0)
         {
             EnemyDeath();
         }
@@ -94,5 +94,5 @@ public class EnemyDamage : MonoBehaviour, IDamage
 /// </summary>
 interface IDamage
 {
-    void Damage();
+    void Damage(int damage);
 }

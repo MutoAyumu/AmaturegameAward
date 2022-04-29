@@ -10,6 +10,7 @@ public class HealItem : ItemBase
     public override void Use()
     {
         PlayerPalam.Instance.LifeChange(_healValue);
+        CharacterManager.Instance.UIHPUpdate(PlayerPalam.Instance.Life);
         ItemManager.Instance.ItemValueChange(_itemID,-1);
     }
 }

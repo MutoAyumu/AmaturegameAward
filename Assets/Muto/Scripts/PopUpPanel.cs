@@ -10,7 +10,7 @@ public class PopUpPanel : MonoBehaviour
     [SerializeField]Text _text = default;
 
     [SerializeField] Sprite _setSprite = default;
-    [SerializeField] string _setText = default;
+    [SerializeField, Multiline(5)] string _setText = default;
 
     [SerializeField] GameObject _activeObj = default;
     [SerializeField] string _inputButtonName = "Fire1";
