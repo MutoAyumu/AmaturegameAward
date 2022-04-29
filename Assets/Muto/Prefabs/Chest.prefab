@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8340218472817562124}
   - component: {fileID: 8340218472817562125}
   - component: {fileID: 8340218472817562122}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dropItemIndex: 0
   _dropValue: 1
-  _animator: {fileID: 0}
-  _audios: []
+  _animator: {fileID: 8340218472817562122}
+  _audios:
+  - {fileID: 8300000, guid: d22166ad201d052479020858a2d441f5, type: 3}
 --- !u!61 &8340218472817562124
 BoxCollider2D:
   m_ObjectHideFlags: 0
