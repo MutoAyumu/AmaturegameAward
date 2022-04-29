@@ -8,7 +8,7 @@ public class Cage : MonoBehaviour, IDamage
     [SerializeField,Tooltip("タイムラインを制御するクラス")]
     PlayableDirector _director;
 
-    public void Damage()
+    public void Damage(int damage)
     {
         //プレイヤー動けないように
         CharacterManager.Instance.Human.Stop();
