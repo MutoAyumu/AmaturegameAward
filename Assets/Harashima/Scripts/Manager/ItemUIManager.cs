@@ -19,13 +19,19 @@ public class ItemUIManager : Singleton<ItemUIManager>
 
     public void ChangeTextValue(int index, int value)
     {
-        _texts[index].text = value.ToString();
+        if(_texts[index])
+        {
+            _texts[index].text = value.ToString();
+        }        
     }
 
     public void FirstGet(int index)
     {
-        _inventryImage[index].SetActive(true);
-        _texts[index].gameObject.SetActive(true);
+        if(_inventryImage[index]&&_texts[index])
+        {
+            _inventryImage[index].SetActive(true);
+            _texts[index].gameObject.SetActive(true);
+        }
     }
 
     float _timer = 1f;
@@ -41,7 +47,7 @@ public class ItemUIManager : Singleton<ItemUIManager>
         float v = Input.GetAxis("Debug Vertical");
         if (_timer > _timeInterval)
         {
-            if (Input.GetKeyDown(KeyCode.Z) || v > 0)
+            if (Input.GetKeyDown(KeyCode.Z) || h < 0)
             {
                 ItemManager.Instance.UseItem(0);
                 _timer = 0f;
@@ -51,16 +57,16 @@ public class ItemUIManager : Singleton<ItemUIManager>
                 ItemManager.Instance.UseItem(1);
                 _timer = 0f;
             }
-            else if (Input.GetKeyDown(KeyCode.C) || v < 0)
-            {
-                ItemManager.Instance.UseItem(2);
-                _timer = 0f;
-            }
-            else if (Input.GetKeyDown(KeyCode.V) || h < 0)
-            {
-                ItemManager.Instance.UseItem(3);
-                _timer = 0f;
-            }
+            //else if (Input.GetKeyDown(KeyCode.C) || v < 0)
+            //{
+            //    ItemManager.Instance.UseItem(2);
+            //    _timer = 0f;
+            //}
+            //else if (Input.GetKeyDown(KeyCode.V) || h < 0)
+            //{
+            //    ItemManager.Instance.UseItem(3);
+            //    _timer = 0f;
+            //}
         }
     }
 }
