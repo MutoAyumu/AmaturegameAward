@@ -221,13 +221,13 @@ public class CharacterControllerBase : MonoBehaviour
         return (Vector2)this.transform.position + _col.offset;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag(_endTag))
-        {
-            FieldManager.Instance.Clear();
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag(_endTag))
+    //    {
+    //        FieldManager.Instance.Clear();
+    //    }
+    //}
     public void Pause()
     {
         _rb.Sleep();

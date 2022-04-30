@@ -14,6 +14,8 @@ public class PopUpPanel : MonoBehaviour
 
     [SerializeField] GameObject _activeObj = default;
     [SerializeField] string _inputButtonName = "Fire1";
+    [SerializeField] string _playerTag = "Player";
+    [SerializeField] string _togetherTag = "Together";
     bool isActive;
 
     private void Start()
@@ -22,13 +24,16 @@ public class PopUpPanel : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isActive)
+        if (!isActive)
         {
-            isActive = true;
-            _image.sprite = _setSprite;
-            _text.text = _setText;
-            _panel.gameObject.SetActive(true);
-            FieldManager.Instance.Test();
+            if (collision.CompareTag(_playerTag) || collision.CompareTag(_togetherTag))
+            {
+                isActive = true;
+                _image.sprite = _setSprite;
+                _text.text = _setText;
+                _panel.gameObject.SetActive(true);
+                FieldManager.Instance.Test();
+            }
         }
     }
     private void Update()
@@ -36,7 +41,10 @@ public class PopUpPanel : MonoBehaviour
         if(Input.GetButtonDown(_inputButtonName) && isActive)
         {
             _panel.gameObject.SetActive(false);
+
+            if(_activeObj)
             _activeObj.SetActive(true);
+
             FieldManager.Instance.Test();
             Destroy(this.gameObject);
         }

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Muto/GameScenes/Scene1.unity
     guid: b75af6701cb8de64fbceac58df6f716a
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene2.unity
+    guid: fafea5a21aa069e4999412a350ca7ba7
   m_configObjects: {}
