@@ -116,8 +116,8 @@ public class FieldManager : Singleton<FieldManager>
 
     void DebugClear()
     {
-        _resultPanel.SetActive(true);
-        _timeLine.Play();
+        //_resultPanel.SetActive(true);
+        //_timeLine.Play();
         Debug.Log("ÉNÉäÉA");
     }
 

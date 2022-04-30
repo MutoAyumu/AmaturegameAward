@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 420954315059430705}
   m_Layer: 0
   m_Name: To
-  m_TagString: Player
+  m_TagString: Together
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +489,8 @@ MonoBehaviour:
   _attackButtonName: Fire1
   _grabButtonName: Fire2
   _grabbingSpeed: 1
+  _humanPower: 1
+  _togetherPower: 2
 --- !u!114 &3123253586814841012
 MonoBehaviour:
   m_ObjectHideFlags: 0

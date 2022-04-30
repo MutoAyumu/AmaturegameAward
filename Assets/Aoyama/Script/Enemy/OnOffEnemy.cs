@@ -12,6 +12,7 @@ public class OnOffEnemy : MonoBehaviour
     string _humanTag = "Player";
     [SerializeField]
     string _ghostTag = "Respawn";
+    [SerializeField] string _togetherTag = "Together";
     int _count = 0;
     [SerializeField] int _arrayNum;
 
@@ -31,7 +32,7 @@ public class OnOffEnemy : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log(collision);
-        if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag))
+        if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag) || collision.CompareTag(_togetherTag))
         {
             OnSetActive();
             Activate();

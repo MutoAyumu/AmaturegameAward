@@ -33,7 +33,7 @@ public class GhostController : CharacterControllerBase
         {
             //Activate();
             _status = CharacterStatus.ATTACK;
-            _abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
+            //_abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
         }
         if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
         {
