@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField, Tooltip("Player‚ªŽ€‚ñ‚¾‚Æ‚«‚ÌƒvƒŒƒnƒu")]
     GameObject _deathPrefab;
     [SerializeField] SpriteRenderer _sprite = default;
+    [SerializeField] CinemachineImpulseSource _source = default;
 
     //test
     int _maxHp = 0;
@@ -37,6 +39,7 @@ public class PlayerHP : MonoBehaviour
             return;
         }
 
+        CamShake();
         DamageAnim();
 
         _playerPalam.LifeChange(-1);
@@ -47,7 +50,7 @@ public class PlayerHP : MonoBehaviour
             PlayerDeath();
         }
     }
-    public void CamShake(Cinemachine.CinemachineImpulseSource _source)
+    public void CamShake()
     {
         if(isDamage)
         {
