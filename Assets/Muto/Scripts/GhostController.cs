@@ -33,21 +33,21 @@ public class GhostController : CharacterControllerBase
         {
             //Activate();
             _status = CharacterStatus.ATTACK;
-            //_abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
+            _abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
         }
-        if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
-        {
-            _attack.Attack(_lh, _lv);
-            _attackCount++;
+        //if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
+        //{
+        //    _attack.Attack(_lh, _lv);
+        //    _attackCount++;
 
-            if(_attackCount >= 1)
-            {
-                _attackCount = 0;
-                _abs.LightCount--;
-                _cm.UILightUpdate(_abs.LightCount);
-                DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
-            }
-        }
+        //    if(_attackCount >= 1)
+        //    {
+        //        _attackCount = 0;
+        //        _abs.LightCount--;
+        //        _cm.UILightUpdate(_abs.LightCount);
+        //        DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
+        //    }
+        //}
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
