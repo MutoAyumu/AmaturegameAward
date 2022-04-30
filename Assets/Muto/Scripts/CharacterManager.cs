@@ -120,7 +120,6 @@ public class CharacterManager : Singleton<CharacterManager>
 
                     if (_timeLimit <= _timer)
                     {
-                        _human.Hp.CamShake(_source);
                         _human.Hp.Damage();
                         _ghost.Hp.DamageAnim();
                         Debug.Log("ƒ_ƒ[ƒW‚ª—^‚¦‚ç‚ê‚½");

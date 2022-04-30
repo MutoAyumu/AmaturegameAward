@@ -39,7 +39,6 @@ public class SteamPipeScript : MonoBehaviour
         {
             //ƒ_ƒ[ƒW‚ğ—^‚¦‚é
             var p = go.GetComponent<PlayerHP>();
-            p.CamShake(_source);
             p.Damage();
         }
     }
