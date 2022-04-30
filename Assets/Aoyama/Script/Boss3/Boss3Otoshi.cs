@@ -10,9 +10,19 @@ public class Boss3Otoshi : MonoBehaviour
     [SerializeField] float _intervalTime = 0.2f;
     [SerializeField] int _kosu = 5;
     [SerializeField] GameObject _tama;
+    [SerializeField] bool _test = false;
 
     Vector3 _rightPosition;
     Vector3 _leftPosition;
+
+    private void Update()
+    {
+        if(_test)
+        {
+            Otoshi();
+            _test = false;
+        }
+    }
 
     public void Otoshi()
     {

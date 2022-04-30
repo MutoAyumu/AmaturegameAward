@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
     Animator _anim;
 
     ContactFilter2D _filter;
-    List<Collider2D> _result = new List<Collider2D>(5);
+    List<Collider2D> _result = new List<Collider2D>(7);
 
     int _count = 0;
     float _timer = 0;
@@ -51,11 +51,15 @@ public class EnemyAttack : MonoBehaviour
         if(_anim)
         {
             _anim.SetTrigger("Attack");
-            Debug.Log($"{gameObject.name}‚ÌUŒ‚");
+            //Debug.Log($"{gameObject.name}‚ÌUŒ‚");
         }
 
         //[ToDo] ContactFilter2D‚ðSerialize‚·‚é‚±‚Æ‚ÅLayerMask‚ðŽw’è‚Å‚«‚é‚Ì‚ÅA—]—T‚ª‚ ‚ê‚Î‚·‚é
         _count = _attackCol.OverlapCollider(_filter, _result);
-        _result.ForEach(go => go.GetComponent<PlayerHP>()?.Damage());
+        _result.ForEach(go => go.transform.parent.GetComponent<PlayerHP>()?.Damage());
+        for(int i = 0; i < _result.Count; i++)
+        {
+            Debug.Log(_result[i]);
+        }
     }
 }
