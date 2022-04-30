@@ -59,7 +59,6 @@ public class ItemManager : Singleton<ItemManager>
         //{
         //    FieldManager.Instance.ChangeTextValue(i, 0);
         //}
-        _items = new ItemBase[_itemValue];
         _inventry = new int[_itemValue];
         _first = new bool[_itemValue];
     }

@@ -157,7 +157,7 @@ public class FieldManager : Singleton<FieldManager>
         float v = Input.GetAxis("Debug Vertical");
         if(_timer > _timeInterval)
         {
-            if (Input.GetKeyDown(KeyCode.Z) || v > 0)
+            if (Input.GetKeyDown(KeyCode.Z) || h < 0)
             {
                 ItemManager.Instance.UseItem(0);
                 _timer = 0f;
@@ -167,16 +167,16 @@ public class FieldManager : Singleton<FieldManager>
                 ItemManager.Instance.UseItem(1);
                 _timer = 0f;
             }
-            else if (Input.GetKeyDown(KeyCode.C) || v < 0)
-            {
-                ItemManager.Instance.UseItem(2);
-                _timer = 0f;
-            }
-            else if (Input.GetKeyDown(KeyCode.V) || h < 0)
-            {
-                ItemManager.Instance.UseItem(3);
-                _timer = 0f;
-            }            
+            //else if (Input.GetKeyDown(KeyCode.C) || v < 0)
+            //{
+            //    ItemManager.Instance.UseItem(2);
+            //    _timer = 0f;
+            //}
+            //else if (Input.GetKeyDown(KeyCode.V) || h < 0)
+            //{
+            //    ItemManager.Instance.UseItem(3);
+            //    _timer = 0f;
+            //}            
         }
     }
 
