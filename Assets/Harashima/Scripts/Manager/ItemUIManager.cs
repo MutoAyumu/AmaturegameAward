@@ -40,33 +40,33 @@ public class ItemUIManager : Singleton<ItemUIManager>
     /// <summary>
     /// デバッグ用。インプットを受け取る関数（仮）
     /// </summary>
-    void ItemInput()
-    {
-        _timer += Time.deltaTime;
-        float h = Input.GetAxis("Debug Horizontal");
-        float v = Input.GetAxis("Debug Vertical");
-        if (_timer > _timeInterval)
-        {
-            if (Input.GetKeyDown(KeyCode.Z) || h < 0)
-            {
-                ItemManager.Instance.UseItem(0);
-                _timer = 0f;
-            }
-            else if (Input.GetKeyDown(KeyCode.X) || h > 0)
-            {
-                ItemManager.Instance.UseItem(1);
-                _timer = 0f;
-            }
-            //else if (Input.GetKeyDown(KeyCode.C) || v < 0)
-            //{
-            //    ItemManager.Instance.UseItem(2);
-            //    _timer = 0f;
-            //}
-            //else if (Input.GetKeyDown(KeyCode.V) || h < 0)
-            //{
-            //    ItemManager.Instance.UseItem(3);
-            //    _timer = 0f;
-            //}
-        }
-    }
+    //void ItemInput()
+    //{
+    //    _timer += Time.deltaTime;
+    //    float h = Input.GetAxis("Debug Horizontal");
+    //    float v = Input.GetAxis("Debug Vertical");
+    //    if (_timer > _timeInterval)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Z) || h < 0)
+    //        {
+    //            ItemManager.Instance.UseItem(0);
+    //            _timer = 0f;
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.X) || h > 0)
+    //        {
+    //            ItemManager.Instance.UseItem(1);
+    //            _timer = 0f;
+    //        }
+    //        //else if (Input.GetKeyDown(KeyCode.C) || v < 0)
+    //        //{
+    //        //    ItemManager.Instance.UseItem(2);
+    //        //    _timer = 0f;
+    //        //}
+    //        //else if (Input.GetKeyDown(KeyCode.V) || h < 0)
+    //        //{
+    //        //    ItemManager.Instance.UseItem(3);
+    //        //    _timer = 0f;
+    //        //}
+    //    }
+    //}
 }
