@@ -12,18 +12,20 @@ public class Boss3Laser : MonoBehaviour
     bool _isRight = false;
     void Start()
     {
-        _isRight = _rotate.IsRight;
+        
     }
 
     public void Laser()
     {
-        if(_isRight)
+        _isRight = _rotate.IsRight;
+
+        if (_isRight)
         {
-            Instantiate(_rightLaser, _muzzle.position, Quaternion.identity);
+            Instantiate(_rightLaser, _muzzle.position, Quaternion.identity, transform);
         }
         else
         {
-            Instantiate(_leftLaser, _muzzle.position, Quaternion.identity);
+            Instantiate(_leftLaser, _muzzle.position, Quaternion.identity, transform);
         }
     }
 }

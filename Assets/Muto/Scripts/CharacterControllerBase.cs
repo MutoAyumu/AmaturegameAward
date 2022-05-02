@@ -28,7 +28,7 @@ public class CharacterControllerBase : MonoBehaviour
 
     protected float _h = default;
     protected float _v = default;
-    protected float _currentSpeed;
+    [SerializeField]protected float _currentSpeed;
 
     FieldManager _fieldManager;
 
