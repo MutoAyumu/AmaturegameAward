@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>現在のステージクリア状況</summary>
     bool[] _clearedStage;
 
+    public int _friendShipPoints;
 
     protected override void OnAwake()
     {
@@ -32,5 +33,13 @@ public class GameManager : Singleton<GameManager>
         int num = index - 1;
         num = Mathf.Clamp(num,0,_stageLimit-1);
         _clearedStage[num] = true;
+    }
+    /// <summary>
+    /// 友好ポイントを返す関数
+    /// </summary>
+    /// <returns></returns>
+    public int ReturnPoint()
+    {
+        return Mathf.Clamp(_friendShipPoints, 0, 30);
     }
 }

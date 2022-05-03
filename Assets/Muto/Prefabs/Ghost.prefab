@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8150473647257384639}
   - component: {fileID: 9040205814322371569}
   - component: {fileID: 5901382191136517838}
+  - component: {fileID: 4289505607987719408}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -66,6 +67,7 @@ MonoBehaviour:
   _moveSpeed: 2
   _status: 0
   _endTag: Finish
+  _currentSpeed: 0
   _layer:
     serializedVersion: 2
     m_Bits: 8
@@ -130,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deathPrefab: {fileID: 0}
   _sprite: {fileID: 9167292961235691804}
+  _source: {fileID: 0}
 --- !u!50 &3963911041471629122
 Rigidbody2D:
   serializedVersion: 4
@@ -198,6 +201,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4289505607987719408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339178854182673670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0fe820fb81f404299c8b0d6aa9ba96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _message:
+  - "\u5F7C\u5973\u306F\u7720\u305D\u3046\u3060\u25BC"
+  - "\u624B\u3092\u63E1\u3063\u3066\u3044\u308B\u611F\u89E6\u304C\u3042\u307E\u308A\u306A\u3044\u3002\u3061\u3083\u3093\u3068\u63E1\u308C\u3066\u3044\u308B\u306E\u3060\u308D\u3046\u304B\u25BC"
+  - "\u5F7C\u5973\u306F\u5854\u306E\u3066\u3063\u307A\u3093\u306B\u884C\u304D\u305F\u3044\u3089\u3057\u3044\u25BC"
+  - "\u306A\u307E\u306C\u308B\u3044\u98A8\u304C\u3001\u304F\u3059\u3050\u3063\u305F\u3044\u25BC"
+  - "\u3053\u306E\u5854\u306F\u3068\u3066\u3082\u9AD8\u3044\u25BC"
 --- !u!1 &1220747696399465376
 GameObject:
   m_ObjectHideFlags: 0

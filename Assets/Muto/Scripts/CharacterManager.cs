@@ -103,6 +103,12 @@ public class CharacterManager : Singleton<CharacterManager>
             _ghost.Anim.SetFloat("Y", _human.InputV);
 
             _nakayoshiPoint += Time.deltaTime;
+
+            if(_nakayoshiPoint >= 30)
+            {
+                GameManager.Instance._friendShipPoints++;
+                _nakayoshiPoint = 0;
+            }
         }
 
         //温もりゲージを更新
@@ -280,15 +286,6 @@ public class CharacterManager : Singleton<CharacterManager>
     public void Switching()
     {
         _isCanSwitch = true;
-    }
-
-    /// <summary>
-    /// 手を繋いでいる時間を返す関数
-    /// </summary>
-    /// <returns></returns>
-    public float ReturnPoint()
-    {
-        return _nakayoshiPoint;
     }
     public void UIHPUpdate(int num)
     {
