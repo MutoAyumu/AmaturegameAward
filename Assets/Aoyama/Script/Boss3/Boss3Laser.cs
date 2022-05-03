@@ -8,11 +8,17 @@ public class Boss3Laser : MonoBehaviour
     [SerializeField] GameObject _rightLaser;
     [SerializeField] GameObject _leftLaser;
     [SerializeField] Rotate _rotate;
+    [SerializeField] bool _test = false;
 
     bool _isRight = false;
-    void Start()
+
+    void Update()
     {
-        
+        if(_test == true)
+        {
+            Laser();
+            _test = false;
+        }
     }
 
     public void Laser()
