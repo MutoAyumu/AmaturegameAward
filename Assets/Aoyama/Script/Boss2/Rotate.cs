@@ -8,9 +8,12 @@ public class Rotate : MonoBehaviour
     [SerializeField] Transform _testTransform;
     [SerializeField] SpriteRenderer _sprite;
 
+    [HideInInspector] bool _isRight = false;
     Vector3 _target;
     CharacterControllerBase _player;
     CharacterControllerBase _ghost;
+
+    public bool IsRight { get => _isRight;}
 
     void Start()
     {
@@ -29,15 +32,18 @@ public class Rotate : MonoBehaviour
         if(transform.position.x < _target.x)
         {
             _sprite.flipX = true;
+            _isRight = true;
         }
         else if(transform.position.x > _target.x)
         {
             _sprite.flipX = false;
+            _isRight = false;
         }
     }
 
     Vector3 player1;
     Vector3 player2;
+
     /// <summary>
     /// 2l‚ÌPlayer‚Ì‚¤‚¿‹ß‚¢‚Ù‚¤‚ÌÀ•W‚ğ•Ô‚·
     /// </summary>
