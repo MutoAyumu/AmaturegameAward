@@ -33,7 +33,7 @@ public class HumanController : CharacterControllerBase
         }
         if(_push && Input.GetButton(_grabButtonName) && _status != CharacterStatus.ATTACK) //•¨‚ğ’Í‚ñ‚Å“®‚©‚·‚Ìˆ—
         {
-            _push.MoveIt(_h, _v);
+            _push.MoveIt(_h, _v,_rayLength, _anim, _moveSpeed, _layer, _lh, _lv);
         }   
         else if(_attack && Input.GetButtonDown(_attackButtonName) && _status != CharacterStatus.ATTACK) //UŒ‚‚ğ‚·‚é‚Æ‚«‚Ìˆ—
         {

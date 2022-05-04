@@ -32,12 +32,20 @@ public class ObjectPusher : MonoBehaviour
     /// <summary>
     /// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éŽž‚ÉŒÄ‚Î‚ê‚é
     /// </summary>
-    public void MoveIt(float h, float v)
+    public void MoveIt(float h, float v, float length, Animator anim, float speed, LayerMask layer, float lh, float lv)
     {
         if (_block && _isGrab)
         {
             _block.Rb.velocity = new Vector2(h, v).normalized * CharacterManager.Instance.Human.CurrentSpeed;
             Debug.Log("Move");
+
+            Vector2 origin = this.transform.position;
+            RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(lh, lv), length, layer);
+
+            if (!hit.collider?.GetComponent<MoveBlock>())
+            {
+                Release(speed, anim);
+            }
         }
     }
     /// <summary>
@@ -54,9 +62,9 @@ public class ObjectPusher : MonoBehaviour
             CharacterManager.Instance.Human.CurrentSpeed = moveSpeed;
             anim.SetBool("IsAction", false);
             Debug.Log("Release");
-            return true;
+            //return true;
         }
 
-        return false;
+        return true;
     }
 }
