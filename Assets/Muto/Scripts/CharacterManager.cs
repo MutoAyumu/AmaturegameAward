@@ -149,6 +149,8 @@ public class CharacterManager : Singleton<CharacterManager>
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
+        _maxSpacing = FieldManager.Instance.ReturnSpacing();
+
         HumanExchange();
 
         if (_toPanel)

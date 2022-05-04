@@ -58,6 +58,7 @@ public class TutorialManager : Singleton<TutorialManager>
                     _timeLinePanal.SetActive(true);
                     _playerCanvas.gameObject.SetActive(false);
                     _human.gameObject.SetActive(false);
+                    _ghost.gameObject.SetActive(false);
                     //_cutSceneHuman.gameObject.SetActive(true);
                     //_cutSceneGhost.gameObject.SetActive(true);
                     cut.Play();
@@ -81,6 +82,7 @@ public class TutorialManager : Singleton<TutorialManager>
                 {
                     FadePanal(setPos1, setPos2);
                     _human.gameObject.SetActive(true);
+                    _ghost.gameObject.SetActive(true);
                     _human.transform.position = setPos1.position;
                     _ghost.transform.position = setPos2.position;
                     //_cutSceneHuman.gameObject.SetActive(false);
