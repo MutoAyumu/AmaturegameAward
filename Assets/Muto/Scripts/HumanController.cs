@@ -52,7 +52,11 @@ public class HumanController : CharacterControllerBase
             }
         }
     }
-    
+    public override void OnStart()
+    {
+        _message.SetMessage(CharacterManager.Instance.GhostMessage);
+    }
+
     public void StartAttack()
     {
 
@@ -72,5 +76,30 @@ public class HumanController : CharacterControllerBase
         {
             hit.collider.GetComponent<IHumanGimic>()?.Action();
         }
+    }
+    protected override void Interact()
+    {
+        if (!CharacterManager.Instance.IsTogether)
+        {
+            var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
+
+            if (hit && !_interactImage.activeSelf)
+            {
+                _interactImage.SetActive(true);
+            }
+            else if (!hit && _interactImage.activeSelf)
+            {
+                _interactImage.SetActive(false);
+            }
+        }
+        else
+        {
+            if(_interactImage.activeSelf)
+            {
+                _interactImage.SetActive(false);
+            }
+        }
+
+        base.Interact();
     }
 }

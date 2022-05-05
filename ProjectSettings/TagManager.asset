@@ -17,8 +17,8 @@ TagManager:
   - GhostObject
   - Wall
   - MiniMap
-  - 
-  - 
+  - PlayerGimic
+  - GhostGimic
   - 
   - 
   - 
