@@ -11,8 +11,12 @@ public class MessageManager : Singleton<MessageManager>
     [SerializeField, Tooltip("メッセージの速度")]
     float _textSpeed = 0.3f;
 
+    [SerializeField] float _hideTime = 0.5f;
+
     [SerializeField, Tooltip("一回の上限")]
     int _textLimit = 20;
+
+    [SerializeField] string _skipInputButton = "Fire2";
 
     /// <summary>メッセージウィンドウのテキストコンポーネント</summary>
     Text _windowText;
@@ -62,11 +66,21 @@ public class MessageManager : Singleton<MessageManager>
         _windowText.text = text;
         yield return 0;
         _isText = false;
+        StartCoroutine(HideWindows());
+    }
+    IEnumerator HideWindows()
+    {
+        yield return new WaitForSeconds(_hideTime);
+
+        if(!_isText && _windowPanel.activeSelf)
+        {
+            ActiveWindow(false);
+        }
     }
 
     public bool IsSpace()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown(_skipInputButton))
         {
             return true;
 
@@ -82,7 +96,7 @@ public class MessageManager : Singleton<MessageManager>
     bool _isText = false;
     private void Update()
     {
-        if (!_isText && Input.GetKeyDown(KeyCode.Space))
+        if (!_isText && Input.GetButtonDown(_skipInputButton) && _windowPanel.activeSelf)
         {
             ActiveWindow(false);
         }

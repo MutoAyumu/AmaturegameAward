@@ -26,6 +26,8 @@ public class GhostController : CharacterControllerBase
     {
         ResetStatus = Reset;
         _cm = CharacterManager.Instance;
+
+        _message.SetMessage(_cm.HumanMessage);
     }
     public override void OnUpdate()
     {
@@ -79,5 +81,31 @@ public class GhostController : CharacterControllerBase
     private void Reset()
     {
         _status = CharacterStatus.IDLE;
+    }
+
+    protected override void Interact()
+    {
+        base.Interact();
+
+        if (!CharacterManager.Instance.IsTogether)
+        {
+            var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
+
+            if (hit && !_interactImage.activeSelf)
+            {
+                _interactImage.SetActive(true);
+            }
+            else if (!hit && _interactImage.activeSelf)
+            {
+                _interactImage.SetActive(false);
+            }
+        }
+        else
+        {
+            if (_interactImage.activeSelf)
+            {
+                _interactImage.SetActive(false);
+            }
+        }
     }
 }
