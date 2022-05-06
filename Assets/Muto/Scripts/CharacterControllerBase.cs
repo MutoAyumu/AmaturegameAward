@@ -26,13 +26,19 @@ public class CharacterControllerBase : MonoBehaviour
 
     [SerializeField, Tooltip("ステージクリアで使うトリガーのタグ")] string _endTag = "Finish";
 
+    [SerializeField] protected GameObject _interactImage = default;
+
     protected float _h = default;
     protected float _v = default;
     [SerializeField]protected float _currentSpeed;
 
+    [SerializeField] protected MessageCharacter _message = default;
+
     FieldManager _fieldManager;
 
     bool IsPause;
+
+    RaycastHit2D _hit;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
@@ -94,8 +100,8 @@ public class CharacterControllerBase : MonoBehaviour
 
                     if (Input.GetButtonDown(_inputSearchar) && _searchar)
                     {
-                        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
-                        _searchar.Search(_lh, _lv, hit);
+                        //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
+                        _searchar.Search(_lh, _lv, _hit);
                     }
                     break;
 
@@ -105,8 +111,8 @@ public class CharacterControllerBase : MonoBehaviour
 
                     if (Input.GetButtonDown(_inputSearchar) && _searchar)
                     {
-                        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
-                        _searchar.Search(_lh, _lv, hit);
+                        //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
+                        _searchar.Search(_lh, _lv, _hit);
                     }
                     break;
 
@@ -128,6 +134,10 @@ public class CharacterControllerBase : MonoBehaviour
 
             OnUpdate();
         }
+        else if (!IsControll && _interactImage.activeSelf)
+        {
+            _interactImage.SetActive(false);
+        }
     }
     /// <summary>
     /// 派生先で使うUpdate
@@ -135,6 +145,19 @@ public class CharacterControllerBase : MonoBehaviour
     public virtual void OnUpdate()
     {
 
+    }
+    protected virtual void Interact()
+    {
+        _hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
+
+        if (_hit && !_interactImage.activeSelf)
+        {
+            _interactImage.SetActive(true);
+        }
+        else if (!_hit && _interactImage.activeSelf)
+        {
+            _interactImage.SetActive(false);
+        }
     }
     /// <summary>
     /// 移動入力を受ける関数
@@ -165,6 +188,8 @@ public class CharacterControllerBase : MonoBehaviour
                     _lh = _h;
                     _lv = _v;
                 }
+
+                Interact();
             }
         }
 
@@ -239,5 +264,12 @@ public class CharacterControllerBase : MonoBehaviour
         _rb.WakeUp();
         _anim.speed = 1;
         IsPause = false;
+    }
+    public void ChangerMessageFlag(bool flag)
+    {
+        if(_message)
+        {
+            _message.IsMessage(flag);
+        }
     }
 }

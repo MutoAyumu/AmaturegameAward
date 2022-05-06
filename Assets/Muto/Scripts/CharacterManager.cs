@@ -43,6 +43,10 @@ public class CharacterManager : Singleton<CharacterManager>
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
 
+    [Space(10), Header("人間・幽霊のセリフ")]
+    [SerializeField] string[] _humanMessage;
+    [SerializeField] string[] _ghostMessage;
+
     bool _isTogether;
 
     public HumanController Human { get => _human; }
@@ -50,6 +54,8 @@ public class CharacterManager : Singleton<CharacterManager>
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
     public bool IsTogether { get => _isTogether; }
+    public string[] HumanMessage { get => _humanMessage;}
+    public string[] GhostMessage { get => _ghostMessage;}
 
     /*
         KeyCodeを変える
@@ -149,6 +155,8 @@ public class CharacterManager : Singleton<CharacterManager>
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
+        _maxSpacing = FieldManager.Instance.ReturnSpacing();
+
         HumanExchange();
 
         if (_toPanel)
@@ -181,8 +189,9 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.TogetherImage.gameObject.SetActive(false);
         _human.MainSprite.gameObject.SetActive(true);
-        _ghost.MainSprite.gameObject.SetActive(true);
+        _ghost.gameObject.SetActive(true);
         _ghost.Stop();
+        _ghost.ChangerMessageFlag(true);
 
         if (!_human.IsControll)
         {
@@ -196,10 +205,10 @@ public class CharacterManager : Singleton<CharacterManager>
         if (_isTogether)
         {
             _isTogether = false;
+            _human.ChangerMessageFlag(false);
             _human.Anim.SetBool("IsTogether", _isTogether);
             _playerUiImage.sprite = _humanImage;
         }
-
     }
     /// <summary>
     /// 操作キャラを幽霊に切り替える関数
@@ -208,8 +217,9 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.TogetherImage.gameObject.SetActive(false);
         _human.MainSprite.gameObject.SetActive(true);
-        _ghost.MainSprite.gameObject.SetActive(true);
+        _ghost.gameObject.SetActive(true);
         _human.Stop();
+        _human.ChangerMessageFlag(true);
 
         if (!_ghost.IsControll)
         {
@@ -237,6 +247,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _human.IsControll = false;
                 _human.Stop();
                 _ghost.Col.isTrigger = true;
+                _ghost.ChangerMessageFlag(false);
             })
             .OnComplete(() =>
             {
@@ -246,7 +257,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _vcam.Follow = _human.transform;
                 _human.TogetherImage.gameObject.SetActive(true);
                 _human.MainSprite.gameObject.SetActive(false);
-                _ghost.MainSprite.gameObject.SetActive(false);
+                _ghost.gameObject.SetActive(false);
                 _human.Anim.SetBool("IsTogether", _isTogether);
                 _ghost.Col.isTrigger = false;
                 _playerUiImage.sprite = _toImage;

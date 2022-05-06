@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7f91434cae7249a4b91877d3b10989fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bdb0df4737a94d4bad914eaee001694, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 1
-  _breakObject: {fileID: 0}
+  _breakObject: {fileID: 2411912423585467311, guid: d91aa5f3a82ab8f4282bba39afcc7efd, type: 3}
   _audio: {fileID: 8300000, guid: d22166ad201d052479020858a2d441f5, type: 3}
 --- !u!114 &1484419155047099327
 MonoBehaviour:
@@ -135,7 +135,7 @@ MonoBehaviour:
   - {x: -0.08129573, y: -0.38353458, z: -0.00000056015153}
   m_ShapePathHash: -666913120
   m_Mesh: {fileID: 0}
-  m_InstanceId: 55820
+  m_InstanceId: 40896
 --- !u!70 &1484419155047099321
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
