@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3123253586814841008}
-  _col: {fileID: 3123253585974038372}
+  _col: {fileID: 2436812540724795370}
   _hp: {fileID: 3123253586814841011}
   _endAreaTag: Finish
   _anim: {fileID: 3123253586814841009}
@@ -672,6 +672,7 @@ MonoBehaviour:
   _endTag: Finish
   _interactImage: {fileID: 8711772652759853557}
   _currentSpeed: 0
+  _message: {fileID: 8862435517513125521}
   _attack: {fileID: 3123253586814841012}
   _push: {fileID: 3123253586814841013}
   _ghostSetPos: {fileID: 2053570089798123822}
@@ -684,7 +685,6 @@ MonoBehaviour:
   _grabbingSpeed: 1
   _humanPower: 1
   _togetherPower: 2
-  _message: {fileID: 8862435517513125521}
 --- !u!114 &3123253586814841012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: B
 --- !u!1 &8711772652759853557
 GameObject:
   m_ObjectHideFlags: 0
