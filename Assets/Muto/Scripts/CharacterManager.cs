@@ -86,6 +86,7 @@ public class CharacterManager : Singleton<CharacterManager>
             if (Input.GetButtonDown(_togetherButton) && !_isTogether)
             {
                 MoveTogether();
+                _ghost.IsFixedRange = false;
             }
 
             if (!_toPanel.IsActive())
@@ -337,5 +338,10 @@ public class CharacterManager : Singleton<CharacterManager>
 
             go.transform.SetParent(_lightPanel.transform);
         }
+    }
+    public void CharacterDead()
+    {
+        _human.IsDead();
+        _ghost.IsDead();
     }
 }

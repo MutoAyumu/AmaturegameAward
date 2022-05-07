@@ -31,8 +31,9 @@ public class MessageManager : Singleton<MessageManager>
 
     void InstansWindow()
     {
-        _windowText = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform).GetComponentInChildren<Text>();
-        _windowPanel = _windowText.transform.parent.gameObject;
+        var tfm = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform).GetComponentInChildren<RectTransform>();
+        _windowText = tfm.GetComponentInChildren<Text>();
+        _windowPanel = tfm.transform.gameObject;
     }
 
     public void SetText(string msg)

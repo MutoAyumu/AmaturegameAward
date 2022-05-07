@@ -13,6 +13,8 @@ public class GhostController : CharacterControllerBase
     [SerializeField, Tooltip("UŒ‚ƒ{ƒ^ƒ“‚Ì–¼‘O")] string _attackButtonName = "Fire1";
     [SerializeField] GhostAttack _attack = default;
 
+    [SerializeField] GameObject _fixedRangeImage = default;
+
     bool _isFixedRange = default;
     int _attackCount = 0;
     CharacterManager _cm;
@@ -36,6 +38,21 @@ public class GhostController : CharacterControllerBase
             //Activate();
             _status = CharacterStatus.ATTACK;
             _abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
+        }
+
+        if (!_cm.IsTogether && _isFixedRange)
+        {
+            if (!_fixedRangeImage.activeSelf)
+            {
+                _fixedRangeImage.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_fixedRangeImage.activeSelf)
+            {
+                _fixedRangeImage.SetActive(false);
+            }
         }
         //if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
         //{
@@ -85,8 +102,6 @@ public class GhostController : CharacterControllerBase
 
     protected override void Interact()
     {
-        base.Interact();
-
         if (!CharacterManager.Instance.IsTogether)
         {
             var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
@@ -107,5 +122,7 @@ public class GhostController : CharacterControllerBase
                 _interactImage.SetActive(false);
             }
         }
+
+        base.Interact();
     }
 }
