@@ -29,6 +29,7 @@ public class EnemyMove : MonoBehaviour
     protected CharacterControllerBase _player;
     protected CharacterControllerBase _ghost;
     protected bool _isPause = false;
+    protected bool _isMove = false;
 
     /* ToDo
         ƒ_ƒ[ƒW‚ğó‚¯‚½‚Éˆê’èŠÔMove‚ğŒÄ‚Î‚È‚¢‚æ‚¤‚É‚·‚é
@@ -58,7 +59,11 @@ public class EnemyMove : MonoBehaviour
 
         _target = PlayerPosition();
 
-        Move();
+        if(_isMove)
+        {
+            Move();
+        }
+
         Flip();
     }
 
@@ -141,6 +146,7 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     public void KnockBack()
     {
+        StartCoroutine(StopMove());
         dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
     }
@@ -166,5 +172,12 @@ public class EnemyMove : MonoBehaviour
     {
         _rb.WakeUp();
         _isPause = false;
+    }
+
+    IEnumerator StopMove()
+    {
+        _isMove = false;
+        yield return new WaitForSeconds(0.2f);
+        _isMove = true;
     }
 }
