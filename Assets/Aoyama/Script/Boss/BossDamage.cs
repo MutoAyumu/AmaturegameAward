@@ -11,10 +11,14 @@ public class BossDamage : MonoBehaviour, IDamage
     [SerializeField]
     Slider _enemyHpSlider;
     [SerializeField] bool death = false;
+    [SerializeField] bool _damage = false;
 
     [Header("GameObject")]
     [SerializeField, Tooltip("死んだときのプレハブ")]
     GameObject _deathPrefab;
+
+    [Header("とりあえず参照したいやつ")]
+    [SerializeField] Animator _anim;
 
     void Start()
     {
@@ -24,9 +28,15 @@ public class BossDamage : MonoBehaviour, IDamage
 
     void Update()
     {
-        if(death)
+        if (death)
         {
             EnemyDeath();
+        }
+
+        if(_damage)
+        {
+            _anim.SetTrigger("Damage");
+            _damage = false;
         }
     }
 
@@ -39,6 +49,11 @@ public class BossDamage : MonoBehaviour, IDamage
 
         _enemyHp -= damage;
         _enemyHpSlider.value = _enemyHp;
+
+        if(_anim)
+        {
+            _anim.SetTrigger("Damage");
+        }
 
         if (_enemyHp <= 0)
         {
@@ -60,4 +75,5 @@ public class BossDamage : MonoBehaviour, IDamage
             var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
         }
     }
+
 }

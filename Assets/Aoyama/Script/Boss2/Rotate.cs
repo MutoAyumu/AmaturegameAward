@@ -15,7 +15,8 @@ public class Rotate : MonoBehaviour
 
     public bool IsRight { get => _isRight;}
 
-    void Start()
+
+    void Update()
     {
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
@@ -25,11 +26,8 @@ public class Rotate : MonoBehaviour
         {
             _target = _testTransform.position;
         }
-    }
 
-    void Update()
-    {
-        if(transform.position.x < _target.x)
+        if (transform.position.x < _target.x)
         {
             _sprite.flipX = true;
             _isRight = true;
