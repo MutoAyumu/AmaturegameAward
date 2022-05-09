@@ -8,6 +8,7 @@ public class MoveTile : MonoBehaviour, IActivate
     [SerializeField] TileParam[] _param;
     [SerializeField] string _humanTag = "Player";
     [SerializeField] string _ghostTag = "Respawn";
+    [SerializeField] GameObject _col = default;
 
     int _index = 0;
     Vector3 dir;
@@ -19,6 +20,7 @@ public class MoveTile : MonoBehaviour, IActivate
         //_isMove = true;
         //_isNext = true;
 
+        _col.SetActive(false);
         transform.position = _param[_index].MovePoint.position;
     }
 
@@ -26,7 +28,7 @@ public class MoveTile : MonoBehaviour, IActivate
     {
         if (collision.gameObject.CompareTag(_humanTag) || collision.gameObject.CompareTag(_ghostTag))
         {
-            transform.parent = collision.gameObject.transform;
+            collision.gameObject.transform.SetParent(this.transform);
         }
     }
 
@@ -34,7 +36,7 @@ public class MoveTile : MonoBehaviour, IActivate
     {
         if (collision.gameObject.CompareTag(_humanTag) || collision.gameObject.CompareTag(_ghostTag))
         {
-            transform.parent = null;
+            collision.gameObject.transform.parent = null;
         }
     }
 
@@ -63,28 +65,43 @@ public class MoveTile : MonoBehaviour, IActivate
     void MoveNext()
     {
         _isMove = false;
+        _col.SetActive(true);
         _currentParam = _param[++_index];
         Debug.Log(_index);
         dir = _currentParam.MovePoint.position;
         this.transform
             .DOMove(dir, _currentParam.MoveTime).SetEase(Ease.InOutCubic)
-            .OnComplete(() => _isMove = true);
+            .OnComplete(() =>
+            {
+                Delay();
+            });
     }
 
     void MoveBack()
     {
         _isMove = false;
+        _col.SetActive(true);
         _currentParam = _param[--_index];
         Debug.Log(_index);
         dir = _currentParam.MovePoint.position;
         this.transform
             .DOMove(dir, _currentParam.MoveTime).SetEase(Ease.InOutCubic)
-            .OnComplete(() => Delay());
+            .OnComplete(() =>
+            {
+                Delay();
+            });
     }
 
     void Delay()
     {
-        DOVirtual.DelayedCall(_currentParam.WaitTime, () => _isMove = true);
+        DOVirtual.DelayedCall(_currentParam.WaitTime, () => _isMove = true)
+            .OnStart(() => 
+            {
+                if(_index == 0 || _index == _param.Length - 1)
+                {
+                    _col.SetActive(false);
+                }
+            });
     }
     public void Action()
     {
