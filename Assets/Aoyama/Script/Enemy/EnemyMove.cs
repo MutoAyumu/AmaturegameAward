@@ -29,6 +29,7 @@ public class EnemyMove : MonoBehaviour
     protected CharacterControllerBase _player;
     protected CharacterControllerBase _ghost;
     protected bool _isPause = false;
+    protected bool _isMove = false;
 
     /* ToDo
         É_ÉÅÅ[ÉWÇéÛÇØÇΩéûÇ…àÍíËéûä‘MoveÇåƒÇŒÇ»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
@@ -39,6 +40,9 @@ public class EnemyMove : MonoBehaviour
         EnemyManager.Instance.Enemys.Add(gameObject);
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
+
+        FieldManager.Instance.OnPause += Pause;
+        FieldManager.Instance.OnResume += Resume;
     }
 
     void FixedUpdate()
@@ -58,7 +62,11 @@ public class EnemyMove : MonoBehaviour
 
         _target = PlayerPosition();
 
-        Move();
+        if(_isMove)
+        {
+            Move();
+        }
+
         Flip();
     }
 
@@ -141,6 +149,7 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     public void KnockBack()
     {
+        StartCoroutine(StopMove());
         dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
     }
@@ -155,16 +164,27 @@ public class EnemyMove : MonoBehaviour
         Decoy = null;
     }
 
+    float n = 0;
     public void Pause()
     {
         _rb.velocity = Vector3.zero;
         _rb.Sleep();
+        n = _anim.speed;
+        _anim.speed = 0;
         _isPause = true;
     }
 
     public void Resume()
     {
+        _anim.speed = n;
         _rb.WakeUp();
         _isPause = false;
+    }
+
+    IEnumerator StopMove()
+    {
+        _isMove = false;
+        yield return new WaitForSeconds(0.2f);
+        _isMove = true;
     }
 }
