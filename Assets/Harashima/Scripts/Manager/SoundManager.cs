@@ -45,7 +45,8 @@ public class SoundManager : Singleton<SoundManager>
 public enum CueSheet
 {
     BGM,
-    SE
+    SE,
+    ME
 }
 
 
