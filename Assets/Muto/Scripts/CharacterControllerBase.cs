@@ -54,7 +54,8 @@ public class CharacterControllerBase : MonoBehaviour
         WALK,
         ATTACK,
         NOCK_BACK,
-        ACTION
+        ACTION,
+        Dead
     }
 
     private void OnEnable()
@@ -88,6 +89,11 @@ public class CharacterControllerBase : MonoBehaviour
     }
     private void Update()
     {
+        if(_status == CharacterStatus.Dead)
+        {
+            return;
+        }
+
         if (_isControll && !IsPause)
         {
             InputValue();
@@ -126,6 +132,10 @@ public class CharacterControllerBase : MonoBehaviour
                 case CharacterStatus.ACTION:
                     Move(_h, _v);
                     _anim.SetBool("IsMove", true);
+                    break;
+
+                case CharacterStatus.Dead:
+                    _anim.SetBool("IsDead", true);
                     break;
 
                 default:
@@ -271,5 +281,9 @@ public class CharacterControllerBase : MonoBehaviour
         {
             _message.IsMessage(flag);
         }
+    }
+    public void IsDead()
+    {
+        _status = CharacterStatus.Dead;
     }
 }

@@ -45,7 +45,7 @@ public class PlayerHP : MonoBehaviour
         _playerPalam.LifeChange(-1);
         _characterManager.UIHPUpdate(_playerPalam.Life);
 
-        if (_playerPalam.Life == 0)
+        if (_playerPalam.Life <= 0)
         {
             PlayerDeath();
         }
@@ -84,7 +84,8 @@ public class PlayerHP : MonoBehaviour
     {
         Debug.Log("Player‚ªŽ€–S‚µ‚½");
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        _characterManager.CharacterDead();
         if(_deathPrefab)
         {
             var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);

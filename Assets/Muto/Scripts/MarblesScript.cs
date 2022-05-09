@@ -29,7 +29,8 @@ public class MarblesScript : MonoBehaviour
 
         if (!collision.gameObject.CompareTag(_playerTag))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
+        Destroy(this.gameObject);
     }
 }
