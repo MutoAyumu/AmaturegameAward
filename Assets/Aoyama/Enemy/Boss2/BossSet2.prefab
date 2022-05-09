@@ -93,7 +93,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2049
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _power: 5
   _rb: {fileID: 7141410715835062780}
-  _test: 1
-  _testTransform: {fileID: 7141410715741932914}
+  _test: 0
+  _testTransform: {fileID: 0}
 --- !u!114 &7141410715835062782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,9 @@ MonoBehaviour:
   _enemyHp: 30
   _enemyHpSlider: {fileID: 7141410715878700741}
   death: 0
+  _damage: 0
   _deathPrefab: {fileID: 9116885131431368635, guid: 0260cdfcdb90daf49b78147e8ff20f86, type: 3}
+  _anim: {fileID: 7141410715835062752}
 --- !u!95 &7141410715835062752
 Animator:
   serializedVersion: 4
@@ -297,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4ad5163fde961449176ba2c20bff7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 1
+  _test: 0
   _testTransform: {fileID: 7141410715966679787}
   _sprite: {fileID: 7141410715835062756}
 --- !u!1 &7141410715878700747
