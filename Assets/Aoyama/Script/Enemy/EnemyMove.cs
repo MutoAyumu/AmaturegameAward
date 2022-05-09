@@ -40,6 +40,9 @@ public class EnemyMove : MonoBehaviour
         EnemyManager.Instance.Enemys.Add(gameObject);
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
+
+        FieldManager.Instance.OnPause += Pause;
+        FieldManager.Instance.OnResume += Resume;
     }
 
     void FixedUpdate()
@@ -161,15 +164,19 @@ public class EnemyMove : MonoBehaviour
         Decoy = null;
     }
 
+    float n = 0;
     public void Pause()
     {
         _rb.velocity = Vector3.zero;
         _rb.Sleep();
+        n = _anim.speed;
+        _anim.speed = 0;
         _isPause = true;
     }
 
     public void Resume()
     {
+        _anim.speed = n;
         _rb.WakeUp();
         _isPause = false;
     }
