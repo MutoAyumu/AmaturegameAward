@@ -100,6 +100,18 @@ public class MoveTile : MonoBehaviour, IActivate
                 if(_index == 0 || _index == _param.Length - 1)
                 {
                     _col.SetActive(false);
+
+                    if(_currentParam.Collider)
+                    {
+                        _currentParam.Collider.SetActive(false);
+                    }
+                }
+            })
+            .OnComplete(() =>
+            {
+                if (_currentParam.Collider)
+                {
+                    _currentParam.Collider.SetActive(true);
                 }
             });
     }
@@ -121,4 +133,6 @@ public class TileParam
     [SerializeField] public float WaitTime = 1;
 
     [SerializeField] public Transform MovePoint;
+
+    [SerializeField] public GameObject Collider;
 }
