@@ -41,6 +41,7 @@ public class HumanController : CharacterControllerBase
             _anim.SetTrigger("IsAttack");
             var power = CharacterManager.Instance.IsTogether ? _togetherPower : _humanPower;
             _attack.Attack(_lh, _lv, power);
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackSwing");
         }
         if (_push && Input.GetButtonUp(_grabButtonName)) //•¨‚ğ—£‚·‚Ìˆ—
         {
@@ -101,5 +102,9 @@ public class HumanController : CharacterControllerBase
         }
 
         base.Interact();
+    }
+    public void FootStep()
+    {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanFootsteps");
     }
 }
