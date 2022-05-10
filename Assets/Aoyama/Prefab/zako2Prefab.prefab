@@ -58,7 +58,7 @@ MonoBehaviour:
   _knockBackPower: 5
   _rb: {fileID: 2125958149395242797}
   _sprite: {fileID: 2125958149395242796}
-  _anim: {fileID: 0}
+  _anim: {fileID: 632668049607884378}
 --- !u!114 &632668049607884380
 MonoBehaviour:
   m_ObjectHideFlags: 0
