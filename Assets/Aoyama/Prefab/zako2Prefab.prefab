@@ -39,26 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125958149395242795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd7e92557289984d9c1711037e939a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chaseSpeed: 2
-  _nearDistance: 1
-  _chaseDistance: 1.5
-  _knockBackPower: 5
-  _rb: {fileID: 2125958149395242797}
-  _sprite: {fileID: 2125958149395242796}
-  _anim: {fileID: 632668049607884378}
->>>>>>> b52f350181cfd02cd5d1f13c9090ebbd5e992fec
 --- !u!114 &632668049607884380
 MonoBehaviour:
   m_ObjectHideFlags: 0
