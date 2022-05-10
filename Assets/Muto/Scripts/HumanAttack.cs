@@ -61,5 +61,15 @@ public class HumanAttack : MonoBehaviour
             Debug.Log("left");
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.left));
         }
+
+        HitAudio(_result[0]);
+    }
+    void HitAudio(Collider2D col)
+    {
+        var hit = col.GetComponent<IDamage>();
+        if (hit != null)
+        {
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackHit");
+        }
     }
 }

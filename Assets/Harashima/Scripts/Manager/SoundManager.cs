@@ -22,9 +22,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public void BGMPlay()
     {
-        _audioSource.Play();
+        CriAtomPlay(CueSheet.BGM, "BGMField");
     }
-
     /// <summary>
     /// ADXƒtƒ@ƒCƒ‹‚ğÄ¶‚·‚éŠÖ”
     /// </summary>
