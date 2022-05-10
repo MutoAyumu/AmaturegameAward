@@ -39,6 +39,23 @@ public class SoundManager : Singleton<SoundManager>
         _criAtomSource.cueName = cueName;
         _criAtomSource.Play();
     }
+    /// <summary>
+    /// Sourceを指定してADXファイルを再生する関数
+    /// </summary>
+    /// <param name="source">指定するSource</param>
+    /// <param name="cueSheet">鳴らす音の種類をenumから選択</param>
+    /// <param name="cueName">鳴らしたい音のファイル名</param>
+    public void CriAtomPlay(CriAtomSource source, CueSheet cueSheet, string cueName)
+    {
+        if (!source)
+        {
+            Debug.LogError("使用先のCriAtomSourceがnullだよ");
+            return;
+        }
+        source.cueSheet = cueSheet.ToString();
+        source.cueName = cueName;
+        source.Play();
+    }
 }
 
 public enum CueSheet
