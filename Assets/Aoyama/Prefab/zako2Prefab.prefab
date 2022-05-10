@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2125958149395242768}
-  - component: {fileID: 2125958149395242799}
   - component: {fileID: 632668049607884380}
   - component: {fileID: 2125958149395242798}
   - component: {fileID: 632668049607884379}
@@ -40,25 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2125958149395242799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125958149395242795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd7e92557289984d9c1711037e939a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chaseSpeed: 2
-  _nearDistance: 1
-  _chaseDistance: 1.5
-  _knockBackPower: 5
-  _rb: {fileID: 2125958149395242797}
-  _sprite: {fileID: 2125958149395242796}
-  _anim: {fileID: 0}
 --- !u!114 &632668049607884380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +74,7 @@ MonoBehaviour:
   _enemyHp: 2
   _deathPrefab: {fileID: 4717195527131895141, guid: 36e2623c8ef763e46944108d983fb12d, type: 3}
   _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}
-  _enemyMove: {fileID: 2125958149395242799}
+  _enemyMove: {fileID: 632668049607884380}
   _anim: {fileID: 632668049607884378}
   _testDeath: 0
   _testDamage: 0
