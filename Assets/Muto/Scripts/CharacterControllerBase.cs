@@ -30,7 +30,7 @@ public class CharacterControllerBase : MonoBehaviour
 
     protected float _h = default;
     protected float _v = default;
-    [SerializeField]protected float _currentSpeed;
+    [SerializeField] protected float _currentSpeed;
 
     [SerializeField] protected MessageCharacter _message = default;
 
@@ -89,7 +89,7 @@ public class CharacterControllerBase : MonoBehaviour
     }
     private void Update()
     {
-        if(_status == CharacterStatus.Dead)
+        if (_status == CharacterStatus.Dead)
         {
             return;
         }
@@ -222,10 +222,10 @@ public class CharacterControllerBase : MonoBehaviour
                 return;
         }
 
-            var dir = new Vector2(h, v).normalized;
-            _rb.velocity = dir * _currentSpeed;
+        var dir = new Vector2(h, v).normalized;
+        _rb.velocity = dir * _currentSpeed;
 
-            Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
+        Debug.DrawRay(this.transform.position, new Vector2(_lh, _lv).normalized * _rayLength, Color.red);
     }
     /// <summary>
     /// ‘€ìƒLƒƒƒ‰‚ğ~‚ß‚éŠÖ”
@@ -277,7 +277,7 @@ public class CharacterControllerBase : MonoBehaviour
     }
     public void ChangerMessageFlag(bool flag)
     {
-        if(_message)
+        if (_message)
         {
             _message.IsMessage(flag);
         }
