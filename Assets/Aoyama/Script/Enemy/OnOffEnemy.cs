@@ -18,6 +18,8 @@ public class OnOffEnemy : MonoBehaviour
 
     [SerializeField] GameObject[] _gimic = default;
 
+    bool IsActive;
+
     private void Start()
     {
         OffSetActive();
@@ -32,10 +34,15 @@ public class OnOffEnemy : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log(collision);
-        if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag) || collision.CompareTag(_togetherTag))
+
+        if (!IsActive)
         {
-            OnSetActive();
-            Activate();
+            if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag) || collision.CompareTag(_togetherTag))
+            {
+                OnSetActive();
+                Activate();
+                IsActive = true;
+            }
         }
     }
 
