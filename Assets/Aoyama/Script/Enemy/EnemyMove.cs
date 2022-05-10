@@ -62,10 +62,7 @@ public class EnemyMove : MonoBehaviour
 
         _target = PlayerPosition();
 
-        if(_isMove)
-        {
-            Move();
-        }
+        Move();
 
         Flip();
     }
@@ -75,6 +72,11 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     protected void Move()
     {
+        if (!_isMove)
+        {
+            return;
+        }
+
         float distance = Vector3.Distance(transform.position, _target);
         //target‚Æ‚Ì‹——£‚ªnearDistanse‚æ‚è‰“‚­‚È‚é‚Æ“®‚«‚ðŽ~‚ß‚é
         if (distance > _chaseDistance)
