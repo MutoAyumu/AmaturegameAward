@@ -11,8 +11,12 @@ GameObject:
   - component: {fileID: 7582588298370003682}
   - component: {fileID: 7582588298370003683}
   - component: {fileID: 7582588298370003612}
+  - component: {fileID: 4334354592312458792}
+  - component: {fileID: -2915792056716913524}
+  - component: {fileID: 8047196671477314594}
+  - component: {fileID: -2756719352887929435}
   m_Layer: 0
-  m_Name: zako4
+  m_Name: zako4Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,3 +109,80 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4334354592312458792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582588298370003613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9869bd39677a040b64b7b1bc8ef320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chaseSpeed: 5
+  _nearDistance: 1
+  _chaseDistance: 8
+  _knockBackPower: 5
+  _rb: {fileID: -2915792056716913524}
+  _sprite: {fileID: 7582588298370003683}
+  _anim: {fileID: 7582588298370003612}
+  _noticeDistance: 5
+--- !u!50 &-2915792056716913524
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582588298370003613}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8047196671477314594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582588298370003613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56543932009fef64297d55306f3c20d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyHp: 2
+  _deathPrefab: {fileID: 0}
+  _audio: {fileID: 0}
+  _enemyMove: {fileID: 0}
+  _anim: {fileID: 0}
+  _testDeath: 0
+  _testDamage: 0
+--- !u!114 &-2756719352887929435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582588298370003613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89d4a659385f2648bcac51d9ef68df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCol: {fileID: 0}
+  _attackTime: 1
+  _audio: {fileID: 0}
+  _rb: {fileID: 0}
+  _anim: {fileID: 0}
