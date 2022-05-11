@@ -16,6 +16,8 @@ public class HumanAttack : MonoBehaviour
     List<Collider2D> _result = new List<Collider2D>(10);
     ContactFilter2D _filter;
 
+    [SerializeField] CriAtomSource _atomSource = default;
+
     /*
         Attack内のマジックナンバーを変数にしておく 
     */
@@ -62,14 +64,20 @@ public class HumanAttack : MonoBehaviour
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.left));
         }
 
-        HitAudio(_result[0]);
+        HitAudio(_result);
     }
-    void HitAudio(Collider2D col)
+    void HitAudio(List<Collider2D> col)
     {
-        var hit = col.GetComponent<IDamage>();
-        if (hit != null)
+
+        for(int i = 0; i < col.Count; i++)
         {
-            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackHit");
+            var hit = col[i].GetComponent<IDamage>();
+
+            if(hit != null)
+            {
+                SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackHit");
+                return;
+            }
         }
     }
 }

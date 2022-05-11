@@ -19,12 +19,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1920
-    height: 947
+    width: 1536
+    height: 730.8
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 67
+  controlID: -1
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -33,35 +33,90 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f817a38900380be47942905e17e7d39b, type: 3}
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Timeline
-    m_Image: {fileID: -9173288242387172643, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Game
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 663
-    width: 1470
-    height: 336
+    x: 786.4
+    y: 73.6
+    width: 507.59998
+    height: 425.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_Preferences:
-    editType: 0
-    timeReferenceMode: 0
-  m_LockTracker:
-    m_IsLocked: 0
-  m_SequenceHierarchy: {fileID: 0}
-  m_SequencePath:
-    m_SelectionRoot: 0
-    m_SubElements: []
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 1920, y: 1080}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 0
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 1
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 507.59998
+      height: 404.4
+    m_Scale: {x: 0.33046874, y: 0.33046874}
+    m_Translation: {x: 253.79999, y: 202.2}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -768
+      y: -611.85815
+      width: 1536
+      height: 1223.7163
+    m_MinimalGUI: 1
+  m_defaultScale: 0.33046874
+  m_LastWindowPixelSize: {x: 634.5, y: 531.75}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -76,17 +131,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 4}
-  - {fileID: 11}
+  - {fileID: 10}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1471
-    height: 947
+    width: 1296
+    height: 730.8
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 95
+  controlID: -1
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -107,12 +162,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1471
-    height: 590
+    width: 1296
+    height: 446.4
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 73
+  controlID: -1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +185,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 256
-    height: 590
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 222.4
+    height: 446.4
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -155,38 +210,38 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
-    width: 255
-    height: 569
+    y: 73.6
+    width: 221.4
+    height: 425.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 236}
-      m_SelectedIDs: 96f40200
-      m_LastClickedID: 193686
-      m_ExpandedIDs: 7ed9f7ff60e6f7ff4613f8ff4c1df8ff0425f8ff2a2df8ff6232f8ff3274f8ffa276f8ffdc77f8ffd078f8ffe679f8ffd07af8ffee7bf8ffa87cf8ff44a7f8ff0aaef8ffa2b4f8ffd8ddf8ff20e7f8ff0aeff8ff56bff9ff22d5f9fff4e7f9ff6207faff2609faff6812faff561dfaff8e3efaff0cecfbffdefdfbff5634fcff7e34fcff0c46fcff2451fcff9a51fcfff297fcffaca9fcff26bcfcffc4f8fcff72f9fcffccf9fcff1401fdff7683fdff66b8fdffc809feff9cadffff12fbffff4e920000f6920000369300003e2b0100da3b0100f63b0100043c0100903c0100ca770100de770100e6770100f2770100207801004c78010076780100c426020006270200c2430200d24c0200ee4c0200566602003e69020042780200b27a0200c67a020038920200289302003c9302008ecc0200b4d102005cd2020096f402003cf50200e6f5020030f60200
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 0a940100
+      m_LastClickedID: 103434
+      m_ExpandedIDs: 9288fdffb8adfdff96b2fdffb6b3fdffc2d9fdffb8dafdff4cddffff62dfffff4af9ffff2cfaffff227700004c78000054780000b078000034760100b676010072930100a4940100ac940100129501005c950100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: EndCutScene
-        m_OriginalName: EndCutScene
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -469266
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -211,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 256
+    x: 222.4
     y: 0
-    width: 640
-    height: 590
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+    width: 564
+    height: 446.4
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -238,14 +293,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 256
-    y: 73
-    width: 638
-    height: 569
+    x: 222.40001
+    y: 73.6
+    width: 562
+    height: 425.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -256,7 +311,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: -100, y: -25.600006}
-      snapOffsetDelta: {x: -1, y: -0.3999939}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -277,7 +332,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -310,7 +365,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -321,7 +376,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -453,7 +508,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -469,9 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.7311559, y: 1.8777726, z: -0.035886846}
+    m_Target: {x: -3.6262996, y: -0.48665053, z: 0.23963052}
     speed: 2
-    m_Value: {x: 1.2546513, y: 1.7946091, z: -0.03181855}
+    m_Value: {x: -3.8130617, y: -0.51258117, z: 0.23654352}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -522,9 +577,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.44743
+    m_Target: 6.551251
     speed: 2
-    m_Value: 9.040603
+    m_Value: 6.8599486
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -564,15 +619,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 896
+    x: 786.4
     y: 0
-    width: 575
-    height: 590
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 10}
+    width: 509.59998
+    height: 446.4
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 2}
   m_Panes:
-  - {fileID: 10}
+  - {fileID: 2}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &10
@@ -584,122 +639,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 896
-    y: 73
-    width: 573
-    height: 569
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -960
-    m_HBaseRangeMax: 960
-    m_VBaseRangeMin: -540
-    m_VBaseRangeMax: 540
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 573
-      height: 548
-    m_Scale: {x: 0.2984375, y: 0.2984375}
-    m_Translation: {x: 286.5, y: 274}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -960
-      y: -918.1152
-      width: 1920
-      height: 1836.2303
-    m_MinimalGUI: 1
-  m_defaultScale: 0.2984375
-  m_LastWindowPixelSize: {x: 573, y: 569}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
---- !u!114 &11
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TimelineWindow
+  m_Name: CriAtomWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 590
-    width: 1471
-    height: 357
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 2}
+    y: 446.4
+    width: 1296
+    height: 284.4
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
+  - {fileID: 11}
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 17}
-  - {fileID: 2}
-  m_Selected: 6
-  m_LastSelected: 5
---- !u!114 &12
+  m_Selected: 5
+  m_LastSelected: 0
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,14 +678,14 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 663
-    width: 1470
-    height: 336
+    y: 520
+    width: 1295
+    height: 263.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -740,22 +703,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Muto/GameScenes
+    - Assets/Muto/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Muto/GameScenes
+  - Assets/Muto/Prefabs
   m_LastFoldersGridSize: 74
-  m_LastProjectPath: "C:\\Users\\dango\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\Unity\\AmaturegameAward"
+  m_LastProjectPath: C:\Users\vantan\AmateurGameAward
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 668}
-    m_SelectedIDs: f8810000
-    m_LastClickedID: 33272
-    m_ExpandedIDs: 000000004480000046800000488000004a8000004c8000004e80000050800000528000005480000056800000588000005a800000e6810000ec810000fa8100007c87000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 383}
+    m_SelectedIDs: 42890000
+    m_LastClickedID: 35138
+    m_ExpandedIDs: 000000002e85000030850000328500003485000036850000388500003a8500003c8500003e8500004085000042850000448500004685000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -771,7 +734,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 10}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -783,7 +746,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004480000046800000488000004a8000004c8000004e80000050800000528000005480000056800000588000005a800000
+    m_ExpandedIDs: 000000002e85000030850000328500003485000036850000388500003a8500003c8500003e8500004085000042850000448500004685000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -808,10 +771,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 96f40200
-    m_LastClickedInstanceID: 193686
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300005c6f0000e6700000387600003c760000347700006e970000d89b00006e770000f0a30000e07200007c730000d6bb0000707300008a740000d8730000b2730000cce500002e760000207600001e77000090800000208c0000e62f0100fc76000000000000fea5000002a60000fe8a0000
+    m_SelectedInstanceIDs: fc75fdff
+    m_LastClickedInstanceID: -166404
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c62300005c6f0000e6700000387600003c760000347700006e970000d89b00006e770000f0a30000e07200007c730000d6bb0000707300008a740000d8730000b2730000cce500002e760000207600001e77000090800000208c0000e62f0100fc76000000000000fea5000002a60000fe8a000010910000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -827,7 +790,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -839,7 +802,7 @@ MonoBehaviour:
     m_GridSize: 74
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &13
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -855,19 +818,19 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 666
-    width: 1470
-    height: 333
+    y: 528
+    width: 1175.8
+    height: 255.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &14
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,7 +846,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animator
-    m_Image: {fileID: -1673928668082335149, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 1711060831702674872, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
@@ -1441,7 +1404,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &15
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1457,7 +1420,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animation
-    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -3237396543322336831, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
@@ -1471,8 +1434,8 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 140916
---- !u!114 &16
+  m_LastSelectedObjectID: -166404
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1493,9 +1456,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 663
-    width: 1470
-    height: 336
+    y: 528
+    width: 1175.8
+    height: 255.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1507,7 +1470,7 @@ MonoBehaviour:
   m_Palette: {fileID: 7954576976760384587, guid: b5d7abe520d9a6046aca3b438175993b, type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0
---- !u!114 &17
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1528,28 +1491,501 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 663
-    width: 1470
-    height: 336
+    y: 520
+    width: 1295
+    height: 263.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  searchPath: "C:/Users/dango/OneDrive/\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8/Unity/AmaturegameAward/Assets/StreamingAssets"
+  searchPath: C:/Users/vantan/AmateurGameAward/Assets/StreamingAssets
   projInfo:
     acfInfoList:
-    - name: sample
+    - name: C_team
       id: 0
+      assetGuid: 
+      comment: 
+      filePath: C_team_BinaryData_0506/C_team.acf
+    - name: sample
+      id: 1
       assetGuid: 
       comment: 
       filePath: sample sound data/sample.acf
     acbInfoList:
     - name: BGM
       id: 0
+      assetGuid: d0e496bde0c09014ca80358eca2e5efc
+      comment: 
+      acbPath: C_team_BinaryData_0506/BGM.acb
+      awbPath: C_team_BinaryData_0506/BGM.awb
+      cueInfoList:
+      - name: BGMField
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGMBoss
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      publicCueInfoList:
+      - name: BGMField
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGMBoss
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+    - name: ME
+      id: 1
+      assetGuid: 9248d5d8b653c7b4d8fc72ae032b3c4d
+      comment: 
+      acbPath: C_team_BinaryData_0506/ME.acb
+      awbPath: 
+      cueInfoList:
+      - name: Clear
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 5500
+        isPublic: 1
+      - name: MEDeath
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 12765
+        isPublic: 1
+      publicCueInfoList:
+      - name: Clear
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 5500
+        isPublic: 1
+      - name: MEDeath
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 12765
+        isPublic: 1
+    - name: SE
+      id: 2
+      assetGuid: 859cf6a0ab902b6418c0762585f08314
+      comment: 
+      acbPath: C_team_BinaryData_0506/SE.acb
+      awbPath: 
+      cueInfoList:
+      - name: BossDeath_01
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 3035
+        isPublic: 1
+      - name: BossDeath_02
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 3250
+        isPublic: 1
+      - name: DoorOpen
+        id: 2
+        assetGuid: 
+        comment: 
+        length: 1696
+        isPublic: 1
+      - name: EnemyDeath
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaAttack
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: GaBossRinpun
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: GaBossTama
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaBossVoice
+        id: 7
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: GhostDamage
+        id: 8
+        assetGuid: 
+        comment: 
+        length: 281
+        isPublic: 1
+      - name: GhostDeath
+        id: 9
+        assetGuid: 
+        comment: 
+        length: 624
+        isPublic: 1
+      - name: GhostLight
+        id: 10
+        assetGuid: 
+        comment: 
+        length: 1750
+        isPublic: 1
+      - name: Hand
+        id: 11
+        assetGuid: 
+        comment: 
+        length: 187
+        isPublic: 1
+      - name: HumanAttackHit
+        id: 12
+        assetGuid: 
+        comment: 
+        length: 531
+        isPublic: 1
+      - name: HumanAttackShovel
+        id: 13
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: HumanAttackSwing
+        id: 14
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: HumanDamage
+        id: 15
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: HumanDeath
+        id: 16
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: HumanFootsteps
+        id: 17
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: KurageAttack
+        id: 18
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: KurageVoice
+        id: 19
+        assetGuid: 
+        comment: 
+        length: 2250
+        isPublic: 1
+      - name: KuroBossKen
+        id: 20
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: MedamaAttack
+        id: 21
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: MedamaIdle
+        id: 22
+        assetGuid: 
+        comment: 
+        length: 6750
+        isPublic: 1
+      - name: ObjectSwitch
+        id: 23
+        assetGuid: 
+        comment: 
+        length: 358
+        isPublic: 1
+      - name: OpenChest
+        id: 24
+        assetGuid: 
+        comment: 
+        length: 1002
+        isPublic: 1
+      - name: RasuBossVoice
+        id: 25
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: SwitchPlayer
+        id: 26
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: SystemDone
+        id: 27
+        assetGuid: 
+        comment: 
+        length: 59
+        isPublic: 1
+      - name: SystemSelect
+        id: 28
+        assetGuid: 
+        comment: 
+        length: 386
+        isPublic: 1
+      - name: SystemText
+        id: 29
+        assetGuid: 
+        comment: 
+        length: 250
+        isPublic: 1
+      - name: UdeVoice
+        id: 30
+        assetGuid: 
+        comment: 
+        length: 1874
+        isPublic: 1
+      - name: Wind
+        id: 31
+        assetGuid: 
+        comment: 
+        length: 36752
+        isPublic: 1
+      - name: ZakoDamage
+        id: 32
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      publicCueInfoList:
+      - name: BossDeath_01
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 3035
+        isPublic: 1
+      - name: BossDeath_02
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 3250
+        isPublic: 1
+      - name: DoorOpen
+        id: 2
+        assetGuid: 
+        comment: 
+        length: 1696
+        isPublic: 1
+      - name: EnemyDeath
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaAttack
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: GaBossRinpun
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: GaBossTama
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaBossVoice
+        id: 7
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: GhostDamage
+        id: 8
+        assetGuid: 
+        comment: 
+        length: 281
+        isPublic: 1
+      - name: GhostDeath
+        id: 9
+        assetGuid: 
+        comment: 
+        length: 624
+        isPublic: 1
+      - name: GhostLight
+        id: 10
+        assetGuid: 
+        comment: 
+        length: 1750
+        isPublic: 1
+      - name: Hand
+        id: 11
+        assetGuid: 
+        comment: 
+        length: 187
+        isPublic: 1
+      - name: HumanAttackHit
+        id: 12
+        assetGuid: 
+        comment: 
+        length: 531
+        isPublic: 1
+      - name: HumanAttackShovel
+        id: 13
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: HumanAttackSwing
+        id: 14
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: HumanDamage
+        id: 15
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: HumanDeath
+        id: 16
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: HumanFootsteps
+        id: 17
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: KurageAttack
+        id: 18
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: KurageVoice
+        id: 19
+        assetGuid: 
+        comment: 
+        length: 2250
+        isPublic: 1
+      - name: KuroBossKen
+        id: 20
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: MedamaAttack
+        id: 21
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: MedamaIdle
+        id: 22
+        assetGuid: 
+        comment: 
+        length: 6750
+        isPublic: 1
+      - name: ObjectSwitch
+        id: 23
+        assetGuid: 
+        comment: 
+        length: 358
+        isPublic: 1
+      - name: OpenChest
+        id: 24
+        assetGuid: 
+        comment: 
+        length: 1002
+        isPublic: 1
+      - name: RasuBossVoice
+        id: 25
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: SwitchPlayer
+        id: 26
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: SystemDone
+        id: 27
+        assetGuid: 
+        comment: 
+        length: 59
+        isPublic: 1
+      - name: SystemSelect
+        id: 28
+        assetGuid: 
+        comment: 
+        length: 386
+        isPublic: 1
+      - name: SystemText
+        id: 29
+        assetGuid: 
+        comment: 
+        length: 250
+        isPublic: 1
+      - name: UdeVoice
+        id: 30
+        assetGuid: 
+        comment: 
+        length: 1874
+        isPublic: 1
+      - name: Wind
+        id: 31
+        assetGuid: 
+        comment: 
+        length: 36752
+        isPublic: 1
+      - name: ZakoDamage
+        id: 32
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+    - name: DemoBGM
+      id: 3
       assetGuid: 683a120565f71e8458e7bf8577c8d2b5
       comment: 
-      acbPath: sample sound data/BGM.acb
-      awbPath: sample sound data/BGM.awb
+      acbPath: sample sound data/DemoBGM.acb
+      awbPath: sample sound data/DemoBGM.awb
       cueInfoList:
       - name: BGM_sample1
         id: 0
@@ -1612,11 +2048,11 @@ MonoBehaviour:
         comment: 
         length: -1
         isPublic: 1
-    - name: SE
-      id: 1
+    - name: DemoSE
+      id: 4
       assetGuid: 37c8b1878ce1204428c1fc4eb64f5dbb
       comment: 
-      acbPath: sample sound data/SE.acb
+      acbPath: sample sound data/DemoSE.acb
       awbPath: 
       cueInfoList:
       - name: SE_sample1
@@ -1755,6 +2191,43 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   showPrivateCue: 0
+--- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f817a38900380be47942905e17e7d39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Timeline
+    m_Image: {fileID: -5401195905404635996, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 663
+    width: 1470
+    height: 336
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Preferences:
+    editType: 0
+    timeReferenceMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_SequenceHierarchy: {fileID: 0}
+  m_SequencePath:
+    m_SelectionRoot: 0
+    m_SubElements: []
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1770,10 +2243,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1471
+    x: 1296
     y: 0
-    width: 449
-    height: 947
+    width: 240
+    height: 730.8
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
@@ -1797,14 +2270,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1471
-    y: 73
-    width: 448
-    height: 926
+    x: 1296
+    y: 73.6
+    width: 239
+    height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1816,7 +2289,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 605
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

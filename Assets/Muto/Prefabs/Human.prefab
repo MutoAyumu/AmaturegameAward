@@ -673,6 +673,7 @@ MonoBehaviour:
   _interactImage: {fileID: 8711772652759853557}
   _currentSpeed: 0
   _message: {fileID: 8862435517513125521}
+  _atomSource: {fileID: 0}
   _attack: {fileID: 3123253586814841012}
   _push: {fileID: 3123253586814841013}
   _ghostSetPos: {fileID: 2053570089798123822}
@@ -701,6 +702,7 @@ MonoBehaviour:
   _leftAttackCol: {fileID: 3123253586393236063}
   _upAttackCol: {fileID: 3123253586286512598}
   _downAttackCol: {fileID: 3123253587168553123}
+  _atomSource: {fileID: 0}
 --- !u!114 &3123253586814841013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +745,7 @@ MonoBehaviour:
   _deathPrefab: {fileID: 0}
   _sprite: {fileID: 3123253585974038370}
   _source: {fileID: 6805696811288581385}
+  _sheetName: HumanDamage
 --- !u!50 &3123253586814841008
 Rigidbody2D:
   serializedVersion: 4
