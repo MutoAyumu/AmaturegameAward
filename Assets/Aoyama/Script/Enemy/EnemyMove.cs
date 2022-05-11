@@ -37,6 +37,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
+        _isMove = true;
         EnemyManager.Instance.Enemys.Add(gameObject);
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
