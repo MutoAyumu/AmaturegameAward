@@ -40,8 +40,8 @@ public class HumanController : CharacterControllerBase
             _status = CharacterStatus.ATTACK;
             _anim.SetTrigger("IsAttack");
             var power = CharacterManager.Instance.IsTogether ? _togetherPower : _humanPower;
-            _attack.Attack(_lh, _lv, power);
             SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackSwing");
+            _attack.Attack(_lh, _lv, power);
         }
         if (_push && Input.GetButtonUp(_grabButtonName)) //•¨‚ğ—£‚·‚Ìˆ—
         {

@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
     GameObject _deathPrefab;
     [SerializeField] SpriteRenderer _sprite = default;
     [SerializeField] CinemachineImpulseSource _source = default;
+    [SerializeField] string _sheetName = "HumanDamage";
 
     //test
     int _maxHp = 0;
@@ -41,6 +42,8 @@ public class PlayerHP : MonoBehaviour
 
         CamShake();
         DamageAnim();
+
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _sheetName);
 
         _playerPalam.LifeChange(-1);
         _characterManager.UIHPUpdate(_playerPalam.Life);

@@ -28,5 +28,6 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
             IsActive = false;
         }
         Debug.Log("çÏìÆ");
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "ObjectSwitch");
     }
 }

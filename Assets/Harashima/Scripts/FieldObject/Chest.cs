@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour,IActivate
             ItemManager.Instance.ItemValueChange(_dropItemIndex, _dropValue);//アイテム獲得                                                                             
             SoundManager.Instance.SoundPlay(_audios[0]);//音鳴らす
             _animator.SetTrigger("Open");
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "OpenChest");
             isOpen = true; //開いたのでフラグをTrueに
         }
     }

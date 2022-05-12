@@ -34,6 +34,8 @@ public class CharacterControllerBase : MonoBehaviour
 
     [SerializeField] protected MessageCharacter _message = default;
 
+    [SerializeField] protected CriAtomSource _atomSource = default;
+
     FieldManager _fieldManager;
 
     bool IsPause;
