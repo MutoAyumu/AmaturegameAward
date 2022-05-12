@@ -28,6 +28,13 @@ public class EnemyDamage : MonoBehaviour, IDamage
 
     int _groupNumber;
 
+    private void Start()
+    {
+        if(!_enemyDamageText)
+        {
+            _enemyDamageText = GetComponentInChildren<EnemyDamageText>();
+        }
+    }
     private void Update()
     {
         if (_testDeath)
