@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHp: 2
-  _deathPrefab: {fileID: 0}
+  _deathPrefab: {fileID: 1350870010505638369, guid: cbcd3a6b9e637f3439aa6c09d7bced38, type: 3}
   _audio: {fileID: 0}
   _enemyMove: {fileID: 4334354592312458792}
   _enemyDamageText: {fileID: 6627029417458570913}

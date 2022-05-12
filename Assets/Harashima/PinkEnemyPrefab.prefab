@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHp: 2
-  _deathPrefab: {fileID: 0}
+  _deathPrefab: {fileID: 2753528126015705064, guid: e1c9d3207c41a914193fd709cbe3e22c, type: 3}
   _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}
   _enemyMove: {fileID: 641730944630980378}
   _enemyDamageText: {fileID: 0}
