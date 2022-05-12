@@ -21,10 +21,10 @@ public class EnemyDamage : MonoBehaviour, IDamage
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] EnemyMove _enemyMove;
+    [SerializeField] EnemyDamageText _enemyDamageText = default;
     [SerializeField] Animator _anim;
     [SerializeField] bool _testDeath = false;
     [SerializeField] bool _testDamage = false;
-    [SerializeField] Text _damageText;
 
     int _groupNumber;
 
@@ -52,13 +52,7 @@ public class EnemyDamage : MonoBehaviour, IDamage
         _enemyHp -= damage; ;
         _enemyMove.KnockBack();
 
-        //ダメージを表示      
-        if (_damageText)
-        {
-            _damageText.gameObject.SetActive(true);
-            _damageText.text = damage.ToString();
-        }
-        
+        _enemyDamageText?.DamageText(damage);
 
         if (_enemyHp <= 0)
         {
