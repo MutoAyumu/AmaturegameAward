@@ -12,6 +12,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("—v‘f0‚ªlŠÔ@—v‘f1‚ª—H—ì")] Transform[] _instancePos = new Transform[2];
     [SerializeField, Tooltip("Vcam‚ğ“ü‚ê‚é")] CinemachineVirtualCamera _vcam = default;
     [SerializeField] CinemachineImpulseSource _source = default;
+    [SerializeField] CinemachineImpulseSource _toSource = default;
 
     [Header("UI")]
     [SerializeField] Text _lightCountTest = default;
@@ -87,6 +88,7 @@ public class CharacterManager : Singleton<CharacterManager>
             {
                 MoveTogether();
                 _ghost.IsFixedRange = false;
+                _toSource.GenerateImpulse();
             }
 
             if (!_toPanel.IsActive())
