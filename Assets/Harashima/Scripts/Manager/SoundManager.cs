@@ -25,13 +25,20 @@ public class SoundManager : Singleton<SoundManager>
     {
         CriAtomPlay(CueSheet.BGM, "BGMField");
     }
-
-    public void FadeInAudio(float time)
+    /// <summary>
+    /// フェードが終わる時に音量が1になる
+    /// </summary>
+    /// <param name="time"></param>
+    public void FadeOutAudio(float time)
     {
         var volume = 0;
         DOVirtual.Float(volume, 1, time, volume => _criAtomSource.volume = volume);
     }
-    public void FadeOutAudio(float time)
+    /// <summary>
+    /// フェードに入る時に音量が0になる
+    /// </summary>
+    /// <param name="time"></param>
+    public void FadeInAudio(float time)
     {
         var volume = _criAtomSource.volume;
         DOVirtual.Float(volume, 0, time, volume => _criAtomSource.volume = volume);
