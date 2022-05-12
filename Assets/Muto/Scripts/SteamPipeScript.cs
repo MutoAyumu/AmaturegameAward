@@ -33,7 +33,7 @@ public class SteamPipeScript : MonoBehaviour, IActivate
 
         if (_system.isPlaying)
         {
-            if (hit.collider.GetComponent<MoveBlock>())
+            if (hit.collider?.GetComponent<MoveBlock>())
             {
                 if (_col.gameObject.activeSelf)
                 {
