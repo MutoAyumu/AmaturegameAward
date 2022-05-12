@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// EnemyのHP関係を管理するクラス
@@ -23,6 +24,7 @@ public class EnemyDamage : MonoBehaviour, IDamage
     [SerializeField] Animator _anim;
     [SerializeField] bool _testDeath = false;
     [SerializeField] bool _testDamage = false;
+    [SerializeField] Text _damageText;
 
     int _groupNumber;
 
@@ -49,6 +51,14 @@ public class EnemyDamage : MonoBehaviour, IDamage
         _anim.SetTrigger("Damage");
         _enemyHp -= damage; ;
         _enemyMove.KnockBack();
+
+        //ダメージを表示      
+        if (_damageText)
+        {
+            _damageText.gameObject.SetActive(true);
+            _damageText.text = damage.ToString();
+        }
+        
 
         if (_enemyHp <= 0)
         {
