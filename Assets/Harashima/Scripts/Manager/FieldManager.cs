@@ -60,6 +60,7 @@ public class FieldManager : Singleton<FieldManager>
         OnGameOver += DebugGameOver;
         OnClear += DebugClear;
         SoundManager.Instance.BGMPlay();
+        SoundManager.Instance.FadeOutAudio(1);
         TestItemManager.Instance?.InstanceItem();
         
     }

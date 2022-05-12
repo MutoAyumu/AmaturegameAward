@@ -5,15 +5,16 @@ using UnityEngine.Playables;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class TutorialManager : Singleton<TutorialManager>
+public class TimeLineManager : Singleton<TimeLineManager>
 {
     [SerializeField] Image _fadePanal = default;
     [SerializeField] float _fadeTime = 2f;
     [SerializeField] GameObject _timeLinePanal = default;
     [SerializeField] Canvas _playerCanvas = default;
-    [SerializeField] Transform _cutSceneGhost = default;
 
     bool IsCutScene;
+    bool IsFade;
+    [SerializeField] bool IsStart = true;
     HumanController _human = default;
     GhostController _ghost = default;
 
@@ -21,10 +22,14 @@ public class TutorialManager : Singleton<TutorialManager>
 
     private void Start()
     {
+        if (IsStart)
+        {
+            _fadePanal.color = new Color(0, 0, 0, 1);
+            _fadePanal.DOFade(0, _fadeTime).OnComplete(() => IsStart = false);
+        }
+
         _human = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
-        //_cutSceneHuman.gameObject.SetActive(false);
-        //_cutSceneGhost.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -33,8 +38,23 @@ public class TutorialManager : Singleton<TutorialManager>
     /// <param name="cut"></param>
     public void StartCutScene(PlayableDirector cut)
     {
+        StartCoroutine(OnCutScene(cut));
+        Debug.Log("OnCutSceneが開始します");
+    }
+    IEnumerator OnCutScene(PlayableDirector cut)
+    {
+        while(true)
+        {
+            yield return 0;
+
+            if(!IsStart)
+            break;
+        }
+
+        Debug.Log("OnCutSceneが終了しました");
         ChangeFlag();
         FadePanel(cut);
+        yield return 0;
     }
     public void EndCutScene(Transform pos1, Transform pos2)
     {
@@ -49,18 +69,19 @@ public class TutorialManager : Singleton<TutorialManager>
     }
     void FadePanel(PlayableDirector cut)
     {
-        if (_fadePanal.color.a == 0)
+        Debug.Log("フェードが開始します");
+
+        if (!IsFade)
         {
             _fadePanal.DOFade(1, _fadeTime)
                 .OnComplete(() =>
                 {
+                    IsFade = true;
                     FadePanel(cut);
                     _timeLinePanal.SetActive(true);
                     _playerCanvas.gameObject.SetActive(false);
                     _human.gameObject.SetActive(false);
                     _ghost.gameObject.SetActive(false);
-                    //_cutSceneHuman.gameObject.SetActive(true);
-                    //_cutSceneGhost.gameObject.SetActive(true);
                     cut.Play();
                 });
         }
@@ -69,24 +90,23 @@ public class TutorialManager : Singleton<TutorialManager>
             _fadePanal.DOFade(0, _fadeTime)
                 .OnComplete(() =>
                 {
-                    //cut.Play();
+                    IsFade = false;
                 });
         }
     }
     void FadePanal(Transform setPos1, Transform setPos2)
     {
-        if (_fadePanal.color.a == 0)
+        if (!IsFade)
         {
             _fadePanal.DOFade(1, _fadeTime)
                 .OnComplete(() =>
                 {
+                    IsFade = true;
                     FadePanal(setPos1, setPos2);
                     _human.gameObject.SetActive(true);
                     _ghost.gameObject.SetActive(true);
                     _human.transform.position = setPos1.position;
                     _ghost.transform.position = setPos2.position;
-                    //_cutSceneHuman.gameObject.SetActive(false);
-                    //_cutSceneGhost.gameObject.SetActive(false);
                     _timeLinePanal.SetActive(false);
                     _playerCanvas.gameObject.SetActive(true);
                 });
@@ -97,6 +117,7 @@ public class TutorialManager : Singleton<TutorialManager>
                 .OnComplete(() =>
                 {
                     ChangeFlag();
+                    IsFade = false;
                 });
         }
     }
