@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(CriAtomSource))]
 public class SoundManager : Singleton<SoundManager>
@@ -23,6 +24,17 @@ public class SoundManager : Singleton<SoundManager>
     public void BGMPlay()
     {
         CriAtomPlay(CueSheet.BGM, "BGMField");
+    }
+
+    public void FadeInAudio(float time)
+    {
+        var volume = 0;
+        DOVirtual.Float(volume, 1, time, volume => _criAtomSource.volume = volume);
+    }
+    public void FadeOutAudio(float time)
+    {
+        var volume = _criAtomSource.volume;
+        DOVirtual.Float(volume, 0, time, volume => _criAtomSource.volume = volume);
     }
     /// <summary>
     /// ADXƒtƒ@ƒCƒ‹‚ğÄ¶‚·‚éŠÖ”

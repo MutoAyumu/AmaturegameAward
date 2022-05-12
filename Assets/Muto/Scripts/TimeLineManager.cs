@@ -5,15 +5,15 @@ using UnityEngine.Playables;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class TutorialManager : Singleton<TutorialManager>
+public class TimeLineManager : Singleton<TimeLineManager>
 {
     [SerializeField] Image _fadePanal = default;
     [SerializeField] float _fadeTime = 2f;
     [SerializeField] GameObject _timeLinePanal = default;
     [SerializeField] Canvas _playerCanvas = default;
-    [SerializeField] Transform _cutSceneGhost = default;
 
     bool IsCutScene;
+    bool IsFade;
     HumanController _human = default;
     GhostController _ghost = default;
 
@@ -49,18 +49,17 @@ public class TutorialManager : Singleton<TutorialManager>
     }
     void FadePanel(PlayableDirector cut)
     {
-        if (_fadePanal.color.a == 0)
+        if (!IsFade)
         {
             _fadePanal.DOFade(1, _fadeTime)
                 .OnComplete(() =>
                 {
+                    IsFade = true;
                     FadePanel(cut);
                     _timeLinePanal.SetActive(true);
                     _playerCanvas.gameObject.SetActive(false);
                     _human.gameObject.SetActive(false);
                     _ghost.gameObject.SetActive(false);
-                    //_cutSceneHuman.gameObject.SetActive(true);
-                    //_cutSceneGhost.gameObject.SetActive(true);
                     cut.Play();
                 });
         }
@@ -69,17 +68,18 @@ public class TutorialManager : Singleton<TutorialManager>
             _fadePanal.DOFade(0, _fadeTime)
                 .OnComplete(() =>
                 {
-                    //cut.Play();
+                    IsFade = false;
                 });
         }
     }
     void FadePanal(Transform setPos1, Transform setPos2)
     {
-        if (_fadePanal.color.a == 0)
+        if (!IsFade)
         {
             _fadePanal.DOFade(1, _fadeTime)
                 .OnComplete(() =>
                 {
+                    IsFade = true;
                     FadePanal(setPos1, setPos2);
                     _human.gameObject.SetActive(true);
                     _ghost.gameObject.SetActive(true);
@@ -97,6 +97,7 @@ public class TutorialManager : Singleton<TutorialManager>
                 .OnComplete(() =>
                 {
                     ChangeFlag();
+                    IsFade = false;
                 });
         }
     }
