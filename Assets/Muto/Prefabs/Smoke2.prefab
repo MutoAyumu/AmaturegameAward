@@ -5094,8 +5094,8 @@ MonoBehaviour:
   _system: {fileID: 2465993994140847803}
   _col: {fileID: 2465993993517322113}
   _source: {fileID: 0}
-  _dir: {x: 0, y: 0}
+  _dir: {x: 1, y: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   IsActive: 0
