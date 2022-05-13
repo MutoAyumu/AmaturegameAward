@@ -704,6 +704,7 @@ MonoBehaviour:
   _upAttackCol: {fileID: 3123253586286512598}
   _downAttackCol: {fileID: 3123253587168553123}
   _source: {fileID: 967026160536958824}
+  _hitEffect: {fileID: 7082604487034039875, guid: 585f6f22e605640458957ac182a31591, type: 3}
   _atomSource: {fileID: 0}
 --- !u!114 &3123253586814841013
 MonoBehaviour:
