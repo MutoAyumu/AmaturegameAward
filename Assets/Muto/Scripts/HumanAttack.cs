@@ -16,6 +16,8 @@ public class HumanAttack : MonoBehaviour
 
     [SerializeField] CinemachineImpulseSource _source = default;
 
+    [SerializeField] GameObject _hitEffect = default;
+
     List<Collider2D> _result = new List<Collider2D>(10);
     ContactFilter2D _filter;
 
@@ -79,6 +81,8 @@ public class HumanAttack : MonoBehaviour
 
             if(hit != null)
             {
+                var ef = Instantiate(_hitEffect, col[i].transform.position, Quaternion.identity);
+                Destroy(ef,1);
                 SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackHit");
                 return;
             }
