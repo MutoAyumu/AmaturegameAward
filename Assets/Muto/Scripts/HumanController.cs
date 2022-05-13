@@ -13,8 +13,8 @@ public class HumanController : CharacterControllerBase
     [SerializeField, Tooltip("攻撃ボタンの名前")] string _attackButtonName = "Fire1";
     [SerializeField, Tooltip("物を掴むボタンの名前")] string _grabButtonName = "Fire2";
     [SerializeField] float _grabbingSpeed = 1f;
-    [SerializeField] int _humanPower = 1;
-    [SerializeField] int _togetherPower = 2;
+    [SerializeField] Vector2Int _humanPower = new Vector2Int(1,4);
+    [SerializeField] Vector2Int _togetherPower = new Vector2Int(5,10);
     int _currentPower;
 
     public Transform GhostSetPos { get => _ghostSetPos;}
@@ -39,8 +39,9 @@ public class HumanController : CharacterControllerBase
         {
             _status = CharacterStatus.ATTACK;
             _anim.SetTrigger("IsAttack");
-            var power = CharacterManager.Instance.IsTogether ? _togetherPower : _humanPower;
+            var powerRange = CharacterManager.Instance.IsTogether ? _togetherPower : _humanPower;
             SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackSwing");
+            var power = Random.Range(powerRange.x, powerRange.y);
             _attack.Attack(_lh, _lv, power);
         }
         if (_push && Input.GetButtonUp(_grabButtonName)) //物を離す時の処理

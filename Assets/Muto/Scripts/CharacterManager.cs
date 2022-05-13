@@ -43,6 +43,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] float _nakayoshiPoint;
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
+    [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
 
     [Space(10), Header("人間・幽霊のセリフ")]
     [SerializeField] string[] _humanMessage;
@@ -55,6 +56,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
     public Text LightCountTest { get => _lightCountTest; }
     public bool IsTogether { get => _isTogether; }
+    public bool IsGhostAttack { get => _isGhostAttack; }
     public string[] HumanMessage { get => _humanMessage;}
     public string[] GhostMessage { get => _ghostMessage;}
 
@@ -300,6 +302,10 @@ public class CharacterManager : Singleton<CharacterManager>
     public void Switching()
     {
         _isCanSwitch = true;
+    }
+    public void SwitchingAttackFlag()
+    {
+        _isGhostAttack = true;
     }
     public void UIHPUpdate(int num)
     {

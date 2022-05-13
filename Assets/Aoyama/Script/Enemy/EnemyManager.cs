@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyManager : Singleton<EnemyManager>
 {
-    [Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy"), HideInInspector]
+    [Tooltip("Stage“à‚Ì‚·‚×‚Ä‚ÌEnemy")]
     public List<GameObject> Enemys;
 
     [SerializeField] OnOffEnemy[] _enemyGroup = default;
