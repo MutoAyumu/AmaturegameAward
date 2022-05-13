@@ -14,6 +14,7 @@ public class MoveTile : MonoBehaviour, IActivate
     Vector3 dir;
     [Tooltip("現在移動可能かどうかのフラグ")] bool _isMove = false;
     [Tooltip("現在移動可能か前に進んでいるかのフラグ")] bool _isNext = false;
+    bool IsOn;
 
     void Start()
     {
@@ -117,8 +118,9 @@ public class MoveTile : MonoBehaviour, IActivate
     }
     public void Action()
     {
-        if(!_isMove)
+        if(!IsOn)
         {
+            IsOn = true;
             _isMove = true;
             _isNext = true;
         }

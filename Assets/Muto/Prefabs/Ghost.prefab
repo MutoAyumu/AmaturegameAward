@@ -73,6 +73,7 @@ MonoBehaviour:
   _interactImage: {fileID: 1608303330282464883}
   _currentSpeed: 0
   _message: {fileID: 4289505607987719408}
+  _atomSource: {fileID: 0}
   _layer:
     serializedVersion: 2
     m_Bits: 2048
@@ -139,6 +140,7 @@ MonoBehaviour:
   _deathPrefab: {fileID: 0}
   _sprite: {fileID: 9167292961235691804}
   _source: {fileID: 1930548270821196415}
+  _sheetName: GhostDamage
 --- !u!50 &3963911041471629122
 Rigidbody2D:
   serializedVersion: 4

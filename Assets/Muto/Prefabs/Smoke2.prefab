@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0021393746, y: 0.24094707}
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0018431991, y: -0.26023883}
@@ -5094,3 +5094,8 @@ MonoBehaviour:
   _system: {fileID: 2465993994140847803}
   _col: {fileID: 2465993993517322113}
   _source: {fileID: 0}
+  _dir: {x: 0, y: 0}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  IsActive: 0

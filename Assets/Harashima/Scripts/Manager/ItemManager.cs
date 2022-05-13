@@ -48,7 +48,10 @@ public class ItemManager : Singleton<ItemManager>
         if (_inventry[index]>0)
         {
             _items[index].Use();
-            SoundManager.Instance.SoundPlay(_audios[0]);
+            if (_audios.Length != 0)
+            {
+                SoundManager.Instance.SoundPlay(_audios[0]);
+            }            
         }        
     }
 

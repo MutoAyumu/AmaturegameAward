@@ -34,6 +34,8 @@ public class CharacterControllerBase : MonoBehaviour
 
     [SerializeField] protected MessageCharacter _message = default;
 
+    [SerializeField] protected CriAtomSource _atomSource = default;
+
     FieldManager _fieldManager;
 
     bool IsPause;
@@ -216,9 +218,9 @@ public class CharacterControllerBase : MonoBehaviour
     /// <param name="v"></param>
     protected void Move(float h, float v)
     {
-        if (TutorialManager.Instance)
+        if (TimeLineManager.Instance)
         {
-            if (TutorialManager.Instance.CutSceneFlag)
+            if (TimeLineManager.Instance.CutSceneFlag)
                 return;
         }
 
