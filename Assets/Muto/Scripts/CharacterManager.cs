@@ -57,8 +57,8 @@ public class CharacterManager : Singleton<CharacterManager>
     public Text LightCountTest { get => _lightCountTest; }
     public bool IsTogether { get => _isTogether; }
     public bool IsGhostAttack { get => _isGhostAttack; }
-    public string[] HumanMessage { get => _humanMessage;}
-    public string[] GhostMessage { get => _ghostMessage;}
+    public string[] HumanMessage { get => _humanMessage; }
+    public string[] GhostMessage { get => _ghostMessage; }
 
     /*
         KeyCodeを変える
@@ -115,7 +115,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
             _nakayoshiPoint += Time.deltaTime;
 
-            if(_nakayoshiPoint >= 30)
+            if (_nakayoshiPoint >= 30)
             {
                 GameManager.Instance._friendShipPoints++;
                 _nakayoshiPoint = 0;
@@ -351,5 +351,35 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.IsDead();
         _ghost.IsDead();
+        PlayerPosition(this.transform);
     }
+
+
+    /// <summary>
+    /// 近いほうのキャラクターを返す関数
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns>比較先のTransform</returns>
+    public Vector3 PlayerPosition(Transform pos)
+    {
+        Vector3 player1 = _human.ColliderCenter();
+        Debug.DrawLine(pos.position, player1);
+        float isHit1 = Vector3.Distance(pos.position, player1);
+
+        Vector3 player2 = _ghost.ColliderCenter();
+        Debug.DrawLine(pos.position, player2);
+        float isHit2 = Vector3.Distance(pos.position, player2);
+
+        if (isHit1 < isHit2)
+        {
+            Debug.DrawLine(pos.position, player1, Color.red);
+            return player1;
+        }
+        else
+        {
+            Debug.DrawLine(pos.position, player2, Color.red);
+            return player2;
+        }
+    }
+
 }
