@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleObject1
       objectReference: {fileID: 0}
+    - target: {fileID: 89121471429963060, guid: 3956e7d752aefd04b9283252f2289d70, type: 3}
+      propertyPath: _criAtom
+      value: 
+      objectReference: {fileID: 3749695556101561506}
     - target: {fileID: 89121471429963061, guid: 3956e7d752aefd04b9283252f2289d70, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,6 +93,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3956e7d752aefd04b9283252f2289d70, type: 3}
+--- !u!1 &7574997689954456393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 89121471429963051, guid: 3956e7d752aefd04b9283252f2289d70, type: 3}
+  m_PrefabInstance: {fileID: 7503933498333511266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3749695556101561506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574997689954456393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: 
+  _cueSheet: 
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!4 &7574997689954456407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 89121471429963061, guid: 3956e7d752aefd04b9283252f2289d70, type: 3}

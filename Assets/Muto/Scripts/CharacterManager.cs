@@ -251,7 +251,7 @@ public class CharacterManager : Singleton<CharacterManager>
             {
                 _human.IsControll = false;
                 _human.Stop();
-                _ghost.Col.isTrigger = true;
+                //_ghost.Col.isTrigger = true;
                 _ghost.ChangerMessageFlag(false);
             })
             .OnComplete(() =>
@@ -264,7 +264,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _human.MainSprite.gameObject.SetActive(false);
                 _ghost.gameObject.SetActive(false);
                 _human.Anim.SetBool("IsTogether", _isTogether);
-                _ghost.Col.isTrigger = false;
+                //_ghost.Col.isTrigger = false;
                 _playerUiImage.sprite = _toImage;
             });
     }
