@@ -52,14 +52,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9869bd39677a040b64b7b1bc8ef320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseSpeed: 0.5
+  _chaseSpeed: 1
   _nearDistance: 1
-  _chaseDistance: 5
-  _knockBackPower: 5
+  _chaseDistance: 8
+  _knockBackPower: 1
   _rb: {fileID: 2125958149395242797}
   _sprite: {fileID: 2125958149395242796}
   _anim: {fileID: 632668049607884378}
-  _noticeDistance: 1
+  _noticeDistance: 2.5
 --- !u!114 &2125958149395242798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56543932009fef64297d55306f3c20d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHp: 2
+  _enemyHp: 15
   _deathPrefab: {fileID: 4717195527131895141, guid: 36e2623c8ef763e46944108d983fb12d, type: 3}
   _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}
   _enemyMove: {fileID: 632668049607884380}

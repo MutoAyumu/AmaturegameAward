@@ -12,11 +12,14 @@ public class GhostController : CharacterControllerBase
     [SerializeField] LightAbsorption _abs = default;
     [SerializeField, Tooltip("攻撃ボタンの名前")] string _attackButtonName = "Fire1";
     [SerializeField] GhostAttack _attack = default;
+    [SerializeField, Tooltip("攻撃する間隔")] float _attackSpeed = 2f;
 
     [SerializeField] GameObject _fixedRangeImage = default;
 
     bool _isFixedRange = default;
+    bool _isAttack;
     int _attackCount = 0;
+    float _timer;
     CharacterManager _cm;
 
     //ステートをリセットする
@@ -54,19 +57,31 @@ public class GhostController : CharacterControllerBase
                 _fixedRangeImage.SetActive(false);
             }
         }
-        //if(Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0)
-        //{
-        //    _attack.Attack(_lh, _lv);
-        //    _attackCount++;
+        if (Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0 && _cm.IsGhostAttack && !_isAttack)
+        {
+            _attack.Attack(_lh, _lv);
+            _attackCount++;
+            _isAttack = true;
 
-        //    if(_attackCount >= 1)
-        //    {
-        //        _attackCount = 0;
-        //        _abs.LightCount--;
-        //        _cm.UILightUpdate(_abs.LightCount);
-        //        DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
-        //    }
-        //}
+            if (_attackCount >= 1)
+            {
+                _attackCount = 0;
+                _abs.LightCount--;
+                _cm.UILightUpdate(_abs.LightCount);
+                DOVirtual.Float(_abs.Light.intensity, _abs.Light.intensity - 1.0f / _abs.Limit, _abs.Time, value => _abs.Light.intensity = value);
+            }
+        }
+
+        if(_isAttack)
+        {
+            _timer += Time.deltaTime;
+
+            if(_timer >= _attackSpeed)
+            {
+                _timer = 0;
+                _isAttack = false;
+            }
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
