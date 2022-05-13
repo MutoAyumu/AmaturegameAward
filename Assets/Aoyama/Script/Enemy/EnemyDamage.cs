@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Enemy‚ÌHPŠÖŒW‚ğŠÇ—‚·‚éƒNƒ‰ƒX
@@ -20,12 +21,20 @@ public class EnemyDamage : MonoBehaviour, IDamage
 
     [Header("‚Æ‚è‚ ‚¦‚¸QÆ‚µ‚½‚¢‚â‚Â")]
     [SerializeField] EnemyMove _enemyMove;
+    [SerializeField] EnemyDamageText _enemyDamageText = default;
     [SerializeField] Animator _anim;
     [SerializeField] bool _testDeath = false;
     [SerializeField] bool _testDamage = false;
 
     int _groupNumber;
 
+    private void Start()
+    {
+        if(!_enemyDamageText)
+        {
+            _enemyDamageText = GetComponentInChildren<EnemyDamageText>();
+        }
+    }
     private void Update()
     {
         if (_testDeath)
@@ -49,6 +58,8 @@ public class EnemyDamage : MonoBehaviour, IDamage
         _anim.SetTrigger("Damage");
         _enemyHp -= damage; ;
         _enemyMove.KnockBack();
+
+        _enemyDamageText?.DamageText(damage);
 
         if (_enemyHp <= 0)
         {

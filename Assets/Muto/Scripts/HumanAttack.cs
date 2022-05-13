@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class HumanAttack : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class HumanAttack : MonoBehaviour
     Collider2D _upAttackCol;
     [SerializeField, Tooltip("下の攻撃の当たり判定を行うコライダー")]
     Collider2D _downAttackCol;
+
+    [SerializeField] CinemachineImpulseSource _source = default;
+
+    [SerializeField] GameObject _hitEffect = default;
 
     List<Collider2D> _result = new List<Collider2D>(10);
     ContactFilter2D _filter;
@@ -64,6 +69,7 @@ public class HumanAttack : MonoBehaviour
             _result.ForEach(go => go.GetComponent<MarblesScript>()?.Hit(Vector2.left));
         }
 
+        _source.GenerateImpulse();
         HitAudio(_result);
     }
     void HitAudio(List<Collider2D> col)
@@ -75,6 +81,8 @@ public class HumanAttack : MonoBehaviour
 
             if(hit != null)
             {
+                var ef = Instantiate(_hitEffect, col[i].transform.position, Quaternion.identity);
+                Destroy(ef,1);
                 SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanAttackHit");
                 return;
             }

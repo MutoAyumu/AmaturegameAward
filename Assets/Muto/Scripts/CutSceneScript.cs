@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CutSceneController : MonoBehaviour
+public class CutSceneScript : MonoBehaviour
 {
     [SerializeField] string _playerTag = "Player";
     [SerializeField] string _togetherTag = "Together";
@@ -11,12 +11,12 @@ public class CutSceneController : MonoBehaviour
     [SerializeField] Transform _timeLineHumanPos = default;
     [SerializeField] Transform _timeLineGhostPos = default;
 
-    TutorialManager _manager;
+    TimeLineManager _manager;
     [SerializeField]bool isPlay;
 
     private void Start()
     {
-        _manager = TutorialManager.Instance;
+        _manager = TimeLineManager.Instance;
 
         if(isPlay)
         {

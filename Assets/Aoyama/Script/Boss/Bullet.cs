@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
         _ghost = CharacterManager.Instance.Ghost;
 
         _target = PlayerPosition();
+        _target = (_target - transform.position).normalized;
     }
 
     void Update()
