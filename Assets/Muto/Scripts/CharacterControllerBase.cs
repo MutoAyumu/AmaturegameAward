@@ -55,7 +55,7 @@ public class CharacterControllerBase : MonoBehaviour
         IDLE,
         WALK,
         ATTACK,
-        NOCK_BACK,
+        DAMAGE,
         ACTION,
         Dead
     }
@@ -128,7 +128,7 @@ public class CharacterControllerBase : MonoBehaviour
                     _rb.velocity = Vector2.zero;
                     break;
 
-                case CharacterStatus.NOCK_BACK:
+                case CharacterStatus.DAMAGE:
                     break;
 
                 case CharacterStatus.ACTION:
@@ -176,6 +176,8 @@ public class CharacterControllerBase : MonoBehaviour
     /// </summary>
     protected void InputValue()
     {
+        if (_status == CharacterStatus.DAMAGE) return;
+
         _h = Input.GetAxisRaw("Horizontal");
         _v = Input.GetAxisRaw("Vertical");
 
@@ -287,5 +289,16 @@ public class CharacterControllerBase : MonoBehaviour
     public void IsDead()
     {
         _status = CharacterStatus.Dead;
+    }
+    public virtual void IsDamage()
+    {
+        _rb.AddForce(-new Vector2(_lh, _lv).normalized * 20, ForceMode2D.Impulse);
+        StartCoroutine(DamageStart());
+        _status = CharacterStatus.DAMAGE;
+    }
+    IEnumerator DamageStart()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _status = CharacterStatus.IDLE;
     }
 }
