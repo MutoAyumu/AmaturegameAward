@@ -10,6 +10,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] SpriteRenderer _sprite = default;
     [SerializeField] CinemachineImpulseSource _source = default;
     [SerializeField] string _sheetName = "HumanDamage";
+    [SerializeField] CharacterControllerBase _character = default;
 
     //test
     int _maxHp = 0;
@@ -45,6 +46,8 @@ public class PlayerHP : MonoBehaviour
 
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, _sheetName);
 
+        if (_characterManager.GodMode) return;
+
         _playerPalam.LifeChange(-1);
         _characterManager.UIHPUpdate(_playerPalam.Life);
 
@@ -70,6 +73,7 @@ public class PlayerHP : MonoBehaviour
             return;
         }
 
+        _character.IsDamage();
         StartCoroutine(OnDamage());
 
         isDamage = true;

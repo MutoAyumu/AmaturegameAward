@@ -81,6 +81,7 @@ MonoBehaviour:
   _abs: {fileID: 1160084830332182259}
   _attackButtonName: Fire1
   _attack: {fileID: 9109073565701455678}
+  _attackSpeed: 2
   _fixedRangeImage: {fileID: 4131294501340603524}
 --- !u!114 &9109073565701455678
 MonoBehaviour:
@@ -141,6 +142,7 @@ MonoBehaviour:
   _sprite: {fileID: 9167292961235691804}
   _source: {fileID: 1930548270821196415}
   _sheetName: GhostDamage
+  _character: {fileID: 2138054535506401045}
 --- !u!50 &3963911041471629122
 Rigidbody2D:
   serializedVersion: 4
