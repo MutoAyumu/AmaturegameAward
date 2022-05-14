@@ -55,5 +55,5 @@ MonoBehaviour:
     awbFile: 
     loaderStatus: 0
   dspBusSetting: 
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   dontRemoveExistsCueSheet: 0

@@ -4954,6 +4954,11 @@ MonoBehaviour:
   _system: {fileID: 2788614208984897559}
   _col: {fileID: 2788614208361404717}
   _source: {fileID: 6165523591495699252}
+  _dir: {x: 0, y: -1}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 1024
+  IsActive: 0
 --- !u!114 &6165523591495699252
 MonoBehaviour:
   m_ObjectHideFlags: 0

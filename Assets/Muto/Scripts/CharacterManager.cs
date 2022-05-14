@@ -45,6 +45,8 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
     [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
 
+    [SerializeField] bool _isGodMode;
+
     [Space(10), Header("人間・幽霊のセリフ")]
     [SerializeField] string[] _humanMessage;
     [SerializeField] string[] _ghostMessage;
@@ -59,6 +61,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public bool IsGhostAttack { get => _isGhostAttack; }
     public string[] HumanMessage { get => _humanMessage; }
     public string[] GhostMessage { get => _ghostMessage; }
+    public bool GodMode { get => _isGodMode;}
 
     /*
         KeyCodeを変える
@@ -251,7 +254,7 @@ public class CharacterManager : Singleton<CharacterManager>
             {
                 _human.IsControll = false;
                 _human.Stop();
-                _ghost.Col.isTrigger = true;
+                //_ghost.Col.isTrigger = true;
                 _ghost.ChangerMessageFlag(false);
             })
             .OnComplete(() =>
@@ -264,7 +267,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _human.MainSprite.gameObject.SetActive(false);
                 _ghost.gameObject.SetActive(false);
                 _human.Anim.SetBool("IsTogether", _isTogether);
-                _ghost.Col.isTrigger = false;
+                //_ghost.Col.isTrigger = false;
                 _playerUiImage.sprite = _toImage;
             });
     }

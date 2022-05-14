@@ -69,6 +69,15 @@ public class HumanController : CharacterControllerBase
         _anim.SetBool("IsAttack", false);
         _status = CharacterStatus.IDLE;
     }
+
+    public override void IsDamage()
+    {
+        base.IsDamage();
+        if (!CharacterManager.Instance.IsTogether)
+        {
+            _anim.Play("DamageTree");
+        }
+    }
     void Activate()
     {
         Vector2 origin = this.transform.position;

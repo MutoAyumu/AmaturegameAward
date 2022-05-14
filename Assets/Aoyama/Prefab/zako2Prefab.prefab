@@ -55,7 +55,7 @@ MonoBehaviour:
   _chaseSpeed: 1
   _nearDistance: 1
   _chaseDistance: 8
-  _knockBackPower: 1
+  _knockBackPower: 1.5
   _rb: {fileID: 2125958149395242797}
   _sprite: {fileID: 2125958149395242796}
   _anim: {fileID: 632668049607884378}

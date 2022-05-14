@@ -97,6 +97,12 @@ public class GhostController : CharacterControllerBase
             _isFixedRange = false;
         }
     }
+
+    public override void IsDamage()
+    {
+        base.IsDamage();
+        _anim.Play("DamageTree");
+    }
     /// <summary>
     /// —H—ì‚É‚¾‚¯‚³‚¹‚éˆ—‚ÌŠÖ”
     /// </summary>

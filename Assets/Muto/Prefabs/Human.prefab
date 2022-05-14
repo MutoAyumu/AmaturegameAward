@@ -685,8 +685,8 @@ MonoBehaviour:
   _attackButtonName: Fire1
   _grabButtonName: Fire2
   _grabbingSpeed: 1
-  _humanPower: 1
-  _togetherPower: 2
+  _humanPower: {x: 1, y: 4}
+  _togetherPower: {x: 5, y: 10}
 --- !u!114 &3123253586814841012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +749,7 @@ MonoBehaviour:
   _sprite: {fileID: 3123253585974038370}
   _source: {fileID: 6805696811288581385}
   _sheetName: HumanDamage
+  _character: {fileID: 3123253586814841015}
 --- !u!50 &3123253586814841008
 Rigidbody2D:
   serializedVersion: 4
