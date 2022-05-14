@@ -9,13 +9,28 @@ public class DebugButton : MonoBehaviour
     [SerializeField] int _num;
 
     Button _button;
+    [SerializeField]
+    bool isTitle = false;
     private void Start()
     {
-        _button = GetComponent<Button>();
-        _button.onClick.AddListener(DebugAdd);
+        if(!isTitle)
+        {
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(DebugAdd);
+        }
+        else
+        {
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(Title);
+        }
     }
     void DebugAdd()
     {
         SceneManager.LoadScene("Scene" + _num);
+    }
+
+    void Title()
+    {
+        SceneManager.LoadScene("Title");
     }
 }

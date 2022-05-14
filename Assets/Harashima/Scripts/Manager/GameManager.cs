@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -30,8 +31,10 @@ public class GameManager : Singleton<GameManager>
         _clearedStage = new bool[_stageLimit];
 
         //デバッグ用のパネルを生成
-        _debugPanel= Instantiate(_debugPanelPrefab,this.transform);
+        _debugPanel = Instantiate(_debugPanelPrefab, this.transform);
         _debugPanel.SetActive(false);
+
+        SceneManager.sceneLoaded += DebugPanelActiveFalse;
     }
 
 
@@ -42,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     public void ClearStage(int index)
     {
         int num = index - 1;
-        num = Mathf.Clamp(num,0,_stageLimit-1);
+        num = Mathf.Clamp(num, 0, _stageLimit - 1);
         _clearedStage[num] = true;
     }
     /// <summary>
@@ -58,10 +61,15 @@ public class GameManager : Singleton<GameManager>
     {
         if (_isDebug)
         {
-            if(Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G))
             {
                 _debugPanel.SetActive(true);
             }
         }
+    }
+
+    void DebugPanelActiveFalse(Scene scene, LoadSceneMode mode)
+    {
+        _debugPanel.SetActive(false);
     }
 }
