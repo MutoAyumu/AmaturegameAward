@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92ba7f972f342d41b24d864c4db34a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 2
   _distance: 0.3
   _bomb: {fileID: 6166056206975134983, guid: 5863356217f73c141858e20d816c9728, type: 3}
   _rb: {fileID: 31015148163617718}
