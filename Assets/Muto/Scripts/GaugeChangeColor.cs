@@ -17,13 +17,8 @@ public class GaugeChangeColor : MonoBehaviour
         var c = _slider.value / _slider.maxValue;
 
         if (c > 0.7f)
-            ChangeColor(_color1, _color2, 0.7f);
+            _fillImage.color = Color.Lerp(_color2, _color1, (c - 0.7f) * _combinedValue);
         else if(c > 0.35f)
-            ChangeColor(_color2, _color3, 0.35f);
-    }
-    void ChangeColor(Color from, Color to, float where)
-    {
-        var num = _slider.value / _slider.maxValue;
-        _fillImage.color = Color.Lerp(to, from, (num - where) * _combinedValue);
+            _fillImage.color = Color.Lerp(_color3, _color2, (c - 0.35f) * _combinedValue);
     }
 }

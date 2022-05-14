@@ -2874,6 +2874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2681976661792988680}
   - component: {fileID: 2681976661792988681}
+  - component: {fileID: 2143465886911873635}
   m_Layer: 5
   m_Name: nukumoriSlider
   m_TagString: Untagged
@@ -2954,6 +2955,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2143465886911873635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681976661792988683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5c9e6a456fe324a99e2de09aecea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 2681976661792988681}
+  _fillImage: {fileID: 2681976660271091606}
+  _combinedValue: 3
+  _color1: {r: 0.6665089, g: 1, b: 0.08962262, a: 1}
+  _color2: {r: 1, g: 0.7647381, b: 0.2971698, a: 1}
+  _color3: {r: 1, g: 0.35265166, b: 0.2783019, a: 1}
 --- !u!1 &2681976661819075227
 GameObject:
   m_ObjectHideFlags: 0

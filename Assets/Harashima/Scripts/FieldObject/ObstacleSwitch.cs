@@ -10,6 +10,7 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
     [SerializeField] Sprite _activeSprite = default;
     [SerializeField] Sprite _inactiveSprite = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
+    [SerializeField] Transform _camTarget = default;
     public void Action()
     {
         foreach(var i in _obstacleObejects)
@@ -29,5 +30,8 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
         }
         Debug.Log("çÏìÆ");
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "ObjectSwitch");
+
+        if(_camTarget)
+        FieldManager.Instance.SetEventCamera(_camTarget);
     }
 }
