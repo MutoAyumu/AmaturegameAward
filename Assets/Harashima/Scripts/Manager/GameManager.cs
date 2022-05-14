@@ -7,6 +7,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField, Range(1, 10), Tooltip("何ステージあるか")]
     int _stageLimit;
 
+    [Header("デバッグ")]
+    [SerializeField]
+    bool _isDebug = false;
+    [SerializeField]
+    GameObject _debugPanelPrefab = default;
+    GameObject _debugPanel = default;
+
     /// <summary>現在のステージクリア状況</summary>
     bool[] _clearedStage;
 
@@ -21,6 +28,10 @@ public class GameManager : Singleton<GameManager>
     {
         //ステージの数で初期化
         _clearedStage = new bool[_stageLimit];
+
+        //デバッグ用のパネルを生成
+        _debugPanel= Instantiate(_debugPanelPrefab,this.transform);
+        _debugPanel.SetActive(false);
     }
 
 
@@ -41,5 +52,16 @@ public class GameManager : Singleton<GameManager>
     public int ReturnPoint()
     {
         return Mathf.Clamp(_friendShipPoints, 0, 30);
+    }
+
+    private void Update()
+    {
+        if (_isDebug)
+        {
+            if(Input.GetKeyDown(KeyCode.G))
+            {
+                _debugPanel.SetActive(true);
+            }
+        }
     }
 }

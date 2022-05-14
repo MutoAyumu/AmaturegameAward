@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stageLimit: 5
+  _isDebug: 0
+  _debugPanelPrefab: {fileID: 346313895069601870, guid: 135f7281582965c4c84041e96a844219, type: 3}
+  _friendShipPoints: 0
