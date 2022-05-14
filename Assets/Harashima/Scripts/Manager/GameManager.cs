@@ -11,9 +11,10 @@ public class GameManager : Singleton<GameManager>
     [Header("デバッグ")]
     [SerializeField]
     bool _isDebug = false;
-    [SerializeField]
-    GameObject _debugPanelPrefab = default;
+    [SerializeField]GameObject _debugPanelPrefab = default;
     GameObject _debugPanel = default;
+    [SerializeField] GameObject _debugtextPrefab = default;
+    GameObject _debugText = default;
 
     /// <summary>現在のステージクリア状況</summary>
     bool[] _clearedStage;
@@ -33,6 +34,12 @@ public class GameManager : Singleton<GameManager>
         //デバッグ用のパネルを生成
         _debugPanel = Instantiate(_debugPanelPrefab, this.transform);
         _debugPanel.SetActive(false);
+
+        if(_debugtextPrefab)
+        {
+            _debugText =Instantiate(_debugtextPrefab,this.transform);
+            _debugText.SetActive(false);
+        }
 
         SceneManager.sceneLoaded += DebugPanelActiveFalse;
     }
@@ -61,6 +68,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (_isDebug)
         {
+            _debugText?.SetActive(true);
             if (Input.GetKeyDown(KeyCode.G))
             {
                 _debugPanel.SetActive(true);
