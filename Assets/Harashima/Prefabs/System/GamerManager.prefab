@@ -47,4 +47,5 @@ MonoBehaviour:
   _stageLimit: 5
   _isDebug: 0
   _debugPanelPrefab: {fileID: 346313895069601870, guid: 135f7281582965c4c84041e96a844219, type: 3}
+  _debugtextPrefab: {fileID: 1093321482423214750, guid: 7f62bd87939adbf459a4833187d08280, type: 3}
   _friendShipPoints: 0
