@@ -27,13 +27,17 @@ public class Boss2Melee : MonoBehaviour
         _rb.AddForce(_target, ForceMode2D.Impulse);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(_isAttack && collision.gameObject.GetComponent<PlayerHP>() != null)
+        if (_isAttack == true && collision.gameObject.GetComponent<PlayerHP>() != null)
         {
             collision.gameObject.GetComponent<PlayerHP>().Damage();
-            _isAttack = false;
         }
+    }
+
+    public void AttackReset()
+    {
+        _isAttack = false;
     }
 
     Vector3 player1;

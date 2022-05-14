@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5cf9967ada5b4d9fa5f9ae552d405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _power: 0.5
+  _power: 3
   _rb: {fileID: 622834530}
   _test: 0
   _testTransform: {fileID: 0}
