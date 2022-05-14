@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Aoyama/Scene/TestCreate.unity
     guid: bb48ffd8212bd894790715d3a897d481
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene4.unity
+    guid: a0b5d848475391143bffda8d37448ffa
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene5.unity
+    guid: 4d8382653069771489875d9207a9d765
   m_configObjects: {}
