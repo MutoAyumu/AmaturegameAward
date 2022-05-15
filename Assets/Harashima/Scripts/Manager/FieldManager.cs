@@ -233,11 +233,21 @@ public class FieldManager : Singleton<FieldManager>
         _eventPanel.SetActive(true);
         _playerCanvas.SetActive(false);
 
-        StartCoroutine(CameraReset());
+        StartCoroutine(CameraReset(target));
     }
-    IEnumerator CameraReset()
+    IEnumerator CameraReset(Transform target)
     {
-        yield return new WaitForSeconds(1f);
+        while(true)
+        {
+            yield return 0;
+
+            if((Vector2)_eventCam.transform.position == (Vector2)target.position)
+            {
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(1.25f);
         _eventPanel.SetActive(false);
         _playerCanvas.SetActive(true);
         _eventCam.Priority = 0;

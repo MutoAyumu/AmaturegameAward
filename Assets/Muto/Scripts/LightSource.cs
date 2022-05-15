@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class LightSource : MonoBehaviour
+public class LightSource : MonoBehaviour, ISetText
 {
     [SerializeField] Light2D _light = default;
     [SerializeField] Animator _anim = default;
@@ -13,6 +13,7 @@ public class LightSource : MonoBehaviour
     [SerializeField] float _loopTime = 10f;
     [SerializeField] bool _isOn = true;
     [SerializeField] bool _isLoop;
+    [SerializeField] string _text = "B@Œõ‚ğæ‚é";
     [SerializeField, Tooltip("IActivate‚ğŒp³‚µ‚½GameObject‚ğ“ü‚ê‚é")] GameObject[] _activate = default;
 
     float _timer = default;
@@ -94,5 +95,9 @@ public class LightSource : MonoBehaviour
         }
 
         return null;
+    }
+    public string SetText()
+    {
+        return _text;
     }
 }
