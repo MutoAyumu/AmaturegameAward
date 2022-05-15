@@ -19,6 +19,7 @@ public class BossDamage : MonoBehaviour, IDamage
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] Animator _anim;
+    [SerializeField] EnemyDamageText _enemyDamageText = default;
 
     void Start()
     {
@@ -47,6 +48,7 @@ public class BossDamage : MonoBehaviour, IDamage
     {
         Debug.Log($"{gameObject.name}にダメージを与えた");
 
+        _enemyDamageText?.DamageText(damage);
         _enemyHp -= damage;
         _enemyHpSlider.value = _enemyHp;
 
