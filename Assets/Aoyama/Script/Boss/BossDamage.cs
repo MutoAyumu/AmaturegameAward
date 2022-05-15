@@ -20,7 +20,8 @@ public class BossDamage : MonoBehaviour, IDamage
     [Header("‚Æ‚è‚ ‚¦‚¸QÆ‚µ‚½‚¢‚â‚Â")]
     [SerializeField] Animator _anim;
     [SerializeField] EnemyDamageText _enemyDamageText = default;
-
+    [SerializeField] GameObject _destroy;
+ 
     void Start()
     {
         _enemyHpSlider.maxValue = _enemyHp;
@@ -71,6 +72,7 @@ public class BossDamage : MonoBehaviour, IDamage
     {
         Debug.Log("EnemyDeath‚ªŒÄ‚Ño‚³‚ê‚½");
         Destroy(gameObject);
+        Destroy(_destroy, 2f);
 
         if (_deathPrefab)
         {
