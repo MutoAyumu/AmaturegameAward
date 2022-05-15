@@ -14,8 +14,6 @@ public class GhostController : CharacterControllerBase
     [SerializeField] GhostAttack _attack = default;
     [SerializeField, Tooltip("UŒ‚‚·‚éŠÔŠu")] float _attackSpeed = 2f;
 
-    [SerializeField] GameObject _fixedRangeImage = default;
-
     bool _isFixedRange = default;
     bool _isAttack;
     int _attackCount = 0;
@@ -43,20 +41,6 @@ public class GhostController : CharacterControllerBase
             _abs.Absorption(_lh, _lv, _rayLength, _layer, _anim, ResetStatus);
         }
 
-        if (!_cm.IsTogether && _isFixedRange)
-        {
-            if (!_fixedRangeImage.activeSelf)
-            {
-                _fixedRangeImage.SetActive(true);
-            }
-        }
-        else
-        {
-            if (_fixedRangeImage.activeSelf)
-            {
-                _fixedRangeImage.SetActive(false);
-            }
-        }
         if (Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0 && _cm.IsGhostAttack && !_isAttack)
         {
             _attack.Attack(_lh, _lv);
@@ -83,20 +67,20 @@ public class GhostController : CharacterControllerBase
             }
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player") && !_isFixedRange)
-        {
-            _isFixedRange = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            _isFixedRange = false;
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if(collision.CompareTag("Player") && !_isFixedRange)
+    //    {
+    //        _isFixedRange = true;
+    //    }
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        _isFixedRange = false;
+    //    }
+    //}
 
     public override void IsDamage()
     {
@@ -127,23 +111,20 @@ public class GhostController : CharacterControllerBase
         {
             var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
 
-            if (hit && !_interactImage.activeSelf)
+            if (hit && !IsSetText)
             {
-                _interactImage.SetActive(true);
+                IsSetText = true;
                 CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
             }
-            else if (!hit && _interactImage.activeSelf)
+            else if (!hit && IsSetText)
             {
-                _interactImage.SetActive(false);
+                IsSetText = false;
                 CharacterManager.Instance.ClearIntaractText();
             }
         }
         else
         {
-            if (_interactImage.activeSelf)
-            {
-                _interactImage.SetActive(false);
-            }
+            _cm.ClearIntaractText();
         }
 
         base.Interact();

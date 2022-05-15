@@ -17,10 +17,10 @@ GameObject:
   - component: {fileID: 3963911041471629122}
   - component: {fileID: 8150473647257384639}
   - component: {fileID: 9040205814322371569}
-  - component: {fileID: 5901382191136517838}
   - component: {fileID: 4289505607987719408}
   - component: {fileID: 1930548270821196415}
   - component: {fileID: 3195630503740488943}
+  - component: {fileID: 7574700875114436310}
   m_Layer: 10
   m_Name: Ghost
   m_TagString: Player
@@ -70,7 +70,6 @@ MonoBehaviour:
   _moveSpeed: 2
   _status: 0
   _endTag: Finish
-  _interactImage: {fileID: 1608303330282464883}
   _currentSpeed: 0
   _message: {fileID: 4289505607987719408}
   _atomSource: {fileID: 0}
@@ -82,7 +81,6 @@ MonoBehaviour:
   _attackButtonName: Fire1
   _attack: {fileID: 9109073565701455678}
   _attackSpeed: 2
-  _fixedRangeImage: {fileID: 4131294501340603524}
 --- !u!114 &9109073565701455678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,22 +193,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!58 &5901382191136517838
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339178854182673670}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &4289505607987719408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0fe820fb81f404299c8b0d6aa9ba96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: "B \u8A71\u3057\u304B\u3051\u308B"
 --- !u!114 &1930548270821196415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +274,22 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.25}
   m_Size: {x: 0.5, y: 0.5}
+  m_Direction: 0
+--- !u!70 &7574700875114436310
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339178854182673670}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
   m_Direction: 0
 --- !u!1 &1132302462484082816
 GameObject:
