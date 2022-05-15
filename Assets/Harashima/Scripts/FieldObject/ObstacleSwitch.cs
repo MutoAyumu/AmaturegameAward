@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSwitch : MonoBehaviour, IActivate
+public class ObstacleSwitch : MonoBehaviour, IActivate,ISetText
 {
     [SerializeField,Tooltip("スイッチに対応する")]
     GameObject[] _obstacleObejects;
@@ -10,6 +10,8 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
     [SerializeField] Sprite _activeSprite = default;
     [SerializeField] Sprite _inactiveSprite = default;
     [SerializeField] SpriteRenderer _mainSprite = default;
+    [SerializeField] Transform _camTarget = default;
+    [SerializeField] string _text = "B スイッチを押す";
     public void Action()
     {
         foreach(var i in _obstacleObejects)
@@ -29,5 +31,12 @@ public class ObstacleSwitch : MonoBehaviour, IActivate
         }
         Debug.Log("作動");
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "ObjectSwitch");
+
+        if(_camTarget)
+        FieldManager.Instance.SetEventCamera(_camTarget);
+    }
+    public string SetText()
+    {
+        return _text;
     }
 }

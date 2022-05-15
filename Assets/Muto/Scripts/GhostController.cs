@@ -130,10 +130,12 @@ public class GhostController : CharacterControllerBase
             if (hit && !_interactImage.activeSelf)
             {
                 _interactImage.SetActive(true);
+                CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
             }
             else if (!hit && _interactImage.activeSelf)
             {
                 _interactImage.SetActive(false);
+                CharacterManager.Instance.ClearIntaractText();
             }
         }
         else

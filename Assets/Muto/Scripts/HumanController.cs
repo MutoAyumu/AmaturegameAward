@@ -97,9 +97,11 @@ public class HumanController : CharacterControllerBase
             if (hit && !_interactImage.activeSelf)
             {
                 _interactImage.SetActive(true);
+                CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
             }
             else if (!hit && _interactImage.activeSelf)
             {
+                CharacterManager.Instance.ClearIntaractText();
                 _interactImage.SetActive(false);
             }
         }

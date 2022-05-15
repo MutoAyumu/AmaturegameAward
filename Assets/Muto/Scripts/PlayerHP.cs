@@ -73,18 +73,19 @@ public class PlayerHP : MonoBehaviour
             return;
         }
 
+        var a = _sprite.color.a;
         _character.IsDamage();
-        StartCoroutine(OnDamage());
+        StartCoroutine(OnDamage(a));
 
         isDamage = true;
     }
 
-    IEnumerator OnDamage()
+    IEnumerator OnDamage(float alpha)
     {
         yield return new WaitForSeconds(3.0f);
 
         isDamage = false;
-        _sprite.color = new Color(1, 1, 1, 1);
+        _sprite.color = new Color(1, 1, 1, alpha);
     }
 
     void PlayerDeath()

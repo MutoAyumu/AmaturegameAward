@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour,IActivate
+public class Chest : MonoBehaviour,IActivate,ISetText
 {
     [SerializeField, Tooltip("ドロップするアイテム")]
     int _dropItemIndex;
@@ -15,6 +15,8 @@ public class Chest : MonoBehaviour,IActivate
 
     [SerializeField, Tooltip("アイテムを使う時のSE")]
     AudioClip[] _audios;
+
+    [SerializeField] string _text = "B 宝箱を開ける";
 
     /// <summary>この宝箱が既に開いているかを判定するフラグ</summary>
     bool isOpen = false;
@@ -29,5 +31,9 @@ public class Chest : MonoBehaviour,IActivate
             SoundManager.Instance.CriAtomPlay(CueSheet.SE, "OpenChest");
             isOpen = true; //開いたのでフラグをTrueに
         }
+    }
+    public string SetText()
+    {
+        return _text;
     }
 }

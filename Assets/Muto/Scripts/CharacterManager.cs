@@ -42,6 +42,8 @@ public class CharacterManager : Singleton<CharacterManager>
     float _timer;
     [SerializeField] float _nakayoshiPoint;
 
+    [SerializeField] Text _intaractText = default;
+
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
     [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
 
@@ -383,6 +385,16 @@ public class CharacterManager : Singleton<CharacterManager>
             Debug.DrawLine(pos.position, player2, Color.red);
             return player2;
         }
+    }
+    public void SetIntaractText(string text)
+    {
+        if (!_intaractText) return;
+
+        _intaractText.text = text;
+    }
+    public void ClearIntaractText()
+    {
+        _intaractText.text = "";
     }
 
 }

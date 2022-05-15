@@ -146,9 +146,9 @@ public class CharacterControllerBase : MonoBehaviour
 
             OnUpdate();
         }
-        else if (!IsControll && _interactImage.activeSelf)
+        else if (!IsControll)// && _interactImage.activeSelf)
         {
-            _interactImage.SetActive(false);
+            //_interactImage.SetActive(false);
         }
     }
     /// <summary>
@@ -165,9 +165,11 @@ public class CharacterControllerBase : MonoBehaviour
         if (_hit && !_interactImage.activeSelf)
         {
             _interactImage.SetActive(true);
+            CharacterManager.Instance.SetIntaractText(_hit.collider?.GetComponent<ISetText>().SetText());
         }
         else if (!_hit && _interactImage.activeSelf)
         {
+            CharacterManager.Instance.ClearIntaractText();
             _interactImage.SetActive(false);
         }
     }
