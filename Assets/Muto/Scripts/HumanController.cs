@@ -29,6 +29,7 @@ public class HumanController : CharacterControllerBase
             if(j)
             {
                 _status = CharacterStatus.ACTION;
+                CharacterManager.Instance.HumanExchange();
             }
         }
         if(_push && Input.GetButton(_grabButtonName) && _status != CharacterStatus.ATTACK) //ï®ÇíÕÇÒÇ≈ìÆÇ©Ç∑éûÇÃèàóù
@@ -94,23 +95,21 @@ public class HumanController : CharacterControllerBase
         {
             var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
 
-            if (hit && !_interactImage.activeSelf)
+            if (hit && !IsSetText)
             {
-                _interactImage.SetActive(true);
+                IsSetText = true;
                 CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
+                Debug.Log("ppp");
             }
-            else if (!hit && _interactImage.activeSelf)
+            else if (!hit && IsSetText)
             {
+                IsSetText = false;
                 CharacterManager.Instance.ClearIntaractText();
-                _interactImage.SetActive(false);
             }
         }
         else
         {
-            if(_interactImage.activeSelf)
-            {
-                _interactImage.SetActive(false);
-            }
+            CharacterManager.Instance.ClearIntaractText();
         }
 
         base.Interact();

@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 2436812540724795370}
   - component: {fileID: 8862435517513125521}
   - component: {fileID: 967026160536958824}
+  - component: {fileID: 7877913273291472130}
   m_Layer: 11
   m_Name: Human
   m_TagString: Player
@@ -671,7 +672,6 @@ MonoBehaviour:
   _moveSpeed: 2
   _status: 0
   _endTag: Finish
-  _interactImage: {fileID: 8711772652759853557}
   _currentSpeed: 0
   _message: {fileID: 8862435517513125521}
   _atomSource: {fileID: 0}
@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0fe820fb81f404299c8b0d6aa9ba96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: "B \u8A71\u3057\u304B\u3051\u308B"
 --- !u!114 &967026160536958824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +937,22 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.1, y: -0.1, z: 0}
+--- !u!70 &7877913273291472130
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123253586814840974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &3123253587168553120
 GameObject:
   m_ObjectHideFlags: 0
