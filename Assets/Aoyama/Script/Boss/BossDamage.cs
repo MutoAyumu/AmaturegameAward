@@ -19,7 +19,9 @@ public class BossDamage : MonoBehaviour, IDamage
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] Animator _anim;
-
+    [SerializeField] EnemyDamageText _enemyDamageText = default;
+    [SerializeField] GameObject _destroy;
+ 
     void Start()
     {
         _enemyHpSlider.maxValue = _enemyHp;
@@ -47,6 +49,7 @@ public class BossDamage : MonoBehaviour, IDamage
     {
         Debug.Log($"{gameObject.name}にダメージを与えた");
 
+        _enemyDamageText?.DamageText(damage);
         _enemyHp -= damage;
         _enemyHpSlider.value = _enemyHp;
 
@@ -69,6 +72,7 @@ public class BossDamage : MonoBehaviour, IDamage
     {
         Debug.Log("EnemyDeathが呼び出された");
         Destroy(gameObject);
+        Destroy(_destroy, 2f);
 
         if (_deathPrefab)
         {
