@@ -67,6 +67,7 @@ public class MessageManager : Singleton<MessageManager>
         _windowText.text = text;
         yield return 0;
         _isText = false;
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemText");
         StartCoroutine(HideWindows());
     }
     IEnumerator HideWindows()

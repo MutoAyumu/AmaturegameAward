@@ -32,6 +32,8 @@ public class LightAbsorption : MonoBehaviour
 
         if (other && !isTake)
         {
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "GhostLight");
+
             if (other.IsOn && _lightCount < _limit)
             {
                 DOTween.Sequence()
