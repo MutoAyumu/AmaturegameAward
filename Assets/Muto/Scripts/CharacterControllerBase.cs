@@ -294,8 +294,8 @@ public class CharacterControllerBase : MonoBehaviour
     public virtual void IsDamage()
     {
         _rb.AddForce(-new Vector2(_lh, _lv).normalized * 20, ForceMode2D.Impulse);
-        StartCoroutine(DamageStart());
-        _status = CharacterStatus.DAMAGE;
+        //StartCoroutine(DamageStart());
+        //_status = CharacterStatus.DAMAGE;
     }
     IEnumerator DamageStart()
     {

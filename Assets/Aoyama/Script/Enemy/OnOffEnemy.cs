@@ -40,7 +40,7 @@ public class OnOffEnemy : MonoBehaviour
             if (collision.CompareTag(_humanTag) || collision.CompareTag(_ghostTag) || collision.CompareTag(_togetherTag))
             {
                 OnSetActive();
-                Activate();
+                //Activate();
                 IsActive = true;
             }
         }

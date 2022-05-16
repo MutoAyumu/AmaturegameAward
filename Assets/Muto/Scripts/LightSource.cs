@@ -14,6 +14,7 @@ public class LightSource : MonoBehaviour, ISetText
     [SerializeField] bool _isOn = true;
     [SerializeField] bool _isLoop;
     [SerializeField] string _text = "B@Œõ‚ğæ‚é";
+    [SerializeField]Transform _camTarget = default;
     [SerializeField, Tooltip("IActivate‚ğŒp³‚µ‚½GameObject‚ğ“ü‚ê‚é")] GameObject[] _activate = default;
 
     float _timer = default;
@@ -89,6 +90,7 @@ public class LightSource : MonoBehaviour, ISetText
                         foreach(var ac in _activate)
                         {
                             ac.GetComponent<IActivate>()?.Action();
+                            FieldManager.Instance.SetEventCamera(_camTarget);
                         }
                     });
             }
