@@ -46,9 +46,7 @@ public class EnemyAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
-        _criAtomSource.cueSheet = CueSheet.SE.ToString();
-        _criAtomSource.cueName = _cuename;
-        _criAtomSource.Play();
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cuename);
 
         if (_anim)
         {

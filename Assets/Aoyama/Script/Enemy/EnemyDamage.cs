@@ -52,9 +52,7 @@ public class EnemyDamage : MonoBehaviour, IDamage
     /// </summary>
     public void Damage(int damage)
     {
-        _criAtomSource.cueSheet = CueSheet.SE.ToString();
-        _criAtomSource.cueName = _damageS;
-        _criAtomSource.Play();
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _damageS);
 
         _anim.SetTrigger("Damage");
         _enemyHp -= damage; ;
@@ -74,9 +72,7 @@ public class EnemyDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
-        _criAtomSource.cueSheet = CueSheet.SE.ToString();
-        _criAtomSource.cueName = _deathS;
-        _criAtomSource.Play();
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _deathS);
 
         if (_groupNumber != 0)
         {
