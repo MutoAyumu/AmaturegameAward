@@ -15,6 +15,9 @@ public class EnemyAttack : MonoBehaviour
     Rigidbody2D _rb;
     [SerializeField]
     Animator _anim;
+    [Header("‰¹")]
+    [SerializeField] CriAtomSource _criAtomSource;
+    [SerializeField] string _cuename = "GaAttack";
 
     ContactFilter2D _filter;
     List<Collider2D> _result = new List<Collider2D>(7);
@@ -43,12 +46,11 @@ public class EnemyAttack : MonoBehaviour
     /// </summary>
     public void Attack()
     {
-        if(_audio)
-        {
-            SoundManager.Instance.SoundPlay(_audio);
-        }
+        _criAtomSource.cueSheet = CueSheet.SE.ToString();
+        _criAtomSource.cueName = _cuename;
+        _criAtomSource.Play();
 
-        if(_anim)
+        if (_anim)
         {
             _anim.SetTrigger("Attack");
             //Debug.Log($"{gameObject.name}‚ÌUŒ‚");
@@ -57,9 +59,6 @@ public class EnemyAttack : MonoBehaviour
         //[ToDo] ContactFilter2D‚ðSerialize‚·‚é‚±‚Æ‚ÅLayerMask‚ðŽw’è‚Å‚«‚é‚Ì‚ÅA—]—T‚ª‚ ‚ê‚Î‚·‚é
         _count = _attackCol.OverlapCollider(_filter, _result);
         _result.ForEach(go => go.GetComponent<PlayerHP>()?.Damage());
-        for(int i = 0; i < _result.Count; i++)
-        {
-            Debug.Log(_result[i]);
-        }
+        
     }
 }

@@ -15,9 +15,16 @@ public class Rinpun : MonoBehaviour
     [SerializeField] GameObject _leftBullet;
     [SerializeField] GameObject _upBullet;
     [SerializeField] GameObject _downBullet;
+    [Header("‰¹")]
+    [SerializeField] CriAtomSource _criAtomSource;
+    [SerializeField] string _cuename = "GaBossRinpun";
 
     public void RinpunAttack()
     {
+        _criAtomSource.cueSheet = CueSheet.SE.ToString();
+        _criAtomSource.cueName = _cuename;
+        _criAtomSource.Play();
+
         GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
         GameObject.Instantiate(_leftBullet, _leftMuzzle.position, Quaternion.identity);
         GameObject.Instantiate(_upBullet, _upMuzzle.position, Quaternion.identity);

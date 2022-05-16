@@ -25,6 +25,10 @@ public class EnemyDamage : MonoBehaviour, IDamage
     [SerializeField] Animator _anim;
     [SerializeField] bool _testDeath = false;
     [SerializeField] bool _testDamage = false;
+    [Header("âπ")]
+    [SerializeField] CriAtomSource _criAtomSource;
+    [SerializeField] string _damageS = "EnemyDeath";
+    [SerializeField] string _deathS = "EnemyDeath";
 
     int _groupNumber;
 
@@ -41,12 +45,6 @@ public class EnemyDamage : MonoBehaviour, IDamage
         {
             EnemyDeath();
         }
-
-        //if (_testDamage)
-        //{
-        //    Damage();
-        //    _testDamage = false;
-        //}
     }
 
     /// <summary>
@@ -54,7 +52,10 @@ public class EnemyDamage : MonoBehaviour, IDamage
     /// </summary>
     public void Damage(int damage)
     {
-        Debug.Log($"{gameObject.name}Ç…É_ÉÅÅ[ÉWÇó^Ç¶ÇΩ");
+        _criAtomSource.cueSheet = CueSheet.SE.ToString();
+        _criAtomSource.cueName = _damageS;
+        _criAtomSource.Play();
+
         _anim.SetTrigger("Damage");
         _enemyHp -= damage; ;
         _enemyMove.KnockBack();
@@ -73,10 +74,9 @@ public class EnemyDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
-        if(_audio)
-        {
-            SoundManager.Instance.SoundPlay(_audio);
-        }
+        _criAtomSource.cueSheet = CueSheet.SE.ToString();
+        _criAtomSource.cueName = _deathS;
+        _criAtomSource.Play();
 
         if (_groupNumber != 0)
         {
