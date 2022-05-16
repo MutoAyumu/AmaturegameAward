@@ -13,8 +13,6 @@ public class ObstacleObjectController : MonoBehaviour, IActivate
     [SerializeField, Tooltip("ì“®‚µ‚Ä‚¢‚È‚¢‚É•\¦‚³‚¹‚é‚à‚Ì")]
     GameObject[] _inactiveObstacleObject;
 
-    [SerializeField] CriAtomSource _criAtom = default;
-
     private void Start()
     {
         if(isActive)    //ì“®
@@ -47,7 +45,7 @@ public class ObstacleObjectController : MonoBehaviour, IActivate
     public void Action()
     {
         isActive = !isActive;
-        SoundManager.Instance.CriAtomPlay(_criAtom ,CueSheet.SE, "DoorOpen");
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "DoorOpen");
 
         if (isActive)    //ì“®
         {
