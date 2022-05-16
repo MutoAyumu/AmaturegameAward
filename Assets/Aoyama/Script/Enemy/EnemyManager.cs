@@ -9,32 +9,37 @@ using UnityEngine;
 public class EnemyManager : Singleton<EnemyManager>
 {
     [Tooltip("Stage内のすべてのEnemy")]
-    public List<GameObject> Enemys;
+    List<GameObject> _enemys = new List<GameObject>();
 
     [SerializeField] OnOffEnemy[] _enemyGroup = default;
 
     public void Pause()
     {
-        Enemys?.ForEach(go => go.GetComponent<EnemyMove>().Pause());
+        _enemys?.ForEach(go => go.GetComponent<EnemyMove>().Pause());
     }
 
     public void Resume()
     {
-        Enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.Resume());
+        _enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.Resume());
     }
 
     public void SetTarget(Transform tr)
     {
-        Enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.SetDecoy(tr));
+        _enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.SetDecoy(tr));
     }
 
     public void ResetTarget()
     {
-        Enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.ResetDecoy());
+        _enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.ResetDecoy());
     }
     public void DecreaseInNumbers(int i)
     {
         //エネミーグループ配列のi番にある敵の数を減らす
         _enemyGroup[i - 1].Decrease();
+    }
+
+    public void AddEnemy(GameObject enemy)
+    {
+        _enemys.Add(enemy);
     }
 }
