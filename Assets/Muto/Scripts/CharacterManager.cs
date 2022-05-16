@@ -23,7 +23,8 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] Image _playerUiImage = default;
 
     [SerializeField] Transform _hpPanel = default;
-    [SerializeField] Sprite _hpSprite = default;
+    [SerializeField, Tooltip("ハートの左半分")] Sprite _hpSpriteR = default;
+    [SerializeField, Tooltip("ハートの右半分")] Sprite _hpSpriteL = default;
     [SerializeField] Vector2 _hpSpriteSize = new Vector2(100f, 100f);
 
     [SerializeField] Transform _lightPanel = default;
@@ -358,12 +359,17 @@ public class CharacterManager : Singleton<CharacterManager>
         }
 
         //UIの更新
-        for (int i = 0; i < num; i++)
+        for (int i = 1; i < num + 1; i++)
         {
             var go = new GameObject();
             var image = go.AddComponent<Image>();
+            //var f = i % 2f;
 
-            image.sprite = _hpSprite;
+            if (i % 2 != 0)
+                image.sprite = _hpSpriteL;
+            else
+                image.sprite = _hpSpriteR;
+
             var r = go.GetComponent<RectTransform>();
             r.sizeDelta = _hpSpriteSize;
 
