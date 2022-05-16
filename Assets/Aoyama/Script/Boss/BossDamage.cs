@@ -70,6 +70,7 @@ public class BossDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
+        _destroy.GetComponent<OnOffEnemy>().Decrease();
         Debug.Log("EnemyDeath‚ªŒÄ‚Ño‚³‚ê‚½");
         Destroy(gameObject);
         Destroy(_destroy, 2f);

@@ -9,10 +9,17 @@ public class BossMelee : MonoBehaviour
     Collider2D _attackAria;
     [SerializeField, Tooltip("è⁄ç◊")]
     ContactFilter2D _filter;
+    [Header("âπ")]
+    [SerializeField] CriAtomSource _criAtomSource;
+    [SerializeField] string _cuename = "MedamaAttack";
 
     Collider2D[] _result = new Collider2D[5];
     public void Melee()
     {
+        _criAtomSource.cueSheet = CueSheet.SE.ToString();
+        _criAtomSource.cueName = _cuename;
+        _criAtomSource.Play();
+
         _attackAria.OverlapCollider(_filter, _result);
         if (_result == null) return;
 
