@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemChestInterface : MonoBehaviour,IActivate
+public class ItemChestInterface : MonoBehaviour,IActivate,ISetText
 {
     [SerializeField,Tooltip("ドロップするアイテム")]
     GameObject[] _itemPrefabs;
@@ -12,6 +12,8 @@ public class ItemChestInterface : MonoBehaviour,IActivate
 
     [SerializeField, Tooltip("アイテムを使う時のSE")]
     AudioClip[] _audios;
+
+    [SerializeField] string _text = "B 宝箱を開ける";
 
     /// <summary>この宝箱が既に開いているかを判定するフラグ</summary>
     bool isOpen = false;
@@ -25,6 +27,10 @@ public class ItemChestInterface : MonoBehaviour,IActivate
             isOpen = true; //開いたのでフラグをTrueに
         }        
     }
+    public string SetText()
+    {
+        return _text;
+    }
 }
 
 /// <summary>
@@ -33,4 +39,8 @@ public class ItemChestInterface : MonoBehaviour,IActivate
 public interface IActivate
 {
     void Action();
+}
+public interface ISetText
+{ 
+    string SetText();
 }

@@ -120,12 +120,12 @@ MonoBehaviour:
   _toSource: {fileID: 8845251578297390469}
   _lightCountTest: {fileID: 0}
   _toPanel: {fileID: 0}
-  _humanImage: {fileID: 0}
-  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 21300000, guid: f5e423bc48e3a674c98bf59baa98612b, type: 3}
+  _ghostImage: {fileID: 21300000, guid: da6b0c7c6c8cc3247bdc563204997add, type: 3}
   _toImage: {fileID: 0}
   _playerUiImage: {fileID: 0}
   _hpPanel: {fileID: 0}
-  _hpSprite: {fileID: 0}
+  _hpSprite: {fileID: 21300000, guid: 5cc9c81f0e0bd6f49b7447d519dd223a, type: 3}
   _hpSpriteSize: {x: 100, y: 100}
   _lightPanel: {fileID: 0}
   _lightSprite: {fileID: 0}
@@ -139,6 +139,8 @@ MonoBehaviour:
   _timeLimit: 3
   _nakayoshiPoint: 0
   _isCanSwitch: 0
+  _isGhostAttack: 0
+  _isGodMode: 0
   _humanMessage: []
   _ghostMessage: []
 --- !u!114 &4726897496702395407

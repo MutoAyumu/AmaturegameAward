@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
+using Cinemachine;
 
 /// <summary>
 /// フィールド上での進行を管理するクラス（デバッグ時点ではUIManagerも内包している）
@@ -38,7 +39,10 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField, Tooltip("シーン上のキャンバス")]
     GameObject _canvas;
 
-    [SerializeField] PlayableDirector _timeLine = default;
+    [Header("ギミック作動時に使われる物")]
+    [SerializeField, Tooltip("ギミックが作動した時に使うカメラ")] CinemachineVirtualCamera _eventCam = default;
+    [SerializeField] GameObject _eventPanel = default;
+    [SerializeField] GameObject _playerCanvas = default;
 
     [SerializeField] string _pauseInputName = "Cancel";
     bool IsPause;
@@ -214,6 +218,39 @@ public class FieldManager : Singleton<FieldManager>
     public float ReturnSpacing()
     {
         return _maxSpacing;
+    }
+
+    public void SetEventCamera(Transform target)
+    {
+        if(!_eventCam || !_eventPanel)
+        {
+            Debug.LogError("EventCameraかEventPanelがセットされていません");
+            return;
+        }
+
+        _eventCam.Follow = target;
+        _eventCam.Priority = 20;
+        _eventPanel.SetActive(true);
+        _playerCanvas.SetActive(false);
+
+        StartCoroutine(CameraReset(target));
+    }
+    IEnumerator CameraReset(Transform target)
+    {
+        while(true)
+        {
+            yield return 0;
+
+            if((Vector2)_eventCam.transform.position == (Vector2)target.position)
+            {
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(1.25f);
+        _eventPanel.SetActive(false);
+        _playerCanvas.SetActive(true);
+        _eventCam.Priority = 0;
     }
 
     public void Test()

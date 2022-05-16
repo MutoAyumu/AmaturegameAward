@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageCharacter : MonoBehaviour,IActivate
+public class MessageCharacter : MonoBehaviour,IActivate,ISetText
 {
     [Tooltip("表示するメッセージ")]
     string[] _message;
     bool IsFlag = true;
+
+    [SerializeField] string _text = "B 話しかける";
     public void SetMessage(string[] m)
     {
         _message = m;
@@ -22,5 +24,9 @@ public class MessageCharacter : MonoBehaviour,IActivate
             var i = GameManager.Instance.ReturnPoint();
             MessageManager.Instance.SetText(_message[Mathf.Clamp(i, 0, _message.Length - 1)]);
         }
+    }
+    public string SetText()
+    {
+        return _text;
     }
 }

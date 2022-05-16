@@ -26,8 +26,6 @@ public class CharacterControllerBase : MonoBehaviour
 
     [SerializeField, Tooltip("ステージクリアで使うトリガーのタグ")] string _endTag = "Finish";
 
-    [SerializeField] protected GameObject _interactImage = default;
-
     protected float _h = default;
     protected float _v = default;
     [SerializeField] protected float _currentSpeed;
@@ -39,6 +37,7 @@ public class CharacterControllerBase : MonoBehaviour
     FieldManager _fieldManager;
 
     bool IsPause;
+    protected bool IsSetText;
 
     RaycastHit2D _hit;
 
@@ -146,9 +145,9 @@ public class CharacterControllerBase : MonoBehaviour
 
             OnUpdate();
         }
-        else if (!IsControll && _interactImage.activeSelf)
+        else if (!IsControll)// && _interactImage.activeSelf)
         {
-            _interactImage.SetActive(false);
+            //_interactImage.SetActive(false);
         }
     }
     /// <summary>
@@ -162,13 +161,15 @@ public class CharacterControllerBase : MonoBehaviour
     {
         _hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _searchar.Layer);
 
-        if (_hit && !_interactImage.activeSelf)
+        if (_hit && !IsSetText)
         {
-            _interactImage.SetActive(true);
+            IsSetText = true;
+            CharacterManager.Instance.SetIntaractText(_hit.collider?.GetComponent<ISetText>().SetText());
         }
-        else if (!_hit && _interactImage.activeSelf)
+        else if (!_hit && IsSetText)
         {
-            _interactImage.SetActive(false);
+            IsSetText = false;
+            CharacterManager.Instance.ClearIntaractText();
         }
     }
     /// <summary>

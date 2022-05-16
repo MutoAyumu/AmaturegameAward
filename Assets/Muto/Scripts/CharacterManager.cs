@@ -38,9 +38,13 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField, Tooltip("温もりゲージをセット")] Slider _warmthSlider = default;
     [SerializeField, Tooltip("離れすぎた時に表示させるテキスト")] Text _warmthText = default;
     [SerializeField, Tooltip("キャラの離れられる間隔")] float _maxSpacing = 5f;
+    [SerializeField] float _fixedRange = 1f;
     [SerializeField] float _timeLimit = 3f;
     float _timer;
     [SerializeField] float _nakayoshiPoint;
+
+    [SerializeField] Text _intaractText = default;
+    [SerializeField] Animator _connectImage = default;
 
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
     [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
@@ -52,6 +56,7 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] string[] _ghostMessage;
 
     bool _isTogether;
+    bool _isFixedRange;
 
     public HumanController Human { get => _human; }
     public GhostController Ghost { get => _ghost; }
@@ -87,12 +92,12 @@ public class CharacterManager : Singleton<CharacterManager>
         }
 
         //一緒に行動する
-        if (_ghost.IsFixedRange && !_isTogether && _isCanSwitch)
+        if (_isFixedRange && !_isTogether && _isCanSwitch)
         {
             if (Input.GetButtonDown(_togetherButton) && !_isTogether)
             {
                 MoveTogether();
-                _ghost.IsFixedRange = false;
+                _isFixedRange = false;
                 _toSource.GenerateImpulse();
             }
 
@@ -130,7 +135,12 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             if (_warmthSlider.IsActive())
             {
-                _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
+                if (!_isTogether)
+                    _warmthSlider.value = 1 - CharacterSpacing() / _maxSpacing;
+                else
+                    _warmthSlider.value = 1;
+
+
 
                 //温もりゲージが0以下になったらテキストを表示する
                 if (_warmthSlider.value <= 0)
@@ -153,6 +163,35 @@ public class CharacterManager : Singleton<CharacterManager>
                     _timer = 0;
                 }
             }
+        }
+        if(!IsTogether)
+        {
+            if(_isFixedRange && _connectImage.GetBool("Set"))
+            {
+                SetConnectImage(false);
+            }
+            else if(!_isFixedRange && !_connectImage.GetBool("Set"))
+            {
+                SetConnectImage(true);
+            }
+        }
+        else
+        {
+            if(!_connectImage.GetBool("Set"))
+            {
+                SetConnectImage(true);
+            }
+        }
+
+        var dir = Vector2.Distance(_human.ColliderCenter(), _ghost.ColliderCenter());
+
+        if(dir <= _fixedRange && !_isFixedRange)
+        {
+            _isFixedRange = true;
+        }
+        else if(dir > _fixedRange && _isFixedRange)
+        {
+            _isFixedRange = false;
         }
     }
     /// <summary>
@@ -193,7 +232,7 @@ public class CharacterManager : Singleton<CharacterManager>
     /// <summary>
     /// 操作キャラを人間に切り替える関数
     /// </summary>
-    void HumanExchange()
+    public void HumanExchange()
     {
         _human.TogetherImage.gameObject.SetActive(false);
         _human.MainSprite.gameObject.SetActive(true);
@@ -293,7 +332,7 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         if (_human && _ghost)
         {
-            return Vector2.Distance(Human.transform.position, Ghost.transform.position);
+            return Vector2.Distance(Human.ColliderCenter(), Ghost.ColliderCenter());
         }
 
         return 0;
@@ -383,6 +422,22 @@ public class CharacterManager : Singleton<CharacterManager>
             Debug.DrawLine(pos.position, player2, Color.red);
             return player2;
         }
+    }
+    public void SetIntaractText(string text)
+    {
+        if (!_intaractText) return;
+
+        _intaractText.text = text;
+    }
+    public void ClearIntaractText()
+    {
+        _intaractText.text = "";
+    }
+    public void SetConnectImage(bool value)
+    {
+        if (!_connectImage) return;
+
+        _connectImage.SetBool("Set" ,value);
     }
 
 }
