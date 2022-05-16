@@ -121,4 +121,8 @@ public class TimeLineManager : Singleton<TimeLineManager>
                 });
         }
     }
+    public void Wind()
+    {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "Wind");
+    }
 }

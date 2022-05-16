@@ -78,10 +78,16 @@ public class CharacterManager : Singleton<CharacterManager>
     }
     private void Update()
     {
+        if (TimeLineManager.Instance)
+        {
+            if (TimeLineManager.Instance.CutSceneFlag)
+                return;
+        }
         //êlä‘Ç…êÿÇËë÷Ç¶ÇÈ
         if (Input.GetButtonDown(_humanChangeButton) && _isCanSwitch)
         {
             HumanExchange();
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SwitchPlayer");
             _toPanel.gameObject.SetActive(false);
         }
 
@@ -89,6 +95,7 @@ public class CharacterManager : Singleton<CharacterManager>
         if (Input.GetButtonDown(_ghostChangeButton) && _isCanSwitch)
         {
             GhostExchange();
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SwitchPlayer");
             _toPanel.gameObject.SetActive(false);
         }
 
@@ -299,6 +306,7 @@ public class CharacterManager : Singleton<CharacterManager>
             })
             .OnComplete(() =>
             {
+                SoundManager.Instance.CriAtomPlay(CueSheet.SE, "Hand");
                 _isTogether = true;
                 _ghost.IsControll = false;
                 _human.IsControll = true;
@@ -363,7 +371,6 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             var go = new GameObject();
             var image = go.AddComponent<Image>();
-            //var f = i % 2f;
 
             if (i % 2 != 0)
                 image.sprite = _hpSpriteL;
@@ -399,6 +406,9 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.IsDead();
         _ghost.IsDead();
+        var s = SoundManager.Instance;
+        s.CriAtomPlay(CueSheet.SE, "HumanDeath");
+        s.CriAtomPlay(CueSheet.SE, "GhostDeath");
         PlayerPosition(this.transform);
     }
 

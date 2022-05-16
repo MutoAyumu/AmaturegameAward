@@ -36,7 +36,7 @@ public class PlayerHP : MonoBehaviour
 
     public void Damage()
     {
-        if(isDamage)
+        if(isDamage || FieldManager.Instance.IsDead)
         {
             return;
         }

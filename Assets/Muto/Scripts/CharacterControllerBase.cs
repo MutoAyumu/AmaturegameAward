@@ -136,7 +136,6 @@ public class CharacterControllerBase : MonoBehaviour
                     break;
 
                 case CharacterStatus.Dead:
-                    _anim.SetBool("IsDead", true);
                     break;
 
                 default:
@@ -290,6 +289,7 @@ public class CharacterControllerBase : MonoBehaviour
     public void IsDead()
     {
         _status = CharacterStatus.Dead;
+        _anim.SetBool("IsDead", true);
     }
     public virtual void IsDamage()
     {

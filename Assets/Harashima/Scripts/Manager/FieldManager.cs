@@ -49,6 +49,7 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField] Image _pausePanel = default;
     /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
     public GameObject Canvas => _canvas;
+    public bool IsDead => _isEnd;
 
     protected override void OnAwake()
     {
