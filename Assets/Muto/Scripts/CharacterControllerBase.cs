@@ -199,6 +199,8 @@ public class CharacterControllerBase : MonoBehaviour
             {
                 if (_lh != _h || _lv != _v)
                 {
+                    _h = RoundingUpDown(_h);
+                    _v = RoundingUpDown(_v);
                     _lh = _h;
                     _lv = _v;
                 }
@@ -211,6 +213,17 @@ public class CharacterControllerBase : MonoBehaviour
         {
             _anim.SetFloat("X", _lh);
             _anim.SetFloat("Y", _lv);
+        }
+    }
+    float RoundingUpDown(float f)
+    {
+        if(f > 0)
+        {
+            return Mathf.Ceil(f);
+        }
+        else
+        {
+            return Mathf.Floor(f);
         }
     }
     /// <summary>
