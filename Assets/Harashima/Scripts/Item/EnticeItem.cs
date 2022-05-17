@@ -25,7 +25,7 @@ public class EnticeItem : ItemBase
         //¶¬‚·‚é
         if (CharacterManager.Instance.Ghost.IsControll)
         {
-            _instans = Instantiate(_instansItem, CharacterManager.Instance.Ghost.transform.position,Quaternion.identity);
+            _instans = Instantiate(_instansItem, CharacterManager.Instance.Ghost.transform.position + CharacterManager.Instance.Ghost.transform.forward*5 , Quaternion.identity);
            
             //“Á’è‚Ì•ûŒü‚É“Š‚°‚é
             rb = _instans.GetComponent<Rigidbody2D>();
