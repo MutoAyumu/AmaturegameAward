@@ -54,6 +54,19 @@ public class ItemManager : Singleton<ItemManager>
             }            
         }        
     }
+    public void SetPanel()
+    {
+        var f = FieldManager.Instance;
+        
+        for(int i = 0; i < _inventry.Length; i++)
+        {
+            if (_first[i])
+            {
+                f.FirstGet(i);
+                f.ChangeTextValue(i, _inventry[i]);
+            }
+        }
+    }
 
     private void Start()
     {

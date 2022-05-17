@@ -67,7 +67,7 @@ public class FieldManager : Singleton<FieldManager>
         SoundManager.Instance.BGMPlay();
         SoundManager.Instance.FadeOutAudio(1);
         TestItemManager.Instance?.InstanceItem();
-        
+        ItemManager.Instance.SetPanel();
     }
 
 
