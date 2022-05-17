@@ -9,8 +9,16 @@ public class DestructibleItem : MonoBehaviour, IDamage
 {
     [SerializeField, Tooltip("何回攻撃したら壊れるか")]
     int _hp = 1;
+
     [SerializeField, Tooltip("壊したときに生成するPrefab")]
     GameObject _breakObject;
+
+    [SerializeField, Tooltip("確率でドロップするアイテム")]
+    GameObject _dropObject = default;
+
+    [SerializeField, Tooltip("ドロップする確率の分母")]
+    int _dropProbability = 5;
+
     [SerializeField, Tooltip("AudioClip")]
     AudioClip _audio;
 
@@ -27,10 +35,20 @@ public class DestructibleItem : MonoBehaviour, IDamage
 
         Debug.Log($"{gameObject.name}を壊した");
 
-        Destroy(gameObject);
-        if(_breakObject)
+        if (_breakObject)
         {
             var go = Instantiate(_breakObject, transform.position, Quaternion.identity);
         }
+        if(_dropObject)
+        {
+            int luck = Random.Range(0,_dropProbability);
+            if(luck ==0)
+            {
+                Instantiate(_dropObject, transform.position, Quaternion.identity);
+            }
+            
+        }
+        Destroy(gameObject);
+
     }
 }
