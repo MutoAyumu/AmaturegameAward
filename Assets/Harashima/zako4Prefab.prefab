@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 8047196671477314594}
   - component: {fileID: -2756719352887929435}
   - component: {fileID: 1377776313}
+  - component: {fileID: 1561876876348043090}
   m_Layer: 0
   m_Name: zako4Prefab
   m_TagString: Untagged
@@ -274,7 +275,7 @@ MonoBehaviour:
   _rb: {fileID: -2915792056716913524}
   _sprite: {fileID: 7582588298370003683}
   _anim: {fileID: 7582588298370003612}
-  _noticeDistance: 1
+  _noticeDistance: 3
 --- !u!50 &-2915792056716913524
 Rigidbody2D:
   serializedVersion: 4
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7582588298370003613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a89d4a659385f2648bcac51d9ef68df0, type: 3}
   m_Name: 
@@ -354,6 +355,29 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.24
+--- !u!114 &1561876876348043090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582588298370003613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73689cf55032ad54292f7b27cccc4472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCol: {fileID: 1690690630836301918}
+  _attackTime: 1
+  _audio: {fileID: 0}
+  _rb: {fileID: -2915792056716913524}
+  _anim: {fileID: 7582588298370003612}
+  _criAtomSource: {fileID: 0}
+  _cuename: GaAttack
+  _straightBulletPrefab: {fileID: 7230000268191832640, guid: 9c75454704bb9e647ad84568d4bda6e4, type: 3}
+  _homingBulletPrefab: {fileID: 5082854643189072000, guid: b23add9ba7e287a44ac31a7a487e9606, type: 3}
+  _muzzle: {fileID: 1944963430909320740}
+  _attackPatternDistance: 0
 --- !u!1001 &5011852129738373074
 PrefabInstance:
   m_ObjectHideFlags: 0

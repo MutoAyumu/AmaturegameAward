@@ -32,14 +32,15 @@ public class EnemyBulletShooter : EnemyAttack
     }
     void Shoot()
     {
+        _muzzle.gameObject.SetActive(true);
         int random = Random.Range(0,2);
         if(random==0)
         {
-            Instantiate(_straightBulletPrefab,_muzzle.transform.position,Quaternion.identity);
+            Instantiate(_straightBulletPrefab, _muzzle.transform.position,Quaternion.identity,this.transform);
         }
         else
         {
-            Instantiate(_homingBulletPrefab, _muzzle.transform.position, Quaternion.identity);
+            Instantiate(_homingBulletPrefab, _muzzle.transform.position, Quaternion.identity, this.transform);
         }        
     }
 }
