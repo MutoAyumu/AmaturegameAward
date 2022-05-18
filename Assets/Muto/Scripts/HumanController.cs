@@ -71,12 +71,24 @@ public class HumanController : CharacterControllerBase
         _status = CharacterStatus.IDLE;
     }
 
-    public override void IsDamage()
+    public override void IsDamageAction()
     {
-        base.IsDamage();
+        base.IsDamageAction();
         if (!CharacterManager.Instance.IsTogether)
         {
             _anim.Play("DamageTree");
+            var a = _mainSprite.color.a;
+            _coroutine = StartCoroutine(OnDamage(a));
+
+            _isDamage = true;
+        }
+        else
+        {
+            _anim.Play("ToDamage");
+            var a = _togetherImage.color.a;
+            _coroutine = StartCoroutine(OnDamage(a));
+
+            _isDamage = true;
         }
     }
     void Activate()
