@@ -92,14 +92,16 @@ public class HumanController : CharacterControllerBase
         if (!CharacterManager.Instance.IsTogether)
         {
             _anim.Play("DamageTree");
-            _coroutine = StartCoroutine(OnDamage());
+            var alpha = _mainSprite.color.a;
+            _coroutine = StartCoroutine(OnDamage(alpha));
 
             _isDamage = true;
         }
         else
         {
             _anim.Play("ToDamage");
-            _coroutine = StartCoroutine(OnDamage());
+            var alpha = _togetherImage.color.a; ;
+            _coroutine = StartCoroutine(OnDamage(alpha));
 
             _isDamage = true;
         }

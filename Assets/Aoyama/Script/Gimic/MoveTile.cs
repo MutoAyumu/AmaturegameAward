@@ -8,7 +8,6 @@ public class MoveTile : MonoBehaviour, IActivate
     [SerializeField] TileParam[] _param;
     [SerializeField] string _humanTag = "Player";
     [SerializeField] string _ghostTag = "Respawn";
-    [SerializeField] GameObject _col = default;
 
     int _index = 0;
     Vector3 dir;
@@ -20,8 +19,11 @@ public class MoveTile : MonoBehaviour, IActivate
     {
         //_isMove = true;
         //_isNext = true;
+        foreach(var param in _param)
+        {
+            SetCollider(param, true);
+        }
 
-        _col.SetActive(false);
         transform.position = _param[_index].MovePoint.position;
     }
 
@@ -66,7 +68,6 @@ public class MoveTile : MonoBehaviour, IActivate
     void MoveNext()
     {
         _isMove = false;
-        _col.SetActive(true);
         _currentParam = _param[++_index];
         Debug.Log(_index);
         dir = _currentParam.MovePoint.position;
@@ -81,7 +82,6 @@ public class MoveTile : MonoBehaviour, IActivate
     void MoveBack()
     {
         _isMove = false;
-        _col.SetActive(true);
         _currentParam = _param[--_index];
         Debug.Log(_index);
         dir = _currentParam.MovePoint.position;
@@ -98,23 +98,20 @@ public class MoveTile : MonoBehaviour, IActivate
         DOVirtual.DelayedCall(_currentParam.WaitTime, () => _isMove = true)
             .OnStart(() => 
             {
-                if(_index == 0 || _index == _param.Length - 1)
-                {
-                    _col.SetActive(false);
-
-                    if(_currentParam.Collider)
-                    {
-                        _currentParam.Collider.SetActive(false);
-                    }
-                }
+                SetCollider(_currentParam, false);
             })
             .OnComplete(() =>
             {
-                if (_currentParam.Collider)
-                {
-                    _currentParam.Collider.SetActive(true);
-                }
+                SetCollider(_currentParam, true);
             });
+    }
+    void SetCollider(TileParam tile, bool value)
+    {
+        if (tile.Collider && tile.TileCollider)
+        {
+            tile.Collider.SetActive(value);
+            tile.TileCollider.SetActive(value);
+        }
     }
     public void Action()
     {
@@ -137,4 +134,6 @@ public class TileParam
     [SerializeField] public Transform MovePoint;
 
     [SerializeField] public GameObject Collider;
+
+    [SerializeField] public GameObject TileCollider;
 }

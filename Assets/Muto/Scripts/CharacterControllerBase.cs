@@ -322,12 +322,12 @@ public class CharacterControllerBase : MonoBehaviour
         //StartCoroutine(DamageStart());
         //_status = CharacterStatus.DAMAGE;
     }
-    protected IEnumerator OnDamage()
+    protected IEnumerator OnDamage(float alpha)
     {
         yield return new WaitForSeconds(3.0f);
 
         _isDamage = false;
-        _mainSprite.color = new Color(1, 1, 1, 1);
+        _mainSprite.color = new Color(1, 1, 1, alpha);
     }
     IEnumerator DamageStart()
     {

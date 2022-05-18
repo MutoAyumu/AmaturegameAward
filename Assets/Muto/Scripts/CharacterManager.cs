@@ -210,8 +210,6 @@ public class CharacterManager : Singleton<CharacterManager>
         _human = Instantiate(_human, _instancePos[0].position, Quaternion.identity);
         _ghost = Instantiate(_ghost, _instancePos[1].position, Quaternion.identity);
 
-        _maxSpacing = FieldManager.Instance.ReturnSpacing();
-
         HumanExchange();
 
         if (_toPanel)
@@ -288,6 +286,7 @@ public class CharacterManager : Singleton<CharacterManager>
         if (_isTogether)
         {
             _isTogether = false;
+            _ghost.MainSprite.DOFade(_ghost.Alpha, 1);
             _human.Anim.SetBool("IsTogether", _isTogether);
         }
     }
@@ -303,6 +302,7 @@ public class CharacterManager : Singleton<CharacterManager>
                 _human.Stop();
                 //_ghost.Col.isTrigger = true;
                 _ghost.ChangerMessageFlag(false);
+                _ghost.MainSprite.DOFade(1f, 1);
             })
             .OnComplete(() =>
             {
