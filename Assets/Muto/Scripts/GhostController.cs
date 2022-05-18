@@ -82,10 +82,14 @@ public class GhostController : CharacterControllerBase
     //    }
     //}
 
-    public override void IsDamage()
+    public override void IsDamageAction()
     {
-        base.IsDamage();
+        base.IsDamageAction();
         _anim.Play("DamageTree");
+                var a = _mainSprite.color.a;
+        _coroutine = StartCoroutine(OnDamage(a));
+
+        _isDamage = true;
     }
     /// <summary>
     /// —H—ì‚É‚¾‚¯‚³‚¹‚éˆ—‚ÌŠÖ”
