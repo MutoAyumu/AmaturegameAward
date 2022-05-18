@@ -159,7 +159,7 @@ public class CharacterManager : Singleton<CharacterManager>
                     if (_timeLimit <= _timer)
                     {
                         _human.Hp.Damage();
-                        _ghost.Hp.DamageAnim();
+                        _ghost.IsDamageAction();
                         Debug.Log("É_ÉÅÅ[ÉWÇ™ó^Ç¶ÇÁÇÍÇΩ");
                         _timer = 0;
                     }
@@ -418,7 +418,7 @@ public class CharacterManager : Singleton<CharacterManager>
     /// </summary>
     /// <param name="pos"></param>
     /// <returns>î‰ärêÊÇÃTransform</returns>
-    public Vector3 PlayerPosition(Transform pos)
+    public Transform PlayerPosition(Transform pos)
     {
         Vector3 player1 = _human.ColliderCenter();
         Debug.DrawLine(pos.position, player1);
@@ -431,12 +431,12 @@ public class CharacterManager : Singleton<CharacterManager>
         if (isHit1 < isHit2)
         {
             Debug.DrawLine(pos.position, player1, Color.red);
-            return player1;
+            return _human.transform;
         }
         else
         {
             Debug.DrawLine(pos.position, player2, Color.red);
-            return player2;
+            return _ghost.transform;
         }
     }
     public void SetIntaractText(string text)

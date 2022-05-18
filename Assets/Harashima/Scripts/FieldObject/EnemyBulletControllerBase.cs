@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 ///モブから出る弾の基底コントローラークラス
 /// </summary>
-public abstract class EnemyBulletControllerBase : MonoBehaviour
+public class EnemyBulletControllerBase : MonoBehaviour
 {
     [Header("このオブジェクトのコンポーネント")]
     [SerializeField, Tooltip("RigidBody")]
@@ -15,19 +15,44 @@ public abstract class EnemyBulletControllerBase : MonoBehaviour
     [Header("パラメータ")]
     [SerializeField, Tooltip("弾のスピード")]
     protected float _speed = 4f;
+    [SerializeField, Tooltip("弾のダメージ")]
+    protected int _damage = 1;
+
+    protected Transform _playerPos = null;
+
+    public virtual void OnStart()
+    {
+
+    }
+    private void Start()
+    {
+        _playerPos = CharacterManager.Instance.PlayerPosition(this.transform);
+        Vector2 v = _playerPos.position - this.transform.position;
+        _rb.velocity = v.normalized * _speed;
+    }
+
+
 
     private void Update()
     {
         Move();
     }
 
-    public abstract void Move();
+    public virtual void Move()
+    {
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-        }      
+        }
+        else
+        {
+
+        }
+        
     }
 }

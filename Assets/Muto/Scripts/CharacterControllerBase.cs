@@ -9,7 +9,7 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected PlayerHP _hp = default;
     [SerializeField] string _endAreaTag = "Finish";
     [SerializeField] protected Animator _anim = default;
-    [SerializeField] SpriteRenderer _mainSprite = default;
+    [SerializeField] protected SpriteRenderer _mainSprite = default;
     [SerializeField] ObjectSearcher _searchar = default;
     [SerializeField, Tooltip("Searcharを呼ぶときのボタンの名前")] string _inputSearchar = "Fire2";
     [SerializeField, Tooltip("Rayの長さ")] protected float _rayLength = 1f;
@@ -40,6 +40,8 @@ public class CharacterControllerBase : MonoBehaviour
     protected bool IsSetText;
 
     RaycastHit2D _hit;
+    protected Coroutine _coroutine;
+    protected bool _isDamage;
 
     public bool IsControll { get => _isControll; set => _isControll = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
@@ -48,6 +50,7 @@ public class CharacterControllerBase : MonoBehaviour
     public float CurrentSpeed { get => _currentSpeed; set => _currentSpeed = value; }
     public Animator Anim { get => _anim; }
     public Collider2D Col { get => _col; }
+    public bool IsDamage { get => _isDamage;}
 
     protected enum CharacterStatus
     {
@@ -68,6 +71,9 @@ public class CharacterControllerBase : MonoBehaviour
     {
         _fieldManager.OnPause -= Pause;
         _fieldManager.OnResume -= Resume;
+        StopCoroutine(_coroutine);
+        _coroutine = null;
+        _isDamage = false;
     }
     private void Awake()
     {
@@ -148,6 +154,12 @@ public class CharacterControllerBase : MonoBehaviour
         {
             //_interactImage.SetActive(false);
         }
+
+        if (_isDamage)
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
+            _mainSprite.color = new Color(1f, 1f, 1f, level);
+        }
     }
     /// <summary>
     /// 派生先で使うUpdate
@@ -199,6 +211,8 @@ public class CharacterControllerBase : MonoBehaviour
             {
                 if (_lh != _h || _lv != _v)
                 {
+                    _h = RoundingUpDown(_h);
+                    _v = RoundingUpDown(_v);
                     _lh = _h;
                     _lv = _v;
                 }
@@ -211,6 +225,17 @@ public class CharacterControllerBase : MonoBehaviour
         {
             _anim.SetFloat("X", _lh);
             _anim.SetFloat("Y", _lv);
+        }
+    }
+    float RoundingUpDown(float f)
+    {
+        if(f > 0)
+        {
+            return Mathf.Ceil(f);
+        }
+        else
+        {
+            return Mathf.Floor(f);
         }
     }
     /// <summary>
@@ -291,11 +316,18 @@ public class CharacterControllerBase : MonoBehaviour
         _status = CharacterStatus.Dead;
         _anim.SetBool("IsDead", true);
     }
-    public virtual void IsDamage()
+    public virtual void IsDamageAction()
     {
         _rb.AddForce(-new Vector2(_lh, _lv).normalized * 20, ForceMode2D.Impulse);
         //StartCoroutine(DamageStart());
         //_status = CharacterStatus.DAMAGE;
+    }
+    protected IEnumerator OnDamage(float alpha)
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        _isDamage = false;
+        _mainSprite.color = new Color(1, 1, 1, alpha);
     }
     IEnumerator DamageStart()
     {

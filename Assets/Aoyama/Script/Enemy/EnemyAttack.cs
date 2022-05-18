@@ -5,31 +5,36 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField, Tooltip("攻撃判定を行うコライダー")]
-    Collider2D _attackCol;
+    protected Collider2D _attackCol;
     [SerializeField, Tooltip("攻撃するまでの時間")]
-    float _attackTime = 1;
+    protected float _attackTime = 1;
     [SerializeField, Tooltip("AudioClip")]
     AudioClip _audio;
     [Header("とりあえず参照したいやつ")]
     [SerializeField]
-    Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
     [SerializeField]
-    Animator _anim;
+    protected Animator _anim;
     [Header("音")]
-    [SerializeField] CriAtomSource _criAtomSource;
-    [SerializeField] string _cuename = "GaAttack";
+    [SerializeField] protected CriAtomSource _criAtomSource;
+    [SerializeField] protected string _cuename = "GaAttack";
 
-    ContactFilter2D _filter;
-    List<Collider2D> _result = new List<Collider2D>(7);
+    protected ContactFilter2D _filter;
+    protected List<Collider2D> _result = new List<Collider2D>(7);
 
     int _count = 0;
-    float _timer = 0;
+    protected float _timer = 0;
 
     Vector2 _dir = new Vector2(0, 0);
 
     void Update()
     {
-        if(_rb.velocity == Vector2.zero)
+        OnUpdate();
+    }
+
+    protected virtual void OnUpdate()
+    {
+        if (_rb.velocity == Vector2.zero)
         {
             _timer += Time.deltaTime;
         }
