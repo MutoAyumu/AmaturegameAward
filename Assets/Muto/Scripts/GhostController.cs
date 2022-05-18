@@ -19,11 +19,13 @@ public class GhostController : CharacterControllerBase
     int _attackCount = 0;
     float _timer;
     CharacterManager _cm;
+    float _alpha;
 
     //ステートをリセットする
     public event Action ResetStatus;
 
     public bool IsFixedRange { get => _isFixedRange; set => _isFixedRange = value; }
+    public float Alpha { get => _alpha; set => _alpha = value; }
 
     public override void OnStart()
     {
@@ -31,6 +33,7 @@ public class GhostController : CharacterControllerBase
         _cm = CharacterManager.Instance;
 
         _message.SetMessage(_cm.HumanMessage);
+        _alpha = _mainSprite.color.a;
     }
     public override void OnUpdate()
     {
@@ -81,13 +84,20 @@ public class GhostController : CharacterControllerBase
     //        _isFixedRange = false;
     //    }
     //}
+    public override void DamageAnim()
+    {
+        if (_isDamage)
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
+            _mainSprite.color = new Color(1f, 1f, 1f, level);
+        }
+    }
 
     public override void IsDamageAction()
     {
         base.IsDamageAction();
         _anim.Play("DamageTree");
-                var a = _mainSprite.color.a;
-        _coroutine = StartCoroutine(OnDamage(a));
+        _coroutine = StartCoroutine(OnDamage(_alpha));
 
         _isDamage = true;
     }
