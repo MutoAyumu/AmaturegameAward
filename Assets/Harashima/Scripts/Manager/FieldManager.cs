@@ -30,9 +30,6 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField, Range(1, 10), Tooltip("ステージの番号")]
     int _stageIndex;
 
-    [SerializeField]
-    float _maxSpacing;
-
     [SerializeField, Tooltip("フィールドBGM")]
     AudioClip _bgm;
 
@@ -211,15 +208,6 @@ public class FieldManager : Singleton<FieldManager>
     {
         TestItemManager.Instance.RemoveItem(TestItemManager.Instance.Inventry[index]);
         TestItemManager.Instance.AddItem(TestItemManager.Instance.LastItem);
-    }
-
-    /// <summary>
-    /// 離れられる間隔を返す
-    /// </summary>
-    /// <returns></returns>
-    public float ReturnSpacing()
-    {
-        return _maxSpacing;
     }
 
     public void SetEventCamera(Transform target)

@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43
-    width: 1920
-    height: 997
+    y: 43.2
+    width: 1536
+    height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,8 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1920
-    height: 997
+    width: 1536
+    height: 780.8
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1920
+    width: 1536
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 977
-    width: 1920
+    y: 760.8
+    width: 1536
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -114,12 +114,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1920
-    height: 947
+    width: 1536
+    height: 730.8
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 38
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,12 +139,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1502
-    height: 947
+    width: 1201.6
+    height: 730.8
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 86
+  controlID: 39
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,12 +165,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1502
-    height: 589
+    width: 1201.6
+    height: 459.2
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 87
+  controlID: 40
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,13 +188,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 335
-    height: 589
+    width: 268
+    height: 459.2
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
@@ -212,15 +212,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 335
+    x: 268
     y: 0
-    width: 483
-    height: 589
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+    width: 386.40002
+    height: 459.2
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &10
@@ -238,15 +238,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 818
+    x: 654.4
     y: 0
-    width: 684
-    height: 589
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+    width: 547.19995
+    height: 459.2
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -265,22 +265,21 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 589
-    width: 1502
-    height: 358
+    y: 459.2
+    width: 1201.6
+    height: 271.59998
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
-  - {fileID: 22}
-  - {fileID: 21}
   - {fileID: 20}
+  - {fileID: 21}
+  - {fileID: 14}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 6
+  m_LastSelected: 5
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -296,18 +295,53 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1502
+    x: 1201.6
     y: 0
-    width: 418
-    height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 23}
+    width: 334.40002
+    height: 730.8
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 22}
   m_Panes:
-  - {fileID: 23}
+  - {fileID: 22}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f683d99f24875748a6656966ca9cea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 240, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Tile Palette
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 532.8
+    width: 1200.6
+    height: 250.59998
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_PreviewResizer:
+    m_CachedPref: -50
+    m_ControlHash: 1964396721
+    m_PrefName: Preview_TilemapBrushInspector
+  m_Palette: {fileID: 4599804610343726437, guid: 38cdf4791f209a4489bf8afea01a76f5, type: 3}
+  m_DrawGridGizmo: 1
+  m_DrawGizmos: 0
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,22 +357,22 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animation
-    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -3237396543322336831, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 662
-    width: 1501
-    height: 337
+    y: 532.8
+    width: 1200.6
+    height: 250.59998
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 29248
---- !u!114 &14
+  m_LastSelectedObjectID: 28992
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,14 +388,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
-    width: 334
-    height: 568
+    y: 73.6
+    width: 267
+    height: 438.2
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -369,23 +403,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40720000
-      m_LastClickedID: 29248
-      m_ExpandedIDs: 12fbffff96700000ae710000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: febbfeff74c3feffe4dffeff3ae3feff3ee3feff8ce5feff9eedfeff84f8feff1c28ffffee40ffff3259ffff30f8ffff3af8ffffc4f8ffff12fbffff72710000fc710000027200004e7200004019010012220100b2220100e8230100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Ghost(Clone)
+        m_OriginalName: Ghost(Clone)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -81036
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -395,7 +429,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,14 +445,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 335
-    y: 73
-    width: 481
-    height: 568
+    x: 268
+    y: 73.6
+    width: 384.40002
+    height: 438.2
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -428,8 +462,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -100, y: -25.600006}
-      snapOffsetDelta: {x: -1, y: -0.3999939}
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -100, y: -25.600006}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -439,9 +473,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: -132.6}
+      snapOffset: {x: -141, y: 149}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 1
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -450,7 +484,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -483,7 +517,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -494,7 +528,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -642,9 +676,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.29450727, y: -4.7934694, z: -0.3195094}
+    m_Target: {x: 46.613773, y: -20.246838, z: -0.24897939}
     speed: 2
-    m_Value: {x: -0.29450727, y: -4.7934694, z: -0.3195094}
+    m_Value: {x: 46.536343, y: -20.375626, z: -0.24641964}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -695,9 +729,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.253928
+    m_Target: 5.9443827
     speed: 2
-    m_Value: 8.253928
+    m_Value: 5.6884046
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -722,7 +756,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,14 +772,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 818
-    y: 73
-    width: 682
-    height: 568
+    x: 654.4
+    y: 73.6
+    width: 545.19995
+    height: 438.2
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -771,10 +805,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -960
-    m_HBaseRangeMax: 960
-    m_VBaseRangeMin: -540
-    m_VBaseRangeMax: 540
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -792,29 +826,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 682
-      height: 547
-    m_Scale: {x: 0.35520834, y: 0.35520834}
-    m_Translation: {x: 341, y: 273.5}
+      width: 545.19995
+      height: 417.2
+    m_Scale: {x: 0.3549479, y: 0.3549479}
+    m_Translation: {x: 272.59998, y: 208.6}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -769.97064
-      width: 1920
-      height: 1539.9413
+      x: -768
+      y: -587.6919
+      width: 1536
+      height: 1175.3838
     m_MinimalGUI: 1
-  m_defaultScale: 0.35520834
-  m_LastWindowPixelSize: {x: 682, y: 568}
+  m_defaultScale: 0.3549479
+  m_LastWindowPixelSize: {x: 681.49994, y: 547.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -830,14 +864,14 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 662
-    width: 1501
-    height: 337
+    y: 532.8
+    width: 1200.6
+    height: 250.59998
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -855,22 +889,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Muto/Scripts
+    - Assets/Aoyama/Script/Gimic
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Muto/Scripts
+  - Assets/Aoyama/Script/Gimic
   m_LastFoldersGridSize: 74
-  m_LastProjectPath: "C:\\Users\\dango\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\Unity\\AmaturegameAward"
+  m_LastProjectPath: C:\Users\vantan\AmateurGameAward
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 467}
-    m_SelectedIDs: b0870000
-    m_LastClickedID: 34736
-    m_ExpandedIDs: 00000000ac870000ae870000b0870000b2870000b4870000b6870000b8870000ba870000bc870000be870000c0870000c2870000c4870000c6870000c8870000ca870000cc870000ce870000d0870000d2870000a889000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 287}
+    m_SelectedIDs: daa50000
+    m_LastClickedID: 42458
+    m_ExpandedIDs: 000000003e84000040840000428400004484000046840000488400004a8400004c8400004e8400005084000052840000548400005684000058840000c88a0000ce8a000050a8000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -898,7 +932,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac870000ae870000b0870000b2870000b4870000b6870000b8870000ba870000bc870000be870000c0870000c2870000c4870000c6870000c8870000ca870000cc870000ce870000d0870000d2870000
+    m_ExpandedIDs: 000000003e84000040840000428400004484000046840000488400004a8400004c8400004e8400005084000052840000548400005684000058840000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -925,7 +959,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300005c6f0000e6700000387600003c760000347700006e970000d89b00006e770000f0a30000e07200007c730000d6bb0000707300008a740000d8730000b2730000cce500002e760000207600001e77000090800000208c0000e62f0100fc760000fea5000002a60000fe8a000010910000b87c0000c23a000000000000107a00008296000052370000de29010078430000083c0000aa7d0100123600008e8d0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -954,7 +988,7 @@ MonoBehaviour:
     m_GridSize: 74
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -970,19 +1004,19 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 662
-    width: 1501
-    height: 337
+    y: 532.8
+    width: 1200.6
+    height: 250.59998
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -998,7 +1032,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animator
-    m_Image: {fileID: -1673928668082335149, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 1711060831702674872, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
@@ -1607,763 +1641,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &20
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f683d99f24875748a6656966ca9cea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 240, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Tile Palette
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 400.80002
-    width: 1200.6
-    height: 382.59998
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_PreviewResizer:
-    m_CachedPref: -50
-    m_ControlHash: 1964396721
-    m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 7954576976760384587, guid: b5d7abe520d9a6046aca3b438175993b, type: 3}
-  m_DrawGridGizmo: 1
-  m_DrawGizmos: 0
 --- !u!114 &21
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bacfcb712a3304a40b91990e9f581c6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Atom Browser
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 400.80002
-    width: 1200.6
-    height: 382.59998
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  searchPath: "C:/Users/dango/OneDrive/\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8/Unity/AmaturegameAward/Assets/StreamingAssets"
-  projInfo:
-    acfInfoList:
-    - name: C_team
-      id: 0
-      assetGuid: 
-      comment: 
-      filePath: C_team_BinaryData_0514/C_team.acf
-    - name: sample
-      id: 1
-      assetGuid: 
-      comment: 
-      filePath: sample sound data/sample.acf
-    acbInfoList:
-    - name: BGM
-      id: 0
-      assetGuid: 0b907603b353eb842b0e24db2659074a
-      comment: 
-      acbPath: C_team_BinaryData_0514/BGM.acb
-      awbPath: C_team_BinaryData_0514/BGM.awb
-      cueInfoList:
-      - name: BGMField
-        id: 0
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGMBoss
-        id: 1
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      publicCueInfoList:
-      - name: BGMField
-        id: 0
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGMBoss
-        id: 1
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-    - name: ME
-      id: 1
-      assetGuid: a0f800f66f7da3845804bf9f14a14d04
-      comment: 
-      acbPath: C_team_BinaryData_0514/ME.acb
-      awbPath: 
-      cueInfoList:
-      - name: Clear
-        id: 0
-        assetGuid: 
-        comment: 
-        length: 5500
-        isPublic: 1
-      - name: MEDeath
-        id: 1
-        assetGuid: 
-        comment: 
-        length: 12765
-        isPublic: 1
-      publicCueInfoList:
-      - name: Clear
-        id: 0
-        assetGuid: 
-        comment: 
-        length: 5500
-        isPublic: 1
-      - name: MEDeath
-        id: 1
-        assetGuid: 
-        comment: 
-        length: 12765
-        isPublic: 1
-    - name: SE
-      id: 2
-      assetGuid: 6ac7d30c144cbc6438db1c403060304c
-      comment: 
-      acbPath: C_team_BinaryData_0514/SE.acb
-      awbPath: 
-      cueInfoList:
-      - name: BossDeath_01
-        id: 0
-        assetGuid: 
-        comment: 
-        length: 3035
-        isPublic: 1
-      - name: BossDeath_02
-        id: 1
-        assetGuid: 
-        comment: 
-        length: 3250
-        isPublic: 1
-      - name: DoorOpen
-        id: 2
-        assetGuid: 
-        comment: 
-        length: 1696
-        isPublic: 1
-      - name: EnemyDeath
-        id: 3
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: GaAttack
-        id: 4
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-      - name: GaBossRinpun
-        id: 5
-        assetGuid: 
-        comment: 
-        length: 1000
-        isPublic: 1
-      - name: GaBossTama
-        id: 6
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: GaBossVoice
-        id: 7
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: GhostDamage
-        id: 8
-        assetGuid: 
-        comment: 
-        length: 281
-        isPublic: 1
-      - name: GhostDeath
-        id: 9
-        assetGuid: 
-        comment: 
-        length: 624
-        isPublic: 1
-      - name: GhostLight
-        id: 10
-        assetGuid: 
-        comment: 
-        length: 1750
-        isPublic: 1
-      - name: Hand
-        id: 11
-        assetGuid: 
-        comment: 
-        length: 187
-        isPublic: 1
-      - name: HumanAttackHit
-        id: 12
-        assetGuid: 
-        comment: 
-        length: 531
-        isPublic: 1
-      - name: HumanAttackShovel
-        id: 13
-        assetGuid: 
-        comment: 
-        length: 500
-        isPublic: 1
-      - name: HumanAttackSwing
-        id: 14
-        assetGuid: 
-        comment: 
-        length: 437
-        isPublic: 1
-      - name: HumanDamage
-        id: 15
-        assetGuid: 
-        comment: 
-        length: 374
-        isPublic: 1
-      - name: HumanDeath
-        id: 16
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-      - name: HumanFootsteps
-        id: 17
-        assetGuid: 
-        comment: 
-        length: 124
-        isPublic: 1
-      - name: KurageAttack
-        id: 18
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: KurageVoice
-        id: 19
-        assetGuid: 
-        comment: 
-        length: 2250
-        isPublic: 1
-      - name: KuroBossKen
-        id: 20
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: MedamaAttack
-        id: 21
-        assetGuid: 
-        comment: 
-        length: 1000
-        isPublic: 1
-      - name: MedamaIdle
-        id: 22
-        assetGuid: 
-        comment: 
-        length: 6750
-        isPublic: 1
-      - name: ObjectSwitch
-        id: 23
-        assetGuid: 
-        comment: 
-        length: 358
-        isPublic: 1
-      - name: OpenChest
-        id: 24
-        assetGuid: 
-        comment: 
-        length: 1002
-        isPublic: 1
-      - name: RasuBossVoice
-        id: 25
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: SwitchPlayer
-        id: 26
-        assetGuid: 
-        comment: 
-        length: 124
-        isPublic: 1
-      - name: SystemDone
-        id: 27
-        assetGuid: 
-        comment: 
-        length: 59
-        isPublic: 1
-      - name: SystemSelect
-        id: 28
-        assetGuid: 
-        comment: 
-        length: 386
-        isPublic: 1
-      - name: SystemText
-        id: 29
-        assetGuid: 
-        comment: 
-        length: 250
-        isPublic: 1
-      - name: UdeVoice
-        id: 30
-        assetGuid: 
-        comment: 
-        length: 1874
-        isPublic: 1
-      - name: Wind
-        id: 31
-        assetGuid: 
-        comment: 
-        length: 36752
-        isPublic: 1
-      - name: ZakoDamage
-        id: 32
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-      publicCueInfoList:
-      - name: BossDeath_01
-        id: 0
-        assetGuid: 
-        comment: 
-        length: 3035
-        isPublic: 1
-      - name: BossDeath_02
-        id: 1
-        assetGuid: 
-        comment: 
-        length: 3250
-        isPublic: 1
-      - name: DoorOpen
-        id: 2
-        assetGuid: 
-        comment: 
-        length: 1696
-        isPublic: 1
-      - name: EnemyDeath
-        id: 3
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: GaAttack
-        id: 4
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-      - name: GaBossRinpun
-        id: 5
-        assetGuid: 
-        comment: 
-        length: 1000
-        isPublic: 1
-      - name: GaBossTama
-        id: 6
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: GaBossVoice
-        id: 7
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: GhostDamage
-        id: 8
-        assetGuid: 
-        comment: 
-        length: 281
-        isPublic: 1
-      - name: GhostDeath
-        id: 9
-        assetGuid: 
-        comment: 
-        length: 624
-        isPublic: 1
-      - name: GhostLight
-        id: 10
-        assetGuid: 
-        comment: 
-        length: 1750
-        isPublic: 1
-      - name: Hand
-        id: 11
-        assetGuid: 
-        comment: 
-        length: 187
-        isPublic: 1
-      - name: HumanAttackHit
-        id: 12
-        assetGuid: 
-        comment: 
-        length: 531
-        isPublic: 1
-      - name: HumanAttackShovel
-        id: 13
-        assetGuid: 
-        comment: 
-        length: 500
-        isPublic: 1
-      - name: HumanAttackSwing
-        id: 14
-        assetGuid: 
-        comment: 
-        length: 437
-        isPublic: 1
-      - name: HumanDamage
-        id: 15
-        assetGuid: 
-        comment: 
-        length: 374
-        isPublic: 1
-      - name: HumanDeath
-        id: 16
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-      - name: HumanFootsteps
-        id: 17
-        assetGuid: 
-        comment: 
-        length: 124
-        isPublic: 1
-      - name: KurageAttack
-        id: 18
-        assetGuid: 
-        comment: 
-        length: 2500
-        isPublic: 1
-      - name: KurageVoice
-        id: 19
-        assetGuid: 
-        comment: 
-        length: 2250
-        isPublic: 1
-      - name: KuroBossKen
-        id: 20
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: MedamaAttack
-        id: 21
-        assetGuid: 
-        comment: 
-        length: 1000
-        isPublic: 1
-      - name: MedamaIdle
-        id: 22
-        assetGuid: 
-        comment: 
-        length: 6750
-        isPublic: 1
-      - name: ObjectSwitch
-        id: 23
-        assetGuid: 
-        comment: 
-        length: 358
-        isPublic: 1
-      - name: OpenChest
-        id: 24
-        assetGuid: 
-        comment: 
-        length: 1002
-        isPublic: 1
-      - name: RasuBossVoice
-        id: 25
-        assetGuid: 
-        comment: 
-        length: 2000
-        isPublic: 1
-      - name: SwitchPlayer
-        id: 26
-        assetGuid: 
-        comment: 
-        length: 124
-        isPublic: 1
-      - name: SystemDone
-        id: 27
-        assetGuid: 
-        comment: 
-        length: 59
-        isPublic: 1
-      - name: SystemSelect
-        id: 28
-        assetGuid: 
-        comment: 
-        length: 386
-        isPublic: 1
-      - name: SystemText
-        id: 29
-        assetGuid: 
-        comment: 
-        length: 250
-        isPublic: 1
-      - name: UdeVoice
-        id: 30
-        assetGuid: 
-        comment: 
-        length: 1874
-        isPublic: 1
-      - name: Wind
-        id: 31
-        assetGuid: 
-        comment: 
-        length: 36752
-        isPublic: 1
-      - name: ZakoDamage
-        id: 32
-        assetGuid: 
-        comment: 
-        length: 750
-        isPublic: 1
-    - name: DemoBGM
-      id: 3
-      assetGuid: 683a120565f71e8458e7bf8577c8d2b5
-      comment: 
-      acbPath: sample sound data/DemoBGM.acb
-      awbPath: sample sound data/DemoBGM.awb
-      cueInfoList:
-      - name: BGM_sample1
-        id: 0
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGM_sample2
-        id: 1
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGM_sample3
-        id: 2
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: Jingle_sample
-        id: 3
-        assetGuid: 
-        comment: 
-        length: 6891
-        isPublic: 1
-      - name: BGM_sample4
-        id: 4
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      publicCueInfoList:
-      - name: BGM_sample1
-        id: 0
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGM_sample2
-        id: 1
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: BGM_sample3
-        id: 2
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: Jingle_sample
-        id: 3
-        assetGuid: 
-        comment: 
-        length: 6891
-        isPublic: 1
-      - name: BGM_sample4
-        id: 4
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-    - name: DemoSE
-      id: 4
-      assetGuid: 37c8b1878ce1204428c1fc4eb64f5dbb
-      comment: 
-      acbPath: sample sound data/DemoSE.acb
-      awbPath: 
-      cueInfoList:
-      - name: SE_sample1
-        id: 4
-        assetGuid: 
-        comment: 
-        length: 1243
-        isPublic: 1
-      - name: SE_sample2
-        id: 5
-        assetGuid: 
-        comment: 
-        length: 1459
-        isPublic: 1
-      - name: SE_sample3
-        id: 6
-        assetGuid: 
-        comment: 
-        length: 716
-        isPublic: 1
-      - name: SE_sample4
-        id: 7
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: SE_sample5
-        id: 8
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      publicCueInfoList:
-      - name: SE_sample1
-        id: 4
-        assetGuid: 
-        comment: 
-        length: 1243
-        isPublic: 1
-      - name: SE_sample2
-        id: 5
-        assetGuid: 
-        comment: 
-        length: 1459
-        isPublic: 1
-      - name: SE_sample3
-        id: 6
-        assetGuid: 
-        comment: 
-        length: 716
-        isPublic: 1
-      - name: SE_sample4
-        id: 7
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-      - name: SE_sample5
-        id: 8
-        assetGuid: 
-        comment: 
-        length: -1
-        isPublic: 1
-    gotAcfList: 1
-    gotAcbList: 1
-  criAtomWindowPrefs: {fileID: 11400000, guid: 541751075adc9e84f887c54188d07a6b, type: 2}
-  toolBarButtonStyle:
-    m_Name: toolbarbutton
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds:
-      - {fileID: -6675728888473347081, guid: 0000000000000000d000000000000000, type: 0}
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds:
-      - {fileID: -6559566165897956916, guid: 0000000000000000d000000000000000, type: 0}
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds:
-      - {fileID: -4689374610832948062, guid: 0000000000000000d000000000000000, type: 0}
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds:
-      - {fileID: -2590580295915515212, guid: 0000000000000000d000000000000000, type: 0}
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
-    m_Border:
-      m_Left: 6
-      m_Right: 6
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 5
-      m_Right: 5
-      m_Top: 1
-      m_Bottom: 3
-    m_Overflow:
-      m_Left: 0
-      m_Right: 1
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 12
-    m_FontStyle: 0
-    m_Alignment: 3
-    m_WordWrap: 0
-    m_RichText: 0
-    m_TextClipping: 1
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 20
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  showPrivateCue: 0
---- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2379,14 +1657,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Timeline
-    m_Image: {fileID: -9173288242387172643, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5401195905404635996, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 400.80002
+    y: 532.8
     width: 1200.6
-    height: 382.59998
+    height: 250.59998
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2400,7 +1678,7 @@ MonoBehaviour:
   m_SequencePath:
     m_SelectionRoot: 0
     m_SubElements: []
---- !u!114 &23
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2416,14 +1694,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1502
-    y: 73
-    width: 417
-    height: 926
+    x: 1201.6
+    y: 73.6
+    width: 333.40002
+    height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
