@@ -152,7 +152,7 @@ public class EnemyMove : MonoBehaviour
     /// </summary>
     public void KnockBack()
     {
-        StartCoroutine(StopMove());
+        StartCoroutine(StopMove(0.2f));
         dir = (transform.position - _target).normalized * _knockBackPower;
         _rb.AddForce(dir, ForceMode2D.Impulse);
     }
@@ -168,6 +168,8 @@ public class EnemyMove : MonoBehaviour
     }
 
     float n = 0;
+
+
     public void Pause()
     {
         _rb.velocity = Vector3.zero;
@@ -184,10 +186,10 @@ public class EnemyMove : MonoBehaviour
         _isPause = false;
     }
 
-    IEnumerator StopMove()
+    public IEnumerator StopMove(float stopTime)
     {
         _isMove = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(stopTime);
         _isMove = true;
     }
 }
