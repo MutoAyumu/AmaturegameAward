@@ -70,23 +70,36 @@ public class HumanController : CharacterControllerBase
         _anim.SetBool("IsAttack", false);
         _status = CharacterStatus.IDLE;
     }
+    public override void DamageAnim()
+    {
+        if (_isDamage)
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
 
+            if (!CharacterManager.Instance.IsTogether)
+            {          
+                _mainSprite.color = new Color(1f, 1f, 1f, level);
+            }
+            else
+            {
+                _togetherImage.color = new Color(1f,1f,1f,level);
+            }
+        }
+    }
     public override void IsDamageAction()
     {
         base.IsDamageAction();
         if (!CharacterManager.Instance.IsTogether)
         {
             _anim.Play("DamageTree");
-            var a = _mainSprite.color.a;
-            _coroutine = StartCoroutine(OnDamage(a));
+            _coroutine = StartCoroutine(OnDamage());
 
             _isDamage = true;
         }
         else
         {
             _anim.Play("ToDamage");
-            var a = _togetherImage.color.a;
-            _coroutine = StartCoroutine(OnDamage(a));
+            _coroutine = StartCoroutine(OnDamage());
 
             _isDamage = true;
         }

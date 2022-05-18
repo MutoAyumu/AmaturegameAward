@@ -101,6 +101,8 @@ public class CharacterControllerBase : MonoBehaviour
             return;
         }
 
+        DamageAnim();
+
         if (_isControll && !IsPause)
         {
             InputValue();
@@ -154,17 +156,15 @@ public class CharacterControllerBase : MonoBehaviour
         {
             //_interactImage.SetActive(false);
         }
-
-        if (_isDamage)
-        {
-            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
-            _mainSprite.color = new Color(1f, 1f, 1f, level);
-        }
     }
     /// <summary>
     /// îhê∂êÊÇ≈égÇ§Update
     /// </summary>
     public virtual void OnUpdate()
+    {
+
+    }
+    public virtual void DamageAnim()
     {
 
     }
@@ -322,12 +322,12 @@ public class CharacterControllerBase : MonoBehaviour
         //StartCoroutine(DamageStart());
         //_status = CharacterStatus.DAMAGE;
     }
-    protected IEnumerator OnDamage(float alpha)
+    protected IEnumerator OnDamage()
     {
         yield return new WaitForSeconds(3.0f);
 
         _isDamage = false;
-        _mainSprite.color = new Color(1, 1, 1, alpha);
+        _mainSprite.color = new Color(1, 1, 1, 1);
     }
     IEnumerator DamageStart()
     {

@@ -81,13 +81,20 @@ public class GhostController : CharacterControllerBase
     //        _isFixedRange = false;
     //    }
     //}
+    public override void DamageAnim()
+    {
+        if (_isDamage)
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
+            _mainSprite.color = new Color(1f, 1f, 1f, level);
+        }
+    }
 
     public override void IsDamageAction()
     {
         base.IsDamageAction();
         _anim.Play("DamageTree");
-                var a = _mainSprite.color.a;
-        _coroutine = StartCoroutine(OnDamage(a));
+        _coroutine = StartCoroutine(OnDamage());
 
         _isDamage = true;
     }
