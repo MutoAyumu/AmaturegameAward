@@ -17,7 +17,8 @@ public class EnemyBulletControllerBase : MonoBehaviour
     protected float _speed = 4f;
     [SerializeField, Tooltip("íeÇÃÉ_ÉÅÅ[ÉW")]
     protected int _damage = 1;
-
+    [SerializeField, Tooltip("íeÇ™è¡Ç¶ÇÈÇ‹Ç≈ÇÃéûä‘")]
+    protected float _destroyTime = 4f;
     protected Transform _playerPos = null;
 
     public virtual void OnStart()
@@ -29,6 +30,7 @@ public class EnemyBulletControllerBase : MonoBehaviour
         _playerPos = CharacterManager.Instance.PlayerPosition(this.transform);
         Vector2 v = _playerPos.position - this.transform.position;
         _rb.velocity = v.normalized * _speed;
+        OnStart();
     }
 
 
@@ -47,6 +49,7 @@ public class EnemyBulletControllerBase : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            OnTriggerMethod();
             Destroy(this.gameObject);
         }
         else
@@ -55,4 +58,6 @@ public class EnemyBulletControllerBase : MonoBehaviour
         }
         
     }
+
+    protected virtual void OnTriggerMethod() { }
 }
