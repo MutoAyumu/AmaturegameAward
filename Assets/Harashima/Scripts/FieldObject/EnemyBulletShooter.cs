@@ -53,8 +53,16 @@ public class EnemyBulletShooter : EnemyAttack
         if (_attackTime <= _timer && dis > _attackPatternDistance)
         {
             StartCoroutine(_enemyMove.StopMove(_stopTime));
-            //Shoot();
-            Bomb();
+            int random = UnityEngine.Random.Range(0, 2);
+            if(random ==0)
+            {
+                Shoot();
+            }
+            else
+            {
+                Bomb();
+            }
+            
             _timer = 0;
         }
         else if (_attackTime <= _timer)
