@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
 {
     [SerializeField] float _attackTime = 5;
     [SerializeField] int _firstIndex = 1;
+    [SerializeField] string _cueName = "BGMBoss";
     [SerializeField] Animator _anim;
     //[SerializeField] aa a;
 
@@ -17,6 +18,8 @@ public class BossAttack : MonoBehaviour
     void Start()
     {
         _isTimer = true; Debug.Log(_isTimer);
+
+        SoundManager.Instance.CriAtomPlay(CueSheet.BGM, _cueName);
     }
 
     void Update()

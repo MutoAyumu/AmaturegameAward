@@ -21,9 +21,7 @@ public class Rinpun : MonoBehaviour
 
     public void RinpunAttack()
     {
-        _criAtomSource.cueSheet = CueSheet.SE.ToString();
-        _criAtomSource.cueName = _cuename;
-        _criAtomSource.Play();
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cuename);
 
         GameObject.Instantiate(_rightBullet, _rightMuzzle.position, Quaternion.identity);
         GameObject.Instantiate(_leftBullet, _leftMuzzle.position, Quaternion.identity);
