@@ -20,6 +20,7 @@ public class MessageManager : Singleton<MessageManager>
 
     /// <summary>メッセージウィンドウのテキストコンポーネント</summary>
     Text _windowText;
+    Image _windowImage;
 
     /// <summary>メッセージウィンドウオブジェクト </summary>
     GameObject _windowPanel;
@@ -34,11 +35,22 @@ public class MessageManager : Singleton<MessageManager>
         var tfm = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform).GetComponentInChildren<RectTransform>();
         _windowText = tfm.GetComponentInChildren<Text>();
         _windowPanel = tfm.transform.gameObject;
+        _windowImage = _windowPanel.GetComponentInChildren<Image>();
     }
 
     public void SetText(string msg)
     {
         ActiveWindow(true);
+        if (_windowText && !_isText)
+        {
+            //_windowText.text = msg;
+            StartCoroutine(DrawText(msg));
+        }
+    }
+    public void SetText(string msg, Sprite sprite)
+    {
+        ActiveWindow(true);
+        _windowImage.sprite = sprite;
         if (_windowText && !_isText)
         {
             //_windowText.text = msg;

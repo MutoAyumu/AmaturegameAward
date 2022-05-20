@@ -9,6 +9,7 @@ public class MessageCharacter : MonoBehaviour,IActivate,ISetText
     bool IsFlag = true;
 
     [SerializeField] string _text = "B 話しかける";
+    [SerializeField] Sprite _sprite = default;
     public void SetMessage(string[] m)
     {
         _message = m;
@@ -22,7 +23,7 @@ public class MessageCharacter : MonoBehaviour,IActivate,ISetText
         if (IsFlag)//メッセージフラグが立っているときだけ流れるようにする
         {
             var i = GameManager.Instance.ReturnPoint();
-            MessageManager.Instance.SetText(_message[Mathf.Clamp(i, 0, _message.Length - 1)]);
+            MessageManager.Instance.SetText(_message[Mathf.Clamp(i, 0, _message.Length - 1)], _sprite);
         }
     }
     public string SetText()
