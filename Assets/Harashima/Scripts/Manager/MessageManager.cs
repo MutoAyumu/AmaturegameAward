@@ -32,15 +32,17 @@ public class MessageManager : Singleton<MessageManager>
 
     void InstansWindow()
     {
-        var tfm = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform).GetComponentInChildren<RectTransform>();
-        _windowText = tfm.GetComponentInChildren<Text>();
-        _windowPanel = tfm.transform.gameObject;
-        _windowImage = _windowPanel.GetComponentInChildren<Image>();
+        _windowPanel = Instantiate(_messageWindowPrefab, FieldManager.Instance.Canvas.transform);
+        var children = _windowPanel.GetComponentsInChildren<RectTransform>();
+        _windowText = children[2].GetComponent<Text>();
+        _windowImage = children[3].GetComponent<Image>();
     }
 
     public void SetText(string msg)
     {
         ActiveWindow(true);
+        _windowImage.enabled = false; //‚±‚±•Ï‚¦‚é‚©‚à
+
         if (_windowText && !_isText)
         {
             //_windowText.text = msg;
@@ -50,7 +52,9 @@ public class MessageManager : Singleton<MessageManager>
     public void SetText(string msg, Sprite sprite)
     {
         ActiveWindow(true);
+        _windowImage.enabled = true;
         _windowImage.sprite = sprite;
+
         if (_windowText && !_isText)
         {
             //_windowText.text = msg;

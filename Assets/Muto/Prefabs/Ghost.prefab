@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: "B \u8A71\u3057\u304B\u3051\u308B"
-  _sprite: {fileID: 21300000, guid: da6b0c7c6c8cc3247bdc563204997add, type: 3}
+  _sprite: {fileID: 21300000, guid: f5e423bc48e3a674c98bf59baa98612b, type: 3}
 --- !u!114 &1930548270821196415
 MonoBehaviour:
   m_ObjectHideFlags: 0
