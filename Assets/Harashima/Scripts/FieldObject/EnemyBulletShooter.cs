@@ -22,6 +22,10 @@ public class EnemyBulletShooter : EnemyAttack
     SpriteRenderer _spriteRenderer = null;
     [SerializeField]
     float _stopTime = 1f;
+    [SerializeField]
+    int _bulletValue = 3;
+    [SerializeField]
+    float _bulletInterval = 0.3f;
     protected override void OnUpdate()
     {
         if (_rb.velocity == Vector2.zero)
@@ -72,15 +76,24 @@ public class EnemyBulletShooter : EnemyAttack
             });
             if (random == 0)
             {
-                Instantiate(_straightBulletPrefab, _rightMuzzle.transform.position, Quaternion.identity, this.transform);
+                StartCoroutine(InstantiateBullet(_straightBulletPrefab));
             }
             else
             {
-                Instantiate(_homingBulletPrefab, _rightMuzzle.transform.position, Quaternion.identity, this.transform);
+                StartCoroutine(InstantiateBullet(_homingBulletPrefab));
+                
             }
         }
         
-      
+        IEnumerator InstantiateBullet(GameObject prefab)
+        {
+            for (int i = 0; i < _bulletValue; i++)
+            {
+                yield return new WaitForSeconds(_bulletInterval);
+                Instantiate(prefab, _rightMuzzle.transform.position, Quaternion.identity, this.transform);
+            }
+            
+        }
 
     }
 }

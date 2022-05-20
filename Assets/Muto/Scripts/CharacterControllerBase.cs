@@ -71,8 +71,12 @@ public class CharacterControllerBase : MonoBehaviour
     {
         _fieldManager.OnPause -= Pause;
         _fieldManager.OnResume -= Resume;
-        StopCoroutine(_coroutine);
-        _coroutine = null;
+
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
         _isDamage = false;
     }
     private void Awake()

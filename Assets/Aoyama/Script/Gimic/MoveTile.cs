@@ -31,7 +31,14 @@ public class MoveTile : MonoBehaviour, IActivate
     {
         if (collision.gameObject.CompareTag(_humanTag) || collision.gameObject.CompareTag(_ghostTag))
         {
-            collision.gameObject.transform.SetParent(this.transform);
+            if (collision.transform.parent)
+            {
+                collision.transform.parent.SetParent(this.transform);
+            }
+            else
+            {
+                collision.gameObject.transform.SetParent(this.transform);
+            }
         }
     }
 
@@ -39,7 +46,14 @@ public class MoveTile : MonoBehaviour, IActivate
     {
         if (collision.gameObject.CompareTag(_humanTag) || collision.gameObject.CompareTag(_ghostTag))
         {
-            collision.gameObject.transform.parent = null;
+            if(collision.transform.parent == this.transform)
+            {
+                collision.transform.parent = null;
+            }
+            else
+            {
+                collision.transform.parent.parent = null;
+            }
         }
     }
 
