@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseSpeed: 1
   _nearDistance: 1
-  _chaseDistance: 2
+  _chaseDistance: 0.5
   _knockBackPower: 5
   _rb: {fileID: -2915792056716913524}
   _sprite: {fileID: 7582588298370003683}
@@ -459,14 +459,20 @@ MonoBehaviour:
   _anim: {fileID: 7582588298370003612}
   _criAtomSource: {fileID: 0}
   _cuename: GaAttack
+  _enemyMove: {fileID: 4334354592312458792}
+  _spriteRenderer: {fileID: 7582588298370003683}
+  _attackPatternDistance: 0.5
   _straightBulletPrefab: {fileID: 7230000268191832640, guid: 9c75454704bb9e647ad84568d4bda6e4, type: 3}
   _homingBulletPrefab: {fileID: 5082854643189072000, guid: b23add9ba7e287a44ac31a7a487e9606, type: 3}
   _leftMuzzle: {fileID: 1944963430909320740}
   _rightMuzzle: {fileID: 317418745249850535}
-  _attackPatternDistance: 2
-  _enemyMove: {fileID: 4334354592312458792}
-  _spriteRenderer: {fileID: 7582588298370003683}
   _stopTime: 2
+  _straightBulletValue: 3
+  _homingBulletValue: 1
+  _bulletInterval: 0.3
+  _bomPosDistans: 1.5
+  _mahojinPrefab: {fileID: 7515825593674544863, guid: a64f439ae7505904fa52f3f317d7b34c, type: 3}
+  _bombBulletPrefab: {fileID: 3580187795667637522, guid: f7d9bf9900df0dc45ab575db6a2e3f6a, type: 3}
 --- !u!1001 &5011852129738373074
 PrefabInstance:
   m_ObjectHideFlags: 0

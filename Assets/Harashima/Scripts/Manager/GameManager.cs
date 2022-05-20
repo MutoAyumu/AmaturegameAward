@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UniRx;
+using UniRx.Triggers;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -26,6 +29,9 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
     }
 
+    [SerializeField]
+    Animator animator;
+
     void Start()
     {
         //ステージの数で初期化
@@ -42,6 +48,31 @@ public class GameManager : Singleton<GameManager>
         }
 
         SceneManager.sceneLoaded += DebugPanelActiveFalse;
+
+
+        ObservableStateMachineTrigger trigger =
+        animator.GetBehaviour<ObservableStateMachineTrigger>();
+
+        IDisposable enterState = trigger
+            .OnStateEnterAsObservable()
+            .Subscribe(onStateInfo =>
+            {
+                AnimatorStateInfo info = onStateInfo.StateInfo;
+                if (info.IsName("Base Layer.Mahojin"))
+                {
+                    Debug.Log("魔法陣始まり");
+                }
+            }).AddTo(this);
+
+        IDisposable exitState= trigger.OnStateExitAsObservable().Subscribe(x =>
+            {
+                AnimatorStateInfo a = x.StateInfo;
+                if (a.IsName("Base Layer.Mahojin"))
+                {
+                    Debug.Log("魔法陣終わり");
+                }
+            } ) ;         
+
     }
 
 

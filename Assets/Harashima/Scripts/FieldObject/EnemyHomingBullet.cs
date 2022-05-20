@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyHomingBullet : EnemyBulletControllerBase
 {
     [SerializeField,Tooltip("旋回速度")]
     float _rotSpeed = 3.0f;
+
+    [Header("魔法陣爆弾用のプレハブ")]
+    [SerializeField, Tooltip("爆発のエフェクトのプレハブ")]
+    GameObject _bombEffectPrefab = null;
 
     /// 移動角度
     float Direction
@@ -21,7 +26,18 @@ public class EnemyHomingBullet : EnemyBulletControllerBase
 
         _rb.velocity = new Vector2(vx, vy);
     }
-    public override void OnStart(){}
+    public override void OnStart()
+    {
+        DOVirtual.DelayedCall(_destroyTime,() =>
+        {
+            
+            if(_bombEffectPrefab)
+            {
+                Instantiate(_bombEffectPrefab, this.transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);
+        });
+    }
 
     public override void Move()
     {
@@ -57,5 +73,13 @@ public class EnemyHomingBullet : EnemyBulletControllerBase
 
         // 新しい速度を設定する
         SetVelocity(newAngle, _speed);
+    }
+
+    protected override void OnTriggerMethod()
+    {
+        if(_bombEffectPrefab)
+        {
+            Instantiate(_bombEffectPrefab,this.transform.position,Quaternion.identity);
+        }
     }
 }
