@@ -109,7 +109,6 @@ public class FieldManager : Singleton<FieldManager>
         if(OnClear!= null && !_isEnd)//isEnd‚ªFalse‚¾‚Á‚½‚ç
         {
             OnClear();
-            SoundManager.Instance.CriAtomPlay(CueSheet.ME, "Clear");
             _isEnd = true;
         }
 
