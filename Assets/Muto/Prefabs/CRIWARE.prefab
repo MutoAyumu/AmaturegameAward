@@ -47,11 +47,11 @@ MonoBehaviour:
   acfFile: C_team_BinaryData_0514/C_team.acf
   cueSheets:
   - name: BGM
-    acbFile: C_team_BinaryData_0514/BGM.acb
-    awbFile: C_team_BinaryData_0514/BGM.awb
+    acbFile: C_team_BinaryData_0521/BGM.acb
+    awbFile: C_team_BinaryData_0521/BGM.awb
     loaderStatus: 0
   - name: SE
-    acbFile: C_team_BinaryData_0514/SE.acb
+    acbFile: C_team_BinaryData_0521/SE.acb
     awbFile: 
     loaderStatus: 0
   dspBusSetting: 
