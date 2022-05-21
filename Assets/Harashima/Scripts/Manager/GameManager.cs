@@ -29,9 +29,6 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
     }
 
-    [SerializeField]
-    Animator animator;
-
     void Start()
     {
         //ステージの数で初期化
