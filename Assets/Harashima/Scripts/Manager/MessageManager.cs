@@ -58,6 +58,7 @@ public class MessageManager : Singleton<MessageManager>
         if (_windowText && !_isText)
         {
             //_windowText.text = msg;
+            FieldManager.Instance.TextPause();
             StartCoroutine(DrawText(msg));
         }
     }
@@ -93,6 +94,7 @@ public class MessageManager : Singleton<MessageManager>
         if(!_isText && _windowPanel.activeSelf)
         {
             ActiveWindow(false);
+            FieldManager.Instance.TextResume();
         }
     }
 

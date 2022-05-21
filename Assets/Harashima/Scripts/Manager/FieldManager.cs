@@ -246,19 +246,12 @@ public class FieldManager : Singleton<FieldManager>
         _eventCam.Priority = 0;
     }
 
-    public void Pause()
+    public void TextPause()
     {
-        Debug.Log("ƒeƒXƒg");
-
-        if (OnPause != null && !IsPause)
-        {
-            IsPause = true;
-            OnPause();
-        }
-        else if (OnResume != null && IsPause)
-        {
-            IsPause = false;
-            OnResume();
-        }
+        OnTextPause();
+    }
+    public void TextResume()
+    {
+        OnTextResume();
     }
 }
