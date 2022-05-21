@@ -33,6 +33,8 @@ public class EnemyBulletShooter : EnemyAttack
     int _homingBulletValue = 1;
     [SerializeField, Tooltip("’e‚ª”­Ë‚³‚ê‚éŠÔŠu")]
     float _bulletInterval = 0.3f;
+    [SerializeField, Tooltip("’e‚ªo‚é‚Æ‚«‚Ì‰¹")]
+    string _bulletCueName;
 
     [Header("”š’e–‚–@w")]
     [SerializeField, Tooltip("”š’e–‚–@w‚ªoŒ»‚·‚é‹——£")]
@@ -41,6 +43,8 @@ public class EnemyBulletShooter : EnemyAttack
     GameObject _mahojinPrefab = null;
     [SerializeField, Tooltip("–‚–@w”š’e‚©‚çoŒ»‚·‚é’e‚ÌƒvƒŒƒnƒu")]
     GameObject _bombBulletPrefab = null;
+    [SerializeField, Tooltip("–‚–@w‚ªo‚é‚Æ‚«‚Ì‰¹")]
+    string _mahojinCueName;
 
     protected override void OnUpdate()
     {
@@ -108,25 +112,23 @@ public class EnemyBulletShooter : EnemyAttack
 
             }
         }
-
-        IEnumerator InstantiateBullet(GameObject prefab, int bulletValue, Transform muzzle)
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE,_bulletCueName);
+    }
+    IEnumerator InstantiateBullet(GameObject prefab, int bulletValue, Transform muzzle)
+    {
+        for (int i = 0; i < bulletValue; i++)
         {
-            for (int i = 0; i < bulletValue; i++)
-            {
-                yield return new WaitForSeconds(_bulletInterval);
-                Instantiate(prefab, muzzle.transform.position, Quaternion.identity, this.transform);
-            }
-
+            yield return new WaitForSeconds(_bulletInterval);
+            Instantiate(prefab, muzzle.transform.position, Quaternion.identity, this.transform);
         }
 
     }
-
     void Bomb()
     {
 
         Vector3 pos = (CharacterManager.Instance.PlayerPosition(this.transform).position * _bomPosDistans + this.transform.position) / 2;
         var go = Instantiate(_mahojinPrefab, pos, Quaternion.identity);
-
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _mahojinCueName);
         ObservableStateMachineTrigger trigger =
         go.GetComponent<Animator>().GetBehaviour<ObservableStateMachineTrigger>();
 
@@ -139,6 +141,7 @@ public class EnemyBulletShooter : EnemyAttack
             AnimatorStateInfo info = x.StateInfo;
 
             Instantiate(_bombBulletPrefab, go.transform.position, Quaternion.identity);
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, _bulletCueName);
             Destroy(go,2f);
         }).AddTo(this);
 
