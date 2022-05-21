@@ -52,6 +52,7 @@ public class CutSceneScript : MonoBehaviour
     }
     public void Goal()
     {
+        SoundManager.Instance.CriAtomPlay(CueSheet.ME, "Clear");
         FieldManager.Instance.Clear();
     }
 }

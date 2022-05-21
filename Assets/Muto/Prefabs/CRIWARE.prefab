@@ -54,6 +54,10 @@ MonoBehaviour:
     acbFile: C_team_BinaryData_0521/SE.acb
     awbFile: 
     loaderStatus: 0
+  - name: ME
+    acbFile: C_team_BinaryData_0521/ME.acb
+    awbFile: 
+    loaderStatus: 0
   dspBusSetting: 
   dontDestroyOnLoad: 1
   dontRemoveExistsCueSheet: 0
