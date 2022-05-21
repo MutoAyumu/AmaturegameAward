@@ -79,6 +79,9 @@ MonoBehaviour:
   _anim: {fileID: 2134910138212671087}
   _testDeath: 0
   _testDamage: 0
+  _criAtomSource: {fileID: 0}
+  _damageS: EnemyDeath
+  _deathS: EnemyDeath
 --- !u!114 &2134910138212671086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +99,8 @@ MonoBehaviour:
   _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 641730944630980376}
   _anim: {fileID: 2134910138212671087}
+  _criAtomSource: {fileID: 0}
+  _cuename: UdeVoice
 --- !u!50 &641730944630980376
 Rigidbody2D:
   serializedVersion: 4
