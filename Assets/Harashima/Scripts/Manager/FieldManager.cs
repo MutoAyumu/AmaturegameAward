@@ -11,6 +11,8 @@ using Cinemachine;
 /// </summary>
 public class FieldManager : Singleton<FieldManager>
 {
+    /// <summary>スタート時に呼ばれるメソッド</summary>
+    public event Action OnStart;
 
     /// <summary>リザルト時に呼ばれるメソッド</summary>
     public event Action OnClear;
@@ -51,6 +53,16 @@ public class FieldManager : Singleton<FieldManager>
     public GameObject Canvas => _canvas;
     public bool IsDead => _isEnd;
 
+    /// <summary>セーブポイントを格納するリスト</summary>
+    List<bool> _savePointObjects = new List<bool>();
+    public int AddSavePoint() { _savePointObjects.Add(false); return _savePointObjects.Count - 1; }
+    public void SavePointCheck(int index) { _savePointObjects[index] = true; }
+
+    public void CurrentSavePoint()
+    {
+
+    }
+
     protected override void OnAwake()
     {
         if (!_canvas)
@@ -68,6 +80,7 @@ public class FieldManager : Singleton<FieldManager>
         SoundManager.Instance.FadeOutAudio(1);
         TestItemManager.Instance?.InstanceItem();
         ItemManager.Instance.SetPanel();
+        //OnStart();
     }
 
 
@@ -253,5 +266,11 @@ public class FieldManager : Singleton<FieldManager>
     public void TextResume()
     {
         OnTextResume();
+    }
+
+    public void OnStartEvent()
+    {
+        OnStart();
+        _resultPanel.SetActive(false);
     }
 }
