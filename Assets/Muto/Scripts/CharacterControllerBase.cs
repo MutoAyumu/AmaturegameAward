@@ -17,6 +17,8 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected float _moveSpeed = 3.0f;
     [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
 
+    Vector3 _initialPos = Vector3.zero;
+
     [Tooltip("ÅŒã‚É“ü—Í‚³‚ê‚½‰¡•ûŒü‚Ì’l")] protected float _lh = 1;
     public float InputH => _lh;
     [Tooltip("ÅŒã‚É“ü—Í‚³‚ê‚½c•ûŒü‚Ì’l")] protected float _lv = default;
@@ -98,8 +100,16 @@ public class CharacterControllerBase : MonoBehaviour
     private void Start()
     {
         _currentSpeed = _moveSpeed;
-
+        _initialPos = this.transform.position;
+        FieldManager.Instance.OnStart += InitPos;
         OnStart();
+    }
+
+    void InitPos()
+    {
+        this.transform.position = _initialPos;
+        _status = CharacterStatus.IDLE;
+        _anim.SetBool("IsDead", false);
     }
     public virtual void OnStart()
     {

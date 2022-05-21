@@ -17,10 +17,13 @@ public class EnemyMove : MonoBehaviour
     [SerializeField, Tooltip("ダメージを受けた時の吹っ飛び加減")]
     protected float _knockBackPower = 5f;
 
+    Vector3 _initPos = Vector3.zero;
+
     [Header("とりあえず参照したいやつ")]
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected Animator _anim;
+    [SerializeField] EnemyDamage _enemyDamage = null;
 
     [System.NonSerialized]
     public Transform Decoy = null;
@@ -37,6 +40,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
+        _initPos = this.transform.position;
         _isMove = true;
         EnemyManager.Instance.AddEnemy(gameObject);
         _player = CharacterManager.Instance.Human;
@@ -66,6 +70,18 @@ public class EnemyMove : MonoBehaviour
         Move();
 
         Flip();
+    }
+
+    public void Init()
+    {
+        if (!_enemyDamage)
+        {
+            _enemyDamage = GetComponent<EnemyDamage>();
+        }
+        _enemyDamage.InitHP();
+        this.transform.position = _initPos;
+        _isMove = true;
+        this.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -99,7 +115,7 @@ public class EnemyMove : MonoBehaviour
 
     protected void Flip()
     {
-        if(_sprite)
+        if (_sprite)
         {
             if (_target.x - transform.position.x > 0)
             {

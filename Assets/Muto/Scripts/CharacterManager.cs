@@ -409,7 +409,6 @@ public class CharacterManager : Singleton<CharacterManager>
         var s = SoundManager.Instance;
         s.CriAtomPlay(CueSheet.SE, "HumanDeath");
         s.CriAtomPlay(CueSheet.SE, "GhostDeath");
-        PlayerPosition(this.transform);
     }
 
 
