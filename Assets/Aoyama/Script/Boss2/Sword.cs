@@ -8,6 +8,8 @@ public class Sword : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] bool _test = false;
     [SerializeField] Transform _testTransform;
+    [Header("‰¹")]
+    [SerializeField] string _cueName = "KuroBossKen2";
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -16,6 +18,8 @@ public class Sword : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cueName);
+
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
         _target = PlayerPosition();

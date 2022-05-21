@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1704139468792853154}
   - component: {fileID: 1704139468792853152}
+  - component: {fileID: 8924786309385102028}
   - component: {fileID: 1704139468792853155}
-  - component: {fileID: 8101253144909273113}
-  - component: {fileID: 8596709108389730464}
+  - component: {fileID: 1067307445951196283}
   m_Layer: 0
   m_Name: "\u653B\u6483 3  \u7D30\u3044\u3084\u30641\u756A\u4E0B"
   m_TagString: Untagged
@@ -172,6 +172,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8924786309385102028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704139468792853157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe158ba04f4ec84d9e7df678bd35940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cueName: RasuBossMahou
 --- !u!95 &1704139468792853155
 Animator:
   serializedVersion: 4
@@ -192,19 +205,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8101253144909273113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704139468792853157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb776d903756ef408d5f22dc0c9c13d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &8596709108389730464
+--- !u!61 &1067307445951196283
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +218,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002827704, y: 0.71}
+  m_Offset: {x: -0.0043008924, y: -0.049214758}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0.099999994, z: 0, w: 0}
     pivot: {x: 0.49263585, y: 0.13915397}
@@ -228,7 +229,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 1.86}
+  m_Size: {x: 0.14941993, y: 0.32694954}
   m_EdgeRadius: 0
 --- !u!1 &1704139469121328955
 GameObject:

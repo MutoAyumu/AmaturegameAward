@@ -16,7 +16,6 @@ public class Rinpun : MonoBehaviour
     [SerializeField] GameObject _upBullet;
     [SerializeField] GameObject _downBullet;
     [Header("‰¹")]
-    [SerializeField] CriAtomSource _criAtomSource;
     [SerializeField] string _cuename = "GaBossRinpun";
 
     public void RinpunAttack()

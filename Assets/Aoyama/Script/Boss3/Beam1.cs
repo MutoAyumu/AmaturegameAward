@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tama2 : MonoBehaviour
+public class Beam1 : MonoBehaviour
 {
     [Header("‰¹")]
     [SerializeField] string _cueName = "RasuBossTama";

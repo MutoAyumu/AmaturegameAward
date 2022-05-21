@@ -8,6 +8,8 @@ public class Boss2Melee : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] bool _test = false;
     [SerializeField] Transform _testTransform;
+    [Header("‰¹")]
+    [SerializeField] string _cueName = "KuroBossVoice";
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -16,6 +18,8 @@ public class Boss2Melee : MonoBehaviour
 
     public void Melee()
     {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cueName);
+
         _isAttack = true;
         _target = PlayerPosition();
 
