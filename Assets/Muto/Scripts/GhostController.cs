@@ -33,7 +33,8 @@ public class GhostController : CharacterControllerBase
         _cm = CharacterManager.Instance;
 
         _message.SetMessage(_cm.HumanMessage);
-        _alpha = _mainSprite.color.a;
+        _alpha = _cm.GhostAlpha;
+        _mainSprite.color = new Color(1, 1, 1, _alpha);
     }
     public override void OnUpdate()
     {

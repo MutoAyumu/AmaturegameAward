@@ -47,6 +47,8 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] Text _intaractText = default;
     [SerializeField] Animator _connectImage = default;
 
+    [SerializeField, Range(0,1)] float _ghostAlpha = default;
+
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
     [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
 
@@ -68,6 +70,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public string[] HumanMessage { get => _humanMessage; }
     public string[] GhostMessage { get => _ghostMessage; }
     public bool GodMode { get => _isGodMode;}
+    public float GhostAlpha { get => _ghostAlpha;}
 
     /*
         KeyCodeを変える
