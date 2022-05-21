@@ -455,4 +455,10 @@ public class CharacterManager : Singleton<CharacterManager>
         _connectImage.SetBool("Set" ,value);
     }
 
+    public void SetResetPos(Vector3 humanPos,Vector3 ghostPos)
+    {
+        _human.ResetPos = humanPos;
+        _ghost.ResetPos = ghostPos;
+    }
+
 }
