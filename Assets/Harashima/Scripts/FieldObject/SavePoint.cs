@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour,IActivate
 {
-    int _savePointIndex = 0;
-    private void Start()
-    {
-        _savePointIndex = FieldManager.Instance.AddSavePoint();
-    }
+    [SerializeField, Tooltip("ƒŠƒXƒ|[ƒ“‚·‚éêŠ")]
+    Transform[] _respawnArray;
     public void Action()
     {
-        
+        if(_respawnArray.Length>=2)
+        {
+            CharacterManager.Instance.SetResetPos(_respawnArray[0].position, _respawnArray[1].position);
+        }     
     }
 }

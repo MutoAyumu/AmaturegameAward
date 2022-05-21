@@ -17,7 +17,8 @@ public class CharacterControllerBase : MonoBehaviour
     [SerializeField] protected float _moveSpeed = 3.0f;
     [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
 
-    Vector3 _initialPos = Vector3.zero;
+    Vector3 _resetPos = Vector3.zero;
+    public Vector3 ResetPos { get => _resetPos; set => _resetPos = value; }
 
     [Tooltip("ÅŒã‚É“ü—Í‚³‚ê‚½‰¡•ûŒü‚Ì’l")] protected float _lh = 1;
     public float InputH => _lh;
@@ -54,6 +55,7 @@ public class CharacterControllerBase : MonoBehaviour
     public Animator Anim { get => _anim; }
     public Collider2D Col { get => _col; }
     public bool IsDamage { get => _isDamage;}
+
 
     protected enum CharacterStatus
     {
@@ -100,14 +102,14 @@ public class CharacterControllerBase : MonoBehaviour
     private void Start()
     {
         _currentSpeed = _moveSpeed;
-        _initialPos = this.transform.position;
+        _resetPos = this.transform.position;
         FieldManager.Instance.OnStart += InitPos;
         OnStart();
     }
 
     void InitPos()
     {
-        this.transform.position = _initialPos;
+        this.transform.position = _resetPos;
         _status = CharacterStatus.IDLE;
         _anim.SetBool("IsDead", false);
     }
@@ -196,7 +198,7 @@ public class CharacterControllerBase : MonoBehaviour
         if (_hit && !IsSetText)
         {
             IsSetText = true;
-            CharacterManager.Instance.SetIntaractText(_hit.collider?.GetComponent<ISetText>().SetText());
+            CharacterManager.Instance.SetIntaractText(_hit.collider?.GetComponent<ISetText>()?.SetText());
         }
         else if (!_hit && IsSetText)
         {

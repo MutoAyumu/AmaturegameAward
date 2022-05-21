@@ -53,11 +53,6 @@ public class FieldManager : Singleton<FieldManager>
     public GameObject Canvas => _canvas;
     public bool IsDead => _isEnd;
 
-    /// <summary>セーブポイントを格納するリスト</summary>
-    List<bool> _savePointObjects = new List<bool>();
-    public int AddSavePoint() { _savePointObjects.Add(false); return _savePointObjects.Count - 1; }
-    public void SavePointCheck(int index) { _savePointObjects[index] = true; }
-
     public void CurrentSavePoint()
     {
 
