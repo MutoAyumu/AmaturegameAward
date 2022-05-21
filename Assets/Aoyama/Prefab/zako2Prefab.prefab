@@ -80,6 +80,9 @@ MonoBehaviour:
   _anim: {fileID: 632668049607884378}
   _testDeath: 0
   _testDamage: 0
+  _criAtomSource: {fileID: 0}
+  _damageS: EnemyDeath
+  _deathS: EnemyDeath
 --- !u!114 &632668049607884379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +100,8 @@ MonoBehaviour:
   _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 2125958149395242797}
   _anim: {fileID: 632668049607884378}
+  _criAtomSource: {fileID: 0}
+  _cuename: GaAttack
 --- !u!50 &2125958149395242797
 Rigidbody2D:
   serializedVersion: 4
@@ -183,9 +188,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03886849, y: 0.13012503}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3107272
 --- !u!95 &632668049607884378
 Animator:
   serializedVersion: 4

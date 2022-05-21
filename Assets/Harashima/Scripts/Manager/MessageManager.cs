@@ -16,7 +16,7 @@ public class MessageManager : Singleton<MessageManager>
     [SerializeField, Tooltip("一回の上限")]
     int _textLimit = 20;
 
-    [SerializeField] string _skipInputButton = "Fire2";
+    [SerializeField] string _skipInputButton = "Jump";
 
     /// <summary>メッセージウィンドウのテキストコンポーネント</summary>
     Text _windowText;
@@ -58,6 +58,7 @@ public class MessageManager : Singleton<MessageManager>
         if (_windowText && !_isText)
         {
             //_windowText.text = msg;
+            FieldManager.Instance.TextPause();
             StartCoroutine(DrawText(msg));
         }
     }
@@ -67,7 +68,7 @@ public class MessageManager : Singleton<MessageManager>
         float time = 0;
         while (true)
         {
-            yield return 0;
+            yield return null;
             time += Time.deltaTime;
 
             // クリックされると一気に表示
@@ -81,10 +82,13 @@ public class MessageManager : Singleton<MessageManager>
             _windowText.text = text.Substring(0, len);
         }
         _windowText.text = text;
-        yield return 0;
+        //yield return 0;
         _isText = false;
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemText");
-        StartCoroutine(HideWindows());
+        //StartCoroutine(HideWindows());
+        yield return new WaitUntil(()=>IsSpace());
+        FieldManager.Instance.TextResume();
+        yield break;
     }
     IEnumerator HideWindows()
     {
@@ -93,6 +97,7 @@ public class MessageManager : Singleton<MessageManager>
         if(!_isText && _windowPanel.activeSelf)
         {
             ActiveWindow(false);
+            FieldManager.Instance.TextResume();
         }
     }
 

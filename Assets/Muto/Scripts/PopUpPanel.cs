@@ -32,7 +32,7 @@ public class PopUpPanel : MonoBehaviour
                 _image.sprite = _setSprite;
                 _text.text = _setText;
                 _panel.gameObject.SetActive(true);
-                FieldManager.Instance.Test();
+                FieldManager.Instance.TextPause();
             }
         }
     }
@@ -45,7 +45,7 @@ public class PopUpPanel : MonoBehaviour
             if(_activeObj)
             _activeObj.SetActive(true);
 
-            FieldManager.Instance.Test();
+            FieldManager.Instance.TextResume();
             Destroy(this.gameObject);
         }
     }

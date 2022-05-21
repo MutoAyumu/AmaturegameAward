@@ -24,6 +24,9 @@ public class FieldManager : Singleton<FieldManager>
     /// <summary>再開時に呼ばれるメソッド</summary>
     public event Action OnResume;
 
+    public event Action OnTextPause;
+    public event Action OnTextResume;
+
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
     bool _isEnd = false;
 
@@ -70,6 +73,7 @@ public class FieldManager : Singleton<FieldManager>
 
     void Update()
     {
+
         if (PlayerPalam.Instance?.Life <= 0 && !_isEnd)　//スコアが0になり、isEndがFalseだったら
         {
             if(OnGameOver != null)
@@ -242,19 +246,12 @@ public class FieldManager : Singleton<FieldManager>
         _eventCam.Priority = 0;
     }
 
-    public void Test()
+    public void TextPause()
     {
-        Debug.Log("テスト");
-
-        if (OnPause != null && !IsPause)
-        {
-            IsPause = true;
-            OnPause();
-        }
-        else if (OnResume != null && IsPause)
-        {
-            IsPause = false;
-            OnResume();
-        }
+        OnTextPause();
+    }
+    public void TextResume()
+    {
+        OnTextResume();
     }
 }

@@ -12,6 +12,11 @@ public class EnemyManager : Singleton<EnemyManager>
     List<GameObject> _enemys = new List<GameObject>();
 
     [SerializeField] OnOffEnemy[] _enemyGroup = default;
+    private void Start()
+    {
+        FieldManager.Instance.OnTextPause += Pause;
+        FieldManager.Instance.OnTextResume += Resume;
+    }
 
     public void Pause()
     {
