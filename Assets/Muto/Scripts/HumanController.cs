@@ -100,7 +100,7 @@ public class HumanController : CharacterControllerBase
         else
         {
             _anim.Play("ToDamage");
-            var alpha = _togetherImage.color.a; ;
+            var alpha = _togetherImage.color.a;
             _coroutine = StartCoroutine(OnDamage(alpha));
 
             _isDamage = true;

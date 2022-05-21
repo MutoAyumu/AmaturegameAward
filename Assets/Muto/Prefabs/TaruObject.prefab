@@ -103,7 +103,7 @@ MonoBehaviour:
   _hp: 1
   _breakObject: {fileID: 2411912423585467311, guid: d91aa5f3a82ab8f4282bba39afcc7efd, type: 3}
   _dropObject: {fileID: 5269560337156367317, guid: ac9bf1f4387ea08458f69686ba889830, type: 3}
-  _dropProbability: 5
+  _dropProbability: 3
   _audio: {fileID: 8300000, guid: d22166ad201d052479020858a2d441f5, type: 3}
 --- !u!114 &1484419155047099327
 MonoBehaviour:
