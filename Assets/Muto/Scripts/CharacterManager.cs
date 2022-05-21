@@ -412,7 +412,6 @@ public class CharacterManager : Singleton<CharacterManager>
         var s = SoundManager.Instance;
         s.CriAtomPlay(CueSheet.SE, "HumanDeath");
         s.CriAtomPlay(CueSheet.SE, "GhostDeath");
-        PlayerPosition(this.transform);
     }
 
 
@@ -457,6 +456,12 @@ public class CharacterManager : Singleton<CharacterManager>
         if (!_connectImage) return;
 
         _connectImage.SetBool("Set" ,value);
+    }
+
+    public void SetResetPos(Vector3 humanPos,Vector3 ghostPos)
+    {
+        _human.ResetPos = humanPos;
+        _ghost.ResetPos = ghostPos;
     }
 
 }

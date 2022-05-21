@@ -14,8 +14,10 @@ public class EnemyManager : Singleton<EnemyManager>
     [SerializeField] OnOffEnemy[] _enemyGroup = default;
     private void Start()
     {
-        FieldManager.Instance.OnTextPause += Pause;
-        FieldManager.Instance.OnTextResume += Resume;
+        var f = FieldManager.Instance;
+        f.OnTextPause += Pause;
+        f.OnTextResume += Resume;
+        f.OnStart += InitEnemy;
     }
 
     public void Pause()
@@ -46,5 +48,10 @@ public class EnemyManager : Singleton<EnemyManager>
     public void AddEnemy(GameObject enemy)
     {
         _enemys.Add(enemy);
+    }
+
+    public void InitEnemy()
+    {
+        _enemys?.ForEach(go => go.GetComponent<EnemyMove>()?.Init());
     }
 }

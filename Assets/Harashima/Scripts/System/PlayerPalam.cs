@@ -29,6 +29,10 @@ public class PlayerPalam : Singleton<PlayerPalam>
         Debug.Log($"変化前：{last}　変化後：{_life}");
     }
 
+    private void Start()
+    {
+        FieldManager.Instance.OnStart += ResetLife;
+    }
 
     protected override void OnAwake()
     {
@@ -36,6 +40,11 @@ public class PlayerPalam : Singleton<PlayerPalam>
         DontDestroyOnLoad(this);
 
         //ライフを初期化
+        _life = _initialLife;
+    }
+
+    void ResetLife()
+    {
         _life = _initialLife;
     }
 
