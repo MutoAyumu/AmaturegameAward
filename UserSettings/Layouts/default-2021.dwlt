@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 85
+  controlID: 147
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,12 +139,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1506
+    width: 1433
     height: 947
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 58
+  controlID: 137
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,12 +165,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1506
+    width: 1433
     height: 584
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 59
+  controlID: 138
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,13 +188,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 249
+    width: 220
     height: 584
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
@@ -212,15 +212,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 249
+    x: 220
     y: 0
-    width: 556
+    width: 529
     height: 584
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &10
@@ -238,15 +238,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 805
+    x: 749
     y: 0
-    width: 701
+    width: 684
     height: 584
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -259,27 +259,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 584
-    width: 1506
+    width: 1433
     height: 363
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
   - {fileID: 21}
+  - {fileID: 22}
+  - {fileID: 15}
   - {fileID: 14}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 3
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,18 +296,907 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1506
+    x: 1433
     y: 0
-    width: 414
+    width: 487
     height: 947
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 23}
   m_Panes:
-  - {fileID: 22}
+  - {fileID: 23}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacfcb712a3304a40b91990e9f581c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Atom Browser
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 657
+    width: 1504
+    height: 342
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  searchPath: "C:/Users/dango/OneDrive/\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8/Unity/AmaturegameAward/Assets/StreamingAssets"
+  projInfo:
+    acfInfoList:
+    - name: C_team
+      id: 0
+      assetGuid: 
+      comment: 
+      filePath: C_team_BinaryData_0521/C_team.acf
+    - name: sample
+      id: 1
+      assetGuid: 
+      comment: 
+      filePath: sample sound data/sample.acf
+    acbInfoList:
+    - name: BGM
+      id: 0
+      assetGuid: 2085989a5d9fa384c92d399cda5d9e44
+      comment: 
+      acbPath: C_team_BinaryData_0521/BGM.acb
+      awbPath: C_team_BinaryData_0521/BGM.awb
+      cueInfoList:
+      - name: BGMField
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGMBoss
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      publicCueInfoList:
+      - name: BGMField
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGMBoss
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+    - name: ME
+      id: 1
+      assetGuid: 6d71b10f955255a499dd2388a9cc965e
+      comment: 
+      acbPath: C_team_BinaryData_0521/ME.acb
+      awbPath: 
+      cueInfoList:
+      - name: Clear
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 5099
+        isPublic: 1
+      - name: MEDeath
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 8510
+        isPublic: 1
+      publicCueInfoList:
+      - name: Clear
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 5099
+        isPublic: 1
+      - name: MEDeath
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 8510
+        isPublic: 1
+    - name: SE
+      id: 2
+      assetGuid: 7628edea0bca43742b4e1f89763337a4
+      comment: 
+      acbPath: C_team_BinaryData_0521/SE.acb
+      awbPath: 
+      cueInfoList:
+      - name: BossDeath_01
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 3035
+        isPublic: 1
+      - name: BossDeath_02
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 3250
+        isPublic: 1
+      - name: DoorOpen
+        id: 2
+        assetGuid: 
+        comment: 
+        length: 1696
+        isPublic: 1
+      - name: EnemyDeath
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaAttack
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: GaBossRinpun
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: GaBossTama
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaBossVoice
+        id: 7
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: GhostDamage
+        id: 8
+        assetGuid: 
+        comment: 
+        length: 281
+        isPublic: 1
+      - name: GhostDeath
+        id: 9
+        assetGuid: 
+        comment: 
+        length: 624
+        isPublic: 1
+      - name: GhostLight
+        id: 10
+        assetGuid: 
+        comment: 
+        length: 1750
+        isPublic: 1
+      - name: Hand
+        id: 11
+        assetGuid: 
+        comment: 
+        length: 187
+        isPublic: 1
+      - name: HumanAttackHit
+        id: 12
+        assetGuid: 
+        comment: 
+        length: 531
+        isPublic: 1
+      - name: HumanAttackShovel
+        id: 13
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: HumanAttackSwing
+        id: 14
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: HumanDamage
+        id: 15
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: HumanDeath
+        id: 16
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: HumanFootsteps
+        id: 17
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: KurageAttack
+        id: 18
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: KurageVoice
+        id: 19
+        assetGuid: 
+        comment: 
+        length: 2250
+        isPublic: 1
+      - name: KuroBossKen
+        id: 20
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: MedamaAttack
+        id: 21
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: MedamaIdle
+        id: 22
+        assetGuid: 
+        comment: 
+        length: 6750
+        isPublic: 1
+      - name: ObjectSwitch
+        id: 23
+        assetGuid: 
+        comment: 
+        length: 358
+        isPublic: 1
+      - name: OpenChest
+        id: 24
+        assetGuid: 
+        comment: 
+        length: 1002
+        isPublic: 1
+      - name: RasuBossVoice
+        id: 25
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: SwitchPlayer
+        id: 26
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: SystemDone
+        id: 27
+        assetGuid: 
+        comment: 
+        length: 59
+        isPublic: 1
+      - name: SystemSelect
+        id: 28
+        assetGuid: 
+        comment: 
+        length: 386
+        isPublic: 1
+      - name: SystemText
+        id: 29
+        assetGuid: 
+        comment: 
+        length: 250
+        isPublic: 1
+      - name: UdeVoice
+        id: 30
+        assetGuid: 
+        comment: 
+        length: 1874
+        isPublic: 1
+      - name: Wind
+        id: 31
+        assetGuid: 
+        comment: 
+        length: 36752
+        isPublic: 1
+      - name: ZakoDamage
+        id: 32
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: BoxDestruction
+        id: 33
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: BoxPush
+        id: 34
+        assetGuid: 
+        comment: 
+        length: 1372
+        isPublic: 1
+      - name: GhostMove
+        id: 35
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: HighTouch
+        id: 36
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: ItemCure
+        id: 37
+        assetGuid: 
+        comment: 
+        length: 1801
+        isPublic: 1
+      - name: KuroBossBomb1
+        id: 38
+        assetGuid: 
+        comment: 
+        length: 808
+        isPublic: 1
+      - name: KuroBossBomb2
+        id: 39
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: KuroBossDeath
+        id: 40
+        assetGuid: 
+        comment: 
+        length: 4000
+        isPublic: 1
+      - name: KuroBossKen1
+        id: 41
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: KuroBossKen2
+        id: 42
+        assetGuid: 
+        comment: 
+        length: 937
+        isPublic: 1
+      - name: KuroBossVoice
+        id: 43
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: RasuBossBeam
+        id: 44
+        assetGuid: 
+        comment: 
+        length: 1374
+        isPublic: 1
+      - name: RasuBossMahou
+        id: 45
+        assetGuid: 
+        comment: 
+        length: 1500
+        isPublic: 1
+      - name: RasuBossTama
+        id: 46
+        assetGuid: 
+        comment: 
+        length: 3974
+        isPublic: 1
+      publicCueInfoList:
+      - name: BossDeath_01
+        id: 0
+        assetGuid: 
+        comment: 
+        length: 3035
+        isPublic: 1
+      - name: BossDeath_02
+        id: 1
+        assetGuid: 
+        comment: 
+        length: 3250
+        isPublic: 1
+      - name: DoorOpen
+        id: 2
+        assetGuid: 
+        comment: 
+        length: 1696
+        isPublic: 1
+      - name: EnemyDeath
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaAttack
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: GaBossRinpun
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: GaBossTama
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: GaBossVoice
+        id: 7
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: GhostDamage
+        id: 8
+        assetGuid: 
+        comment: 
+        length: 281
+        isPublic: 1
+      - name: GhostDeath
+        id: 9
+        assetGuid: 
+        comment: 
+        length: 624
+        isPublic: 1
+      - name: GhostLight
+        id: 10
+        assetGuid: 
+        comment: 
+        length: 1750
+        isPublic: 1
+      - name: Hand
+        id: 11
+        assetGuid: 
+        comment: 
+        length: 187
+        isPublic: 1
+      - name: HumanAttackHit
+        id: 12
+        assetGuid: 
+        comment: 
+        length: 531
+        isPublic: 1
+      - name: HumanAttackShovel
+        id: 13
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: HumanAttackSwing
+        id: 14
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: HumanDamage
+        id: 15
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: HumanDeath
+        id: 16
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: HumanFootsteps
+        id: 17
+        assetGuid: 
+        comment: 
+        length: 374
+        isPublic: 1
+      - name: KurageAttack
+        id: 18
+        assetGuid: 
+        comment: 
+        length: 2500
+        isPublic: 1
+      - name: KurageVoice
+        id: 19
+        assetGuid: 
+        comment: 
+        length: 2250
+        isPublic: 1
+      - name: KuroBossKen
+        id: 20
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: MedamaAttack
+        id: 21
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: MedamaIdle
+        id: 22
+        assetGuid: 
+        comment: 
+        length: 6750
+        isPublic: 1
+      - name: ObjectSwitch
+        id: 23
+        assetGuid: 
+        comment: 
+        length: 358
+        isPublic: 1
+      - name: OpenChest
+        id: 24
+        assetGuid: 
+        comment: 
+        length: 1002
+        isPublic: 1
+      - name: RasuBossVoice
+        id: 25
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: SwitchPlayer
+        id: 26
+        assetGuid: 
+        comment: 
+        length: 124
+        isPublic: 1
+      - name: SystemDone
+        id: 27
+        assetGuid: 
+        comment: 
+        length: 59
+        isPublic: 1
+      - name: SystemSelect
+        id: 28
+        assetGuid: 
+        comment: 
+        length: 386
+        isPublic: 1
+      - name: SystemText
+        id: 29
+        assetGuid: 
+        comment: 
+        length: 250
+        isPublic: 1
+      - name: UdeVoice
+        id: 30
+        assetGuid: 
+        comment: 
+        length: 1874
+        isPublic: 1
+      - name: Wind
+        id: 31
+        assetGuid: 
+        comment: 
+        length: 36752
+        isPublic: 1
+      - name: ZakoDamage
+        id: 32
+        assetGuid: 
+        comment: 
+        length: 750
+        isPublic: 1
+      - name: BoxDestruction
+        id: 33
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: BoxPush
+        id: 34
+        assetGuid: 
+        comment: 
+        length: 1372
+        isPublic: 1
+      - name: GhostMove
+        id: 35
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: HighTouch
+        id: 36
+        assetGuid: 
+        comment: 
+        length: 1000
+        isPublic: 1
+      - name: ItemCure
+        id: 37
+        assetGuid: 
+        comment: 
+        length: 1801
+        isPublic: 1
+      - name: KuroBossBomb1
+        id: 38
+        assetGuid: 
+        comment: 
+        length: 808
+        isPublic: 1
+      - name: KuroBossBomb2
+        id: 39
+        assetGuid: 
+        comment: 
+        length: 500
+        isPublic: 1
+      - name: KuroBossDeath
+        id: 40
+        assetGuid: 
+        comment: 
+        length: 4000
+        isPublic: 1
+      - name: KuroBossKen1
+        id: 41
+        assetGuid: 
+        comment: 
+        length: 437
+        isPublic: 1
+      - name: KuroBossKen2
+        id: 42
+        assetGuid: 
+        comment: 
+        length: 937
+        isPublic: 1
+      - name: KuroBossVoice
+        id: 43
+        assetGuid: 
+        comment: 
+        length: 2000
+        isPublic: 1
+      - name: RasuBossBeam
+        id: 44
+        assetGuid: 
+        comment: 
+        length: 1374
+        isPublic: 1
+      - name: RasuBossMahou
+        id: 45
+        assetGuid: 
+        comment: 
+        length: 1500
+        isPublic: 1
+      - name: RasuBossTama
+        id: 46
+        assetGuid: 
+        comment: 
+        length: 3974
+        isPublic: 1
+    - name: DemoBGM
+      id: 3
+      assetGuid: 683a120565f71e8458e7bf8577c8d2b5
+      comment: 
+      acbPath: sample sound data/DemoBGM.acb
+      awbPath: sample sound data/DemoBGM.awb
+      cueInfoList:
+      - name: BGM_sample1
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGM_sample2
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGM_sample3
+        id: 2
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: Jingle_sample
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 6891
+        isPublic: 1
+      - name: BGM_sample4
+        id: 4
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      publicCueInfoList:
+      - name: BGM_sample1
+        id: 0
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGM_sample2
+        id: 1
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: BGM_sample3
+        id: 2
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: Jingle_sample
+        id: 3
+        assetGuid: 
+        comment: 
+        length: 6891
+        isPublic: 1
+      - name: BGM_sample4
+        id: 4
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+    - name: DemoSE
+      id: 4
+      assetGuid: 37c8b1878ce1204428c1fc4eb64f5dbb
+      comment: 
+      acbPath: sample sound data/DemoSE.acb
+      awbPath: 
+      cueInfoList:
+      - name: SE_sample1
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 1243
+        isPublic: 1
+      - name: SE_sample2
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1459
+        isPublic: 1
+      - name: SE_sample3
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 716
+        isPublic: 1
+      - name: SE_sample4
+        id: 7
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: SE_sample5
+        id: 8
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      publicCueInfoList:
+      - name: SE_sample1
+        id: 4
+        assetGuid: 
+        comment: 
+        length: 1243
+        isPublic: 1
+      - name: SE_sample2
+        id: 5
+        assetGuid: 
+        comment: 
+        length: 1459
+        isPublic: 1
+      - name: SE_sample3
+        id: 6
+        assetGuid: 
+        comment: 
+        length: 716
+        isPublic: 1
+      - name: SE_sample4
+        id: 7
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+      - name: SE_sample5
+        id: 8
+        assetGuid: 
+        comment: 
+        length: -1
+        isPublic: 1
+    gotAcfList: 1
+    gotAcbList: 1
+  criAtomWindowPrefs: {fileID: 11400000, guid: 541751075adc9e84f887c54188d07a6b, type: 2}
+  toolBarButtonStyle:
+    m_Name: toolbarbutton
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds:
+      - {fileID: -6675728888473347081, guid: 0000000000000000d000000000000000, type: 0}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds:
+      - {fileID: -6559566165897956916, guid: 0000000000000000d000000000000000, type: 0}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds:
+      - {fileID: -4689374610832948062, guid: 0000000000000000d000000000000000, type: 0}
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds:
+      - {fileID: -2590580295915515212, guid: 0000000000000000d000000000000000, type: 0}
+      m_TextColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+    m_Border:
+      m_Left: 6
+      m_Right: 6
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 5
+      m_Right: 5
+      m_Top: 2
+      m_Bottom: 2
+    m_Overflow:
+      m_Left: 0
+      m_Right: 1
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_Alignment: 3
+    m_WordWrap: 0
+    m_RichText: 0
+    m_TextClipping: 1
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 20
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  showPrivateCue: 0
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,9 +1217,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 524.8
-    width: 1203.8
-    height: 258.59998
+    y: 657
+    width: 1504
+    height: 342
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -341,7 +1231,7 @@ MonoBehaviour:
   m_Palette: {fileID: 1705807324055212662, guid: 17f1b99e808259345a76eb5e014eb9fb, type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,8 +1261,8 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -44296
---- !u!114 &15
+  m_LastSelectedObjectID: -317202
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,7 +1284,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 248
+    width: 219
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -405,7 +1295,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 32abffff3aabffffdcb5fffff0f8ffffda7b0000d87d0000
+      m_ExpandedIDs: c424fbffee28fbff962afbff2c3ffbff6052fbff6061fbff646efbff5c77fbfff482fbff9c8afbffa88afbff7a8efbffd09afbff1aa4fbffc2a5fbff10b4fbffd879fcff10b4fffff8b5ffff16b9ffff46c1fffff0d0ffffaeddfffff4ffffff68bb0000d0c2000068c300006ec3000018c4000098300100823601008a3b0100b6410100cc41010050480100244f0100fa510100c2580100c65e0100026b0100f6750100fe750100e2770100f4770100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -429,7 +1319,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,9 +1339,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 249
+    x: 220
     y: 73
-    width: 554
+    width: 527
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -660,7 +1550,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -676,9 +1566,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 14.532655, y: -4.2619777, z: -0.12586112}
+    m_Target: {x: 11.298886, y: -10.0417595, z: -0.09620622}
     speed: 2
-    m_Value: {x: 14.532655, y: -4.2619777, z: -0.12586112}
+    m_Value: {x: 11.298886, y: -10.0417595, z: -0.09620622}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -729,9 +1619,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 16.160244
+    m_Target: 19.180958
     speed: 2
-    m_Value: 16.160244
+    m_Value: 19.180958
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -756,7 +1646,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -776,9 +1666,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 805
+    x: 749
     y: 73
-    width: 699
+    width: 682
     height: 563
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -826,29 +1716,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 699
+      width: 682
       height: 542
-    m_Scale: {x: 0.3640625, y: 0.3640625}
-    m_Translation: {x: 349.5, y: 271}
+    m_Scale: {x: 0.35520834, y: 0.35520834}
+    m_Translation: {x: 341, y: 271}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960.00006
-      y: -744.3777
-      width: 1920.0001
-      height: 1488.7554
+      x: -960
+      y: -762.93256
+      width: 1920
+      height: 1525.8651
     m_MinimalGUI: 1
-  m_defaultScale: 0.3640625
-  m_LastWindowPixelSize: {x: 699, y: 563}
+  m_defaultScale: 0.35520834
+  m_LastWindowPixelSize: {x: 682, y: 563}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -870,7 +1760,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 657
-    width: 1505
+    width: 1504
     height: 342
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -889,22 +1779,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Muto/Sprites/UI
+    - Assets/Muto/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Muto/Sprites/UI
+  - Assets/Muto/Prefabs
   m_LastFoldersGridSize: 74
   m_LastProjectPath: "C:\\Users\\dango\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\Unity\\AmaturegameAward"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1262}
-    m_SelectedIDs: ba8b0000
-    m_LastClickedID: 35770
-    m_ExpandedIDs: 00000000948b0000968b0000988b00009a8b00009c8b00009e8b0000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000808d000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 563}
+    m_SelectedIDs: e4b90000
+    m_LastClickedID: 47588
+    m_ExpandedIDs: 0000000026b8000028b800002ab800002cb800002eb8000030b8000032b8000034b8000036b8000038b800003ab800003cb800003eb8000040b8000042b8000044b8000046b8000048b800004ab800004cb80000b2b90000e4b9000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -932,7 +1822,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000948b0000968b0000988b00009a8b00009c8b00009e8b0000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000
+    m_ExpandedIDs: 0000000026b8000028b800002ab800002cb800002eb8000030b8000032b8000034b8000036b8000038b800003ab800003cb800003eb8000040b8000042b8000044b8000046b8000048b800004ab800004cb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -957,10 +1847,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: ee28fbff
+    m_LastClickedInstanceID: -317202
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300005c6f0000e6700000387600003c760000347700006e970000d89b00006e770000f0a30000e07200007c730000d6bb0000707300008a740000d8730000b2730000cce500002e760000207600001e77000090800000208c0000e62f0100fc760000fea5000002a60000fe8a000010910000b87c0000c23a000000000000107a00008296000052370000de29010078430000083c0000aa7d0100123600008e8d0100ae3c000040400000
+    m_ExpandedInstanceIDs: c62300005c6f0000e6700000387600003c760000347700006e970000d89b00006e770000f0a30000e07200007c730000d6bb0000707300008a740000d8730000b2730000cce500002e760000207600001e77000090800000208c0000e62f0100fc760000fea5000002a60000fe8a000010910000b87c0000c23a000000000000107a00008296000052370000de29010078430000083c0000aa7d0100123600008e8d0100ae3c0000404000005ec500006e600000726c0000626c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -984,11 +1874,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 35}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 74
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1010,13 +1900,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 657
-    width: 1505
+    width: 1432
     height: 342
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &20
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1641,7 +2531,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &21
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1662,9 +2552,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 524.8
-    width: 1203.8
-    height: 258.59998
+    y: 657
+    width: 1432
+    height: 342
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1678,7 +2568,7 @@ MonoBehaviour:
   m_SequencePath:
     m_SelectionRoot: 0
     m_SubElements: []
---- !u!114 &22
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1698,9 +2588,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1506
+    x: 1433
     y: 73
-    width: 413
+    width: 486
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
