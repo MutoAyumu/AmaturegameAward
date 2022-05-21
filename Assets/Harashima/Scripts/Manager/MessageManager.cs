@@ -85,7 +85,10 @@ public class MessageManager : Singleton<MessageManager>
         yield return 0;
         _isText = false;
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemText");
-        StartCoroutine(HideWindows());
+        //StartCoroutine(HideWindows());
+        yield return new WaitUntil(()=>IsSpace());
+        FieldManager.Instance.TextResume();
+
     }
     IEnumerator HideWindows()
     {
