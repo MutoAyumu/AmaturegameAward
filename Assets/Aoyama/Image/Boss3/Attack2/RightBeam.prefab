@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4798430571233910283}
   - component: {fileID: 4798430571233910280}
   - component: {fileID: 9077293235622954945}
-  - component: {fileID: -6127529475052637079}
+  - component: {fileID: 7595823316044423261}
   m_Layer: 0
   m_Name: RightBeam
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.06}
   m_EdgeRadius: 0
---- !u!114 &-6127529475052637079
+--- !u!114 &7595823316044423261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4798430571233910281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb776d903756ef408d5f22dc0c9c13d, type: 3}
+  m_Script: {fileID: 11500000, guid: 60e01af2c58b17c4e9bbd8ea69ac3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cueName: RasuBossBeam

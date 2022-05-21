@@ -8,12 +8,16 @@ public class Tama : MonoBehaviour
     [SerializeField] float _distance = 0.3f;
     [SerializeField] GameObject _bomb;
     [SerializeField] Rigidbody2D _rb;
+    [Header("‰¹")]
+    [SerializeField] string _cueName = "KuroBossBomb2";
+
     Vector3 _target;
     CharacterControllerBase _player;
     CharacterControllerBase _ghost;
 
     void Start()
     {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cueName);
         _player = CharacterManager.Instance.Human;
         _ghost = CharacterManager.Instance.Ghost;
         _target = PlayerPosition();
