@@ -80,7 +80,8 @@ MonoBehaviour:
   _abs: {fileID: 1160084830332182259}
   _attackButtonName: Fire1
   _attack: {fileID: 9109073565701455678}
-  _attackSpeed: 2
+  _attackSpeed: 0.5
+  _attackLimit: 5
 --- !u!114 &9109073565701455678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca88a83195f788942b840bdc6fd15b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 1243007438064672385, guid: 3da5888571d6b104e8495f5f8d56e612, type: 3}
+  _bullet: {fileID: -2596231688040061601, guid: dd4fd594fcaa5c145892cdeffb9edadf, type: 3}
 --- !u!114 &2795186324782492116
 MonoBehaviour:
   m_ObjectHideFlags: 0
