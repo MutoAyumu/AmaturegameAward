@@ -67,6 +67,34 @@ namespace C_team.SE {
 		public const int Wind = (31);
 		///<summary></summary>
 		public const int ZakoDamage = (32);
+		///<summary></summary>
+		public const int BoxDestruction = (33);
+		///<summary></summary>
+		public const int BoxPush = (34);
+		///<summary></summary>
+		public const int GhostMove = (35);
+		///<summary></summary>
+		public const int HighTouch = (36);
+		///<summary></summary>
+		public const int ItemCure = (37);
+		///<summary></summary>
+		public const int KuroBossBomb1 = (38);
+		///<summary></summary>
+		public const int KuroBossBomb2 = (39);
+		///<summary></summary>
+		public const int KuroBossDeath = (40);
+		///<summary></summary>
+		public const int KuroBossKen1 = (41);
+		///<summary></summary>
+		public const int KuroBossKen2 = (42);
+		///<summary></summary>
+		public const int KuroBossVoice = (43);
+		///<summary></summary>
+		public const int RasuBossBeam = (44);
+		///<summary></summary>
+		public const int RasuBossMahou = (45);
+		///<summary></summary>
+		public const int RasuBossTama = (46);
 	}
 
 	public enum Cue {
@@ -136,5 +164,33 @@ namespace C_team.SE {
 		Wind = 31,
 		///<summary></summary>
 		ZakoDamage = 32,
+		///<summary></summary>
+		BoxDestruction = 33,
+		///<summary></summary>
+		BoxPush = 34,
+		///<summary></summary>
+		GhostMove = 35,
+		///<summary></summary>
+		HighTouch = 36,
+		///<summary></summary>
+		ItemCure = 37,
+		///<summary></summary>
+		KuroBossBomb1 = 38,
+		///<summary></summary>
+		KuroBossBomb2 = 39,
+		///<summary></summary>
+		KuroBossDeath = 40,
+		///<summary></summary>
+		KuroBossKen1 = 41,
+		///<summary></summary>
+		KuroBossKen2 = 42,
+		///<summary></summary>
+		KuroBossVoice = 43,
+		///<summary></summary>
+		RasuBossBeam = 44,
+		///<summary></summary>
+		RasuBossMahou = 45,
+		///<summary></summary>
+		RasuBossTama = 46,
 	}
 }
