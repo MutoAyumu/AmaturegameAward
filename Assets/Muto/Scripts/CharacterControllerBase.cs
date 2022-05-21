@@ -37,6 +37,7 @@ public class CharacterControllerBase : MonoBehaviour
     FieldManager _fieldManager;
 
     bool IsPause;
+    bool IsTextPause;
     protected bool IsSetText;
 
     RaycastHit2D _hit;
@@ -66,11 +67,17 @@ public class CharacterControllerBase : MonoBehaviour
     {
         _fieldManager.OnPause += Pause;
         _fieldManager.OnResume += Resume;
+
+        _fieldManager.OnTextPause += PauseRb;
+        _fieldManager.OnTextResume += ResumeRb;
     }
     private void OnDisable()
     {
         _fieldManager.OnPause -= Pause;
         _fieldManager.OnResume -= Resume;
+
+        _fieldManager.OnTextPause -= PauseRb;
+        _fieldManager.OnTextResume -= ResumeRb;
 
         if (_coroutine != null)
         {
@@ -107,7 +114,7 @@ public class CharacterControllerBase : MonoBehaviour
 
         DamageAnim();
 
-        if (_isControll && !IsPause)
+        if (_isControll && !IsPause && !IsTextPause)
         {
             InputValue();
 
@@ -302,12 +309,24 @@ public class CharacterControllerBase : MonoBehaviour
         _anim.speed = 0;
         IsPause = true;
     }
+
+    public void PauseRb()
+    {
+        _rb.Sleep();
+        IsTextPause = true;
+    }
     public void Resume()
     {
         _rb.WakeUp();
         _anim.speed = 1;
         IsPause = false;
     }
+    public void ResumeRb()
+    {
+        _rb.WakeUp();
+        IsTextPause = false;
+    }
+
     public void ChangerMessageFlag(bool flag)
     {
         if (_message)
