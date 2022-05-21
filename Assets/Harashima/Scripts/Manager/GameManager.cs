@@ -48,30 +48,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         SceneManager.sceneLoaded += DebugPanelActiveFalse;
-
-
-        ObservableStateMachineTrigger trigger =
-        animator.GetBehaviour<ObservableStateMachineTrigger>();
-
-        IDisposable enterState = trigger
-            .OnStateEnterAsObservable()
-            .Subscribe(onStateInfo =>
-            {
-                AnimatorStateInfo info = onStateInfo.StateInfo;
-                if (info.IsName("Base Layer.Mahojin"))
-                {
-                    Debug.Log("魔法陣始まり");
-                }
-            }).AddTo(this);
-
-        IDisposable exitState= trigger.OnStateExitAsObservable().Subscribe(x =>
-            {
-                AnimatorStateInfo a = x.StateInfo;
-                if (a.IsName("Base Layer.Mahojin"))
-                {
-                    Debug.Log("魔法陣終わり");
-                }
-            } ) ;         
+  
 
     }
 
