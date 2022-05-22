@@ -16,6 +16,7 @@ public class CharacterControllerBase : MonoBehaviour
     [Header("操作キャラのパラメーター"), Space(10)]
     [SerializeField] protected float _moveSpeed = 3.0f;
     [SerializeField] protected CharacterStatus _status = CharacterStatus.IDLE;
+    [SerializeField] protected GameObject _deathPrefab = null;
 
     Vector3 _resetPos = Vector3.zero;
     public Vector3 ResetPos { get => _resetPos; set => _resetPos = value; }
@@ -109,9 +110,14 @@ public class CharacterControllerBase : MonoBehaviour
 
     void InitPos()
     {
+        this.gameObject.SetActive(true);
         this.transform.position = _resetPos;
-        _status = CharacterStatus.IDLE;
-        _anim.SetBool("IsDead", false);
+        _status = CharacterStatus.WALK;
+        //_anim.SetBool("IsDead", false);
+        if(_currentDead)
+        {
+            Destroy(_currentDead);
+        }
     }
     public virtual void OnStart()
     {
@@ -346,10 +352,18 @@ public class CharacterControllerBase : MonoBehaviour
             _message.IsMessage(flag);
         }
     }
+
+    GameObject _currentDead = null;
     public void IsDead()
     {
-        _status = CharacterStatus.Dead;
-        _anim.SetBool("IsDead", true);
+        //_status = CharacterStatus.Dead;
+        //_anim.SetBool("IsDead", true);
+
+        this.gameObject.SetActive(false);
+        if(_deathPrefab)
+        {
+            _currentDead = Instantiate(_deathPrefab,this.transform.position,Quaternion.identity);
+        }
     }
     public virtual void IsDamageAction()
     {
