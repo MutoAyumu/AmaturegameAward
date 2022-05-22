@@ -46,6 +46,7 @@ public class PlayerPalam : Singleton<PlayerPalam>
     void ResetLife()
     {
         _life = _initialLife;
+        CharacterManager.Instance.UIHPUpdate(_life);
     }
 
 }
