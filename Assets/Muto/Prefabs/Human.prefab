@@ -671,6 +671,7 @@ MonoBehaviour:
   _rayLength: 0.3
   _moveSpeed: 2
   _status: 0
+  _deathPrefab: {fileID: 7373243978053788900, guid: 5744277547b2029479659f82cef6a98f, type: 3}
   _endTag: Finish
   _currentSpeed: 0
   _message: {fileID: 8862435517513125521}

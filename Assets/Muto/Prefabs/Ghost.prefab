@@ -69,6 +69,7 @@ MonoBehaviour:
   _rayLength: 0.3
   _moveSpeed: 2
   _status: 0
+  _deathPrefab: {fileID: 5392775785570777758, guid: 41529c26a0275034f8b3a2f058ee74fa, type: 3}
   _endTag: Finish
   _currentSpeed: 0
   _message: {fileID: 4289505607987719408}
