@@ -117,6 +117,7 @@ MonoBehaviour:
   _rb: {fileID: 2572271589234806738}
   _sprite: {fileID: 2572271589234806739}
   _anim: {fileID: 3960301179736075941}
+  _enemyDamage: {fileID: 0}
 --- !u!114 &2572271589234806737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56543932009fef64297d55306f3c20d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialHp: 20
   _enemyHp: 20
   _deathPrefab: {fileID: 3123762439311793288, guid: 52ce65a3e95bae94298568c4444e484b, type: 3}
   _audio: {fileID: 8300000, guid: 3341bed59adebcb4aa6c34b9d4911af3, type: 3}

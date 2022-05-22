@@ -75,6 +75,14 @@ public class SoundManager : Singleton<SoundManager>
         source.cueName = cueName;
         source.Play();
     }
+    public void CriAtomStop()
+    {
+        if (!_criAtomSource)
+        {
+            _criAtomSource = GetComponent<CriAtomSource>();
+        }
+        _criAtomSource.Stop();
+    }
 }
 
 public enum CueSheet

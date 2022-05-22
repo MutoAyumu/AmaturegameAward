@@ -360,6 +360,7 @@ MonoBehaviour:
   _rb: {fileID: -2915792056716913524}
   _sprite: {fileID: 7582588298370003683}
   _anim: {fileID: 7582588298370003612}
+  _enemyDamage: {fileID: 0}
   _noticeDistance: 5
 --- !u!50 &-2915792056716913524
 Rigidbody2D:
@@ -394,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56543932009fef64297d55306f3c20d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialHp: 18
   _enemyHp: 2
   _deathPrefab: {fileID: 1350870010505638369, guid: cbcd3a6b9e637f3439aa6c09d7bced38, type: 3}
   _audio: {fileID: 0}

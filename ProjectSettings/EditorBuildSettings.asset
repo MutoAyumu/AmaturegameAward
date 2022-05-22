@@ -6,11 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Muto/GameScenes/Title.unity
+    guid: 670df88c18c09a946baad4c5d9fcc04a
+  - enabled: 1
     path: Assets/Muto/GameScenes/Scene1.unity
     guid: b75af6701cb8de64fbceac58df6f716a
   - enabled: 1
+    path: Assets/Muto/GameScenes/Scene2.unity
+    guid: fafea5a21aa069e4999412a350ca7ba7
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene3.unity
+    guid: a664d469a842fc04e92697c39902cf66
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene4.unity
+    guid: a0b5d848475391143bffda8d37448ffa
+  - enabled: 1
     path: Assets/Muto/GameScenes/Scene5.unity
     guid: 4d8382653069771489875d9207a9d765
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene6.unity
+    guid: b84c85dc1397f7143bff709464b8b459
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene7.unity
+    guid: 7b8afd2fa09b6f748950cad659b930cb
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene9.unity
+    guid: acb6f0c816de11f4b92d04ba901607d4
   - enabled: 1
     path: Assets/Aoyama/Scene/BossStage2.unity
     guid: 3f5851bbbd864d84690b6f358bea98f5
@@ -20,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Aoyama/Scene/BossStage1.unity
     guid: c0bc2683e69f473499aa025a318f2646
-  - enabled: 1
-    path: Assets/Muto/GameScenes/Title.unity
-    guid: 670df88c18c09a946baad4c5d9fcc04a
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
@@ -39,12 +57,6 @@ EditorBuildSettings:
     path: Assets/Harashima/Scenes/ItemTest2.unity
     guid: 4c6c9316e0aab9a44903771e4769c93a
   - enabled: 1
-    path: Assets/Muto/GameScenes/Scene2.unity
-    guid: fafea5a21aa069e4999412a350ca7ba7
-  - enabled: 1
     path: Assets/Aoyama/Scene/TestCreate.unity
     guid: bb48ffd8212bd894790715d3a897d481
-  - enabled: 1
-    path: Assets/Muto/GameScenes/Scene4.unity
-    guid: a0b5d848475391143bffda8d37448ffa
   m_configObjects: {}
