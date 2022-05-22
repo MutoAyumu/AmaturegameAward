@@ -5,7 +5,6 @@ using UnityEngine.Playables;
 
 public class CutSceneScript : MonoBehaviour
 {
-    [SerializeField] string _playerTag = "Player";
     [SerializeField] string _togetherTag = "Together";
     [SerializeField] PlayableDirector _timeLine = default;
     [SerializeField] Transform _timeLineHumanPos = default;
@@ -36,7 +35,7 @@ public class CutSceneScript : MonoBehaviour
     {
         if (!isPlay)
         {
-            if (collision.CompareTag(_playerTag) || collision.CompareTag(_togetherTag))
+            if (collision.CompareTag(_togetherTag))
             {
                 if (_timeLine)
                 {
@@ -52,6 +51,7 @@ public class CutSceneScript : MonoBehaviour
     }
     public void Goal()
     {
+        SoundManager.Instance.CriAtomStop();
         SoundManager.Instance.CriAtomPlay(CueSheet.ME, "Clear");
         FieldManager.Instance.Clear();
     }

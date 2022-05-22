@@ -104,6 +104,19 @@ public class HumanController : CharacterControllerBase
             _isDamage = true;
         }
     }
+
+    protected override IEnumerator OnDamage(float alpha)
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        _isDamage = false;
+
+        if (!CharacterManager.Instance.IsTogether)
+            _mainSprite.color = new Color(1, 1, 1, alpha);
+        else
+            _togetherImage.color = new Color(1, 1, 1, alpha);
+    }
+
     void Activate()
     {
         Vector2 origin = this.transform.position;
@@ -114,6 +127,7 @@ public class HumanController : CharacterControllerBase
             hit.collider.GetComponent<IHumanGimic>()?.Action();
         }
     }
+            
     protected override void Interact()
     {
         if (!CharacterManager.Instance.IsTogether)

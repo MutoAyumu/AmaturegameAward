@@ -357,7 +357,7 @@ public class CharacterControllerBase : MonoBehaviour
         //StartCoroutine(DamageStart());
         //_status = CharacterStatus.DAMAGE;
     }
-    protected IEnumerator OnDamage(float alpha)
+    protected virtual IEnumerator OnDamage(float alpha)
     {
         yield return new WaitForSeconds(2.0f);
 
