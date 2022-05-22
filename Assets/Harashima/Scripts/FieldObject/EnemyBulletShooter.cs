@@ -9,8 +9,6 @@ using System;
 public class EnemyBulletShooter : EnemyAttack
 {
     [SerializeField, Tooltip("自身のコンポーネント")]
-    EnemyMove _enemyMove = null;
-    [SerializeField, Tooltip("自身のコンポーネント")]
     SpriteRenderer _spriteRenderer = null;
 
     [SerializeField, Tooltip("攻撃パターンが変わる距離")]

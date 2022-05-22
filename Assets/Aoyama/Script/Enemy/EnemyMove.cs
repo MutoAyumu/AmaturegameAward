@@ -14,6 +14,8 @@ public class EnemyMove : MonoBehaviour
     protected float _nearDistance = 1f;
     [SerializeField, Tooltip("追いかけ始める距離")]
     protected float _chaseDistance = 8f;
+    public float ChaseDistance => _chaseDistance;
+
     [SerializeField, Tooltip("ダメージを受けた時の吹っ飛び加減")]
     protected float _knockBackPower = 5f;
 
@@ -25,6 +27,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] protected Animator _anim;
     [SerializeField] EnemyDamage _enemyDamage = null;
 
+
     [System.NonSerialized]
     public Transform Decoy = null;
 
@@ -33,6 +36,9 @@ public class EnemyMove : MonoBehaviour
     protected CharacterControllerBase _ghost;
     protected bool _isPause = false;
     protected bool _isMove = false;
+
+    bool isAttack = false;
+    public bool IsAttack => isAttack;
 
     /* ToDo
         ダメージを受けた時に一定時間Moveを呼ばないようにする
@@ -98,9 +104,14 @@ public class EnemyMove : MonoBehaviour
         //targetとの距離がnearDistanseより遠くなると動きを止める
         if (distance > _chaseDistance)
         {
+            isAttack = false;
             _rb.velocity = Vector3.zero;
             _rb.angularVelocity = 0;
             return;
+        }
+        else
+        {
+            isAttack = true;
         }
         //targetとの距離がchaseDistanseより近くなると動きを止める
         if (distance < _nearDistance)
