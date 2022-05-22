@@ -80,6 +80,7 @@ public class EnemyMove : MonoBehaviour
 
     public void Init()
     {
+        OnInit();
         if (!_enemyDamage)
         {
             _enemyDamage = GetComponent<EnemyDamage>();
@@ -88,6 +89,11 @@ public class EnemyMove : MonoBehaviour
         this.transform.position = _initPos;
         _isMove = true;
         this.gameObject.SetActive(false);
+    }
+
+    protected virtual void OnInit()
+    {
+
     }
 
     /// <summary>
