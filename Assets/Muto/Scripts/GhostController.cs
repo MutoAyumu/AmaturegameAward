@@ -13,6 +13,7 @@ public class GhostController : CharacterControllerBase
     [SerializeField, Tooltip("UŒ‚ƒ{ƒ^ƒ“‚Ì–¼‘O")] string _attackButtonName = "Fire1";
     [SerializeField] GhostAttack _attack = default;
     [SerializeField, Tooltip("UŒ‚‚·‚éŠÔŠu")] float _attackSpeed = 2f;
+    [SerializeField] int _attackLimit = 5;
 
     bool _isFixedRange = default;
     bool _isAttack;
@@ -33,7 +34,8 @@ public class GhostController : CharacterControllerBase
         _cm = CharacterManager.Instance;
 
         _message.SetMessage(_cm.HumanMessage);
-        _alpha = _mainSprite.color.a;
+        _alpha = _cm.GhostAlpha;
+        _mainSprite.color = new Color(1, 1, 1, _alpha);
     }
     public override void OnUpdate()
     {
@@ -50,7 +52,7 @@ public class GhostController : CharacterControllerBase
             _attackCount++;
             _isAttack = true;
 
-            if (_attackCount >= 1)
+            if (_attackCount >= _attackLimit)
             {
                 _attackCount = 0;
                 _abs.LightCount--;

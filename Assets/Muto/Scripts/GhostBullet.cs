@@ -5,6 +5,7 @@ using UnityEngine;
 public class GhostBullet : MonoBehaviour
 {
     [SerializeField] float _speed = 3f;
+    [SerializeField] int _damage = 10;
     [SerializeField] Rigidbody2D _rb = default;
 
     private void Start()
@@ -13,7 +14,10 @@ public class GhostBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(!collision.CompareTag("Player"))
-        //Destroy(this.gameObject);
+        if (!collision.CompareTag("Player"))
+        {
+            collision.GetComponent<IDamage>()?.Damage(_damage);
+            Destroy(this.gameObject, 0.2f); ;
+        }
     }
 }

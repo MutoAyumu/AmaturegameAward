@@ -9,8 +9,10 @@ using UnityEngine.UI;
 public class EnemyDamage : MonoBehaviour, IDamage
 {
     [Header("各種ステータス")]
+    [SerializeField, Tooltip("Enemyの初期化HP")]
+    int _initialHp = 2;
     [SerializeField, Tooltip("EnemyのHP")]
-    int _enemyHp = 2;
+    int _enemyHp = 0;
 
     [Header("GameObject")]
     [SerializeField, Tooltip("死んだときのプレハブ")]
@@ -38,6 +40,12 @@ public class EnemyDamage : MonoBehaviour, IDamage
         {
             _enemyDamageText = GetComponentInChildren<EnemyDamageText>();
         }
+        InitHP();
+    }
+
+    public void InitHP()
+    {
+        _enemyHp = _initialHp;
     }
     private void Update()
     {
@@ -80,7 +88,8 @@ public class EnemyDamage : MonoBehaviour, IDamage
         }
 
         Debug.Log("EnemyDeathが呼び出された");
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        this.gameObject.SetActive(false);
 
         if (_deathPrefab)
         {

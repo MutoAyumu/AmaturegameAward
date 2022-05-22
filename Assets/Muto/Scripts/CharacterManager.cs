@@ -47,6 +47,8 @@ public class CharacterManager : Singleton<CharacterManager>
     [SerializeField] Text _intaractText = default;
     [SerializeField] Animator _connectImage = default;
 
+    [SerializeField, Range(0,1)] float _ghostAlpha = default;
+
     [SerializeField, Tooltip("操作キャラを切り替えられるようにするフラグ")] bool _isCanSwitch = true;
     [SerializeField, Tooltip("幽霊が攻撃できるようになるフラグ")] bool _isGhostAttack;
 
@@ -68,6 +70,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public string[] HumanMessage { get => _humanMessage; }
     public string[] GhostMessage { get => _ghostMessage; }
     public bool GodMode { get => _isGodMode;}
+    public float GhostAlpha { get => _ghostAlpha;}
 
     /*
         KeyCodeを変える
@@ -409,7 +412,6 @@ public class CharacterManager : Singleton<CharacterManager>
         var s = SoundManager.Instance;
         s.CriAtomPlay(CueSheet.SE, "HumanDeath");
         s.CriAtomPlay(CueSheet.SE, "GhostDeath");
-        PlayerPosition(this.transform);
     }
 
 
@@ -454,6 +456,12 @@ public class CharacterManager : Singleton<CharacterManager>
         if (!_connectImage) return;
 
         _connectImage.SetBool("Set" ,value);
+    }
+
+    public void SetResetPos(Vector3 humanPos,Vector3 ghostPos)
+    {
+        _human.ResetPos = humanPos;
+        _ghost.ResetPos = ghostPos;
     }
 
 }

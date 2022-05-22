@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1173097161308424584}
   - component: {fileID: 1084442969514684597}
   - component: {fileID: 3787558783228973366}
-  - component: {fileID: 2219714435631688902}
+  - component: {fileID: 3711405701258793631}
   m_Layer: 5
   m_Name: Button (Legacy) (1)
   m_TagString: Untagged
@@ -122,20 +122,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1084442969514684597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2219714435631688902}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneChange
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Scene2
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2219714435631688902
+      m_Calls: []
+--- !u!114 &3711405701258793631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,11 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 627054119283072362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946751357abebaf40b816b863d50bf6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bf204533d68315418e43de5c864861c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadePanel: {fileID: 0}
-  _fadeTime: 1
+  _button: {fileID: 3787558783228973366}
 --- !u!1 &763658908424176709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,10 +1414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
