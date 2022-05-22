@@ -6,12 +6,14 @@ using UnityEngine.Playables;
 public class CutSceneScript : MonoBehaviour
 {
     [SerializeField] string _togetherTag = "Together";
+    [SerializeField] string _playerTag = "Player";
     [SerializeField] PlayableDirector _timeLine = default;
     [SerializeField] Transform _timeLineHumanPos = default;
     [SerializeField] Transform _timeLineGhostPos = default;
 
     TimeLineManager _manager;
     [SerializeField]bool isPlay;
+    [SerializeField] bool isEnding;
 
     private void Start()
     {
@@ -35,16 +37,34 @@ public class CutSceneScript : MonoBehaviour
     {
         if (!isPlay)
         {
-            if (collision.CompareTag(_togetherTag))
+            if (!isEnding)
             {
-                if (_timeLine)
+                if (collision.CompareTag(_togetherTag) || collision.CompareTag(_playerTag))
                 {
-                    isPlay = true;
-                    _manager.StartCutScene(_timeLine);
+                    if (_timeLine)
+                    {
+                        isPlay = true;
+                        _manager.StartCutScene(_timeLine);
+                    }
+                    else
+                    {
+                        Debug.LogError("タイムラインを入れてください");
+                    }
                 }
-                else
+            }
+            else
+            {
+                if (collision.CompareTag(_togetherTag))
                 {
-                    Debug.LogError("タイムラインを入れてください");
+                    if (_timeLine)
+                    {
+                        isPlay = true;
+                        _manager.StartCutScene(_timeLine);
+                    }
+                    else
+                    {
+                        Debug.LogError("タイムラインを入れてください");
+                    }
                 }
             }
         }

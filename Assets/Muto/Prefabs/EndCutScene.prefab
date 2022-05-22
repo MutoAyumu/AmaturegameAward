@@ -965,12 +965,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8af9030cfa3764bac1a6846cb0e9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
   _togetherTag: Together
+  _playerTag: Player
   _timeLine: {fileID: 2296404066419120665}
   _timeLineHumanPos: {fileID: 2296404065873716557}
   _timeLineGhostPos: {fileID: 2296404065920429451}
   isPlay: 0
+  isEnding: 1
 --- !u!1 &2296404066581682076
 GameObject:
   m_ObjectHideFlags: 0
