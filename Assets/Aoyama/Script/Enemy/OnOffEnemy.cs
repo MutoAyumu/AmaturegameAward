@@ -18,13 +18,19 @@ public class OnOffEnemy : MonoBehaviour
 
     [SerializeField] GameObject[] _gimic = default;
 
-    bool IsActive;
+    bool IsActive = false;
 
     private void Start()
     {
         OffSetActive();
         _count = _enemys.Length;
         Array.ForEach(_enemys, en => en.GetComponent<EnemyDamage>()?.SetNumber(_arrayNum));
+        FieldManager.Instance.OnStart += OnStartEnemy;
+    }
+
+    void OnStartEnemy()
+    {
+        IsActive = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -15,6 +15,8 @@ public class EnemyAttack : MonoBehaviour
     protected Rigidbody2D _rb;
     [SerializeField]
     protected Animator _anim;
+    [SerializeField, Tooltip("自身のコンポーネント")]
+    protected EnemyMove _enemyMove = null;
     [Header("音")]
     [SerializeField] protected CriAtomSource _criAtomSource;
     [SerializeField] protected string _cuename = "GaAttack";
@@ -26,6 +28,14 @@ public class EnemyAttack : MonoBehaviour
     protected float _timer = 0;
 
     Vector2 _dir = new Vector2(0, 0);
+
+    private void Start()
+    {
+        if (!_enemyMove)
+        {
+            _enemyMove = GetComponent<EnemyMove>();
+        }
+    }
 
     void Update()
     {
@@ -39,7 +49,7 @@ public class EnemyAttack : MonoBehaviour
             _timer += Time.deltaTime;
         }
 
-        if (_attackTime <= _timer)
+        if (_attackTime <= _timer && _enemyMove.IsAttack)
         {
             Attack();
             _timer = 0;
@@ -65,6 +75,6 @@ public class EnemyAttack : MonoBehaviour
         {
             go.transform.parent?.GetComponent<PlayerHP>()?.Damage();
         });
-        
+
     }
 }

@@ -9,6 +9,11 @@ public class Zako2Move : EnemyMove
 
     [SerializeField, Tooltip("‹ß‚Ã‚¢‚½‚ç‹N‚«‚é‹——£")]
     float _noticeDistance = 5f;
+
+    protected override void OnInit()
+    {
+        _isWakeUp = false;
+    }
     public override void OnFixedUpdate()
     {
         if (_isPause == true)

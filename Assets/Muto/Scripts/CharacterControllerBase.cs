@@ -75,6 +75,7 @@ public class CharacterControllerBase : MonoBehaviour
 
         _fieldManager.OnTextPause += PauseRb;
         _fieldManager.OnTextResume += ResumeRb;
+
     }
     private void OnDisable()
     {
