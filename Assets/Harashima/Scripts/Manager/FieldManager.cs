@@ -30,7 +30,7 @@ public class FieldManager : Singleton<FieldManager>
     public event Action OnTextResume;
 
     /// <summary>クリアかゲームオーバーを判定するフラグ</summary>
-    bool _isEnd = false;
+    bool _isDead = false;
 
     [SerializeField, Range(1, 10), Tooltip("ステージの番号")]
     int _stageIndex;
@@ -51,7 +51,7 @@ public class FieldManager : Singleton<FieldManager>
     [SerializeField] Image _pausePanel = default;
     /// <summary>シーン上キャンバスの読み取りプロパティ</summary>
     public GameObject Canvas => _canvas;
-    public bool IsDead => _isEnd;
+    public bool IsDead => _isDead;
 
     public void CurrentSavePoint()
     {
@@ -82,14 +82,14 @@ public class FieldManager : Singleton<FieldManager>
     void Update()
     {
 
-        if (PlayerPalam.Instance?.Life <= 0 && !_isEnd)　//スコアが0になり、isEndがFalseだったら
+        if (PlayerPalam.Instance?.Life <= 0 && !_isDead)　//スコアが0になり、isEndがFalseだったら
         {
             if(OnGameOver != null)
             {
                 //ゲームオーバーイベントを呼ぶ
                 OnGameOver();
             }            
-            _isEnd = true;
+            _isDead = true;
         }
 
         ItemInput();
@@ -114,10 +114,10 @@ public class FieldManager : Singleton<FieldManager>
     public void Clear()
     {
         //クリアイベントを呼ぶ
-        if(OnClear!= null && !_isEnd)//isEndがFalseだったら
+        if(OnClear!= null && !_isDead)//isEndがFalseだったら
         {
             OnClear();
-            _isEnd = true;
+            _isDead = true;
         }
 
         //クリア時の処理を呼ぶ
@@ -266,6 +266,7 @@ public class FieldManager : Singleton<FieldManager>
     public void OnStartEvent()
     {
         OnStart();
+        _isDead = false;
         _resultPanel.SetActive(false);
     }
 }
