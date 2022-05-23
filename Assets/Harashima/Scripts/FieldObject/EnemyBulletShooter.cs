@@ -111,16 +111,17 @@ public class EnemyBulletShooter : EnemyAttack
             }
         }
         SoundManager.Instance.CriAtomPlay(CueSheet.SE,_bulletCueName);
-    }
-    IEnumerator InstantiateBullet(GameObject prefab, int bulletValue, Transform muzzle)
-    {
-        for (int i = 0; i < bulletValue; i++)
+        IEnumerator InstantiateBullet(GameObject prefab, int bulletValue, Transform muzzle)
         {
-            yield return new WaitForSeconds(_bulletInterval);
-            Instantiate(prefab, muzzle.transform.position, Quaternion.identity, this.transform);
-        }
+            for (int i = 0; i < bulletValue; i++)
+            {
+                yield return new WaitForSeconds(_bulletInterval);
+                Instantiate(prefab, muzzle.transform.position, Quaternion.identity, this.transform);
+            }
 
+        }
     }
+
     void Bomb()
     {
 
