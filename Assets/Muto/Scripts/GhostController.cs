@@ -14,9 +14,11 @@ public class GhostController : CharacterControllerBase
     [SerializeField] GhostAttack _attack = default;
     [SerializeField, Tooltip("çUåÇÇ∑ÇÈä‘äu")] float _attackSpeed = 2f;
     [SerializeField] int _attackLimit = 5;
+    [SerializeField] CriAtomSource _criAtom = default;
 
     bool _isFixedRange = default;
     bool _isAttack;
+    bool _isPlayAudio;
     int _attackCount = 0;
     float _timer;
     CharacterManager _cm;
@@ -70,6 +72,21 @@ public class GhostController : CharacterControllerBase
                 _timer = 0;
                 _isAttack = false;
             }
+        }
+
+        var h = Input.GetAxisRaw("Horizontal");
+        var v = Input.GetAxisRaw("Vertical");
+        var dir = new Vector2(h, v).normalized;
+
+        if(dir != Vector2.zero && !_isPlayAudio)
+        {
+            _isPlayAudio = true;
+            SoundManager.Instance.CriAtomPlay(_criAtom ,CueSheet.SE, "GhostMove");
+        }
+        else if(dir == Vector2.zero && _isPlayAudio)
+        {
+            _isPlayAudio = false;
+            _criAtom.Stop();
         }
     }
     //private void OnTriggerStay2D(Collider2D collision)

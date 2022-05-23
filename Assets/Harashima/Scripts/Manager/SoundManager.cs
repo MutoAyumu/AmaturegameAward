@@ -23,7 +23,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void BGMPlay()
     {
-        CriAtomPlay(CueSheet.BGM, "BGMField");
+        //CriAtomPlay(CueSheet.BGM, "BGMField");
     }
     /// <summary>
     /// フェードが終わる時に音量が1になる

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1930548270821196415}
   - component: {fileID: 3195630503740488943}
   - component: {fileID: 7574700875114436310}
+  - component: {fileID: 5291919772860890559}
   m_Layer: 10
   m_Name: Ghost
   m_TagString: Player
@@ -83,6 +84,7 @@ MonoBehaviour:
   _attack: {fileID: 9109073565701455678}
   _attackSpeed: 0.5
   _attackLimit: 5
+  _criAtom: {fileID: 5291919772860890559}
 --- !u!114 &9109073565701455678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,39 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &5291919772860890559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339178854182673670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: 
+  _cueSheet: 
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 0.2
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1 &1132302462484082816
 GameObject:
   m_ObjectHideFlags: 0

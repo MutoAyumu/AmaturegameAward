@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Muto/GameScenes/Scene8.unity
+    guid: 6173b10c09dc01e49a51981336ffaf84
+  - enabled: 1
+    path: Assets/Muto/GameScenes/Scene10.unity
+    guid: 58071d7b8fb51654688f3d8ec74bf55d
+  - enabled: 1
     path: Assets/Muto/GameScenes/Title.unity
     guid: 670df88c18c09a946baad4c5d9fcc04a
   - enabled: 1
