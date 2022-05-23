@@ -355,13 +355,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseSpeed: 1
   _nearDistance: 1
-  _chaseDistance: 0.5
-  _knockBackPower: 5
+  _chaseDistance: 1
+  _knockBackPower: 3
   _rb: {fileID: -2915792056716913524}
   _sprite: {fileID: 7582588298370003683}
   _anim: {fileID: 7582588298370003612}
   _enemyDamage: {fileID: 0}
-  _noticeDistance: 5
+  _noticeDistance: 3
 --- !u!50 &-2915792056716913524
 Rigidbody2D:
   serializedVersion: 4
@@ -424,6 +424,7 @@ MonoBehaviour:
   _audio: {fileID: 0}
   _rb: {fileID: -2915792056716913524}
   _anim: {fileID: 7582588298370003612}
+  _enemyMove: {fileID: 0}
   _criAtomSource: {fileID: 0}
   _cuename: GaAttack
 --- !u!58 &1377776313
@@ -459,11 +460,11 @@ MonoBehaviour:
   _audio: {fileID: 0}
   _rb: {fileID: -2915792056716913524}
   _anim: {fileID: 7582588298370003612}
+  _enemyMove: {fileID: 4334354592312458792}
   _criAtomSource: {fileID: 0}
   _cuename: KurageAttack
-  _enemyMove: {fileID: 4334354592312458792}
   _spriteRenderer: {fileID: 7582588298370003683}
-  _attackPatternDistance: 0.5
+  _attackPatternDistance: 1
   _straightBulletPrefab: {fileID: 7230000268191832640, guid: 9c75454704bb9e647ad84568d4bda6e4, type: 3}
   _homingBulletPrefab: {fileID: 5082854643189072000, guid: b23add9ba7e287a44ac31a7a487e9606, type: 3}
   _leftMuzzle: {fileID: 1944963430909320740}
@@ -484,6 +485,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7582588298370003682}
     m_Modifications:
+    - target: {fileID: 2196169823237022060, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823237022060, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823237022063, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30.1798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823237022063, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 29.671
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823237022063, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -961.7174
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823237022063, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -548.7467
+      objectReference: {fileID: 0}
     - target: {fileID: 2196169823410226670, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -571,6 +596,10 @@ PrefabInstance:
     - target: {fileID: 2196169823410226671, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196169823410226674, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2dbf009a98dce0478bdc2617bbab816, type: 3}
