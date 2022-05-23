@@ -45,19 +45,20 @@ public class EnemyBulletControllerBase : MonoBehaviour
 
     }
 
+    PlayerHP _cashPlayerHP = null;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.TryGetComponent<PlayerHP>(out PlayerHP hp))
         {
+            _cashPlayerHP = hp;
             OnTriggerMethod();
             Destroy(this.gameObject);
         }
-        else
-        {
 
-        }
-        
     }
 
-    protected virtual void OnTriggerMethod() { }
+    protected virtual void OnTriggerMethod()
+    {
+        _cashPlayerHP?.Damage();
+    }
 }
