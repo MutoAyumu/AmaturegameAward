@@ -78,6 +78,7 @@ public class CharacterManager : Singleton<CharacterManager>
     private void Start()
     {
         OnStart();
+        FieldManager.Instance.OnStart += HumanExchange;
     }
     private void Update()
     {
