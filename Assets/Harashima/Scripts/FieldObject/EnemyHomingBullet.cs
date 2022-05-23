@@ -34,8 +34,9 @@ public class EnemyHomingBullet : EnemyBulletControllerBase
             if(_bombEffectPrefab)
             {
                 Instantiate(_bombEffectPrefab, this.transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
+            
         });
     }
 
@@ -80,6 +81,10 @@ public class EnemyHomingBullet : EnemyBulletControllerBase
         if(_bombEffectPrefab)
         {
             Instantiate(_bombEffectPrefab,this.transform.position,Quaternion.identity);
+        }
+        else
+        {
+            base.OnTriggerMethod();
         }
     }
 }
