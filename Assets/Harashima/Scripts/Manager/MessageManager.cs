@@ -87,14 +87,14 @@ public class MessageManager : Singleton<MessageManager>
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemText");
         //StartCoroutine(HideWindows());
         yield return new WaitUntil(()=>IsSpace());
-        FieldManager.Instance.TextResume();
+        StartCoroutine(HideWindows());
         yield break;
     }
     IEnumerator HideWindows()
     {
-        yield return new WaitForSeconds(_hideTime);
+        yield return new WaitUntil(() => IsSpace());
 
-        if(!_isText && _windowPanel.activeSelf)
+        if (!_isText && _windowPanel.activeSelf)
         {
             ActiveWindow(false);
             FieldManager.Instance.TextResume();
@@ -117,11 +117,4 @@ public class MessageManager : Singleton<MessageManager>
     }
     //DebugTest
     bool _isText = false;
-    private void Update()
-    {
-        if (!_isText && Input.GetButtonDown(_skipInputButton) && _windowPanel.activeSelf)
-        {
-            ActiveWindow(false);
-        }
-    }
 }
