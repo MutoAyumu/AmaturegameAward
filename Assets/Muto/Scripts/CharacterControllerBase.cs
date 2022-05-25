@@ -332,6 +332,7 @@ public class CharacterControllerBase : MonoBehaviour
     public void PauseRb()
     {
         _rb.Sleep();
+        _anim.SetBool("IsMove", false);
         IsTextPause = true;
     }
     public void Resume()
