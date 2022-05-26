@@ -32,6 +32,7 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
         //ステージの数で初期化
         _clearedStage = new bool[_stageLimit];
+        _clearedStage[0] = true;
     }
 
     void Start()
