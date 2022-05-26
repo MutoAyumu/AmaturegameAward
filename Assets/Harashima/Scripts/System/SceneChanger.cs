@@ -27,6 +27,10 @@ public class SceneChanger : MonoBehaviour
 
     }
 
+    private void A()
+    {
+        
+    }
     public void Fade(GameObject go)
     {
         if (!IsFade)
