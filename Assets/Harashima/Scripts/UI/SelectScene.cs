@@ -7,12 +7,12 @@ public class SelectScene : MonoBehaviour
 {
     [SerializeField]
     GameObject _buttonPrefab = null;
-    [SerializeField]
+
     int _stageValue = 10;
 
     [SerializeField]
     SceneChanger _sceneChanger = null;
-    // Start is called before the first frame update
+
     void Start()
     {
         var gm = GameManager.Instance;
@@ -36,11 +36,5 @@ public class SelectScene : MonoBehaviour
             }
             
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
