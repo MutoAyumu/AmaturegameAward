@@ -4887,6 +4887,7 @@ GameObject:
   - component: {fileID: 2207778815184597984}
   - component: {fileID: 1562208270005240771}
   - component: {fileID: -5649616135017839519}
+  - component: {fileID: 8435075470473898496}
   m_Layer: 3
   m_Name: StoneStatue
   m_TagString: Untagged
@@ -5016,7 +5017,7 @@ MonoBehaviour:
   - {x: 0.16784859, y: 0.005867958, z: 0}
   m_ShapePathHash: 603157485
   m_Mesh: {fileID: 0}
-  m_InstanceId: 91504
+  m_InstanceId: 77414
 --- !u!114 &-5649616135017839519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5032,3 +5033,30 @@ MonoBehaviour:
   _respawnArray:
   - {fileID: 2231518588472325363}
   - {fileID: 7771811282717072225}
+  _text: "\u30BB\u30FC\u30D6\u30DD\u30A4\u30F3\u30C8\u3092\u8A2D\u7F6E\u3059\u308B"
+--- !u!61 &8435075470473898496
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751365014671534222}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.5, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0

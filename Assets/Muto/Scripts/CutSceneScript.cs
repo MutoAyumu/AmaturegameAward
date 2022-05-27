@@ -75,4 +75,8 @@ public class CutSceneScript : MonoBehaviour
         SoundManager.Instance.CriAtomPlay(CueSheet.ME, "Clear");
         FieldManager.Instance.Clear();
     }
+    public void HighTouch()
+    {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HighTouch");
+    }
 }

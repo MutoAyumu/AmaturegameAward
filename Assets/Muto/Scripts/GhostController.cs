@@ -90,20 +90,12 @@ public class GhostController : CharacterControllerBase
             _criAtom.Stop();
         }
     }
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if(collision.CompareTag("Player") && !_isFixedRange)
-    //    {
-    //        _isFixedRange = true;
-    //    }
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        _isFixedRange = false;
-    //    }
-    //}
+    public override void Stop()
+    {
+        base.Stop();
+        _isPlayAudio = false;
+        _criAtom.Stop();
+    }
     public override void DamageAnim()
     {
         if (_isDamage)

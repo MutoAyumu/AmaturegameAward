@@ -20,5 +20,6 @@ public class GameOverButton : MonoBehaviour
     private void Init()
     {
         FieldManager.Instance.OnStartEvent();
+        SoundManager.Instance.BGMPlay();
     }
 }

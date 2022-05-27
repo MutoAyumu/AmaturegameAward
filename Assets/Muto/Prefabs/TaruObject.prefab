@@ -105,6 +105,7 @@ MonoBehaviour:
   _dropObject: {fileID: 5269560337156367317, guid: ac9bf1f4387ea08458f69686ba889830, type: 3}
   _dropProbability: 3
   _audio: {fileID: 8300000, guid: d22166ad201d052479020858a2d441f5, type: 3}
+  _cueName: BoxDestruction
 --- !u!114 &1484419155047099327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ MonoBehaviour:
   - {x: -0.08129573, y: -0.38353458, z: -0.00000056015153}
   m_ShapePathHash: -666913120
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40896
+  m_InstanceId: 67590
 --- !u!70 &1484419155047099321
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

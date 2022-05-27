@@ -138,7 +138,6 @@ public class HumanController : CharacterControllerBase
             {
                 IsSetText = true;
                 CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
-                Debug.Log("ppp");
             }
             else if (!hit && IsSetText)
             {
@@ -148,7 +147,18 @@ public class HumanController : CharacterControllerBase
         }
         else
         {
-            CharacterManager.Instance.ClearIntaractText();
+            var hit = Physics2D.Raycast(this.transform.position, new Vector2(_lh, _lv), _rayLength, _layer);
+
+            if (hit && !IsSetText)
+            {
+                IsSetText = true;
+                CharacterManager.Instance.SetIntaractText(hit.collider?.GetComponent<ISetText>().SetText());
+            }
+            else if (!hit && IsSetText)
+            {
+                IsSetText = false;
+                CharacterManager.Instance.ClearIntaractText();
+            }
         }
 
         base.Interact();
@@ -156,5 +166,9 @@ public class HumanController : CharacterControllerBase
     public void FootStep()
     {
         SoundManager.Instance.CriAtomPlay(CueSheet.SE, "HumanFootsteps");
+    }
+    public void BoxPush()
+    {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, "BoxPush");
     }
 }

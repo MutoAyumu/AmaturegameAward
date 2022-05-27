@@ -70,20 +70,20 @@ public class CharacterControllerBase : MonoBehaviour
 
     private void OnEnable()
     {
-        _fieldManager.OnPause += Pause;
-        _fieldManager.OnResume += Resume;
+        //_fieldManager.OnPause += Pause;
+        //_fieldManager.OnResume += Resume;
 
-        _fieldManager.OnTextPause += PauseRb;
-        _fieldManager.OnTextResume += ResumeRb;
+        //_fieldManager.OnTextPause += PauseRb;
+        //_fieldManager.OnTextResume += ResumeRb;
 
     }
     private void OnDisable()
     {
-        _fieldManager.OnPause -= Pause;
-        _fieldManager.OnResume -= Resume;
+        //_fieldManager.OnPause -= Pause;
+        //_fieldManager.OnResume -= Resume;
 
-        _fieldManager.OnTextPause -= PauseRb;
-        _fieldManager.OnTextResume -= ResumeRb;
+        //_fieldManager.OnTextPause -= PauseRb;
+        //_fieldManager.OnTextResume -= ResumeRb;
 
         if (_coroutine != null)
         {
@@ -91,6 +91,7 @@ public class CharacterControllerBase : MonoBehaviour
             _coroutine = null;
         }
         _isDamage = false;
+        Stop();
     }
     private void Awake()
     {
@@ -289,7 +290,7 @@ public class CharacterControllerBase : MonoBehaviour
     /// <summary>
     /// ‘€ìƒLƒƒƒ‰‚ğ~‚ß‚éŠÖ”
     /// </summary>
-    public void Stop()
+    public virtual void Stop()
     {
         if (_rb)
         {
