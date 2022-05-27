@@ -70,20 +70,20 @@ public class CharacterControllerBase : MonoBehaviour
 
     private void OnEnable()
     {
-        _fieldManager.OnPause += Pause;
-        _fieldManager.OnResume += Resume;
+        //_fieldManager.OnPause += Pause;
+        //_fieldManager.OnResume += Resume;
 
-        _fieldManager.OnTextPause += PauseRb;
-        _fieldManager.OnTextResume += ResumeRb;
+        //_fieldManager.OnTextPause += PauseRb;
+        //_fieldManager.OnTextResume += ResumeRb;
 
     }
     private void OnDisable()
     {
-        _fieldManager.OnPause -= Pause;
-        _fieldManager.OnResume -= Resume;
+        //_fieldManager.OnPause -= Pause;
+        //_fieldManager.OnResume -= Resume;
 
-        _fieldManager.OnTextPause -= PauseRb;
-        _fieldManager.OnTextResume -= ResumeRb;
+        //_fieldManager.OnTextPause -= PauseRb;
+        //_fieldManager.OnTextResume -= ResumeRb;
 
         if (_coroutine != null)
         {

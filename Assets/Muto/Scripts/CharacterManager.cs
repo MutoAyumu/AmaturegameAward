@@ -61,6 +61,8 @@ public class CharacterManager : Singleton<CharacterManager>
     bool _isTogether;
     bool _isFixedRange;
 
+    FieldManager _fieldManager;
+
     public HumanController Human { get => _human; }
     public GhostController Ghost { get => _ghost; }
     public CinemachineVirtualCamera Vcam { get => _vcam; set => _vcam = value; }
@@ -78,7 +80,17 @@ public class CharacterManager : Singleton<CharacterManager>
     private void Start()
     {
         OnStart();
-        FieldManager.Instance.OnStart += HumanExchange;
+
+        _fieldManager = FieldManager.Instance;
+        _fieldManager.OnStart += HumanExchange;
+        _fieldManager.OnPause += _human.Pause;
+        _fieldManager.OnPause += _ghost.Pause;
+        _fieldManager.OnResume += _human.Resume;
+        _fieldManager.OnResume += _ghost.Resume;
+        _fieldManager.OnTextPause += _human.PauseRb;
+        _fieldManager.OnTextPause += _ghost.PauseRb;
+        _fieldManager.OnTextResume += _human.ResumeRb;
+        _fieldManager.OnTextResume += _ghost.ResumeRb;
     }
     private void Update()
     {
