@@ -133,6 +133,12 @@ public class CharacterControllerBase : MonoBehaviour
 
         DamageAnim();
 
+        if (TimeLineManager.Instance)
+        {
+            if (TimeLineManager.Instance.CutSceneFlag)
+                return;
+        }
+
         if (_isControll && !IsPause && !IsTextPause)
         {
             InputValue();
@@ -275,12 +281,6 @@ public class CharacterControllerBase : MonoBehaviour
     /// <param name="v"></param>
     protected void Move(float h, float v)
     {
-        if (TimeLineManager.Instance)
-        {
-            if (TimeLineManager.Instance.CutSceneFlag)
-                return;
-        }
-
         var dir = new Vector2(h, v).normalized;
         _rb.velocity = dir * _currentSpeed;
 
