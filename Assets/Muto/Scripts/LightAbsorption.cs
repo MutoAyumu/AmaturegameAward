@@ -32,10 +32,9 @@ public class LightAbsorption : MonoBehaviour
 
         if (other && !isTake)
         {
-            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "GhostLight");
-
             if (other.IsOn && _lightCount < _limit)
             {
+                SoundManager.Instance.CriAtomPlay(CueSheet.SE, "GhostLight");
                 DOTween.Sequence()
                     .Append(other.Action(_time))
                     .Append(DOVirtual.Float(_light.intensity, 1.0f / _limit + _light.intensity, _time, value => _light.intensity = value))
@@ -56,6 +55,7 @@ public class LightAbsorption : MonoBehaviour
             }
             else if (!other.IsOn && 0 < _lightCount)
             {
+                SoundManager.Instance.CriAtomPlay(CueSheet.SE, "GhostLight");
                 DOTween.Sequence()
                     .Append(DOVirtual.Float(_light.intensity, _light.intensity - 1.0f / _limit, _time, value => _light.intensity = value))
                     .Append(other.Action(_time))

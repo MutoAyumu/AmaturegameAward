@@ -51,6 +51,7 @@ public class GhostController : CharacterControllerBase
         if (Input.GetButtonDown(_attackButtonName) && _attack && _abs.LightCount > 0 && _cm.IsGhostAttack && !_isAttack)
         {
             _attack.Attack(_lh, _lv);
+            _anim.SetTrigger("IsAttack");
             _attackCount++;
             _isAttack = true;
 
