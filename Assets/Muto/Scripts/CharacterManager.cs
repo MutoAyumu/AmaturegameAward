@@ -423,6 +423,8 @@ public class CharacterManager : Singleton<CharacterManager>
         _human.IsDead();
         _ghost.IsDead();
         var s = SoundManager.Instance;
+        s.CriAtomStop();
+        s.CriAtomPlay(CueSheet.ME, "MEDeath");
         s.CriAtomPlay(CueSheet.SE, "HumanDeath");
         s.CriAtomPlay(CueSheet.SE, "GhostDeath");
     }

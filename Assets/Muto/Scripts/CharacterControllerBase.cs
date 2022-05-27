@@ -91,6 +91,7 @@ public class CharacterControllerBase : MonoBehaviour
             _coroutine = null;
         }
         _isDamage = false;
+        Stop();
     }
     private void Awake()
     {
@@ -289,7 +290,7 @@ public class CharacterControllerBase : MonoBehaviour
     /// <summary>
     /// ‘€ìƒLƒƒƒ‰‚ğ~‚ß‚éŠÖ”
     /// </summary>
-    public void Stop()
+    public virtual void Stop()
     {
         if (_rb)
         {
