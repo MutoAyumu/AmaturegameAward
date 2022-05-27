@@ -22,6 +22,8 @@ public class DestructibleItem : MonoBehaviour, IDamage
     [SerializeField, Tooltip("AudioClip")]
     AudioClip _audio;
 
+    [SerializeField] string _cueName = "";
+
     public void Damage(int damage)
     {
         if (_audio)
@@ -34,6 +36,9 @@ public class DestructibleItem : MonoBehaviour, IDamage
         }
 
         Debug.Log($"{gameObject.name}‚ð‰ó‚µ‚½");
+
+        if(_cueName != "")
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cueName);
 
         if (_breakObject)
         {
