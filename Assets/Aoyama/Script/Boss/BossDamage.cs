@@ -15,6 +15,7 @@ public class BossDamage : MonoBehaviour, IDamage
     [SerializeField] bool _damage = false;
 
     [Header("死んだとき")]
+    [SerializeField] bool _timeLineCall = true;
     [SerializeField, Tooltip("死んだときのプレハブ")]
     GameObject _deathPrefab;
     [SerializeField] UnityEvent _deathEvent;
@@ -80,7 +81,16 @@ public class BossDamage : MonoBehaviour, IDamage
         Debug.Log("EnemyDeathが呼び出された");
         Destroy(gameObject);
         Destroy(_destroy, 2f);
-        _deathEvent.Invoke();
+
+        if(_timeLineCall)
+        {
+            _deathEvent.Invoke();
+        }
+        else
+        {
+            Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+        }
+        
     }
 
 }
