@@ -17637,7 +17637,11 @@ MonoBehaviour:
   _enemyHpSlider: {fileID: 7060567304007680679}
   death: 0
   _damage: 0
+  _timeLineCall: 1
   _deathPrefab: {fileID: 8818035810661336908, guid: fa3c382f9df5e894cb032c3cbaf84df8, type: 3}
+  _deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _cuename: BossDeath_01
   _anim: {fileID: 7060567304064986498}
   _enemyDamageText: {fileID: 2196169823702589523}
