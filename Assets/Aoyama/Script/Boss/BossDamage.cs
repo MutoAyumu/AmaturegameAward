@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BossDamage : MonoBehaviour, IDamage
@@ -13,9 +14,11 @@ public class BossDamage : MonoBehaviour, IDamage
     [SerializeField] bool death = false;
     [SerializeField] bool _damage = false;
 
-    [Header("GameObject")]
+    [Header("Ž€‚ñ‚¾‚Æ‚«")]
+    [SerializeField] bool _timeLineCall = true;
     [SerializeField, Tooltip("Ž€‚ñ‚¾‚Æ‚«‚ÌƒvƒŒƒnƒu")]
     GameObject _deathPrefab;
+    [SerializeField] UnityEvent _deathEvent;
     [Header("‰¹")]
     [SerializeField] string _cuename = "BossDeath_01";
 
@@ -79,10 +82,15 @@ public class BossDamage : MonoBehaviour, IDamage
         Destroy(gameObject);
         Destroy(_destroy, 2f);
 
-        if (_deathPrefab)
+        if(_timeLineCall)
         {
-            var go = Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+            _deathEvent.Invoke();
         }
+        else
+        {
+            Instantiate(_deathPrefab, transform.position, Quaternion.identity);
+        }
+        
     }
 
 }
