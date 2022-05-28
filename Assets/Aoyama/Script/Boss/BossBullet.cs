@@ -11,8 +11,12 @@ public class BossBullet : MonoBehaviour
 
     public void Instantiate()
     {
-        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cuename);
         Instantiate(_bullet, _muzzle.position, Quaternion.identity);
+    }
+
+    public void BulletSound()
+    {
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cuename);
     }
 
 }
