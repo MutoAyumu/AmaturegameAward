@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 using Cinemachine;
+using DG.Tweening;
 
 /// <summary>
 /// フィールド上での進行を管理するクラス（デバッグ時点ではUIManagerも内包している）
@@ -126,9 +127,19 @@ public class FieldManager : Singleton<FieldManager>
 
     [SerializeField, Tooltip("デバッグ用のリザルトパネル")]
     GameObject _resultPanel;
+    [SerializeField]
+    GameObject _textButton;
+    [SerializeField]
+    float _fadeTime = 3f;
     void DebugGameOver()
     {
         _resultPanel.SetActive(true);
+        _resultPanel.GetComponent<Image>().DOFade(0.8f, _fadeTime)
+        .OnComplete(() => 
+        {
+            _textButton.SetActive(true);
+        });
+        
         Debug.Log("ゲームオーバー");
     }
 

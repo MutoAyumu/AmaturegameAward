@@ -19,8 +19,6 @@ public class BossDamage : MonoBehaviour, IDamage
     [SerializeField, Tooltip("死んだときのプレハブ")]
     GameObject _deathPrefab;
     [SerializeField] UnityEvent _deathEvent;
-    [Header("音")]
-    [SerializeField] string _cuename = "BossDeath_01";
 
     [Header("とりあえず参照したいやつ")]
     [SerializeField] Animator _anim;
@@ -75,8 +73,6 @@ public class BossDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
-        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cuename);
-
         _destroy.GetComponent<OnOffEnemy>().Decrease();
         Debug.Log("EnemyDeathが呼び出された");
         Destroy(gameObject);
