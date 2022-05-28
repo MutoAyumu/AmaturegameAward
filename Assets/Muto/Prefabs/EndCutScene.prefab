@@ -838,6 +838,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 58079bdb91c1ffe48baef0b4b44f91c8, type: 2}
     - {fileID: 11400000, guid: ddb20a92ffcd48b489f04e484c0be1db, type: 2}
     - {fileID: 11400000, guid: d786b3d068c2dcd4799826941e993974, type: 2}
+    - {fileID: 11400000, guid: b1b0ddaccd70ac6479dc200b0f2f3588, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -905,6 +906,20 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: TestCreate
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2296404066419120669}
+          m_TargetAssemblyTypeName: CutSceneScript, Assembly-CSharp
+          m_MethodName: HighTouch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!61 &2296404066419120671
