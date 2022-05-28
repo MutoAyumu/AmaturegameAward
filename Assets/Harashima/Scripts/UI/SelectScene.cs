@@ -1,40 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
-public class SelectScene : MonoBehaviour
+namespace UnityEngine.EventSystems
 {
-    [SerializeField]
-    GameObject _buttonPrefab = null;
-
-    int _stageValue = 10;
-
-    [SerializeField]
-    SceneChanger _sceneChanger = null;
-
-    void Start()
+    public class SelectScene : MonoBehaviour
     {
-        var gm = GameManager.Instance;
-        _stageValue = gm.StageLimit;
-        if(_buttonPrefab)
+        [SerializeField]
+        GameObject _buttonPrefab = null;
+
+        int _stageValue = 10;
+
+        [SerializeField]
+        SceneChanger _sceneChanger = null;
+
+        [SerializeField]
+        UnityEvent _onBackButtonClickEvent = new UnityEvent();
+
+        Button _firstButon = null;
+
+        void Start()
         {
-            for (int i = 1;i<=_stageValue;i++)
+            var gm = GameManager.Instance;
+            _stageValue = gm.StageLimit;
+
+            if (_buttonPrefab)
             {
-                var button = Instantiate(_buttonPrefab, this.transform);
-                var buttonText = button.GetComponentInChildren<Text>();
-                buttonText.text = $"ステージ{i}";
-                
-                if (gm.ClearedStage[i-1])
-                {                   
-                    buttonText.GetComponentInChildren<Image>().enabled = false;
-                    var b = button.GetComponent<Button>();
-                    b.enabled = true;
-                    int num = i;
-                    b.onClick.AddListener(() => _sceneChanger.SceneChange($"Scene{num}"));
+                for (int i = 1; i <= _stageValue; i++)
+                {
+                    var button = Instantiate(_buttonPrefab, this.transform);
+                    var buttonText = button.GetComponentInChildren<Text>();
+                    buttonText.text = $"ステージ{i}";
+
+                    if (gm.ClearedStage[i - 1])
+                    {
+                        buttonText.GetComponentInChildren<Image>().enabled = false;
+                        var b = button.GetComponent<Button>();
+                        b.enabled = true;
+                        int num = i;
+                        b.onClick.AddListener(() => _sceneChanger.SceneChange($"Scene{num}"));
+                        b.Select();
+                        if(!_firstButon)
+                        {
+                            _firstButon = b;
+                        }
+                    }
                 }
             }
-            
+            _firstButon.Select();
+        }
+
+        [SerializeField] EventSystem _eventSystem = null;
+        private void Update()
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                _onBackButtonClickEvent.Invoke();
+            }
+
+            if (_eventSystem)
+            {
+                if (!_eventSystem.currentSelectedGameObject && Input.GetButtonDown("Fire1"))
+                {
+                    _firstButon.Select();
+                }
+                
+            }
+
         }
     }
 }
