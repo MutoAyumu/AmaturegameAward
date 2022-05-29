@@ -52,6 +52,7 @@ public class GhostController : CharacterControllerBase
         {
             _attack.Attack(_lh, _lv);
             _anim.SetTrigger("IsAttack");
+            SoundManager.Instance.CriAtomPlay(CueSheet.SE, "GhostShooting");
             _attackCount++;
             _isAttack = true;
 

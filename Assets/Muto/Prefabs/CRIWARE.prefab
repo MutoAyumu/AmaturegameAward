@@ -44,18 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f529aa944b914449d62b8c40f188fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acfFile: C_team_BinaryData_0514/C_team.acf
+  acfFile: C_team_BinaryData_0527/C_team.acf
   cueSheets:
   - name: BGM
-    acbFile: C_team_BinaryData_0521/BGM.acb
-    awbFile: C_team_BinaryData_0521/BGM.awb
+    acbFile: C_team_BinaryData_0527/BGM.acb
+    awbFile: C_team_BinaryData_0527/BGM.awb
     loaderStatus: 0
   - name: SE
-    acbFile: C_team_BinaryData_0521/SE.acb
+    acbFile: C_team_BinaryData_0527/SE.acb
     awbFile: 
     loaderStatus: 0
   - name: ME
-    acbFile: C_team_BinaryData_0521/ME.acb
+    acbFile: C_team_BinaryData_0527/ME.acb
     awbFile: 
     loaderStatus: 0
   dspBusSetting: 
