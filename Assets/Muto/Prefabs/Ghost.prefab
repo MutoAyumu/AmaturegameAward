@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _light: {fileID: 8002916088423866766}
-  _limit: 3
+  _limit: 5
   _time: 0.5
 --- !u!114 &5224946582777512950
 MonoBehaviour:
