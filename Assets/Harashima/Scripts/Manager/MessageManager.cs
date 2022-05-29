@@ -100,6 +100,13 @@ public class MessageManager : Singleton<MessageManager>
             FieldManager.Instance.TextResume();
         }
     }
+    public void TimeLineHideWindows()
+    {
+        if (!_isText && _windowPanel.activeSelf)
+        {
+            ActiveWindow(false);
+        }
+    }
 
     public bool IsSpace()
     {
