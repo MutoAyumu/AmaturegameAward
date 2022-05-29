@@ -24,9 +24,12 @@ public class PlayerHP : MonoBehaviour
         _maxHp = _playerPalam.Life;
         _characterManager.UIHPUpdate(_playerPalam.Life);
     }
-    bool isDead = false;
     public void Damage()
     {
+        if(FieldManager.Instance.IsDead)
+        {
+            return;
+        }
         if(_character.IsDamage || FieldManager.Instance.IsDead)
         {
             return;
@@ -42,9 +45,8 @@ public class PlayerHP : MonoBehaviour
         _playerPalam.LifeChange(-1);
         _characterManager.UIHPUpdate(_playerPalam.Life);
 
-        if (_playerPalam.Life <= 0 && !isDead)
+        if (_playerPalam.Life <= 0)
         {
-            isDead = true;
             PlayerDeath();
         }
     }
