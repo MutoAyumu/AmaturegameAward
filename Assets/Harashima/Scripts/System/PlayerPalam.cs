@@ -12,6 +12,7 @@ public class PlayerPalam : Singleton<PlayerPalam>
     int _initialLife = 3;
     [SerializeField, Range(1, 10), Tooltip("ライフの最大値")]
     int _lifeLimit = 5;
+    public int LifeLimit => _lifeLimit;
 
     /// <summary>現在のライフ</summary>
     int _life;

@@ -35,6 +35,7 @@ public class FieldManager : Singleton<FieldManager>
 
     [SerializeField, Range(1, 10), Tooltip("ステージの番号")]
     int _stageIndex;
+    public int StageIndex => _stageIndex;
 
     [SerializeField, Tooltip("フィールドBGM")]
     AudioClip _bgm;
