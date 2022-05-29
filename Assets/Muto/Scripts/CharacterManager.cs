@@ -177,8 +177,8 @@ public class CharacterManager : Singleton<CharacterManager>
 
                     if (_timeLimit <= _timer)
                     {
-                        _human.Hp.Damage();
                         _ghost.IsDamageAction();
+                        _human.Hp.Damage();
                         Debug.Log("ƒ_ƒ[ƒW‚ª—^‚¦‚ç‚ê‚½");
                         _timer = 0;
                     }

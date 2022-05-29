@@ -115,6 +115,8 @@ public class HumanController : CharacterControllerBase
             _mainSprite.color = new Color(1, 1, 1, alpha);
         else
             _togetherImage.color = new Color(1, 1, 1, alpha);
+
+        _coroutine = null;
     }
 
     void Activate()
