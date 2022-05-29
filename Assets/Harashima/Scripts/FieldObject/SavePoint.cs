@@ -12,7 +12,8 @@ public class SavePoint : MonoBehaviour,IActivate,ISetText
         if(_respawnArray.Length>=2)
         {
             SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemText");
-            CharacterManager.Instance.SetResetPos(_respawnArray[0].position, _respawnArray[1].position);
+            //CharacterManager.Instance.SetResetPos(_respawnArray[0].position, _respawnArray[1].position);
+            CharacterManager.Instance.SetResetPos();
         }     
     }
     public string SetText()

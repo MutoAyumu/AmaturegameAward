@@ -99,6 +99,9 @@ public class CharacterManager : Singleton<CharacterManager>
             if (TimeLineManager.Instance.CutSceneFlag)
                 return;
         }
+
+        if (_fieldManager.IsDead) return;
+
         //êlä‘Ç…êÿÇËë÷Ç¶ÇÈ
         if (Input.GetButtonDown(_humanChangeButton) && _isCanSwitch)
         {
@@ -477,6 +480,11 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.ResetPos = humanPos;
         _ghost.ResetPos = ghostPos;
+    }
+    public void SetResetPos()
+    {
+        _human.ResetPos = _human.transform.position;
+        _ghost.ResetPos = _ghost.transform.position;
     }
 
 }

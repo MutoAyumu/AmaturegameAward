@@ -13,6 +13,7 @@ public class PopUpPanel : MonoBehaviour
     [SerializeField, Multiline(5)] string _setText = default;
 
     [SerializeField] GameObject _activeObj = default;
+    [SerializeField] SavePoint _save;
     [SerializeField] string _inputButtonName = "Fire1";
     [SerializeField] string _playerTag = "Player";
     [SerializeField] string _togetherTag = "Together";
@@ -33,6 +34,8 @@ public class PopUpPanel : MonoBehaviour
                 _text.text = _setText;
                 _panel.gameObject.SetActive(true);
                 FieldManager.Instance.TextPause();
+
+                _save?.Action();
             }
         }
     }
