@@ -73,6 +73,7 @@ public class BossDamage : MonoBehaviour, IDamage
     /// </summary>
     void EnemyDeath()
     {
+        SoundManager.Instance.CriAtomStop();
         _destroy.GetComponent<OnOffEnemy>().Decrease();
         Debug.Log("EnemyDeath‚ªŒÄ‚Ño‚³‚ê‚½");
         Destroy(gameObject);

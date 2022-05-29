@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossAttack : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BossAttack : MonoBehaviour
     [SerializeField] int _firstIndex = 1;
     [SerializeField] string _cueName = "BGMBoss";
     [SerializeField] Animator _anim;
+    [SerializeField] GameObject _door;
     //[SerializeField] aa a;
 
     int _attackIndex = 0;
@@ -19,6 +21,7 @@ public class BossAttack : MonoBehaviour
     {
         _isTimer = true; Debug.Log(_isTimer);
 
+        _door.GetComponent<IActivate>()?.Action();
         SoundManager.Instance.CriAtomStop();
         SoundManager.Instance.CriAtomPlay(CueSheet.BGM, _cueName);
     }
