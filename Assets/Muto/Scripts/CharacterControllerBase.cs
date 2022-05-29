@@ -380,6 +380,7 @@ public class CharacterControllerBase : MonoBehaviour
 
         _isDamage = false;
         _mainSprite.color = new Color(1, 1, 1, alpha);
+        _coroutine = null;
     }
     IEnumerator DamageStart()
     {
