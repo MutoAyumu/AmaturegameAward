@@ -19,6 +19,7 @@ public class BossAttack : MonoBehaviour
     {
         _isTimer = true; Debug.Log(_isTimer);
 
+        SoundManager.Instance.CriAtomStop();
         SoundManager.Instance.CriAtomPlay(CueSheet.BGM, _cueName);
     }
 
