@@ -39,6 +39,7 @@ namespace UnityEngine.EventSystems
                         b.enabled = true;
                         int num = i;
                         b.onClick.AddListener(() => _sceneChanger.SceneChange($"Scene{num}"));
+                        b.onClick.AddListener(()=> SoundManager.Instance.CriAtomPlay(CueSheet.SE, "SystemDone"));
                         b.Select();
                         if(!_firstButon)
                         {
@@ -51,10 +52,13 @@ namespace UnityEngine.EventSystems
         }
 
         [SerializeField] EventSystem _eventSystem = null;
+        [SerializeField]
+        string _cueName = "SystemSelect";
         private void Update()
         {
             if (Input.GetButtonDown("Fire2"))
             {
+                SoundManager.Instance.CriAtomPlay(CueSheet.SE, _cueName);
                 _onBackButtonClickEvent.Invoke();
             }
 
@@ -67,6 +71,14 @@ namespace UnityEngine.EventSystems
                 
             }
 
+        }
+
+        private void OnEnable()
+        {
+            if(_firstButon)
+            {
+                _firstButon.Select();
+            }
         }
     }
 }
