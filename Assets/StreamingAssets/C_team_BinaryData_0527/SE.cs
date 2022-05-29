@@ -95,6 +95,8 @@ namespace C_team.SE {
 		public const int RasuBossMahou = (45);
 		///<summary></summary>
 		public const int RasuBossTama = (46);
+		///<summary></summary>
+		public const int GhostShooting = (47);
 	}
 
 	public enum Cue {
@@ -192,5 +194,7 @@ namespace C_team.SE {
 		RasuBossMahou = 45,
 		///<summary></summary>
 		RasuBossTama = 46,
+		///<summary></summary>
+		GhostShooting = 47,
 	}
 }

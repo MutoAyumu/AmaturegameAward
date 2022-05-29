@@ -13,7 +13,8 @@ public class LightSource : MonoBehaviour, ISetText
     [SerializeField] float _loopTime = 10f;
     [SerializeField] bool _isOn = true;
     [SerializeField] bool _isLoop;
-    [SerializeField] string _text = "B@Œõ‚ğæ‚é";
+    [SerializeField] string _text1 = "B@Œõ‚ğæ‚é";
+    [SerializeField] string _text2 = "B@Œõ‚ğ“”‚·";
     [SerializeField]Transform _camTarget = default;
     [SerializeField, Tooltip("IActivate‚ğŒp³‚µ‚½GameObject‚ğ“ü‚ê‚é")] GameObject[] _activate = default;
 
@@ -100,6 +101,6 @@ public class LightSource : MonoBehaviour, ISetText
     }
     public string SetText()
     {
-        return _text;
+        return _isOn? _text1: _text2 ;
     }
 }
