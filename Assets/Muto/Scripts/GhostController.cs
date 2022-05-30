@@ -34,6 +34,7 @@ public class GhostController : CharacterControllerBase
     {
         ResetStatus = Reset;
         _cm = CharacterManager.Instance;
+        _isDamage = false;
 
         _message.SetMessage(_cm.HumanMessage);
         _alpha = _cm.GhostAlpha;

@@ -30,7 +30,7 @@ public class PlayerHP : MonoBehaviour
         {
             return;
         }
-        if(_character.IsDamage || FieldManager.Instance.IsDead)
+        if(_character.IsDamage)
         {
             return;
         }
