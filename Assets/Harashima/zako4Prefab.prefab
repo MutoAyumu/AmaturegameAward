@@ -405,7 +405,7 @@ MonoBehaviour:
   _testDeath: 0
   _testDamage: 0
   _criAtomSource: {fileID: 0}
-  _damageS: EnemyDeath
+  _damageS: ZakoDamage
   _deathS: EnemyDeath
 --- !u!114 &-2756719352887929435
 MonoBehaviour:

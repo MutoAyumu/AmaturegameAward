@@ -83,7 +83,7 @@ MonoBehaviour:
   _testDeath: 0
   _testDamage: 0
   _criAtomSource: {fileID: 19998799951261295}
-  _damageS: EnemyDeath
+  _damageS: ZakoDamage
   _deathS: EnemyDeath
 --- !u!114 &2279828472129732163
 MonoBehaviour:
@@ -102,6 +102,7 @@ MonoBehaviour:
   _audio: {fileID: 8300000, guid: 7a65846e62a0e004eb3936c93ae3c07b, type: 3}
   _rb: {fileID: 784972669661224757}
   _anim: {fileID: 2797772757282274702}
+  _enemyMove: {fileID: 0}
   _criAtomSource: {fileID: 19998799951261295}
   _cuename: GaAttack
 --- !u!50 &784972669661224757
