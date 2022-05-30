@@ -91,6 +91,8 @@ public class CharacterManager : Singleton<CharacterManager>
         _fieldManager.OnTextPause += _ghost.PauseRb;
         _fieldManager.OnTextResume += _human.ResumeRb;
         _fieldManager.OnTextResume += _ghost.ResumeRb;
+        _fieldManager.OnStart += _human.OnStart;
+        _fieldManager.OnStart += _ghost.OnStart;
     }
     private void Update()
     {

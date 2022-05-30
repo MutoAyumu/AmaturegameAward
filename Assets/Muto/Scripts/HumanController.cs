@@ -58,6 +58,7 @@ public class HumanController : CharacterControllerBase
     public override void OnStart()
     {
         _message.SetMessage(CharacterManager.Instance.GhostMessage);
+        _isDamage = false;
     }
 
     public void StartAttack()
