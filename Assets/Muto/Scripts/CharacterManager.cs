@@ -60,6 +60,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
     bool _isTogether;
     bool _isFixedRange;
+    [SerializeField] bool _isTutorial;
 
     FieldManager _fieldManager;
 
@@ -73,6 +74,7 @@ public class CharacterManager : Singleton<CharacterManager>
     public string[] GhostMessage { get => _ghostMessage; }
     public bool GodMode { get => _isGodMode;}
     public float GhostAlpha { get => _ghostAlpha;}
+    public bool IsTutorial { get => _isTutorial;}
 
     /*
         KeyCode‚ð•Ï‚¦‚é

@@ -42,6 +42,14 @@ public class PlayerHP : MonoBehaviour
 
         if (_characterManager.GodMode) return;
 
+        if (_characterManager.IsTutorial)
+        {
+            if (_playerPalam.Life <= 1)
+            {
+                return;
+            }
+        }
+
         _playerPalam.LifeChange(-1);
         _characterManager.UIHPUpdate(_playerPalam.Life);
 

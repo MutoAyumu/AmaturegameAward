@@ -5033,7 +5033,7 @@ MonoBehaviour:
   _respawnArray:
   - {fileID: 2231518588472325363}
   - {fileID: 7771811282717072225}
-  _text: "\u30BB\u30FC\u30D6\u30DD\u30A4\u30F3\u30C8\u3092\u8A2D\u7F6E\u3059\u308B"
+  _text: "B \u30BB\u30FC\u30D6\u30DD\u30A4\u30F3\u30C8\u3092\u8A2D\u7F6E\u3059\u308B"
 --- !u!61 &8435075470473898496
 BoxCollider2D:
   m_ObjectHideFlags: 0
