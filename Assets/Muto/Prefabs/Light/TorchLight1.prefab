@@ -222,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5132672956095556617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85f773967a7bc54bb3d0f4913a97c51, type: 3}
   m_Name: 
@@ -233,6 +233,9 @@ MonoBehaviour:
   _loopTime: 10
   _isOn: 1
   _isLoop: 0
+  _text1: "B\u3000\u5149\u3092\u53D6\u308B"
+  _text2: "B\u3000\u5149\u3092\u706F\u3059"
+  _camTarget: {fileID: 0}
   _activate: []
 --- !u!95 &2588085057777240755
 Animator:
