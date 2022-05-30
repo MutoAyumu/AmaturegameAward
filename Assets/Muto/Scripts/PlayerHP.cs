@@ -26,6 +26,10 @@ public class PlayerHP : MonoBehaviour
     }
     public void Damage()
     {
+        if(FieldManager.Instance.IsDead)
+        {
+            return;
+        }
         if(_character.IsDamage || FieldManager.Instance.IsDead)
         {
             return;
