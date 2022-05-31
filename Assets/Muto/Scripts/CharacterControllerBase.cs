@@ -121,6 +121,14 @@ public class CharacterControllerBase : MonoBehaviour
             Destroy(_currentDead);
         }
     }
+
+    public void DestroyDeathPrefab()
+    {
+        if (_currentDead)
+        {
+            Destroy(_currentDead);
+        }
+    }
     public virtual void OnStart()
     {
 
