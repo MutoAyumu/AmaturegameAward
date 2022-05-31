@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35481dc227cd9ec4db36def8fe5ac9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cueName: KuroBossBomb1
+  _delayTime: 0.5
 --- !u!58 &626429283
 CircleCollider2D:
   m_ObjectHideFlags: 0
