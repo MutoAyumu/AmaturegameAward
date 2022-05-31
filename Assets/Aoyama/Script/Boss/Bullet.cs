@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float _speed = 5;
     [Header("Ç∆ÇËÇ†Ç¶Ç∏éQè∆ÇµÇΩÇ¢Ç‚Ç¬")]
     [SerializeField] Rigidbody2D _rb;
+    [SerializeField] int _damage = 2;
 
     Vector3 _target = Vector3.zero;
     CharacterControllerBase _player;
@@ -60,7 +61,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damage();
+            collision.gameObject.GetComponent<PlayerHP>().Damage(_damage);
         }
     }
 }

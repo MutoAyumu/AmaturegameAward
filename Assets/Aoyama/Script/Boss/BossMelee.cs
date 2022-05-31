@@ -11,6 +11,7 @@ public class BossMelee : MonoBehaviour
     ContactFilter2D _filter;
     [Header("‰¹")]
     [SerializeField] string _cuename = "MedamaAttack";
+    [SerializeField] int _damage = 2;
 
     Collider2D[] _result = new Collider2D[5];
     public void Melee()
@@ -23,7 +24,7 @@ public class BossMelee : MonoBehaviour
         for (var i = 0; i < _result.Length; i++)
         {
             var collider = _result[i];
-            collider?.GetComponent<PlayerHP>()?.Damage();    
+            collider?.GetComponent<PlayerHP>()?.Damage(_damage);    
         }
     }
 }

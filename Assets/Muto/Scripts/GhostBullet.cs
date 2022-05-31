@@ -17,7 +17,7 @@ public class GhostBullet : MonoBehaviour
         if (!collision.CompareTag("Player"))
         {
             collision.GetComponent<IDamage>()?.Damage(_damage);
-            Destroy(this.gameObject, 0.2f); ;
+            Destroy(this.gameObject, 2f); ;
         }
     }
 }

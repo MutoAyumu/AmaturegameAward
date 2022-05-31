@@ -6,6 +6,7 @@ public class Bomb : MonoBehaviour
 {
     [Header("‰¹")]
     [SerializeField] string _cueName = "KuroBossBomb1";
+    [SerializeField] int _damage = 2;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class Bomb : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damage();
+            collision.gameObject.GetComponent<PlayerHP>().Damage(_damage);
         }
     }
 }
