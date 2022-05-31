@@ -6,6 +6,7 @@ public class Tama3 : MonoBehaviour
 {
     [Header("‰¹")]
     [SerializeField] string _cueName = "RasuBossTama";
+    [SerializeField] int _damage = 3;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class Tama3 : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damage();
+            collision.gameObject.GetComponent<PlayerHP>().Damage(_damage);
         }
     }
 }

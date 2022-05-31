@@ -58,6 +58,40 @@ public class PlayerHP : MonoBehaviour
             PlayerDeath();
         }
     }
+    public void Damage(int damage)
+    {
+        if (FieldManager.Instance.IsDead)
+        {
+            return;
+        }
+        if (_character.IsDamage)
+        {
+            return;
+        }
+
+        CamShake();
+        _character.IsDamageAction();
+
+        SoundManager.Instance.CriAtomPlay(CueSheet.SE, _sheetName);
+
+        if (_characterManager.GodMode) return;
+
+        if (_characterManager.IsTutorial)
+        {
+            if (_playerPalam.Life <= 1)
+            {
+                return;
+            }
+        }
+
+        _playerPalam.LifeChange(-damage);
+        _characterManager.UIHPUpdate(_playerPalam.Life);
+
+        if (_playerPalam.Life <= 0)
+        {
+            PlayerDeath();
+        }
+    }
     public void CamShake()
     {
         _source.GenerateImpulse();

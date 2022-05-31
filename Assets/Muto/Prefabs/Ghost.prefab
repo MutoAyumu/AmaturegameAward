@@ -83,7 +83,7 @@ MonoBehaviour:
   _attackButtonName: Fire1
   _attack: {fileID: 9109073565701455678}
   _attackSpeed: 0.5
-  _attackLimit: 5
+  _attackLimit: 10
   _criAtom: {fileID: 5291919772860890559}
 --- !u!114 &9109073565701455678
 MonoBehaviour:

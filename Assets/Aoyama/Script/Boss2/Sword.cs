@@ -10,6 +10,7 @@ public class Sword : MonoBehaviour
     [SerializeField] Transform _testTransform;
     [Header("‰¹")]
     [SerializeField] string _cueName = "KuroBossKen2";
+    [SerializeField] int _damage = 2;
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -47,7 +48,7 @@ public class Sword : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damage();
+            collision.gameObject.GetComponent<PlayerHP>().Damage(_damage);
         }
     }
 

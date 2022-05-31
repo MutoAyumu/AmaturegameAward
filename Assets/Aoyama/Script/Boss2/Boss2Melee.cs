@@ -10,6 +10,7 @@ public class Boss2Melee : MonoBehaviour
     [SerializeField] Transform _testTransform;
     [Header("‰¹")]
     [SerializeField] string _cueName = "KuroBossVoice";
+    [SerializeField] int _damage = 3;
 
     Vector3 _target;
     CharacterControllerBase _player;
@@ -35,7 +36,7 @@ public class Boss2Melee : MonoBehaviour
     {
         if (_isAttack == true && collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damage();
+            collision.gameObject.GetComponent<PlayerHP>().Damage(_damage);
         }
     }
 
