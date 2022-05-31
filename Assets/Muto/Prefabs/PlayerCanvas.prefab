@@ -2822,7 +2822,7 @@ MonoBehaviour:
   _combinedValue: 3
   _color1: {r: 1, g: 0.50266564, b: 0.09019607, a: 1}
   _color2: {r: 1, g: 0.7647381, b: 0.2971698, a: 1}
-  _color3: {r: 0.27843142, g: 0.82507753, b: 1, a: 1}
+  _color3: {r: 0.10316837, g: 0.5172161, b: 0.5943396, a: 1}
 --- !u!1 &2681976661819075227
 GameObject:
   m_ObjectHideFlags: 0
