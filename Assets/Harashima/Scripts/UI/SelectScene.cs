@@ -9,7 +9,7 @@ namespace UnityEngine.EventSystems
         [SerializeField]
         GameObject _buttonPrefab = null;
 
-        int _stageValue = 10;
+        int _stageValue = 9;
 
         [SerializeField]
         SceneChanger _sceneChanger = null;
@@ -22,7 +22,7 @@ namespace UnityEngine.EventSystems
         void Start()
         {
             var gm = GameManager.Instance;
-            _stageValue = gm.StageLimit;
+            _stageValue = gm.StageLimit-1;
 
             if (_buttonPrefab)
             {
@@ -30,12 +30,20 @@ namespace UnityEngine.EventSystems
                 {
                     var button = Instantiate(_buttonPrefab, this.transform);
                     var buttonText = button.GetComponentInChildren<Text>();
-                    buttonText.text = $"ステージ{i}";
+                    if(i%3==0)
+                    {
+                        buttonText.text = $"★";
+                    }
+                    else
+                    {
+                        buttonText.text = $"ステージ{i}";
+                    }
+                    
 
                     if (gm.ClearedStage[i - 1])
                     {
-                        buttonText.GetComponentInChildren<Image>().enabled = false;
-                        var b = button.GetComponent<Button>();
+                        buttonText.color = Color.white;
+                         var b = button.GetComponent<Button>();
                         b.enabled = true;
                         int num = i;
                         b.onClick.AddListener(() => _sceneChanger.SceneChange($"Scene{num}"));
@@ -78,6 +86,7 @@ namespace UnityEngine.EventSystems
             if(_firstButon)
             {
                 _firstButon.Select();
+                _firstButon.GetComponent<TitleStageSelect>().ActiveSelectedUI();
             }
         }
     }
