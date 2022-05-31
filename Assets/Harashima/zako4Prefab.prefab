@@ -406,7 +406,7 @@ MonoBehaviour:
   _testDamage: 0
   _criAtomSource: {fileID: 0}
   _damageS: ZakoDamage
-  _deathS: EnemyDeath
+  _deathS: KurageVoice
 --- !u!114 &-2756719352887929435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
   _bomPosDistans: 1.5
   _mahojinPrefab: {fileID: 7515825593674544863, guid: a64f439ae7505904fa52f3f317d7b34c, type: 3}
   _bombBulletPrefab: {fileID: 3580187795667637522, guid: f7d9bf9900df0dc45ab575db6a2e3f6a, type: 3}
-  _mahojinCueName: RasuBossMahou
+  _mahojinCueName: KurageAttack
 --- !u!1001 &5011852129738373074
 PrefabInstance:
   m_ObjectHideFlags: 0
