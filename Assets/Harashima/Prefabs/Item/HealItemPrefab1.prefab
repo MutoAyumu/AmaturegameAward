@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemID: 0
-  _healValue: 1
+  _healValue: 2
+  _cueName: ItemCure
