@@ -95,6 +95,7 @@ public class CharacterManager : Singleton<CharacterManager>
         _fieldManager.OnTextResume += _ghost.ResumeRb;
         _fieldManager.OnStart += _human.OnStart;
         _fieldManager.OnStart += _ghost.OnStart;
+        _fieldManager.OnStart += ResetDeathPrefab;
     }
     private void Update()
     {
@@ -489,6 +490,12 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         _human.ResetPos = _human.transform.position;
         _ghost.ResetPos = _ghost.transform.position;
+    }
+
+    public void ResetDeathPrefab()
+    {
+        _human.DestroyDeathPrefab();
+        _ghost.DestroyDeathPrefab();
     }
 
 }

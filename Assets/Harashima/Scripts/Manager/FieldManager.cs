@@ -134,13 +134,13 @@ public class FieldManager : Singleton<FieldManager>
     float _fadeTime = 3f;
     void DebugGameOver()
     {
+        _isDead = false;
         _resultPanel.SetActive(true);
         _resultPanel.GetComponent<Image>().DOFade(0.8f, _fadeTime)
         .OnComplete(() => 
         {
             _textButton.SetActive(true);
         });
-        
         Debug.Log("ゲームオーバー");
     }
 
@@ -196,17 +196,7 @@ public class FieldManager : Singleton<FieldManager>
             {
                 ItemManager.Instance.UseItem(1);
                 _timer = 0f;
-            }
-            //else if (Input.GetKeyDown(KeyCode.C) || v < 0)
-            //{
-            //    ItemManager.Instance.UseItem(2);
-            //    _timer = 0f;
-            //}
-            //else if (Input.GetKeyDown(KeyCode.V) || h < 0)
-            //{
-            //    ItemManager.Instance.UseItem(3);
-            //    _timer = 0f;
-            //}            
+            }          
         }
     }
 
@@ -275,10 +265,17 @@ public class FieldManager : Singleton<FieldManager>
         OnTextResume();
     }
 
+
+    [SerializeField] Image _image = null;
     public void OnStartEvent()
     {
-        OnStart();
-        _isDead = false;
-        _resultPanel.SetActive(false);
+        _image.DOFade(1f, 3f)
+            .OnComplete(() => {
+                _image.DOFade(0f, 2f);
+                 PlayerPalam.Instance.ResetLife();
+                _isDead = false;
+                _resultPanel.SetActive(false);
+                OnStart(); ; });
+
     }
 }
